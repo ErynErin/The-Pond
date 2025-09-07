@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqn1xtwbw5n5l"]
+[gd_scene load_steps=10 format=3 uid="uid://cqn1xtwbw5n5l"]
 
 [ext_resource type="Script" uid="uid://cfmc4tyu8426k" path="res://scripts/food.gd" id="1_af40f"]
 [ext_resource type="Texture2D" uid="uid://kasu56fypftq" path="res://assets/Sprites/Food/Food_1.png" id="2_l7sva"]
@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://upqibdalcf1c" path="res://assets/Sprites/Food/Food_2.png" id="3_lyfrf"]
 [ext_resource type="Texture2D" uid="uid://c88it006jhxh5" path="res://assets/Sprites/Food/Food_3.png" id="4_fdfvv"]
 [ext_resource type="AudioStream" uid="uid://rpvx66rw8w1x" path="res://assets/Audios/eat.mp3" id="6_lyfrf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_370ap"]
-radius = 15.1327
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_af40f"]
 animations = [{
@@ -27,13 +24,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_370ap"]
+radius = 22.6765
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyfrf"]
+radius = 31.56
+
 [node name="Food" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_af40f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_370ap")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.665, 0.665)
@@ -47,9 +46,11 @@ action_name = "eat"
 y_position = 55.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -2)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_370ap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lyfrf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lyfrf")

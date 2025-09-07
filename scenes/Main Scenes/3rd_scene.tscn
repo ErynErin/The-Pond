@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0gwvr1mcfucc"]
+[gd_scene load_steps=27 format=3 uid="uid://0gwvr1mcfucc"]
 
 [ext_resource type="Texture2D" uid="uid://dfoeb3l3cxt1d" path="res://assets/BG/Phase 3/1.png" id="1_ff7f0"]
 [ext_resource type="Script" uid="uid://c3n8hb0oj65hp" path="res://scenes/Main Scenes/3_rd_scene.gd" id="1_fngbt"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cm3ufwpggnhmh" path="res://assets/GUI/Game Screen UI/P3_health.png" id="8_ff7f0"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_7fgw2"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_3xx46"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_7fgw2"]
 [ext_resource type="AudioStream" uid="uid://co863n64uai7t" path="res://assets/Audios/bgms/Escalation by Ghostrifter Avalon.mp3" id="14_e0iyr"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_yatwi"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_yatwi"]
 [ext_resource type="PackedScene" uid="uid://mlspxc2wfne5" path="res://scenes/Player/player_phase3.tscn" id="18_7fgw2"]
@@ -179,6 +181,18 @@ scale = Vector2(1.67, 1.67)
 [node name="Options" parent="GUI" instance=ExtResource("16_yatwi")]
 visible = false
 scale = Vector2(1.67, 1.67)
+
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 400.0
+offset_top = 231.667
+offset_right = 617.0
+offset_bottom = 312.667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("13_7fgw2")
+theme_override_font_sizes/font_size = 60
+text = "Coins: 00"
+script = ExtResource("14_yatwi")
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ndj7mg5x2uqd"]
+
+[ext_resource type="Texture2D" uid="uid://baeglhowuh3cs" path="res://assets/Sprites/coin.png" id="1_6vlgc"]
+[ext_resource type="Script" uid="uid://cvb60px43cbpo" path="res://scripts/coin.gd" id="1_7x5bc"]
+[ext_resource type="PackedScene" uid="uid://w308ey44b88k" path="res://scenes/InteractionArea.tscn" id="3_7x5bc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anlxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6vlgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vlgc"]
+radius = 198.063
+
+[node name="coin" type="Area2D"]
+script = ExtResource("1_7x5bc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.22, 0.22)
+sprite_frames = SubResource("SpriteFrames_anlxc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_6vlgc")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_7x5bc")]
+collision_mask = 131
+action_name = "collect"
+y_position = 55.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_6vlgc")
