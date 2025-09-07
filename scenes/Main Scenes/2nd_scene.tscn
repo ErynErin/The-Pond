@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=33 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="18_whigq"]
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="19_wkg83"]
 [ext_resource type="AudioStream" uid="uid://d3l6d8tkmf3t2" path="res://assets/Audios/bgms/Dark Ambient Music BGM.mp3" id="20_ssd1q"]
+[ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -331,3 +332,7 @@ stream = ExtResource("20_ssd1q")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="coin" parent="." instance=ExtResource("23_c37bx")]
+position = Vector2(-778, 562)
+scale = Vector2(0.3, 0.3)

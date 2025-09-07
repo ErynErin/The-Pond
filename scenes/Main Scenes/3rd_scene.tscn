@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://0gwvr1mcfucc"]
+[gd_scene load_steps=28 format=3 uid="uid://0gwvr1mcfucc"]
 
 [ext_resource type="Texture2D" uid="uid://dfoeb3l3cxt1d" path="res://assets/BG/Phase 3/1.png" id="1_ff7f0"]
 [ext_resource type="Script" uid="uid://c3n8hb0oj65hp" path="res://scenes/Main Scenes/3_rd_scene.gd" id="1_fngbt"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_yatwi"]
 [ext_resource type="PackedScene" uid="uid://mlspxc2wfne5" path="res://scenes/Player/player_phase3.tscn" id="18_7fgw2"]
+[ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="19_yatwi"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="20_fngbt"]
 [ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="21_fngbt"]
 
@@ -288,6 +289,14 @@ scale = Vector2(0.4, 0.4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss Dialogue Area"]
 position = Vector2(3036, 448)
 shape = SubResource("RectangleShape2D_e0iyr")
+
+[node name="coin" parent="." instance=ExtResource("19_yatwi")]
+position = Vector2(-747, 578)
+scale = Vector2(0.3, 0.3)
+
+[node name="coin2" parent="." instance=ExtResource("19_yatwi")]
+position = Vector2(-687, 578)
+scale = Vector2(0.3, 0.3)
 
 [connection signal="boss_died" from="Kingstar" to="." method="_on_kingstar_boss_died"]
 [connection signal="body_entered" from="Boss Dialogue Area" to="." method="_on_boss_dialogue_area_body_entered"]

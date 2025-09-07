@@ -452,15 +452,15 @@ libraries = {
 
 [node name="coin" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-1121, 625)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-1032, 625)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-945, 625)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="Path2D2" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(1147, -321)
