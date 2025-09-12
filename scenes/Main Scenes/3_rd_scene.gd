@@ -37,7 +37,8 @@ func _on_boss_dialogue_area_body_entered(body) -> void:
 			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 		balloon_instance.start(boss_dialogue_resource, "start")
-		$"Boss Dialogue Area/CollisionShape2D".disabled = true
+		$"Boss Dialogue Area/CollisionShape2D".set_deferred("monitoring", false)
+		$"Boss Dialogue Area/CollisionShape2D".set_deferred("monitorable", false)
 
 func fade_in_screen():
 	var tween = create_tween()

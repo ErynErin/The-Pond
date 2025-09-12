@@ -17,9 +17,6 @@ signal coins_updated(coins)
 signal player_died
 signal shop_closed
 
-func _ready():
-	health_changed.emit(current_health, max_health)
-
 func load_to_scene(next_scene: String):
 	next_scene_path = next_scene
 	get_tree().change_scene_to_file.call_deferred("res://scenes/Main Scenes/loading_scene.tscn")
@@ -100,7 +97,7 @@ func take_damage(damage: float):
 func heal(amount: float):
 	current_health += amount
 	current_health = min(current_health, max_health)
-	health_changed.emit(current_health, max_health)
+	emit_signal("health_changed", current_health, max_health)
 	check_player_status()
 
 func set_health(new_health: float):
@@ -120,7 +117,4 @@ func set_player_movable(is_movable: bool):
 
 func add_coin(amount: int):
 	coins += amount
-	emit_coins_updated()
-	
-func emit_coins_updated():
-	emit_signal("coins_updated", coins)
+  emit_signal("coins_updated", coins)

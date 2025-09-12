@@ -120,7 +120,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_n355p"]
 resource_name = "attack"
-length = 0.666675
+length = 0.5
 step = 0.0588235
 tracks/0/type = "value"
 tracks/0/imported = false

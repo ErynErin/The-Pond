@@ -1,10 +1,11 @@
 extends Area2D
 
-@onready var interaction_area: InteractionArea = $InteractionArea
-
-func _ready():
-	interaction_area.interact = Callable(self, "_on_interact")
-	
-func _on_interact():
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("player"): # exits if the body isn't a player
+		return
+		
+	$AudioStreamPlayer.play()
 	GameManager.add_coin(1)
+	$AnimationPlayer.play("collect")
+	await $AnimationPlayer.animation_finished
 	queue_free()
