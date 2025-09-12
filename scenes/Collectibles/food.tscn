@@ -1,21 +1,10 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene load_steps=9 format=3 uid="uid://cqn1xtwbw5n5l"]
-=======
 [gd_scene load_steps=11 format=3 uid="uid://cqn1xtwbw5n5l"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=11 format=3 uid="uid://cqn1xtwbw5n5l"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://cfmc4tyu8426k" path="res://scripts/food.gd" id="1_af40f"]
 [ext_resource type="Texture2D" uid="uid://kasu56fypftq" path="res://assets/Sprites/Food/Food_1.png" id="2_l7sva"]
 [ext_resource type="Texture2D" uid="uid://upqibdalcf1c" path="res://assets/Sprites/Food/Food_2.png" id="3_lyfrf"]
 [ext_resource type="Texture2D" uid="uid://c88it006jhxh5" path="res://assets/Sprites/Food/Food_3.png" id="4_fdfvv"]
 [ext_resource type="AudioStream" uid="uid://rpvx66rw8w1x" path="res://assets/Audios/eat.mp3" id="6_lyfrf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_370ap"]
-radius = 15.1327
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_af40f"]
 animations = [{
@@ -34,76 +23,8 @@ animations = [{
 "speed": 3.0
 }]
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 [sub_resource type="CircleShape2D" id="CircleShape2D_lyfrf"]
-radius = 9.0
-=======
-[sub_resource type="CircleShape2D" id="CircleShape2D_lyfrf"]
-radius = 9.0
-
-[sub_resource type="Animation" id="Animation_l7sva"]
-resource_name = "collect"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.387445),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -40)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.387445),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_lyfrf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdfvv"]
-_data = {
-&"RESET": SubResource("Animation_lyfrf"),
-&"collect": SubResource("Animation_l7sva")
-}
->>>>>>> Stashed changes
+radius = 31.56
 
 [sub_resource type="Animation" id="Animation_l7sva"]
 resource_name = "collect"
@@ -166,41 +87,18 @@ _data = {
 &"collect": SubResource("Animation_l7sva")
 }
 
->>>>>>> Stashed changes
 [node name="Food" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_af40f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_370ap")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.665, 0.665)
 sprite_frames = SubResource("SpriteFrames_af40f")
 autoplay = "default"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-frame_progress = 0.580614
-
-[node name="InteractionArea" parent="." instance=ExtResource("3_370ap")]
-collision_mask = 131
-action_name = "eat"
-y_position = 55.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -2)
-scale = Vector2(1.5, 1.5)
-shape = SubResource("CircleShape2D_370ap")
-=======
-frame_progress = 0.615697
->>>>>>> Stashed changes
-=======
 frame_progress = 0.615697
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lyfrf")
->>>>>>> Stashed changes
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lyfrf")

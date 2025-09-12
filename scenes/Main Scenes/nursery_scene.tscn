@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=47 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -11,13 +11,16 @@
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="14_iud5h"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="14_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="15_b0kx5"]
 [ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="15_gbf57"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
 [ext_resource type="PackedScene" uid="uid://4m0c4x6ggxmf" path="res://scenes/Collectibles/collectible_bomb.tscn" id="18_u2qq7"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
+[ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="22_p0owv"]
 [ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="23_y2ypf"]
 [ext_resource type="PackedScene" uid="uid://1xrdny8bdyyc" path="res://p1-moving.tscn" id="24_nsaye"]
 [ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://p_1_moving.gd" id="24_qfx3x"]
@@ -287,6 +290,18 @@ scale = Vector2(1.11, 1.11)
 visible = false
 scale = Vector2(1.67, 1.67)
 
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 400.0
+offset_top = 231.667
+offset_right = 617.0
+offset_bottom = 312.667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("14_qfx3x")
+theme_override_font_sizes/font_size = 60
+text = "Coins: 00"
+script = ExtResource("15_po7p3")
+
 [node name="player" parent="." instance=ExtResource("15_b0kx5")]
 z_index = 5
 position = Vector2(-1381, 282)
@@ -341,7 +356,7 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="Food" type="Node2D" parent="."]
 
 [node name="food" parent="Food" instance=ExtResource("16_c07hn")]
-position = Vector2(-818, 627)
+position = Vector2(-779, 627)
 scale = Vector2(1.3, 1.3)
 
 [node name="food2" parent="Food" instance=ExtResource("16_c07hn")]
@@ -391,13 +406,14 @@ tile_map_data = PackedByteArray("AABhAJUAAgAAAAAAAACGAJUAAgABAAEAAAB2ALkAAwAAAAE
 tile_set = SubResource("TileSet_45e12")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 40.0
-offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -431,6 +447,20 @@ shape = SubResource("CapsuleShape2D_ab58e")
 libraries = {
 &"": SubResource("AnimationLibrary_hsak5")
 }
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-1121, 625)
+scale = Vector2(0.4, 0.4)
+
+[node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-1032, 625)
+scale = Vector2(0.4, 0.4)
+
+[node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-945, 625)
+scale = Vector2(0.4, 0.4)
 
 [node name="Path2D2" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(1147, -321)
@@ -469,7 +499,7 @@ position = Vector2(10276, -178)
 scale = Vector2(0.15, 0.15)
 frame_progress = 0.959508
 
-[node name="ChangeScene2" parent="." instance=ExtResource("23_y2ypf")]
+[node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
 position = Vector2(10551, -75.0039)
 rotation = -1.52891
 scale = Vector2(9, 9)

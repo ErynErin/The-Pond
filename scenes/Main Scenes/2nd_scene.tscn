@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene load_steps=30 format=4 uid="uid://cfv4f6bi46hrx"]
-=======
 [gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
->>>>>>> Stashed changes
-=======
-[gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -17,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dc86inuelf7ii" path="res://assets/BG/Phase 2/4.png" id="10_plhnw"]
 [ext_resource type="Texture2D" uid="uid://rxnciromwi5l" path="res://assets/BG/Phase 2/5.png" id="11_t7lwq"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_x2w7c"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_goyj0"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_c37bx"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="14_dwpsk"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_2npaq"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="15_3xvx2"]
@@ -28,15 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="18_whigq"]
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="19_wkg83"]
 [ext_resource type="AudioStream" uid="uid://d3l6d8tkmf3t2" path="res://assets/Audios/bgms/Dark Ambient Music BGM.mp3" id="20_ssd1q"]
-<<<<<<< Updated upstream
-=======
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -214,6 +202,18 @@ scale = Vector2(1.11, 1.11)
 visible = false
 scale = Vector2(1.67, 1.67)
 
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 400.0
+offset_top = 231.667
+offset_right = 617.0
+offset_bottom = 312.667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("13_goyj0")
+theme_override_font_sizes/font_size = 60
+text = "Coins: 00"
+script = ExtResource("14_c37bx")
+
 [node name="Food" type="Node2D" parent="."]
 position = Vector2(0, 200)
 metadata/_edit_lock_ = true
@@ -335,8 +335,6 @@ stream = ExtResource("20_ssd1q")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
-<<<<<<< Updated upstream
-=======
 
 [node name="coin" parent="." instance=ExtResource("23_c37bx")]
 position = Vector2(-778, 562)
@@ -351,7 +349,3 @@ collision_mask = 0
 [node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
 position = Vector2(-715, 321)
 scale = Vector2(0.7, 0.7)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
