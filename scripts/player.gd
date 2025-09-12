@@ -12,11 +12,6 @@ var jumps_left: int = MAX_JUMPS
 
 func _ready():
 	set_physics_process(true)
-	GameManager.hunger = 0
-	GameManager.max_health = 100.0
-	GameManager.current_health = 100.0
-	GameManager.strength = 10
-	GameManager.speed = 200
 	GameManager.player_died.connect(_on_player_died)
 
 func _physics_process(delta: float) -> void:
@@ -82,4 +77,5 @@ func _on_player_died():
 	animated_sprite.play("death")
 	GameManager.player_died.disconnect(_on_player_died)
 	await animated_sprite.animation_finished
+	GameManager.current_health = 100.0
 	get_tree().reload_current_scene()

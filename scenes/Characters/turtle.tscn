@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://d38gbeoyt7da5"]
+
+[ext_resource type="Texture2D" uid="uid://c6lx5aa2vob27" path="res://assets/Characters/Turtle/turtle idle0000.png" id="1_vx4p2"]
+[ext_resource type="Texture2D" uid="uid://blpp155dpnx7q" path="res://assets/Characters/Turtle/turtle idle0001.png" id="2_02c2j"]
+[ext_resource type="Texture2D" uid="uid://bh1r2er4a4quo" path="res://assets/Characters/Turtle/turtle idle0002.png" id="3_b0l1y"]
+[ext_resource type="Texture2D" uid="uid://bplxc4aa3allp" path="res://assets/Characters/Turtle/turtle idle0003.png" id="4_g2ujh"]
+[ext_resource type="Texture2D" uid="uid://5yurlo8r8sfx" path="res://assets/Characters/Turtle/turtle idle0004.png" id="5_f16xd"]
+[ext_resource type="Texture2D" uid="uid://c800u2r2dtip" path="res://assets/Characters/Turtle/turtle idle0005.png" id="6_l3jiw"]
+[ext_resource type="Texture2D" uid="uid://cjkt1g800iux6" path="res://assets/Characters/Turtle/turtle idle0006.png" id="7_1ndca"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0kgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vx4p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_02c2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b0l1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g2ujh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f16xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l3jiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ndca")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Turtle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k0kgs")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.412519
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-654, -860, -242, 892, 698, 853, 748, 136, 614, -660)

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=30 format=4 uid="uid://cfv4f6bi46hrx"]
+=======
+[gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -20,6 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="18_whigq"]
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="19_wkg83"]
 [ext_resource type="AudioStream" uid="uid://d3l6d8tkmf3t2" path="res://assets/Audios/bgms/Dark Ambient Music BGM.mp3" id="20_ssd1q"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
+[ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
+[ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
+>>>>>>> Stashed changes
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -273,7 +283,7 @@ physics_material_override = SubResource("PhysicsMaterial_wkg83")
 shape = SubResource("WorldBoundaryShape2D_goyj0")
 
 [node name="Merchant" parent="." instance=ExtResource("18_vksdc")]
-position = Vector2(1490, 496)
+position = Vector2(2368, 502)
 scale = Vector2(0.15, 0.15)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -282,6 +292,7 @@ tile_map_data = PackedByteArray("AAAhAJ8AAQAAAAAAAAAzAJ8AAQABAAAAAABFAJ8AAQABAAE
 tile_set = SubResource("TileSet_goyj0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -292,24 +303,24 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="ChangeScene" parent="." instance=ExtResource("18_3xvx2")]
-position = Vector2(1738, 104)
+position = Vector2(2616, 110)
 scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
 [node name="Beetle" parent="." instance=ExtResource("18_ssd1q")]
-position = Vector2(-145, 552)
+position = Vector2(733, 558)
 scale = Vector2(1.5, 1.5)
 
 [node name="Worm" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(706, 560)
+position = Vector2(1584, 566)
 scale = Vector2(0.5, 0.5)
 
 [node name="Worm2" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(923, 560)
+position = Vector2(1801, 566)
 scale = Vector2(0.5, 0.5)
 
 [node name="Worm3" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(1140, 560)
+position = Vector2(2018, 566)
 scale = Vector2(0.5, 0.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -317,3 +328,20 @@ stream = ExtResource("20_ssd1q")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+<<<<<<< Updated upstream
+=======
+
+[node name="coin" parent="." instance=ExtResource("23_c37bx")]
+position = Vector2(-778, 562)
+scale = Vector2(0.3, 0.3)
+
+[node name="Turtle" parent="." instance=ExtResource("24_wossw")]
+position = Vector2(-317, 485)
+scale = Vector2(0.15, 0.15)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
+position = Vector2(-715, 321)
+scale = Vector2(0.7, 0.7)
+>>>>>>> Stashed changes

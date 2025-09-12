@@ -1,0 +1,108 @@
+[gd_scene load_steps=20 format=3 uid="uid://bqv1p3cvx6x6f"]
+
+[ext_resource type="Texture2D" uid="uid://b5jv6xx6s3fny" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0000.png" id="1_rflln"]
+[ext_resource type="Texture2D" uid="uid://bpbuegbddk1da" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0001.png" id="2_0siwv"]
+[ext_resource type="Texture2D" uid="uid://bxthg37w0skkm" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0002.png" id="3_nlj60"]
+[ext_resource type="Texture2D" uid="uid://dvah5awywlnkv" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0003.png" id="4_nlxyk"]
+[ext_resource type="Texture2D" uid="uid://dkhem0xk510eu" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0004.png" id="5_v6me8"]
+[ext_resource type="Texture2D" uid="uid://lkwlgrr0vhd2" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0005.png" id="6_o2ppk"]
+[ext_resource type="Texture2D" uid="uid://u6xdb0k6mf68" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0006.png" id="7_go6qx"]
+[ext_resource type="Texture2D" uid="uid://bhyessnal3ail" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0007.png" id="8_oa5xy"]
+[ext_resource type="Texture2D" uid="uid://dre6ugscjlu8p" path="res://assets/Characters/Bomber Fish/fish death/fish death0000.png" id="9_3dojx"]
+[ext_resource type="Texture2D" uid="uid://cin4nce7hqq5v" path="res://assets/Characters/Bomber Fish/fish death/fish death0001.png" id="10_5xxko"]
+[ext_resource type="Texture2D" uid="uid://lkhesga5tvyv" path="res://assets/Characters/Bomber Fish/fish death/fish death0002.png" id="11_5616f"]
+[ext_resource type="Texture2D" uid="uid://buj64mtax7yyd" path="res://assets/Characters/Bomber Fish/fish death/fish death0003.png" id="12_v5ex4"]
+[ext_resource type="Texture2D" uid="uid://o3lcikbybkse" path="res://assets/Characters/Bomber Fish/fish death/fish death0004.png" id="13_vf1x2"]
+[ext_resource type="Texture2D" uid="uid://fdt1w67ckm13" path="res://assets/Characters/Bomber Fish/fish death/fish death0005.png" id="14_6k23q"]
+[ext_resource type="Texture2D" uid="uid://dnwdtgw4a44o5" path="res://assets/Characters/Bomber Fish/fish death/fish death0006.png" id="15_bpdtm"]
+[ext_resource type="Texture2D" uid="uid://bqyekkvrfok7c" path="res://assets/Characters/Bomber Fish/fish idle/1.png" id="16_81wrs"]
+[ext_resource type="Texture2D" uid="uid://c2n424y77j062" path="res://assets/Characters/Bomber Fish/fish idle/2.png" id="17_qes0p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjwes"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rflln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0siwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nlj60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nlxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v6me8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o2ppk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_go6qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oa5xy")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3dojx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5xxko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5616f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v5ex4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vf1x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6k23q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bpdtm")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("16_81wrs")
+}, {
+"duration": 4.0,
+"texture": ExtResource("17_qes0p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rflln"]
+radius = 72.0
+height = 352.0
+
+[node name="Bomber Fish" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 156)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_qjwes")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.400969
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rflln")
