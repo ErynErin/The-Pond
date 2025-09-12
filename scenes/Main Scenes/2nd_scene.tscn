@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://rxnciromwi5l" path="res://assets/BG/Phase 2/5.png" id="11_t7lwq"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_x2w7c"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_goyj0"]
-[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_c37bx"]
+[ext_resource type="Script" path="res://scripts/coins.gd" id="14_c37bx"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="14_dwpsk"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_2npaq"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="15_3xvx2"]

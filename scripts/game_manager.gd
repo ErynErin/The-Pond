@@ -117,4 +117,4 @@ func set_player_movable(is_movable: bool):
 
 func add_coin(amount: int):
 	coins += amount
-  emit_signal("coins_updated", coins)
+	emit_signal("coins_updated", coins)
