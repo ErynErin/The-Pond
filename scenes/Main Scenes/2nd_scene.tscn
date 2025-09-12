@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=30 format=4 uid="uid://cfv4f6bi46hrx"]
+=======
+[gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
 >>>>>>> Stashed changes
@@ -29,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
@@ -344,4 +351,7 @@ collision_mask = 0
 [node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
 position = Vector2(-715, 321)
 scale = Vector2(0.7, 0.7)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -120,4 +120,7 @@ func add_coin(amount: int):
 	coins += amount
 	emit_signal("coins_updated", coins)
 	
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
