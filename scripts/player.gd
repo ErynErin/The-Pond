@@ -77,5 +77,5 @@ func _on_player_died():
 	animated_sprite.play("death")
 	GameManager.player_died.disconnect(_on_player_died)
 	await animated_sprite.animation_finished
-	GameManager.current_health = 100.0
+	GameManager.current_health = 60.0
 	get_tree().reload_current_scene()

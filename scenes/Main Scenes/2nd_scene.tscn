@@ -158,7 +158,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-layer = 5
+layer = 10
 scale = Vector2(0.6, 0.6)
 transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
 
@@ -191,13 +191,6 @@ script = ExtResource("8_3xvx2")
 visible = false
 scale = Vector2(1.67, 1.67)
 
-[node name="Pause Menu" parent="GUI" instance=ExtResource("15_2npaq")]
-process_mode = 1
-visible = false
-offset_right = 958.0
-offset_bottom = 546.0
-scale = Vector2(1.11, 1.11)
-
 [node name="Options" parent="GUI" instance=ExtResource("15_3xvx2")]
 visible = false
 scale = Vector2(1.67, 1.67)
@@ -213,6 +206,14 @@ theme_override_fonts/font = ExtResource("13_goyj0")
 theme_override_font_sizes/font_size = 60
 text = "Coins: 00"
 script = ExtResource("14_c37bx")
+
+[node name="Pause Menu" parent="." instance=ExtResource("15_2npaq")]
+process_mode = 1
+visible = false
+z_index = 10
+offset_right = 958.0
+offset_bottom = 546.0
+scale = Vector2(1.11, 1.11)
 
 [node name="Food" type="Node2D" parent="."]
 position = Vector2(0, 200)
