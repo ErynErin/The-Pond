@@ -61,7 +61,7 @@ func _on_shop_closed():
 
 	if not DialogueManager.dialogue_ended.is_connected(_on_final_dialogue_ended):
 		DialogueManager.dialogue_ended.connect(_on_final_dialogue_ended)
-
+	
 	after_balloon.start(dialogue_resource, "afterbuy")
 
 	play("talk")

@@ -207,7 +207,7 @@ theme_override_font_sizes/font_size = 60
 text = "Coins: 00"
 script = ExtResource("14_c37bx")
 
-[node name="Pause Menu" parent="." instance=ExtResource("15_2npaq")]
+[node name="Pause Menu" parent="GUI" instance=ExtResource("15_2npaq")]
 process_mode = 1
 visible = false
 z_index = 10

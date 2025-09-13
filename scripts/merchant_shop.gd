@@ -16,19 +16,32 @@ func _ready() -> void:
 	strength_icon.texture = load("res://assets/Merchant Items/P" + str(GameManager.phase_num) + "_strength.png")
 
 func _on_health_button_pressed():
+	if GameManager.coins < 5:
+		$AudioStreamPlayer3.play()
+		return
 	$AudioStreamPlayer2.play()
 	GameManager.heal(40)
 	health_label.text = "Health: " + str(GameManager.max_health)
 	GameManager.hide_shop()
 	
 func _on_strength_button_pressed():
+	if GameManager.coins < 10:
+		$AudioStreamPlayer3.play()
+		return
 	$AudioStreamPlayer2.play()
 	GameManager.add_strength()
 	strength_label.text = "Strength: " + str(GameManager.strength)
 	GameManager.hide_shop()
 
 func _on_speed_button_pressed():
+	if GameManager.coins < 10:
+		$AudioStreamPlayer3.play()
+		return
 	$AudioStreamPlayer2.play()
 	GameManager.add_speed()
 	speed_label.text = "Speed: " + str(GameManager.speed)
+	GameManager.hide_shop()
+
+
+func _on_exit_pressed() -> void:
 	GameManager.hide_shop()

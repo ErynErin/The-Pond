@@ -23,12 +23,10 @@ var current_state = State.STAND
 var state_timer: float = 0.0
 var distance_traveled: float = 0.0
 var direction: float = 1.0
-var enemy_health = 20
 var is_player_in_range: bool = false
 var has_jumped: bool = false
 var player_was_hit: bool = false
 
-# New variables for hit restrictions
 var total_hits_taken: int = 0  # Track total hits across lifespan
 var hit_this_vulnerable_cycle: bool = false  # Track if hit during current vulnerable state
 

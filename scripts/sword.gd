@@ -23,6 +23,7 @@ func sword_attack() -> void:
 		collision_shape_2d.set_deferred("monitorable", true)
 	animation_player.play("attack")
 	await animation_player.animation_finished
+	await $SwordAudio.finished
 	animated_sprite_2d.play("idle")
 	collision_shape_2d.set_deferred("disabled", true)
 	collision_shape_2d.set_deferred("monitoring", false)

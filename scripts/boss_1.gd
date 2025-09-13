@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const WALK_SPEED = 100.0
-const DASH_SPEED = 500.0
+const DASH_SPEED = 700.0
 const DASH_DISTANCE_THRESHOLD = 700.0
 const DASH_DURATION = 0.5
 const CHARGE_DURATION = 1.5  # Duration of charge animation before dash

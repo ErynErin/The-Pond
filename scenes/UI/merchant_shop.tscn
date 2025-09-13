@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmole1wjk2k70"]
+[gd_scene load_steps=22 format=3 uid="uid://cmole1wjk2k70"]
 
 [ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="1_eq7wg"]
 [ext_resource type="Script" uid="uid://bshybnqtmehsh" path="res://scripts/merchant_shop.gd" id="1_nhdr3"]
@@ -7,8 +7,10 @@
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="4_8sbd5"]
 [ext_resource type="Texture2D" uid="uid://bpqdfp3cgqi5a" path="res://assets/Merchant Items/P1_speed.png" id="4_mknrg"]
 [ext_resource type="Texture2D" uid="uid://jlii0lklfwtb" path="res://assets/Merchant Items/P1_strength.png" id="5_786rh"]
+[ext_resource type="Texture2D" uid="uid://baeglhowuh3cs" path="res://assets/Sprites/coin.png" id="6_b1vcl"]
 [ext_resource type="AudioStream" uid="uid://dt2b5784r6j06" path="res://assets/Audios/button.wav" id="7_mknrg"]
 [ext_resource type="AudioStream" uid="uid://cp323mhr1ylgy" path="res://assets/Audios/merchant purchase.mp3" id="8_786rh"]
+[ext_resource type="AudioStream" uid="uid://c1fox7g2x7bhb" path="res://assets/Audios/error.mp3" id="11_35e4j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_786rh"]
 texture = ExtResource("3_qyu7k")
@@ -25,6 +27,18 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opqmd"]
+bg_color = Color(0.37, 0.29267, 0.1591, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.25, 0.170917, 0.0675, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1vcl"]
 bg_color = Color(0.811765, 0.662745, 0.403922, 1)
 border_width_left = 8
@@ -36,6 +50,58 @@ corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35e4j"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.74235, 0.605972, 0.371039, 1)
+border_color = Color(0.99, 0.908325, 0.8415, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s62yj"]
+bg_color = Color(0.37, 0.29267, 0.1591, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.25, 0.170917, 0.0675, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1f6r"]
+bg_color = Color(0, 0, 0, 0.313726)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4xb0"]
+bg_color = Color(0.214703, 0.214703, 0.214703, 0.313726)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if5od"]
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfgqf"]
+bg_color = Color(0, 0, 0, 0.313726)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="merchant shop" type="Control"]
 layout_mode = 3
@@ -109,10 +175,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -374.5
-offset_top = -242.0
-offset_right = 374.5
-offset_bottom = 271.0
+offset_left = -432.5
+offset_top = -240.0
+offset_right = 432.5
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
@@ -122,6 +188,7 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opqmd")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Health Button"]
@@ -163,11 +230,36 @@ theme_override_fonts/font = ExtResource("4_8sbd5")
 theme_override_font_sizes/font_size = 35
 text = "Adds 40% to the player's health"
 
+[node name="Panel" type="PanelContainer" parent="Shop Panel/Buttons/Health Button/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_35e4j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Health Button/HBoxContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="CoinImage" type="TextureRect" parent="Shop Panel/Buttons/Health Button/HBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_b1vcl")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Health Button/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.909804, 0.843137, 1)
+theme_override_font_sizes/font_size = 35
+text = " 5 "
+
 [node name="Speed Button" type="Button" parent="Shop Panel/Buttons"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s62yj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Speed Button"]
@@ -210,11 +302,36 @@ theme_override_fonts/font = ExtResource("4_8sbd5")
 theme_override_font_sizes/font_size = 35
 text = "Adds 25% to the player's speed"
 
+[node name="Panel" type="PanelContainer" parent="Shop Panel/Buttons/Speed Button/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_35e4j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Speed Button/HBoxContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="CoinImage" type="TextureRect" parent="Shop Panel/Buttons/Speed Button/HBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_b1vcl")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Speed Button/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.909804, 0.843137, 1)
+theme_override_font_sizes/font_size = 35
+text = "10"
+
 [node name="Strength Button" type="Button" parent="Shop Panel/Buttons"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8sbd5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Strength Button"]
@@ -232,7 +349,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.95, 0.95)
 size_flags_vertical = 3
-theme_override_constants/separation = 40
+theme_override_constants/separation = 15
 
 [node name="Strength Icon" type="TextureRect" parent="Shop Panel/Buttons/Strength Button/HBoxContainer"]
 layout_mode = 2
@@ -255,7 +372,53 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.431203, 0.242258, 0.123648, 1)
 theme_override_fonts/font = ExtResource("4_8sbd5")
 theme_override_font_sizes/font_size = 35
-text = "Adds 20% to the player's strength"
+text = "Adds 10% to the player's strength"
+
+[node name="Panel" type="PanelContainer" parent="Shop Panel/Buttons/Strength Button/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_35e4j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Strength Button/HBoxContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="CoinImage" type="TextureRect" parent="Shop Panel/Buttons/Strength Button/HBoxContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_b1vcl")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Strength Button/HBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.909804, 0.843137, 1)
+theme_override_font_sizes/font_size = 35
+text = "10"
+
+[node name="Current Coins" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.5
+offset_top = -161.0
+offset_right = 123.5
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1f6r")
+
+[node name="Label" type="Label" parent="Current Coins"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_8sbd5")
+theme_override_font_sizes/font_size = 50
+text = "Coins: 00"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mknrg")
@@ -265,6 +428,23 @@ bus = &"SFX"
 stream = ExtResource("8_786rh")
 bus = &"SFX"
 
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_35e4j")
+bus = &"SFX"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1732.0
+offset_top = 43.0
+offset_right = 1879.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = SubResource("StyleBoxFlat_w4xb0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_if5od")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfgqf")
+text = "X"
+
 [connection signal="pressed" from="Shop Panel/Buttons/Health Button" to="." method="_on_health_button_pressed"]
 [connection signal="pressed" from="Shop Panel/Buttons/Speed Button" to="." method="_on_speed_button_pressed"]
 [connection signal="pressed" from="Shop Panel/Buttons/Strength Button" to="." method="_on_strength_button_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

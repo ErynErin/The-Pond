@@ -8,7 +8,7 @@ Merchant: I am Merchant, [wait=1][wave amp=15 freq=3]your water santa!
 Merchant: I appear when I have artifacts to sell. These can make you [shake rate=20 level=10]faster, [shake rate=20 level=10]stronger, [wave amp=15 freq=3]or even make your life span longer!
 Merchant: And I tell you, these will greatly help in your journey.
 Merchant: Please choose one!
-=> END!
+=> END
 
 
 ~ meet_again 
@@ -16,7 +16,6 @@ Merchant: Good day, dear creature!
 Merchant: It's great to see you in one piece! 
 Merchant: Here are artifacts to help you with your journey! Please choose one!
 => END
-
 
 
 ~ afterbuy
