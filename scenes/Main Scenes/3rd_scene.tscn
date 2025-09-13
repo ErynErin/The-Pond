@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_3xx46"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_7fgw2"]
 [ext_resource type="AudioStream" uid="uid://co863n64uai7t" path="res://assets/Audios/bgms/Escalation by Ghostrifter Avalon.mp3" id="14_e0iyr"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="14_yatwi"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_yatwi"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_yatwi"]
 [ext_resource type="PackedScene" uid="uid://mlspxc2wfne5" path="res://scenes/Player/player_phase3.tscn" id="18_7fgw2"]
@@ -214,7 +214,7 @@ position = Vector2(1, 579)
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/bottom"]
-position = Vector2(-2, -576)
+position = Vector2(-2, -591)
 shape = SubResource("WorldBoundaryShape2D_fngbt")
 
 [node name="left" type="StaticBody2D" parent="World Boundaries"]
@@ -254,6 +254,8 @@ parameters/looping = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
