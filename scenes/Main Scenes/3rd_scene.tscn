@@ -146,7 +146,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-layer = 5
+layer = 10
 scale = Vector2(0.6, 0.6)
 transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
 
@@ -175,10 +175,6 @@ offset_right = 348.0
 offset_bottom = 310.0
 script = ExtResource("9_7fgw2")
 
-[node name="Pause Menu" parent="GUI" instance=ExtResource("15_btcw1")]
-visible = false
-scale = Vector2(1.67, 1.67)
-
 [node name="Options" parent="GUI" instance=ExtResource("16_yatwi")]
 visible = false
 scale = Vector2(1.67, 1.67)
@@ -194,6 +190,13 @@ theme_override_fonts/font = ExtResource("13_7fgw2")
 theme_override_font_sizes/font_size = 60
 text = "Coins: 00"
 script = ExtResource("14_yatwi")
+
+[node name="Pause Menu" parent="GUI" instance=ExtResource("15_btcw1")]
+process_mode = 1
+z_index = 10
+offset_right = 958.0
+offset_bottom = 546.0
+scale = Vector2(1.11, 1.11)
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
