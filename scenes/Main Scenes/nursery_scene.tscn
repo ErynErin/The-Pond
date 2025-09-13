@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="3_xlmt5"]
 [ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="4_heptv"]
 [ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="5_b40aj"]
-[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.PNG" id="6_y2ypf"]
+[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="6_y2ypf"]
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="14_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="15_b0kx5"]
 [ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="15_gbf57"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="15_po7p3"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
@@ -308,23 +308,16 @@ z_index = 5
 position = Vector2(-1381, 282)
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(-12, 1142)
-scale = Vector2(0.6, 0.6)
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(-43.9999, 742)
+scale = Vector2(0.3, 0.3)
 offset = Vector2(0, -400)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.13, 1.13)
 process_callback = 0
-limit_top = -195
-limit_bottom = 1100
+limit_top = -180
+limit_bottom = 1200
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.34
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -468,6 +461,7 @@ position = Vector2(1147, -321)
 curve = SubResource("Curve2D_p0owv")
 loop = false
 speed = 1.0
+speed_scale = 0.5
 
 [node name="Path2D3" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(2726, -40)
