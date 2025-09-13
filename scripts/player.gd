@@ -45,10 +45,10 @@ func _physics_process(delta: float) -> void:
 	# Flip character and sword
 	if direction < 0:
 		pivot.scale.x = direction
-		sword.scale.x = direction
+		sword.scale.x = direction * 0.6
 	elif direction > 0:
 		pivot.scale.x = direction
-		sword.scale.x = direction
+		sword.scale.x = direction * 0.6
 
 	# Animation
 	if is_on_floor():
