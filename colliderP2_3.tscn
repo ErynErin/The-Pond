@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf4ibfxwscdkm"]
+
+[ext_resource type="Texture2D" uid="uid://dkn8mv4qnrjil" path="res://assets/Colliders/P2/glass_hostile.png" id="1_541e1"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_541e1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-41.3898, -23.3012, -144.462, -145.7, -151.71, 63.6663, -277.33, -73.2271, -272.498, 155.465, -379.597, 51.5875, -361.076, 154.66, 374.122, 169.96, 362.848, 140.166, 334.664, 150.634, 336.275, 107.955, 275.076, 162.713, 220.318, 161.102, 262.191, 12.9352, 178.445, 92.6555, 185.692, -181.131, 116.44, -47.4589, 67.3196, -56.3167, 59.2671, 28.2351, 11.7571, 20.9878, -9.17957, -59.5377)

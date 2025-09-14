@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://chjw66nlegay1"]
+
+[ext_resource type="Texture2D" uid="uid://bp6ehsxydftpn" path="res://assets/Colliders/P1/colliderP1_1.png" id="1_pw5cw"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pw5cw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-203, -70, -161, -51, -132, -48, -80, -33, 126, -29, 338, -35, 359, -22, 371, 3, 346, 8, 347, 28, 352, 37, 340, 60, 293, 55, 285, 71, 113, 67, -63, 64, -155, 60, -200, 61, -265, 60, -288, 71, -369, 64, -372, 34, -364, 20, -365, -3, -345, -11, -338, -24, -188, -26, -187, -34, -209, -52, -203, -56, -211, -66)
