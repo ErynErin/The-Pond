@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=49 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="25_po7p3"]
 [ext_resource type="AudioStream" uid="uid://088m4dy2feda" path="res://assets/Audios/bgms/Coming of Age Movie BGM.mp3" id="27_po7p3"]
 [ext_resource type="Texture2D" uid="uid://bccbf8jv77bue" path="res://scenes/Platforms/p1_spritesheetss.svg" id="28_khq81"]
+[ext_resource type="PackedScene" uid="uid://chjw66nlegay1" path="res://colliderP1_1.tscn" id="28_r8hxo"]
+[ext_resource type="PackedScene" uid="uid://dbs712bhwk76h" path="res://colliderP1_2.tscn" id="29_khq81"]
 
 [sub_resource type="SystemFont" id="SystemFont_nsaye"]
 
@@ -145,14 +147,21 @@ size = Vector2(83.2, 76.55)
 [node name="Ted Game" type="Node2D"]
 script = ExtResource("1_r8hxo")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+enabled = false
+shadow_enabled = true
+shadow_color = Color(0.0904823, 0.0904823, 0.0904823, 0)
+
 [node name="Parallax2D" type="Parallax2D" parent="."]
 physics_interpolation_mode = 0
-metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax2D"]
 offset = Vector2(0, -40)
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, -40)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Parallax2D/ParallaxBackground"]
+color = Color(0.716296, 0.716296, 0.716296, 1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
 motion_mirroring = Vector2(4096, 0)
@@ -410,6 +419,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Merchant" parent="." instance=ExtResource("8_nsaye")]
+position = Vector2(10276, -178)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.959508
+
+[node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
+position = Vector2(10551, -75.0039)
+rotation = -1.52891
+scale = Vector2(9, 9)
+skew = 1.4207
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-1121, 625)
+scale = Vector2(0.4, 0.4)
+
+[node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-1032, 625)
+scale = Vector2(0.4, 0.4)
+
+[node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-945, 625)
+scale = Vector2(0.4, 0.4)
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-502, 603)
 curve = SubResource("Curve2D_nsaye")
@@ -441,20 +475,6 @@ shape = SubResource("CapsuleShape2D_ab58e")
 libraries = {
 &"": SubResource("AnimationLibrary_hsak5")
 }
-
-[node name="Coins" type="Node2D" parent="."]
-
-[node name="coin" parent="Coins" instance=ExtResource("22_p0owv")]
-position = Vector2(-1121, 625)
-scale = Vector2(0.4, 0.4)
-
-[node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
-position = Vector2(-1032, 625)
-scale = Vector2(0.4, 0.4)
-
-[node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
-position = Vector2(-945, 625)
-scale = Vector2(0.4, 0.4)
 
 [node name="Path2D2" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(1147, -321)
@@ -489,17 +509,6 @@ position = Vector2(6613, -380)
 curve = SubResource("Curve2D_r8hxo")
 loop = false
 
-[node name="Merchant" parent="." instance=ExtResource("8_nsaye")]
-position = Vector2(10276, -178)
-scale = Vector2(0.15, 0.15)
-frame_progress = 0.959508
-
-[node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
-position = Vector2(10551, -75.0039)
-rotation = -1.52891
-scale = Vector2(9, 9)
-skew = 1.4207
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(9667, -147)
 scale = Vector2(10, 10)
@@ -507,3 +516,9 @@ scale = Vector2(10, 10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(39.7, 54.6)
 shape = SubResource("RectangleShape2D_qfx3x")
+
+[node name="Log" parent="." instance=ExtResource("28_r8hxo")]
+position = Vector2(162, 602)
+
+[node name="Stick" parent="." instance=ExtResource("29_khq81")]
+position = Vector2(402, 531)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2dyl40d3w2mu"]
+
+[ext_resource type="Texture2D" uid="uid://c0bbd2dkjlsra" path="res://assets/Colliders/P3/coin c.png" id="1_h5l6e"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h5l6e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-108, 348, -108, 360, -71, 369, -15, 372, 35, 370, 80, 359, 79, 347)

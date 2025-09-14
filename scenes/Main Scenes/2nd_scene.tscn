@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=38 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -25,6 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
+[ext_resource type="PackedScene" uid="uid://cf4ibfxwscdkm" path="res://colliderP2_3.tscn" id="26_2agje"]
+[ext_resource type="PackedScene" uid="uid://ciu4jbm1mikw3" path="res://colliderP2_1.tscn" id="26_f1wsw"]
+[ext_resource type="PackedScene" uid="uid://oe84hg17fapd" path="res://colliderP2_2.tscn" id="27_c7qhk"]
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -313,15 +316,15 @@ position = Vector2(733, 558)
 scale = Vector2(1.5, 1.5)
 
 [node name="Worm" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(1584, 566)
+position = Vector2(1392, 584)
 scale = Vector2(0.5, 0.5)
 
 [node name="Worm2" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(1801, 566)
+position = Vector2(960, 568)
 scale = Vector2(0.5, 0.5)
 
 [node name="Worm3" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(2018, 566)
+position = Vector2(1096, 568)
 scale = Vector2(0.5, 0.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -343,3 +346,13 @@ collision_mask = 0
 [node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
 position = Vector2(-715, 321)
 scale = Vector2(0.7, 0.7)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("26_2agje")]
+position = Vector2(1848, 368)
+scale = Vector2(1.4, 1.4)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("26_f1wsw")]
+position = Vector2(168, 464)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("27_c7qhk")]
+position = Vector2(1144, 512)

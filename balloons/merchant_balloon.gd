@@ -39,6 +39,9 @@ var dialogue_line: DialogueLine:
 ## A cooldown timer for delaying the balloon hide when encountering a mutation.
 var mutation_cooldown: Timer = Timer.new()
 
+## Timer for auto advancing dialogue after 2 seconds if no input
+var auto_advance_timer: Timer = Timer.new()
+
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
 
@@ -63,6 +66,12 @@ func _ready() -> void:
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
+
+	# Setup auto advance timer
+	auto_advance_timer.wait_time = 2.0
+	auto_advance_timer.one_shot = true
+	auto_advance_timer.timeout.connect(_on_auto_advance_timeout)
+	add_child(auto_advance_timer)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -91,6 +100,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
 	mutation_cooldown.stop()
+	auto_advance_timer.stop()
 
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
@@ -114,7 +124,7 @@ func apply_dialogue_line() -> void:
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
 
-	# Wait for input
+	# Wait for input or auto advance
 	if dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
@@ -126,10 +136,12 @@ func apply_dialogue_line() -> void:
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
+		auto_advance_timer.start()  # Start auto-advance countdown
 
 
 ## Go to the next line
 func next(next_id: String) -> void:
+	auto_advance_timer.stop()
 	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
@@ -156,6 +168,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
+			auto_advance_timer.stop()  # Stop auto advance if player skips
 			return
 
 	if not is_waiting_for_input: return
@@ -165,13 +178,21 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		auto_advance_timer.stop()  # Stop auto advance on click
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+		auto_advance_timer.stop()  # Stop auto advance on key press
 		next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	auto_advance_timer.stop()
 	next(response.next_id)
+
+
+func _on_auto_advance_timeout() -> void:
+	if is_waiting_for_input and dialogue_line.responses.size() == 0:
+		next(dialogue_line.next_id)
 
 
 #endregion
