@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://rxnciromwi5l" path="res://assets/BG/Phase 2/5.png" id="11_t7lwq"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_x2w7c"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_goyj0"]
-[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_c37bx"]
+[ext_resource type="Script" path="res://scripts/coins.gd" id="14_c37bx"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="14_dwpsk"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_2npaq"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="15_3xvx2"]
@@ -25,9 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
-[ext_resource type="PackedScene" uid="uid://cf4ibfxwscdkm" path="res://colliderP2_3.tscn" id="26_2agje"]
-[ext_resource type="PackedScene" uid="uid://ciu4jbm1mikw3" path="res://colliderP2_1.tscn" id="26_f1wsw"]
-[ext_resource type="PackedScene" uid="uid://oe84hg17fapd" path="res://colliderP2_2.tscn" id="27_c7qhk"]
+[ext_resource type="PackedScene" path="res://colliderP2_3.tscn" id="26_2agje"]
+[ext_resource type="PackedScene" path="res://colliderP2_1.tscn" id="26_f1wsw"]
+[ext_resource type="PackedScene" path="res://colliderP2_2.tscn" id="27_c7qhk"]
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -194,10 +194,6 @@ script = ExtResource("8_3xvx2")
 visible = false
 scale = Vector2(1.67, 1.67)
 
-[node name="Options" parent="GUI" instance=ExtResource("15_3xvx2")]
-visible = false
-scale = Vector2(1.67, 1.67)
-
 [node name="Coins" type="Label" parent="GUI"]
 offset_left = 400.0
 offset_top = 231.667
@@ -217,6 +213,10 @@ z_index = 10
 offset_right = 958.0
 offset_bottom = 546.0
 scale = Vector2(1.11, 1.11)
+
+[node name="Options" parent="GUI" instance=ExtResource("15_3xvx2")]
+visible = false
+scale = Vector2(1.67, 1.67)
 
 [node name="Food" type="Node2D" parent="."]
 position = Vector2(0, 200)
@@ -335,7 +335,7 @@ parameters/looping = true
 
 [node name="coin" parent="." instance=ExtResource("23_c37bx")]
 position = Vector2(-778, 562)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.8, 0.8)
 
 [node name="Turtle" parent="." instance=ExtResource("24_wossw")]
 position = Vector2(-317, 485)

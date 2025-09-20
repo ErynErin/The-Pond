@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iwggw3st1ihx"
-path="res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"
+uid="uid://cphx0gshen1c1"
+path="res://.godot/imported/currency scale.png-339cdac4e22993dd8aa074cd0b5a74e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BG/Phase 1/6.PNG"
-dest_files=["res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"]
+source_file="res://assets/Sprites/Coin/currency scale.png"
+dest_files=["res://.godot/imported/currency scale.png-339cdac4e22993dd8aa074cd0b5a74e2.ctex"]
 
 [params]
 

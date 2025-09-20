@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iwggw3st1ihx"
-path="res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"
+uid="uid://cha5cxto2jvrc"
+path="res://.godot/imported/cap20.png-62b18d945451c941f50c552ea791c2cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BG/Phase 1/6.PNG"
-dest_files=["res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"]
+source_file="res://assets/Sprites/Coin/cap20.png"
+dest_files=["res://.godot/imported/cap20.png-62b18d945451c941f50c552ea791c2cc.ctex"]
 
 [params]
 

@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://qvgqap54c1b1"]
+[gd_scene load_steps=9 format=3 uid="uid://qvgqap54c1b1"]
 
 [ext_resource type="Script" uid="uid://cqoc0b47mff0a" path="res://scripts/options.gd" id="1_u46ye"]
+[ext_resource type="Texture2D" uid="uid://y38m61m6w4ax" path="res://assets/GUI/Menu Assets/settings_bg.png" id="2_2txy7"]
 [ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="2_xgdkv"]
 [ext_resource type="AudioStream" uid="uid://c6eelof6nh0xx" path="res://assets/Audios/menu_start.wav" id="3_m70mf"]
 [ext_resource type="AudioStream" uid="uid://dt2b5784r6j06" path="res://assets/Audios/button.wav" id="3_nf7d7"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="4_18ci2"]
 
 [sub_resource type="Theme" id="Theme_m70mf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2na0i"]
 
 [node name="Options" type="Control"]
 process_mode = 3
@@ -18,6 +22,12 @@ grow_vertical = 2
 theme = SubResource("Theme_m70mf")
 script = ExtResource("1_u46ye")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2txy7")
+
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -27,22 +37,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27451)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -255.5
-offset_top = -266.5
-offset_right = 255.5
-offset_bottom = 266.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.195545, 0.195545, 0.195545, 1)
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 349.0
+offset_right = 1101.0
+offset_bottom = 410.0
+theme = ExtResource("2_xgdkv")
+theme_override_colors/font_color = Color(0.0936694, 0.0936694, 0.0936694, 1)
+theme_override_colors/font_outline_color = Color(0.0674377, 0.0674377, 0.0674377, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_18ci2")
+theme_override_font_sizes/font_size = 70
+text = "OPTIONS"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,53 +59,57 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = -117.0
+offset_top = -76.0
 offset_right = 185.0
-offset_bottom = 117.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Music_Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Music_Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_18ci2")
+theme_override_font_sizes/font_size = 40
 text = "Backgound Music"
 
-[node name="Music_Slider" type="HSlider" parent="ColorRect/VBoxContainer"]
+[node name="Music_Slider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="SFX Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="SFX Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_18ci2")
+theme_override_font_sizes/font_size = 40
 text = "Sound Effects"
 
-[node name="SFX_Slider" type="HSlider" parent="ColorRect/VBoxContainer"]
+[node name="SFX_Slider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 value = 50.0
-
-[node name="Title" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 200.5
-offset_top = 29.5
-offset_right = 314.5
-offset_bottom = 71.5
-theme = ExtResource("2_xgdkv")
-theme_override_font_sizes/font_size = 30
-text = "Options"
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -802.0
-offset_top = 298.0
-offset_right = -742.0
-offset_bottom = 355.0
+offset_left = -778.0
+offset_top = 347.0
+offset_right = -718.0
+offset_bottom = 408.0
 grow_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 35
+theme_override_colors/font_hover_color = Color(0.185981, 0.185981, 0.185981, 1)
+theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_fonts/font = ExtResource("4_18ci2")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2na0i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2na0i")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2na0i")
 text = "X"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

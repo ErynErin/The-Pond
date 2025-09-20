@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iwggw3st1ihx"
-path="res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"
+uid="uid://dpoir85gb7ghh"
+path="res://.godot/imported/worm p30000.png-b9223e97dd3dde7949b59fe0580672ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BG/Phase 1/6.PNG"
-dest_files=["res://.godot/imported/6.PNG-e420335f94b47141d6af49f0bfbfab36.ctex"]
+source_file="res://assets/Characters/Worm/Underground/worm p3/worm p30000.png"
+dest_files=["res://.godot/imported/worm p30000.png-b9223e97dd3dde7949b59fe0580672ee.ctex"]
 
 [params]
 
