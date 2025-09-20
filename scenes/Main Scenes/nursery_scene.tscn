@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="3_xlmt5"]
 [ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="4_heptv"]
 [ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="5_b40aj"]
-[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="6_y2ypf"]
+[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.PNG" id="6_y2ypf"]
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="14_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="15_b0kx5"]
 [ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="15_gbf57"]
-[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
+[ext_resource type="Script" path="res://scripts/coins.gd" id="15_po7p3"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="25_po7p3"]
 [ext_resource type="AudioStream" uid="uid://088m4dy2feda" path="res://assets/Audios/bgms/Coming of Age Movie BGM.mp3" id="27_po7p3"]
 [ext_resource type="Texture2D" uid="uid://bccbf8jv77bue" path="res://scenes/Platforms/p1_spritesheetss.svg" id="28_khq81"]
-[ext_resource type="PackedScene" uid="uid://chjw66nlegay1" path="res://colliderP1_1.tscn" id="28_r8hxo"]
-[ext_resource type="PackedScene" uid="uid://dbs712bhwk76h" path="res://colliderP1_2.tscn" id="29_khq81"]
+[ext_resource type="PackedScene" path="res://colliderP1_1.tscn" id="28_r8hxo"]
+[ext_resource type="PackedScene" path="res://colliderP1_2.tscn" id="29_khq81"]
 
 [sub_resource type="SystemFont" id="SystemFont_nsaye"]
 
@@ -288,10 +288,6 @@ script = ExtResource("9_qfx3x")
 visible = false
 scale = Vector2(1.67, 1.67)
 
-[node name="Options" parent="GUI" instance=ExtResource("16_qfx3x")]
-visible = false
-scale = Vector2(1.67, 1.67)
-
 [node name="Coins" type="Label" parent="GUI"]
 offset_left = 400.0
 offset_top = 231.667
@@ -311,6 +307,10 @@ z_index = 10
 offset_right = 958.0
 offset_bottom = 546.0
 scale = Vector2(1.11, 1.11)
+
+[node name="Options" parent="GUI" instance=ExtResource("16_qfx3x")]
+visible = false
+scale = Vector2(1.67, 1.67)
 
 [node name="player" parent="." instance=ExtResource("15_b0kx5")]
 z_index = 5
@@ -434,15 +434,15 @@ skew = 1.4207
 
 [node name="coin" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-1121, 625)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.8, 0.8)
 
 [node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-1032, 625)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.8, 0.8)
 
 [node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-945, 625)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.8, 0.8)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-502, 603)

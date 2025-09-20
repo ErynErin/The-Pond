@@ -12,19 +12,19 @@
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_3xx46"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_7fgw2"]
 [ext_resource type="AudioStream" uid="uid://co863n64uai7t" path="res://assets/Audios/bgms/Escalation by Ghostrifter Avalon.mp3" id="14_e0iyr"]
-[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_yatwi"]
+[ext_resource type="Script" path="res://scripts/coins.gd" id="14_yatwi"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="Texture2D" uid="uid://b6630xarsn24w" path="res://assets/Colliders/P3/6 pack ring non c.png" id="15_mswc0"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_yatwi"]
 [ext_resource type="Texture2D" uid="uid://cwknh3d1nt8j8" path="res://assets/Colliders/P3/wine non c.png" id="17_oioei"]
 [ext_resource type="PackedScene" uid="uid://mlspxc2wfne5" path="res://scenes/Player/player_phase3.tscn" id="18_7fgw2"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="19_yatwi"]
-[ext_resource type="PackedScene" uid="uid://l34t3gkcc2tq" path="res://colliderP3_1.tscn" id="20_26pct"]
+[ext_resource type="PackedScene" path="res://colliderP3_1.tscn" id="20_26pct"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="20_fngbt"]
-[ext_resource type="PackedScene" uid="uid://1mf1685y6ynn" path="res://colliderP3_2.tscn" id="21_btbex"]
+[ext_resource type="PackedScene" path="res://colliderP3_2.tscn" id="21_btbex"]
 [ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="21_fngbt"]
-[ext_resource type="PackedScene" uid="uid://b2dyl40d3w2mu" path="res://colliderP3_3.tscn" id="22_mswc0"]
-[ext_resource type="PackedScene" uid="uid://4w238bqeo2fe" path="res://colliderP3_4.tscn" id="23_oioei"]
+[ext_resource type="PackedScene" path="res://colliderP3_3.tscn" id="22_mswc0"]
+[ext_resource type="PackedScene" path="res://colliderP3_4.tscn" id="23_oioei"]
 
 [sub_resource type="SystemFont" id="SystemFont_e0iyr"]
 
@@ -182,10 +182,6 @@ offset_right = 348.0
 offset_bottom = 310.0
 script = ExtResource("9_7fgw2")
 
-[node name="Options" parent="GUI" instance=ExtResource("16_yatwi")]
-visible = false
-scale = Vector2(1.67, 1.67)
-
 [node name="Coins" type="Label" parent="GUI"]
 offset_left = 400.0
 offset_top = 231.667
@@ -204,6 +200,10 @@ z_index = 10
 offset_right = 958.0
 offset_bottom = 546.0
 scale = Vector2(1.11, 1.11)
+
+[node name="Options" parent="GUI" instance=ExtResource("16_yatwi")]
+visible = false
+scale = Vector2(1.67, 1.67)
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
@@ -317,12 +317,12 @@ position = Vector2(3036, 448)
 shape = SubResource("RectangleShape2D_e0iyr")
 
 [node name="coin" parent="." instance=ExtResource("19_yatwi")]
-position = Vector2(-747, 578)
-scale = Vector2(0.3, 0.3)
+position = Vector2(-866, 581)
+scale = Vector2(0.8, 0.8)
 
 [node name="coin2" parent="." instance=ExtResource("19_yatwi")]
-position = Vector2(-687, 578)
-scale = Vector2(0.3, 0.3)
+position = Vector2(-806, 581)
+scale = Vector2(0.8, 0.8)
 
 [node name="GlassShard" parent="." instance=ExtResource("20_26pct")]
 position = Vector2(1936, 264)

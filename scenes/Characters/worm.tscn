@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://xov1nahqgphe"]
+[gd_scene load_steps=44 format=3 uid="uid://xov1nahqgphe"]
 
 [ext_resource type="Script" uid="uid://ddpxxan7j4cmw" path="res://scripts/worm.gd" id="1_tiyqp"]
 [ext_resource type="Texture2D" uid="uid://ckbnsl8bihdn3" path="res://assets/Characters/Worm/Crawl/Crawl_1.png" id="2_tiyqp"]
@@ -7,9 +7,35 @@
 [ext_resource type="Texture2D" uid="uid://ga2v5oejcj4g" path="res://assets/Characters/Worm/Crawl/Crawl_3.png" id="4_xk6nu"]
 [ext_resource type="Texture2D" uid="uid://blio1awdkqjrs" path="res://assets/Characters/Worm/Crawl/Crawl_4.png" id="5_xkhk3"]
 [ext_resource type="Texture2D" uid="uid://d4ivs71nmsg48" path="res://assets/Characters/Worm/Crawl/Crawl_5.png" id="6_wwk1g"]
-[ext_resource type="Texture2D" uid="uid://cgoy7ibc4bnfb" path="res://assets/Characters/Worm/Worm_Rest.png" id="7_okkck"]
+[ext_resource type="Texture2D" uid="uid://bel1elsk70x0o" path="res://assets/Characters/Worm/Underground/worm p1/worm p10000.png" id="7_64548"]
+[ext_resource type="Texture2D" uid="uid://cqu3ues265pbl" path="res://assets/Characters/Worm/Underground/worm p2/worm p20000.png" id="8_43g0s"]
+[ext_resource type="Texture2D" uid="uid://dpoir85gb7ghh" path="res://assets/Characters/Worm/Underground/worm p3/worm p30000.png" id="9_3kqeg"]
 [ext_resource type="AudioStream" uid="uid://c5rs4prmkqtp" path="res://assets/Audios/enemies/worm poison.mp3" id="9_xk6nu"]
+[ext_resource type="Texture2D" uid="uid://ci463wvtdokee" path="res://assets/Characters/Worm/Underground/worm p1/worm p10001.png" id="10_mrq13"]
 [ext_resource type="AudioStream" uid="uid://ccmv0oriti0g2" path="res://assets/Audios/enemies/worm death.mp3" id="10_xkhk3"]
+[ext_resource type="Texture2D" uid="uid://b0lpltn1avd1c" path="res://assets/Characters/Worm/Underground/worm p1/worm p10002.png" id="11_dpf68"]
+[ext_resource type="Texture2D" uid="uid://c8uxwxwcc0jgr" path="res://assets/Characters/Worm/Underground/worm p1/worm p10003.png" id="12_l8g0r"]
+[ext_resource type="Texture2D" uid="uid://dv4pjucbqr2s1" path="res://assets/Characters/Worm/Underground/worm p1/worm p10004.png" id="13_msdrk"]
+[ext_resource type="Texture2D" uid="uid://4va52einpunx" path="res://assets/Characters/Worm/Underground/worm p1/worm p10005.png" id="14_8128e"]
+[ext_resource type="Texture2D" uid="uid://batimo38je8bk" path="res://assets/Characters/Worm/Underground/worm p1/worm p10006.png" id="15_xto1t"]
+[ext_resource type="Texture2D" uid="uid://bgl4fgmp77w8u" path="res://assets/Characters/Worm/Underground/worm p1/worm p10007.png" id="16_d8fxy"]
+[ext_resource type="Texture2D" uid="uid://chritsakefd26" path="res://assets/Characters/Worm/Underground/worm p1/worm p10008.png" id="17_hbjbc"]
+[ext_resource type="Texture2D" uid="uid://cwdt8je7le6hg" path="res://assets/Characters/Worm/Underground/worm p2/worm p20001.png" id="18_k8p57"]
+[ext_resource type="Texture2D" uid="uid://dt7hdqwdc1ls5" path="res://assets/Characters/Worm/Underground/worm p2/worm p20002.png" id="19_xvvb0"]
+[ext_resource type="Texture2D" uid="uid://dtboaphlcu4j2" path="res://assets/Characters/Worm/Underground/worm p2/worm p20003.png" id="20_qb6w7"]
+[ext_resource type="Texture2D" uid="uid://d2bakcnx7uvdq" path="res://assets/Characters/Worm/Underground/worm p2/worm p20004.png" id="21_3fh0s"]
+[ext_resource type="Texture2D" uid="uid://dd6aiwodscm0b" path="res://assets/Characters/Worm/Underground/worm p2/worm p20005.png" id="22_eh60q"]
+[ext_resource type="Texture2D" uid="uid://c3bj26moxj8kd" path="res://assets/Characters/Worm/Underground/worm p2/worm p20006.png" id="23_xhgbd"]
+[ext_resource type="Texture2D" uid="uid://dhfy6nelgo45i" path="res://assets/Characters/Worm/Underground/worm p2/worm p20007.png" id="24_6rdhx"]
+[ext_resource type="Texture2D" uid="uid://oihou6wh40tt" path="res://assets/Characters/Worm/Underground/worm p2/worm p20008.png" id="25_awnmm"]
+[ext_resource type="Texture2D" uid="uid://chs0rvty8q3tw" path="res://assets/Characters/Worm/Underground/worm p3/worm p30001.png" id="26_6ol0c"]
+[ext_resource type="Texture2D" uid="uid://cbyxjnt01g6vy" path="res://assets/Characters/Worm/Underground/worm p3/worm p30002.png" id="27_3t17d"]
+[ext_resource type="Texture2D" uid="uid://bmp33j8r6f2jg" path="res://assets/Characters/Worm/Underground/worm p3/worm p30003.png" id="28_2s821"]
+[ext_resource type="Texture2D" uid="uid://d3yvon1x7pdnu" path="res://assets/Characters/Worm/Underground/worm p3/worm p30004.png" id="29_k4l80"]
+[ext_resource type="Texture2D" uid="uid://bga7uipc1y4m" path="res://assets/Characters/Worm/Underground/worm p3/worm p30005.png" id="30_y14mr"]
+[ext_resource type="Texture2D" uid="uid://cfu1yf4yd11jg" path="res://assets/Characters/Worm/Underground/worm p3/worm p30006.png" id="31_ra7ju"]
+[ext_resource type="Texture2D" uid="uid://b5ptd4ehcas3f" path="res://assets/Characters/Worm/Underground/worm p3/worm p30007.png" id="32_pewkn"]
+[ext_resource type="Texture2D" uid="uid://ne455ddtiixe" path="res://assets/Characters/Worm/Underground/worm p3/worm p30008.png" id="33_cs5gt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_46d1w"]
 animations = [{
@@ -35,11 +61,123 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_okkck")
+"texture": ExtResource("7_64548")
 }],
 "loop": true,
-"name": &"rest",
+"name": &"rest1",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_43g0s")
+}],
+"loop": true,
+"name": &"rest2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3kqeg")
+}],
+"loop": true,
+"name": &"rest3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_64548")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mrq13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dpf68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l8g0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_msdrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8128e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xto1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d8fxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hbjbc")
+}],
+"loop": false,
+"name": &"spawn1",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_43g0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_k8p57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xvvb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qb6w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3fh0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_eh60q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xhgbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6rdhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_awnmm")
+}],
+"loop": false,
+"name": &"spawn2",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3kqeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6ol0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_3t17d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_2s821")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_k4l80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_y14mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ra7ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_pewkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_cs5gt")
+}],
+"loop": false,
+"name": &"spawn3",
+"speed": 7.0
 }]
 
 [sub_resource type="Animation" id="Animation_6wt1p"]
@@ -96,8 +234,7 @@ script = ExtResource("1_tiyqp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_46d1w")
-animation = &"crawl"
-autoplay = "rest"
+animation = &"rest3"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
