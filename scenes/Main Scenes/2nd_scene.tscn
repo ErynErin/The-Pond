@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=39 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -6,11 +6,12 @@
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="8_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://darwte4arx7h6" path="res://assets/BG/Phase 2/2.png" id="8_w82rq"]
 [ext_resource type="Texture2D" uid="uid://bxbt6hevkcww1" path="res://assets/BG/Phase 2/3.png" id="9_rjjk6"]
+[ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="10_6u0xl"]
 [ext_resource type="Texture2D" uid="uid://dc86inuelf7ii" path="res://assets/BG/Phase 2/4.png" id="10_plhnw"]
 [ext_resource type="Texture2D" uid="uid://rxnciromwi5l" path="res://assets/BG/Phase 2/5.png" id="11_t7lwq"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_x2w7c"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_goyj0"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="14_c37bx"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_c37bx"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="14_dwpsk"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_2npaq"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="15_3xvx2"]
@@ -25,9 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
-[ext_resource type="PackedScene" path="res://colliderP2_3.tscn" id="26_2agje"]
-[ext_resource type="PackedScene" path="res://colliderP2_1.tscn" id="26_f1wsw"]
-[ext_resource type="PackedScene" path="res://colliderP2_2.tscn" id="27_c7qhk"]
+[ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://colliderP2_3.tscn" id="26_2agje"]
+[ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://colliderP2_1.tscn" id="26_f1wsw"]
+[ext_resource type="PackedScene" uid="uid://d0non4l3cian2" path="res://colliderP2_2.tscn" id="27_c7qhk"]
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -190,20 +191,24 @@ offset_right = 348.0
 offset_bottom = 310.0
 script = ExtResource("8_3xvx2")
 
-[node name="merchant shop" parent="GUI" instance=ExtResource("14_dwpsk")]
-visible = false
-scale = Vector2(1.67, 1.67)
+[node name="Coin Icon" type="TextureRect" parent="GUI"]
+offset_left = 400.0
+offset_top = 251.667
+offset_right = 445.0
+offset_bottom = 298.667
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_6u0xl")
 
 [node name="Coins" type="Label" parent="GUI"]
-offset_left = 400.0
-offset_top = 231.667
-offset_right = 617.0
-offset_bottom = 312.667
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
+offset_left = 476.667
+offset_top = 246.667
+offset_right = 578.667
+offset_bottom = 313.667
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("13_goyj0")
-theme_override_font_sizes/font_size = 60
-text = "Coins: 00"
+theme_override_font_sizes/font_size = 50
+text = "00"
 script = ExtResource("14_c37bx")
 
 [node name="Pause Menu" parent="GUI" instance=ExtResource("15_2npaq")]
@@ -215,6 +220,10 @@ offset_bottom = 546.0
 scale = Vector2(1.11, 1.11)
 
 [node name="Options" parent="GUI" instance=ExtResource("15_3xvx2")]
+visible = false
+scale = Vector2(1.67, 1.67)
+
+[node name="merchant shop" parent="GUI" instance=ExtResource("14_dwpsk")]
 visible = false
 scale = Vector2(1.67, 1.67)
 
@@ -312,8 +321,15 @@ scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
 [node name="Beetle" parent="." instance=ExtResource("18_ssd1q")]
-position = Vector2(733, 558)
+position = Vector2(500, 558)
 scale = Vector2(1.5, 1.5)
+slide_on_ceiling = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_ssd1q")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [node name="Worm" parent="." instance=ExtResource("19_wkg83")]
 position = Vector2(1392, 584)
@@ -327,21 +343,36 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1096, 568)
 scale = Vector2(0.5, 0.5)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_ssd1q")
-volume_db = -10.0
-autoplay = true
-parameters/looping = true
+[node name="Worm4" parent="." instance=ExtResource("19_wkg83")]
+position = Vector2(-1799, 550)
+scale = Vector2(0.5, 0.5)
 
-[node name="coin" parent="." instance=ExtResource("23_c37bx")]
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("23_c37bx")]
 position = Vector2(-778, 562)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin2" parent="Coins" instance=ExtResource("23_c37bx")]
+position = Vector2(-708, 562)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin3" parent="Coins" instance=ExtResource("23_c37bx")]
+position = Vector2(-638, 562)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin4" parent="Coins" instance=ExtResource("23_c37bx")]
+position = Vector2(-568, 562)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin5" parent="Coins" instance=ExtResource("23_c37bx")]
+position = Vector2(-498, 562)
 scale = Vector2(0.8, 0.8)
 
 [node name="Turtle" parent="." instance=ExtResource("24_wossw")]
 position = Vector2(-317, 485)
 scale = Vector2(0.15, 0.15)
 collision_layer = 0
-collision_mask = 0
 
 [node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
 position = Vector2(-715, 321)

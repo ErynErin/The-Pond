@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://1mf1685y6ynn"]
+[gd_scene load_steps=2 format=3 uid="uid://cmndnfglye0vy"]
 
 [ext_resource type="Texture2D" uid="uid://ctg5fu5542lvd" path="res://assets/Colliders/P3/can c.png" id="1_d5sxc"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d5sxc")

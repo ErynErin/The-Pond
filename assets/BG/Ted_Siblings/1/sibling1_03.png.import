@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baeglhowuh3cs"
-path="res://.godot/imported/coin.png-eef6a96dd20aa34290bb5d4b7047b80e.ctex"
+uid="uid://fbbkp710f3vx"
+path="res://.godot/imported/sibling1_03.png-efded4828bbc0b6583dcdd8ba922f3df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/coin.png"
-dest_files=["res://.godot/imported/coin.png-eef6a96dd20aa34290bb5d4b7047b80e.ctex"]
+source_file="res://assets/BG/Ted_Siblings/1/sibling1_03.png"
+dest_files=["res://.godot/imported/sibling1_03.png-efded4828bbc0b6583dcdd8ba922f3df.ctex"]
 
 [params]
 

@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://caf7lldollp6k"]
+
+[ext_resource type="Texture2D" uid="uid://co8shi6k1dn7c" path="res://assets/Characters/Snail/snail1.png" id="1_e2vpy"]
+[ext_resource type="Texture2D" uid="uid://djreqw27r43do" path="res://assets/Characters/Snail/snail2.png" id="2_0x08p"]
+[ext_resource type="Texture2D" uid="uid://ne6eymecclc" path="res://assets/Characters/Snail/snail3.png" id="3_jptdo"]
+[ext_resource type="Texture2D" uid="uid://cmh6rgvq4wyc3" path="res://assets/Characters/Snail/snail4.png" id="4_pu3w6"]
+[ext_resource type="Texture2D" uid="uid://bawxdvjokoc06" path="res://assets/Characters/Snail/snail5.png" id="5_6jinp"]
+[ext_resource type="Texture2D" uid="uid://djf41ora08ijk" path="res://assets/Characters/Snail/snail6.png" id="6_nqtlk"]
+[ext_resource type="Texture2D" uid="uid://j018svf56gan" path="res://assets/Characters/Snail/snail7.png" id="7_oxj1q"]
+[ext_resource type="Texture2D" uid="uid://e22ou54ji8im" path="res://assets/Characters/Snail/snail8.png" id="8_5vlni"]
+[ext_resource type="Texture2D" uid="uid://b2suhbt48sgue" path="res://assets/Characters/Snail/snail9.png" id="9_8n85e"]
+[ext_resource type="Texture2D" uid="uid://brhhdo0hrapmu" path="res://assets/Characters/Snail/snail10.png" id="10_bneky"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1s7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e2vpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0x08p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jptdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pu3w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6jinp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nqtlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oxj1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5vlni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8n85e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bneky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2vpy"]
+radius = 114.0
+height = 334.0
+
+[node name="Snail" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1s7l")
+autoplay = "default"
+frame_progress = 0.960573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-19, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e2vpy")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://l34t3gkcc2tq"]
+[gd_scene load_steps=2 format=3 uid="uid://c41m1bdfj6qws"]
 
 [ext_resource type="Texture2D" uid="uid://d0r1m4mlg8qgw" path="res://assets/Colliders/P3/broken glass c.png" id="1_ouunt"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ouunt")

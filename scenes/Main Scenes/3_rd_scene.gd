@@ -7,6 +7,8 @@ var balloon_scene = preload("res://balloons/SystemBalloon.tscn")
 var boss_balloon_scene = preload("res://balloons/BossBalloon.tscn")
 
 func _ready():
+	GameManager.phase_num = 1
+	GameManager.merchant_access = 1
 	GameManager.current_scene_path = "res://scenes/Main Scenes/3rd_scene.tscn"
 	
 	screen_fade.color.a = 1.0

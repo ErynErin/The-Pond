@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=52 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
+[ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="12_45e12"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="14_iud5h"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="14_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="15_b0kx5"]
 [ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="15_gbf57"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="15_po7p3"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
@@ -27,8 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="25_po7p3"]
 [ext_resource type="AudioStream" uid="uid://088m4dy2feda" path="res://assets/Audios/bgms/Coming of Age Movie BGM.mp3" id="27_po7p3"]
 [ext_resource type="Texture2D" uid="uid://bccbf8jv77bue" path="res://scenes/Platforms/p1_spritesheetss.svg" id="28_khq81"]
-[ext_resource type="PackedScene" path="res://colliderP1_1.tscn" id="28_r8hxo"]
-[ext_resource type="PackedScene" path="res://colliderP1_2.tscn" id="29_khq81"]
+[ext_resource type="PackedScene" uid="uid://ckp88oybg0lkn" path="res://colliderP1_1.tscn" id="28_r8hxo"]
+[ext_resource type="PackedScene" uid="uid://caf7lldollp6k" path="res://scenes/Characters/snail.tscn" id="29_fipse"]
+[ext_resource type="PackedScene" uid="uid://uvpld3c2hlrl" path="res://colliderP1_2.tscn" id="29_khq81"]
+[ext_resource type="PackedScene" uid="uid://b8u3ukm3isipo" path="res://scenes/Characters/ted_siblings.tscn" id="32_utuym"]
 
 [sub_resource type="SystemFont" id="SystemFont_nsaye"]
 
@@ -284,21 +287,29 @@ offset_right = 348.0
 offset_bottom = 310.0
 script = ExtResource("9_qfx3x")
 
+[node name="Coin Icon" type="TextureRect" parent="GUI"]
+offset_left = 400.0
+offset_top = 251.667
+offset_right = 445.0
+offset_bottom = 298.667
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_45e12")
+
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 476.667
+offset_top = 246.667
+offset_right = 578.667
+offset_bottom = 313.667
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_qfx3x")
+theme_override_font_sizes/font_size = 50
+text = "00"
+script = ExtResource("15_po7p3")
+
 [node name="merchant shop" parent="GUI" instance=ExtResource("22_odwuh")]
 visible = false
 scale = Vector2(1.67, 1.67)
-
-[node name="Coins" type="Label" parent="GUI"]
-offset_left = 400.0
-offset_top = 231.667
-offset_right = 617.0
-offset_bottom = 312.667
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("14_qfx3x")
-theme_override_font_sizes/font_size = 60
-text = "Coins: 00"
-script = ExtResource("15_po7p3")
 
 [node name="Pause Menu" parent="GUI" instance=ExtResource("14_iud5h")]
 process_mode = 1
@@ -509,6 +520,10 @@ position = Vector2(6613, -380)
 curve = SubResource("Curve2D_r8hxo")
 loop = false
 
+[node name="Snail" parent="." instance=ExtResource("29_fipse")]
+position = Vector2(-17, 487)
+scale = Vector2(0.95, 0.95)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(9667, -147)
 scale = Vector2(10, 10)
@@ -522,3 +537,8 @@ position = Vector2(162, 602)
 
 [node name="Stick" parent="." instance=ExtResource("29_khq81")]
 position = Vector2(402, 531)
+
+[node name="Ted Siblings" parent="." instance=ExtResource("32_utuym")]
+modulate = Color(0.926806, 0.926806, 0.926806, 1)
+position = Vector2(-902, 187)
+scale = Vector2(0.24, 0.24)

@@ -1,0 +1,192 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8u3ukm3isipo"]
+
+[ext_resource type="Texture2D" uid="uid://cjt4n5gr8b8wj" path="res://assets/BG/Ted_Siblings/1/sibling1_01.png" id="1_xroo1"]
+[ext_resource type="Texture2D" uid="uid://damta5qeb86hu" path="res://assets/BG/Ted_Siblings/1/sibling1_02.png" id="2_oupm7"]
+[ext_resource type="Texture2D" uid="uid://fbbkp710f3vx" path="res://assets/BG/Ted_Siblings/1/sibling1_03.png" id="3_lghcv"]
+[ext_resource type="Texture2D" uid="uid://bv4l1c4vbdfmc" path="res://assets/BG/Ted_Siblings/2/sibling2_01.png" id="4_655au"]
+[ext_resource type="Texture2D" uid="uid://dn0jm0bvx0w32" path="res://assets/BG/Ted_Siblings/2/sibling2_02.png" id="5_a7ix1"]
+[ext_resource type="Texture2D" uid="uid://vshc4cxc5uhm" path="res://assets/BG/Ted_Siblings/3/sibling3_01.png" id="6_1psax"]
+[ext_resource type="Texture2D" uid="uid://ci6rch3t0notp" path="res://assets/BG/Ted_Siblings/3/sibling3_02.png" id="7_1jy8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3qed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xroo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oupm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lghcv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6tsf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_655au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a7ix1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4v8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1psax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1jy8n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_xroo1"]
+resource_name = "loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667, 1.96667),
+"transitions": PackedFloat32Array(0.366022, 2.63902, 0.120742),
+"update": 0,
+"values": [Vector2(-163, 34), Vector2(-230, -134), Vector2(-163, 34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.356047, 0.10472]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1.56667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(212, 275), Vector2(263, 192), Vector2(266, 316)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.833333, 1.83333),
+"transitions": PackedFloat32Array(0.120742, 1),
+"update": 0,
+"values": [Vector2(321, -390), Vector2(266, -303)]
+}
+
+[sub_resource type="Animation" id="Animation_oupm7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-163, 34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(263, 192)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, -390)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oupm7"]
+_data = {
+&"RESET": SubResource("Animation_oupm7"),
+&"loop": SubResource("Animation_xroo1")
+}
+
+[node name="Ted Siblings" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-163, 34)
+sprite_frames = SubResource("SpriteFrames_r3qed")
+autoplay = "default"
+frame_progress = 0.303831
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(321, -390)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_6tsf6")
+autoplay = "default"
+frame_progress = 0.231918
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(263, 192)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_a4v8l")
+autoplay = "default"
+frame_progress = 0.910567
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_oupm7")
+}
+autoplay = "loop"

@@ -142,6 +142,7 @@ func _change_state(new_state) -> void:
 			hurt_box.set_deferred("monitorable", false)
 			hit_box.set_deferred("monitorable", true)
 			sprite_2d.play("attack")
+			animation_player.play("attack")
 		State.VULNERABLE:
 			hurt_box.set_deferred("monitoring", true)
 			hit_box.set_deferred("monitoring", false)

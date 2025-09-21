@@ -5,4 +5,4 @@ func _ready():
 	_on_coins_updated(GameManager.coins)
 
 func _on_coins_updated(new_coins):
-	text = "Coins: " + str(new_coins)
+	text = str(new_coins)

@@ -9,6 +9,8 @@ var enemy_health = 50
 var player_entered: bool = false
 var is_poisoned: bool = false
 var player_in_bite_range: bool = false
+var outside: bool = false
+var spawning = 0
 var poison_elapsed_time: float = 0.0
 
 @onready var player = get_parent().find_child("player")
@@ -20,11 +22,12 @@ var poison_elapsed_time: float = 0.0
 func _ready():
 	actual_speed = (randi() % (100 - 40 + 1)) + 40
 	print("Worm created with speed: ", actual_speed)
-	sprite_2d.play("rest")
-
+	animation_player.play("ground")
+	sprite_2d.play("ground" + str(GameManager.phase_num))
+	
 func _physics_process(delta):
 	var direction : Vector2
-	if is_instance_valid(player) and player_entered:
+	if is_instance_valid(player) and player_entered and outside:
 		direction = global_position.direction_to(player.global_position)
 		global_position.x += direction.x * actual_speed * delta
 		sprite_2d.play("crawl")
@@ -32,6 +35,19 @@ func _physics_process(delta):
 			sprite_2d.flip_h = false
 		else:
 			sprite_2d.flip_h = true
+	elif !outside and player_entered: # if the worm is about to go outside
+		animation_player.play("ground")
+		sprite_2d.play("spawn" + str(GameManager.phase_num))
+		await sprite_2d.animation_finished
+		sprite_2d.play("rest")
+		animation_player.play("RESET")
+		outside = true
+		spawning = -1
+		
+	elif !outside: # if the worm is still underground
+		animation_player.play("ground")
+		sprite_2d.play("ground" + str(GameManager.phase_num))
+		return
 	else:
 		sprite_2d.play("rest")
 		
@@ -59,10 +75,15 @@ func take_damage(damage: float) -> void:
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body == player:
 		player_entered = true
+		if spawning == 0: # if the worm has not spawned yet
+			spawning = 1
 
 func _on_player_detector_body_exited(body: Node2D) -> void:
 	if body == player:
-		player_entered = false
+		if spawning == 1:
+			player_entered = true
+		else:
+			player_entered = false
 
 func _on_timer_timeout() -> void:
 	if is_instance_valid(player) and is_poisoned:
@@ -72,7 +93,9 @@ func _on_timer_timeout() -> void:
 func _on_bite_box_area_entered(area) -> void:
 	if area.owner != null and area.owner.is_in_group("player"):
 		player_in_bite_range = true
-		if !is_poisoned:
+		if is_poisoned:
+			return
+		elif !is_poisoned:
 			print("Player has been poisoned!")
 			$AudioStreamPlayer.play()
 			is_poisoned = true
