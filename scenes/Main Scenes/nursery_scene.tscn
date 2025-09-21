@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=53 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://caf7lldollp6k" path="res://scenes/Characters/snail.tscn" id="29_fipse"]
 [ext_resource type="PackedScene" uid="uid://uvpld3c2hlrl" path="res://colliderP1_2.tscn" id="29_khq81"]
 [ext_resource type="PackedScene" uid="uid://b8u3ukm3isipo" path="res://scenes/Characters/ted_siblings.tscn" id="32_utuym"]
+[ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="33_qtpry"]
 
 [sub_resource type="SystemFont" id="SystemFont_nsaye"]
 
@@ -542,3 +543,8 @@ position = Vector2(402, 531)
 modulate = Color(0.926806, 0.926806, 0.926806, 1)
 position = Vector2(-902, 187)
 scale = Vector2(0.24, 0.24)
+
+[node name="Turtle" parent="." instance=ExtResource("33_qtpry")]
+position = Vector2(282, 442)
+scale = Vector2(0.15, 0.15)
+collision_layer = 0

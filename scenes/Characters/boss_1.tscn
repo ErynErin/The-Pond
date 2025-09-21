@@ -1055,7 +1055,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmcfq"]
-size = Vector2(1962, 1112)
+size = Vector2(1018, 1112)
 
 [node name="Kingstar" type="CharacterBody2D"]
 collision_layer = 2
@@ -1142,7 +1142,7 @@ bus = &"SFX"
 [node name="PlayerDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(4, 98)
+position = Vector2(-135, 98)
 shape = SubResource("RectangleShape2D_kmcfq")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

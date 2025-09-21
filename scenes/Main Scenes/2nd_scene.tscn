@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=38 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="19_wkg83"]
 [ext_resource type="AudioStream" uid="uid://d3l6d8tkmf3t2" path="res://assets/Audios/bgms/Dark Ambient Music BGM.mp3" id="20_ssd1q"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
-[ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="24_wossw"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
 [ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://colliderP2_3.tscn" id="26_2agje"]
 [ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://colliderP2_1.tscn" id="26_f1wsw"]
@@ -296,7 +295,7 @@ physics_material_override = SubResource("PhysicsMaterial_wkg83")
 shape = SubResource("WorldBoundaryShape2D_goyj0")
 
 [node name="Merchant" parent="." instance=ExtResource("18_vksdc")]
-position = Vector2(2368, 502)
+position = Vector2(1378, 412)
 scale = Vector2(0.15, 0.15)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -321,7 +320,7 @@ scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
 [node name="Beetle" parent="." instance=ExtResource("18_ssd1q")]
-position = Vector2(500, 558)
+position = Vector2(-313, 543)
 scale = Vector2(1.5, 1.5)
 slide_on_ceiling = false
 
@@ -332,18 +331,6 @@ autoplay = true
 parameters/looping = true
 
 [node name="Worm" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(1392, 584)
-scale = Vector2(0.5, 0.5)
-
-[node name="Worm2" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(960, 568)
-scale = Vector2(0.5, 0.5)
-
-[node name="Worm3" parent="." instance=ExtResource("19_wkg83")]
-position = Vector2(1096, 568)
-scale = Vector2(0.5, 0.5)
-
-[node name="Worm4" parent="." instance=ExtResource("19_wkg83")]
 position = Vector2(-1799, 550)
 scale = Vector2(0.5, 0.5)
 
@@ -369,21 +356,16 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(-498, 562)
 scale = Vector2(0.8, 0.8)
 
-[node name="Turtle" parent="." instance=ExtResource("24_wossw")]
-position = Vector2(-317, 485)
-scale = Vector2(0.15, 0.15)
-collision_layer = 0
-
 [node name="Bomber Fish" parent="." instance=ExtResource("25_yxl4q")]
-position = Vector2(-715, 321)
+position = Vector2(622, 356)
 scale = Vector2(0.7, 0.7)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("26_2agje")]
-position = Vector2(1848, 368)
+position = Vector2(2056, 406)
 scale = Vector2(1.4, 1.4)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("26_f1wsw")]
-position = Vector2(168, 464)
+position = Vector2(-34, 457)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("27_c7qhk")]
 position = Vector2(1144, 512)
