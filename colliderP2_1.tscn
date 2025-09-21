@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciu4jbm1mikw3"]
+[gd_scene load_steps=4 format=3 uid="uid://blvil0vgakf4g"]
 
 [ext_resource type="Texture2D" uid="uid://cdgu1dqocta24" path="res://assets/Colliders/P2/tire plant nc.png" id="1_a24w4"]
 [ext_resource type="Texture2D" uid="uid://d05bk4wd7d3em" path="res://assets/Colliders/P2/tire c.png" id="1_lupbp"]
@@ -7,6 +7,7 @@
 size = Vector2(577.795, 220.205)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(9.74353, -8.76923)

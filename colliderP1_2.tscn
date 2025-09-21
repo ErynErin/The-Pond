@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbs712bhwk76h"]
+[gd_scene load_steps=2 format=3 uid="uid://uvpld3c2hlrl"]
 
 [ext_resource type="Texture2D" uid="uid://e61gkbi6nke" path="res://assets/Colliders/P1/colliderP1_2.png" id="1_f1j3t"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

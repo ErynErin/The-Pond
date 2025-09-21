@@ -65,9 +65,11 @@ func add_speed():
 	print("speed:", speed)
 
 func show_shop():
-	var current_scene = get_tree().current_scene	
+	var current_scene = get_tree().current_scene
 	var merchant_shop = current_scene.get_node("GUI/merchant shop")
+	var coin_label: Label = current_scene.get_node("GUI/merchant shop/Current Coins/HBoxContainer/Label")
 	merchant_access -= 1
+	coin_label.text = str(coins)
 	merchant_shop.visible = true
 	
 func hide_shop():
@@ -117,4 +119,8 @@ func set_player_movable(is_movable: bool):
 
 func add_coin(amount: int):
 	coins += amount
+	emit_signal("coins_updated", coins)
+
+func reduce_coin(amount: int):
+	coins -= amount
 	emit_signal("coins_updated", coins)

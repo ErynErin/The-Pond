@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ndj7mg5x2uqd"]
+[gd_scene load_steps=24 format=3 uid="uid://ndj7mg5x2uqd"]
 
 [ext_resource type="Script" uid="uid://bpsfmv8hsenh1" path="res://scripts/coin.gd" id="1_7x5bc"]
 [ext_resource type="Texture2D" uid="uid://bhxnauro7fcac" path="res://assets/Sprites/Coin/cap1.png" id="2_paq7y"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://uwf15i5qwvb6" path="res://assets/Sprites/Coin/cap26.png" id="17_gt2e8"]
 [ext_resource type="Texture2D" uid="uid://1ms0xycbthv4" path="res://assets/Sprites/Coin/cap16.png" id="17_kococ"]
 [ext_resource type="Texture2D" uid="uid://cipyr2gc45g14" path="res://assets/Sprites/Coin/cap17.png" id="18_g00c4"]
+[ext_resource type="AudioStream" uid="uid://cq2tkv8xwsrma" path="res://assets/Audios/coin-collect.mp3" id="18_txl5x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_anlxc"]
 animations = [{
@@ -152,6 +153,9 @@ scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_6vlgc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_txl5x")
+volume_db = -5.0
+pitch_scale = 1.1
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]

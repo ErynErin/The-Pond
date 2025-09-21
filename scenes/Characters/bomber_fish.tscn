@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bqv1p3cvx6x6f"]
+[gd_scene load_steps=30 format=3 uid="uid://bqv1p3cvx6x6f"]
 
 [ext_resource type="Script" uid="uid://bgndwoa4xxkk3" path="res://scenes/Characters/bomber_fish.gd" id="1_nlj60"]
 [ext_resource type="Texture2D" uid="uid://b5jv6xx6s3fny" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0000.png" id="1_rflln"]
@@ -92,15 +92,22 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6me8"]
+radius = 31.0161
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlj60"]
+size = Vector2(187, 410.5)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rflln"]
 radius = 72.0
 height = 352.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlxyk"]
-size = Vector2(750.539, 656.531)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlj60"]
+radius = 72.0
+height = 352.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nlj60"]
-radius = 31.0161
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlxyk"]
+size = Vector2(885.27, 726.266)
 
 [sub_resource type="Animation" id="Animation_6wt1p"]
 length = 0.001
@@ -143,42 +150,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/3/path = NodePath("Pivot/HitBox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-95, 210)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_qrnk6"]
-resource_name = "hurt"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.266667, 0.366667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Vector2(-95, 146)]
 }
 
 [sub_resource type="Animation" id="Animation_nlj60"]
@@ -211,7 +190,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/2/path = NodePath("Pivot/HitBox/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -220,17 +199,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(-95, 146), Vector2(-95, 210), Vector2(-96, 317), Vector2(-96, 370)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.295302, 0.321906, 0.774171),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
+
+[sub_resource type="Animation" id="Animation_qrnk6"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.266667, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ng8k"]
@@ -255,6 +238,23 @@ sprite_frames = SubResource("SpriteFrames_qjwes")
 animation = &"attack"
 autoplay = "idle"
 
+[node name="HitBox" type="Area2D" parent="Pivot"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("20_nlxyk")
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HitBox"]
+position = Vector2(-95, 146)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_v6me8")
+
+[node name="Attack Area" type="Area2D" parent="Pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack Area"]
+position = Vector2(-90, 272)
+shape = SubResource("RectangleShape2D_nlj60")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rflln")
@@ -268,33 +268,22 @@ script = ExtResource("18_0siwv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_rflln")
+shape = SubResource("CapsuleShape2D_nlj60")
 
 [node name="Player Detector" type="Area2D" parent="."]
 position = Vector2(-4, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Detector"]
-position = Vector2(0, 110)
+position = Vector2(5, 140.867)
+scale = Vector2(1.27162, 1)
 shape = SubResource("RectangleShape2D_nlxyk")
-
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 8
-monitoring = false
-monitorable = false
-script = ExtResource("20_nlxyk")
-metadata/_custom_type_script = "uid://cfdlbfbudy12s"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-95, 210)
-rotation = 1.5708
-shape = SubResource("CircleShape2D_nlj60")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2ng8k")
 }
 
+[connection signal="area_entered" from="Pivot/HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="Pivot/Attack Area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Player Detector" to="." method="_on_player_detector_body_exited"]

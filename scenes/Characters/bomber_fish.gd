@@ -2,17 +2,16 @@ extends CharacterBody2D
 
 const WALK_SPEED = 50.0
 const FOLLOW_SPEED = 200.0
+const ATTACK_SPEED = 300.0
 const WALK_DISTANCE = 200.0
 const STANDING_DURATION = 3.0
 const MAX_ATTACKS = 5
-const ATTACK_COOLDOWN = 3.0
-const ATTACK_RANGE = 60.0
 
 enum State { STAND, WALK, FOLLOW, ATTACK, COOLDOWN }
 
 @onready var player = get_parent().find_child("player")
 @onready var hurt_box: HurtBox = $HurtBox
-@onready var hit_box: Area2D = $HitBox
+@onready var hit_box: HitBox = $Pivot/HitBox
 @onready var pivot: Node2D = $Pivot
 @onready var sprite_2d: AnimatedSprite2D = $Pivot/Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -25,14 +24,6 @@ var direction: float = 1.0
 var enemy_health = 30
 var is_player_in_range: bool = false
 var attack_count: int = 0
-var start_position: Vector2
-
-func _ready():
-	start_position = global_position
-	
-	# Connect player detector signals
-	player_detector.body_entered.connect(_on_player_detected)
-	player_detector.body_exited.connect(_on_player_lost)
 
 func _physics_process(delta):
 	state_timer += delta
@@ -45,7 +36,7 @@ func _physics_process(delta):
 		State.FOLLOW:
 			_handle_follow_state(delta)
 		State.ATTACK:
-			_handle_attack_state()
+			_handle_attack_state(delta)
 		State.COOLDOWN:
 			_handle_cooldown_state()
 	
@@ -58,88 +49,86 @@ func _handle_stand_state():
 	if is_player_in_range:
 		_change_state(State.FOLLOW)
 	elif state_timer >= STANDING_DURATION:
+		_flip_sprite()
 		_change_state(State.WALK)
 
 func _handle_walk_state(delta):
 	velocity.x = direction * WALK_SPEED
 	sprite_2d.play("idle")
 	
-	# Update distance traveled
 	distance_traveled += abs(velocity.x) * delta
 	
-	# Check if player is detected
 	if is_player_in_range:
 		_change_state(State.FOLLOW)
 		return
 	
-	# Check if walked the required distance
 	if distance_traveled >= WALK_DISTANCE:
-		direction *= -1  # Reverse direction
-		_flip_sprite()
+		direction *= -1
 		_change_state(State.STAND)
 
 func _handle_follow_state(delta):
-	if not player:
+	if not is_instance_valid(player):
 		_change_state(State.STAND)
 		return
 	
-	var distance_to_player = global_position.distance_to(player.global_position)
-	
-	# If close enough to attack
-	if distance_to_player <= ATTACK_RANGE:
-		_change_state(State.ATTACK)
-		return
-	
-	# If player is out of detection range
 	if not is_player_in_range:
-		_change_state(State.STAND)
+		_change_state(State.STAND) 
 		return
 	
-	# Move towards player
-	var direction_to_player = (player.global_position - global_position).normalized()
-	velocity = direction_to_player * FOLLOW_SPEED
-	
-	# Update sprite direction
-	if direction_to_player.x > 0:
+	var direct = global_position.direction_to(player.global_position)
+	global_position.x += direct.x * FOLLOW_SPEED * delta
+	if direct.x > 0:
 		direction = 1
-	elif direction_to_player.x < 0:
+		_flip_sprite()
+	else:
 		direction = -1
-	_flip_sprite()
+		_flip_sprite()
 	
 	sprite_2d.play("idle")
 
-func _handle_attack_state():
-	# Fish can still move during attacks if needed
-	# velocity is not set to zero here to allow movement during attacks
-	
-	# Start attacking if we haven't started yet
-	if attack_count == 0:
-		_perform_attack()
+func _handle_attack_state(delta):
+	if is_instance_valid(player):
+		var direct = global_position.direction_to(player.global_position)
+		global_position.x += direct.x * FOLLOW_SPEED * delta
+		if direct.x > 0:
+			direction = 1
+			_flip_sprite()
+		else:
+			direction = -1
+			_flip_sprite()
+	else:
+		_change_state(State.COOLDOWN)
 
 func _handle_cooldown_state():
 	velocity = Vector2.ZERO
 	sprite_2d.play("idle")
 	
-	if state_timer >= ATTACK_COOLDOWN:
-		attack_count = 0
+	if state_timer >= STANDING_DURATION:
 		if is_player_in_range:
 			_change_state(State.FOLLOW)
 		else:
-			_change_state(State.STAND)
+			_flip_sprite()
+			_change_state(State.WALK)
 
-func _perform_attack():
-	attack_count += 1
-	animation_player.play("attack")
+func _perform_attack_sequence():
+	for i in range(MAX_ATTACKS):
+		if not is_instance_valid(player):
+			_change_state(State.COOLDOWN)
+			break
+			
+		# Play the attack animation
+		sprite_2d.play("attack")
+		animation_player.play("attack")
+		
+		# Wait for the animation to finish
+		await animation_player.animation_finished
+		
+		# Stop velocity and wait a short time before the next attack
+		velocity = Vector2.ZERO
+		await get_tree().create_timer(0.2).timeout
 	
-	# Wait for attack animation to finish, then check if we need more attacks
-	await animation_player.animation_finished
-	
-	if attack_count < MAX_ATTACKS:
-		# Continue attacking
-		_perform_attack()
-	else:
-		# Finished all attacks, go to cooldown
-		_change_state(State.COOLDOWN)
+	# After all attacks are done, change to cooldown state
+	_change_state(State.COOLDOWN)
 
 func _change_state(new_state: State):
 	current_state = new_state
@@ -149,21 +138,16 @@ func _change_state(new_state: State):
 		State.WALK:
 			distance_traveled = 0.0
 		State.ATTACK:
-			attack_count = 0
+			# Start the attack sequence when entering the attack state
+			_perform_attack_sequence()
+		State.COOLDOWN:
+			velocity = Vector2.ZERO
 
 func _flip_sprite():
 	if direction > 0:
-		pivot.scale.x = 1
-	else:
 		pivot.scale.x = -1
-
-func _on_player_detected(body):
-	if body == player:
-		is_player_in_range = true
-
-func _on_player_lost(body):
-	if body == player:
-		is_player_in_range = false
+	else:
+		pivot.scale.x = 1
 
 func _on_hurt(damage_amount: int = 1):
 	enemy_health -= damage_amount
@@ -173,3 +157,21 @@ func _on_hurt(damage_amount: int = 1):
 		sprite_2d.play("death")
 		await sprite_2d.animation_finished
 		queue_free()
+
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	if body == player:
+		is_player_in_range = true
+
+func _on_player_detector_body_exited(body: Node2D) -> void:
+	if body == player:
+		is_player_in_range = false
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body == player:
+		_change_state(State.ATTACK)
+
+func _on_hit_box_area_entered(area) -> void:
+	if current_state == State.ATTACK:
+		if area.owner.is_in_group("player"):
+			GameManager.take_damage(10.0)
+			player._on_hurt_box_area_entered(null)

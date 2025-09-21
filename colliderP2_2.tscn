@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://oe84hg17fapd"]
+[gd_scene load_steps=6 format=3 uid="uid://d0non4l3cian2"]
 
 [ext_resource type="Texture2D" uid="uid://16kn8xpy1exe" path="res://assets/Colliders/P2/rock_colliders.png" id="1_6sfud"]
 
@@ -20,6 +20,7 @@ height = 352.362
 
 [node name="StaticBody2D" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6sfud")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://0gwvr1mcfucc"]
+[gd_scene load_steps=35 format=3 uid="uid://0gwvr1mcfucc"]
 
 [ext_resource type="Texture2D" uid="uid://dfoeb3l3cxt1d" path="res://assets/BG/Phase 3/1.png" id="1_ff7f0"]
 [ext_resource type="Script" uid="uid://c3n8hb0oj65hp" path="res://scenes/Main Scenes/3_rd_scene.gd" id="1_fngbt"]
@@ -10,21 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://cm3ufwpggnhmh" path="res://assets/GUI/Game Screen UI/P3_health.png" id="8_ff7f0"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_7fgw2"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_3xx46"]
+[ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="11_oioei"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_7fgw2"]
 [ext_resource type="AudioStream" uid="uid://co863n64uai7t" path="res://assets/Audios/bgms/Escalation by Ghostrifter Avalon.mp3" id="14_e0iyr"]
-[ext_resource type="Script" path="res://scripts/coins.gd" id="14_yatwi"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_yatwi"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="Texture2D" uid="uid://b6630xarsn24w" path="res://assets/Colliders/P3/6 pack ring non c.png" id="15_mswc0"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_yatwi"]
 [ext_resource type="Texture2D" uid="uid://cwknh3d1nt8j8" path="res://assets/Colliders/P3/wine non c.png" id="17_oioei"]
 [ext_resource type="PackedScene" uid="uid://mlspxc2wfne5" path="res://scenes/Player/player_phase3.tscn" id="18_7fgw2"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="19_yatwi"]
-[ext_resource type="PackedScene" path="res://colliderP3_1.tscn" id="20_26pct"]
+[ext_resource type="PackedScene" uid="uid://c41m1bdfj6qws" path="res://colliderP3_1.tscn" id="20_26pct"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="20_fngbt"]
-[ext_resource type="PackedScene" path="res://colliderP3_2.tscn" id="21_btbex"]
+[ext_resource type="PackedScene" uid="uid://cmndnfglye0vy" path="res://colliderP3_2.tscn" id="21_btbex"]
 [ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="21_fngbt"]
-[ext_resource type="PackedScene" path="res://colliderP3_3.tscn" id="22_mswc0"]
-[ext_resource type="PackedScene" path="res://colliderP3_4.tscn" id="23_oioei"]
+[ext_resource type="PackedScene" uid="uid://d4g3nmpwqulma" path="res://colliderP3_3.tscn" id="22_mswc0"]
+[ext_resource type="PackedScene" uid="uid://barjrf2nutqfi" path="res://colliderP3_4.tscn" id="23_oioei"]
 
 [sub_resource type="SystemFont" id="SystemFont_e0iyr"]
 
@@ -153,7 +154,6 @@ region_rect = Rect2(0, 0, 10000, 720)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 scale = Vector2(0.6, 0.6)
 transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
 
@@ -182,20 +182,29 @@ offset_right = 348.0
 offset_bottom = 310.0
 script = ExtResource("9_7fgw2")
 
-[node name="Coins" type="Label" parent="GUI"]
+[node name="Coin Icon" type="TextureRect" parent="GUI"]
 offset_left = 400.0
-offset_top = 231.667
-offset_right = 617.0
-offset_bottom = 312.667
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
+offset_top = 251.667
+offset_right = 445.0
+offset_bottom = 298.667
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("11_oioei")
+
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 476.667
+offset_top = 246.667
+offset_right = 578.667
+offset_bottom = 313.667
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("13_7fgw2")
-theme_override_font_sizes/font_size = 60
-text = "Coins: 00"
+theme_override_font_sizes/font_size = 50
+text = "00"
 script = ExtResource("14_yatwi")
 
 [node name="Pause Menu" parent="GUI" instance=ExtResource("15_btcw1")]
 process_mode = 1
+visible = false
 z_index = 10
 offset_right = 958.0
 offset_bottom = 546.0
@@ -270,7 +279,6 @@ autoplay = true
 parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -307,8 +315,8 @@ position = Vector2(3714, 403)
 scale = Vector2(1.3, 1.3)
 
 [node name="Kingstar" parent="." instance=ExtResource("21_fngbt")]
-position = Vector2(3488, 376)
-scale = Vector2(0.7, 0.7)
+position = Vector2(3521, 286)
+scale = Vector2(0.8, 0.8)
 
 [node name="Boss Dialogue Area" type="Area2D" parent="."]
 
@@ -331,7 +339,7 @@ position = Vector2(1936, 264)
 position = Vector2(568, 256)
 
 [node name="Coin" parent="." instance=ExtResource("22_mswc0")]
-position = Vector2(-168, 272)
+position = Vector2(-1090, 254)
 
 [node name="WaterBottle" parent="." instance=ExtResource("23_oioei")]
 position = Vector2(1312, 272)

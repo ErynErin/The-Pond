@@ -7,13 +7,25 @@
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="4_8sbd5"]
 [ext_resource type="Texture2D" uid="uid://bpqdfp3cgqi5a" path="res://assets/Merchant Items/P1_speed.png" id="4_mknrg"]
 [ext_resource type="Texture2D" uid="uid://jlii0lklfwtb" path="res://assets/Merchant Items/P1_strength.png" id="5_786rh"]
-[ext_resource type="Texture2D" uid="uid://baeglhowuh3cs" path="res://assets/Sprites/coin.png" id="6_b1vcl"]
+[ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="6_35e4j"]
 [ext_resource type="AudioStream" uid="uid://dt2b5784r6j06" path="res://assets/Audios/button.wav" id="7_mknrg"]
 [ext_resource type="AudioStream" uid="uid://cp323mhr1ylgy" path="res://assets/Audios/merchant purchase.mp3" id="8_786rh"]
 [ext_resource type="AudioStream" uid="uid://c1fox7g2x7bhb" path="res://assets/Audios/error.mp3" id="11_35e4j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_786rh"]
 texture = ExtResource("3_qyu7k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1vcl"]
+bg_color = Color(0.811765, 0.662745, 0.403922, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.545098, 0.376471, 0.14902, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sbd5"]
 bg_color = Color(0.672165, 0.534945, 0.291969, 1)
@@ -34,18 +46,6 @@ border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
 border_color = Color(0.25, 0.170917, 0.0675, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1vcl"]
-bg_color = Color(0.811765, 0.662745, 0.403922, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(0.545098, 0.376471, 0.14902, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -187,6 +187,7 @@ theme_override_constants/separation = 25
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_b1vcl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_opqmd")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
@@ -245,7 +246,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("6_b1vcl")
+texture = ExtResource("6_35e4j")
 expand_mode = 1
 
 [node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Health Button/HBoxContainer/Panel/HBoxContainer"]
@@ -258,6 +259,7 @@ text = " 5 "
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_b1vcl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_s62yj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
@@ -317,7 +319,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("6_b1vcl")
+texture = ExtResource("6_35e4j")
 expand_mode = 1
 
 [node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Speed Button/HBoxContainer/Panel/HBoxContainer"]
@@ -330,8 +332,9 @@ text = "10"
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_b1vcl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sbd5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8sbd5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s62yj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1vcl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop Panel/Buttons/Strength Button"]
@@ -389,7 +392,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("6_b1vcl")
+texture = ExtResource("6_35e4j")
 expand_mode = 1
 
 [node name="CoinLabel" type="Label" parent="Shop Panel/Buttons/Strength Button/HBoxContainer/Panel/HBoxContainer"]
@@ -405,20 +408,32 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -123.5
-offset_top = -161.0
-offset_right = 123.5
-offset_bottom = -72.0
+offset_left = -105.0
+offset_top = -200.0
+offset_right = 105.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f1f6r")
 
-[node name="Label" type="Label" parent="Current Coins"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Current Coins"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Current Coins/HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_35e4j")
+
+[node name="Label" type="Label" parent="Current Coins/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_8sbd5")
 theme_override_font_sizes/font_size = 50
-text = "Coins: 00"
+text = "00"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mknrg")
@@ -443,6 +458,28 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w4xb0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_if5od")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cfgqf")
 text = "X"
+
+[node name="Insufficient" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -79.0
+offset_right = 325.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.671122, 0.180104, 0.236151, 1)
+theme_override_fonts/font = ExtResource("4_8sbd5")
+theme_override_font_sizes/font_size = 40
+text = "Insufficient caps collected!"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="Shop Panel/Buttons/Health Button" to="." method="_on_health_button_pressed"]
 [connection signal="pressed" from="Shop Panel/Buttons/Speed Button" to="." method="_on_speed_button_pressed"]
