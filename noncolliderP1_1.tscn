@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://coan84jcrei0f"]
+
+[ext_resource type="Texture2D" uid="uid://c7rt5wrrg1act" path="res://assets/Colliders/P1/noncolliderP1_1.png" id="1_lr8de"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lr8de")

@@ -273,13 +273,12 @@ z_index = 3
 position = Vector2(-1118, 12)
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D2" type="Camera2D" parent="player"]
 position = Vector2(-43.9999, 742)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(0, -400)
-zoom = Vector2(1.13, 1.13)
 process_callback = 0
-limit_top = -180
+limit_top = -200
 limit_bottom = 1200
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -317,13 +316,13 @@ position = Vector2(3714, 403)
 scale = Vector2(1.3, 1.3)
 
 [node name="Kingstar" parent="." instance=ExtResource("21_fngbt")]
-position = Vector2(3642, 336)
+position = Vector2(8056, 288)
 scale = Vector2(0.6, 0.6)
 
 [node name="Boss Dialogue Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss Dialogue Area"]
-position = Vector2(3036, 448)
+position = Vector2(7104, 464)
 shape = SubResource("RectangleShape2D_e0iyr")
 
 [node name="coin" parent="." instance=ExtResource("19_yatwi")]
