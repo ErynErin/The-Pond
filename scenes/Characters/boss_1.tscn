@@ -923,7 +923,7 @@ radius = 1200.0
 height = 3690.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wom53"]
-size = Vector2(490, 835)
+size = Vector2(789, 835)
 
 [sub_resource type="Animation" id="Animation_yksyv"]
 length = 0.001
@@ -1092,7 +1092,7 @@ script = ExtResource("204_yksyv")
 metadata/_custom_type_script = "uid://cfdlbfbudy12s"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-223, 142.5)
+position = Vector2(-137.5, 142.5)
 shape = SubResource("RectangleShape2D_wom53")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

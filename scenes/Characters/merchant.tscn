@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd1qu81rucmuf"]
+[gd_scene load_steps=19 format=3 uid="uid://bd1qu81rucmuf"]
 
 [ext_resource type="Script" uid="uid://c7uosxndqn2iv" path="res://scripts/merchant.gd" id="1_12ke4"]
 [ext_resource type="Texture2D" uid="uid://4bfnf0qvptgi" path="res://assets/Characters/Merchant/Sol_Idle/Sol_1.png" id="2_m0sul"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://sv8iocxy344n" path="res://assets/Characters/Merchant/Sol_Talk/Talk_2.png" id="12_al4p4"]
 [ext_resource type="Texture2D" uid="uid://bwl0n4uxoome3" path="res://assets/Characters/Merchant/Sol_Talk/Talk_3.png" id="13_xf0xi"]
 [ext_resource type="AudioStream" uid="uid://dhpx3cf4a4jro" path="res://assets/Audios/merchant open.wav" id="15_02hce"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="16_1ufww"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7uljk"]
 animations = [{
@@ -87,3 +88,23 @@ shape = SubResource("RectangleShape2D_7rnkl")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_02hce")
 bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -394.0
+offset_top = -115.0
+offset_right = 394.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("16_1ufww")
+theme_override_font_sizes/font_size = 35
+text = "You can no longer talk to the merchant!"
+horizontal_alignment = 1

@@ -1,12 +1,17 @@
 extends Node2D
 
-@onready var screen_fade = $CanvasLayer/ScreenFade
+@onready var screen_fade = $GUI/ScreenFade
 @onready var dialogue_resource: DialogueResource = preload("res://dialogues/p1_nurseryintro.dialogue")
 var balloon_scene = preload("res://balloons/SystemBalloon.tscn")  # Your custom balloon scene
 
-func _ready():
+func _init() -> void:
 	GameManager.phase_num = 1
 	GameManager.merchant_access = 1
+	GameManager.enemies_killed = 0
+	GameManager.algae_eaten = 0
+	GameManager.caps_collected = 0
+
+func _ready():
 	GameManager.current_scene_path = "res://scenes/Main Scenes/nursery_scene.tscn"
 	
 	screen_fade.color.a = 1.0

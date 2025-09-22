@@ -16,6 +16,7 @@ enum State { STAND, WALK, FOLLOW, ATTACK, COOLDOWN }
 @onready var sprite_2d: AnimatedSprite2D = $Pivot/Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_detector: Area2D = $"Player Detector"
+@onready var coin_scene = preload("res://scenes/Collectibles/coin.tscn")
 
 var current_state = State.STAND
 var state_timer: float = 0.0
@@ -156,6 +157,14 @@ func _on_hurt(damage_amount: int = 1):
 	if enemy_health <= 0:
 		sprite_2d.play("death")
 		await sprite_2d.animation_finished
+		
+		for i in range(3):
+			var coin_instance = coin_scene.instantiate()
+			var offset = (i - 0.5) * 65
+			coin_instance.global_position = global_position + Vector2(offset, 0)
+			get_parent().add_child(coin_instance)
+			
+		GameManager.add_enemies_killed()
 		queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:

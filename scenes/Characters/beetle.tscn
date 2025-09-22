@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bntvonb1a06nv"]
+[gd_scene load_steps=35 format=3 uid="uid://c8tm1q4vcevf5"]
 
 [ext_resource type="Script" uid="uid://dln17eeeowjef" path="res://scripts/beetle.gd" id="1_k76xx"]
 [ext_resource type="Texture2D" uid="uid://crwataw8s03l8" path="res://assets/Characters/Water Beetle Tank/Walk/BeetleW_0010.png" id="2_j2l52"]
@@ -23,13 +23,13 @@
 [ext_resource type="Texture2D" uid="uid://qo0ghtjjb10g" path="res://assets/Characters/Water Beetle Tank/Idle/Beetle_6.png" id="14_stksv"]
 [ext_resource type="Texture2D" uid="uid://3rjop35mltqt" path="res://assets/Characters/Water Beetle Tank/Idle/Beetle_7.png" id="15_ans0d"]
 [ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="23_mhe5e"]
-[ext_resource type="AudioStream" uid="uid://citc2cma8k7u4" path="res://assets/Audios/enemies/beetle charge.mp3" id="24_r2iln"]
-[ext_resource type="AudioStream" uid="uid://rinopi30m814" path="res://assets/Audios/enemies/beetle hit.mp3" id="25_emjoi"]
-[ext_resource type="AudioStream" uid="uid://b4uuqdo1rp4ju" path="res://assets/Audios/player/death.mp3" id="26_emjoi"]
+[ext_resource type="AudioStream" uid="uid://citc2cma8k7u4" path="res://assets/Audios/enemies/beetle charge.mp3" id="24_nij4v"]
+[ext_resource type="AudioStream" uid="uid://rinopi30m814" path="res://assets/Audios/enemies/beetle hit.mp3" id="25_n42kg"]
+[ext_resource type="AudioStream" uid="uid://b4uuqdo1rp4ju" path="res://assets/Audios/player/death.mp3" id="26_68c7f"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stksv"]
-radius = 40.0
-height = 126.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe5e"]
+a = Vector2(8, 55)
+b = Vector2(-9, 55)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_46d1w"]
 animations = [{
@@ -133,82 +133,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_nlj60"]
-resource_name = "attack"
-step = 0.111111
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/Sprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.111111, 0.137715, 0.774171),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_qrnk6"]
 resource_name = "hurt"
@@ -220,7 +144,7 @@ tracks/0/path = NodePath("Pivot/Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.266667, 0.366667, 0.5),
+"times": PackedFloat32Array(0, 0.15, 0.233333, 0.366667, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -229,18 +153,17 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ng8k"]
 _data = {
 &"RESET": SubResource("Animation_6wt1p"),
-&"attack": SubResource("Animation_nlj60"),
 &"hurt": SubResource("Animation_qrnk6")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k76xx"]
 size = Vector2(456.156, 367.063)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qr3hx"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
 radius = 185.0
 height = 610.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_emjoi"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5gsta"]
 radius = 30.0
 height = 106.0
 
@@ -250,9 +173,8 @@ collision_mask = 2
 script = ExtResource("1_k76xx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_stksv")
+position = Vector2(-1, -7)
+shape = SubResource("SegmentShape2D_mhe5e")
 one_way_collision = true
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -261,7 +183,7 @@ one_way_collision = true
 position = Vector2(44, -1)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_46d1w")
-animation = &"attack"
+animation = &"vulnerable"
 autoplay = "stand"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -286,9 +208,8 @@ monitorable = false
 script = ExtResource("8_jrr2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-225, 25)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_qr3hx")
+position = Vector2(-225, -30)
+shape = SubResource("CapsuleShape2D_qrnk6")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 16
@@ -299,21 +220,20 @@ script = ExtResource("23_mhe5e")
 metadata/_custom_type_script = "uid://cfdlbfbudy12s"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-3, 8)
+position = Vector2(-10, 22)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_emjoi")
-disabled = true
+shape = SubResource("CapsuleShape2D_5gsta")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_r2iln")
+stream = ExtResource("24_nij4v")
 bus = &"SFX"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("25_emjoi")
+stream = ExtResource("25_n42kg")
 bus = &"SFX"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_emjoi")
+stream = ExtResource("26_68c7f")
 bus = &"SFX"
 
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]

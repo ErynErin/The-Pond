@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0gwvr1mcfucc"]
+[gd_scene load_steps=36 format=3 uid="uid://0gwvr1mcfucc"]
 
 [ext_resource type="Texture2D" uid="uid://dfoeb3l3cxt1d" path="res://assets/BG/Phase 3/1.png" id="1_ff7f0"]
 [ext_resource type="Script" uid="uid://c3n8hb0oj65hp" path="res://scenes/Main Scenes/3_rd_scene.gd" id="1_fngbt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="11_oioei"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_7fgw2"]
 [ext_resource type="AudioStream" uid="uid://co863n64uai7t" path="res://assets/Audios/bgms/Escalation by Ghostrifter Avalon.mp3" id="14_e0iyr"]
+[ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="14_m0dlc"]
 [ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_yatwi"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="15_btcw1"]
 [ext_resource type="Texture2D" uid="uid://b6630xarsn24w" path="res://assets/Colliders/P3/6 pack ring non c.png" id="15_mswc0"]
@@ -202,6 +203,9 @@ theme_override_font_sizes/font_size = 50
 text = "00"
 script = ExtResource("14_yatwi")
 
+[node name="Objectives" parent="GUI" instance=ExtResource("14_m0dlc")]
+scale = Vector2(1.67, 1.67)
+
 [node name="Pause Menu" parent="GUI" instance=ExtResource("15_btcw1")]
 process_mode = 1
 visible = false
@@ -213,6 +217,16 @@ scale = Vector2(1.11, 1.11)
 [node name="Options" parent="GUI" instance=ExtResource("16_yatwi")]
 visible = false
 scale = Vector2(1.67, 1.67)
+
+[node name="ScreenFade" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67, 1.67)
+color = Color(0, 0, 0, 1)
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
@@ -278,18 +292,6 @@ volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 40.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="Food" type="Node2D" parent="."]
 position = Vector2(-800, 200)
 metadata/_edit_lock_ = true
@@ -315,8 +317,8 @@ position = Vector2(3714, 403)
 scale = Vector2(1.3, 1.3)
 
 [node name="Kingstar" parent="." instance=ExtResource("21_fngbt")]
-position = Vector2(3655, 282)
-scale = Vector2(0.8, 0.8)
+position = Vector2(3642, 336)
+scale = Vector2(0.6, 0.6)
 
 [node name="Boss Dialogue Area" type="Area2D" parent="."]
 

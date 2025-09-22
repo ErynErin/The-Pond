@@ -19,10 +19,7 @@ func _ready() -> void:
 
 func _on_health_button_pressed():
 	if GameManager.coins < 5:
-		insufficient.visible = true
-		$AudioStreamPlayer3.play()
-		await get_tree().create_timer(3).timeout
-		insufficient.visible = false
+		insufficientLabelCall()
 		return
 	$AudioStreamPlayer2.play()
 	GameManager.reduce_coin(5)
@@ -32,10 +29,7 @@ func _on_health_button_pressed():
 	
 func _on_strength_button_pressed():
 	if GameManager.coins < 10:
-		insufficient.visible = true
-		$AudioStreamPlayer3.play()
-		await get_tree().create_timer(3).timeout
-		insufficient.visible = false
+		insufficientLabelCall()
 		return
 	$AudioStreamPlayer2.play()
 	GameManager.reduce_coin(10)
@@ -45,10 +39,7 @@ func _on_strength_button_pressed():
 
 func _on_speed_button_pressed():
 	if GameManager.coins < 10:
-		insufficient.visible = true
-		$AudioStreamPlayer3.play()
-		await get_tree().create_timer(3).timeout
-		insufficient.visible = false
+		insufficientLabelCall()
 		return
 	$AudioStreamPlayer2.play()
 	GameManager.reduce_coin(10)
@@ -58,3 +49,9 @@ func _on_speed_button_pressed():
 
 func _on_exit_pressed() -> void:
 	GameManager.hide_shop()
+
+func insufficientLabelCall():
+	insufficient.visible = true
+	$AudioStreamPlayer3.play()
+	await get_tree().create_timer(3).timeout
+	insufficient.visible = false

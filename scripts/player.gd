@@ -68,7 +68,8 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: float):
 	GameManager.take_damage(damage)
 
-func _on_hurt_box_area_entered(_area) -> void:
+func _on_hurt_box_area_entered(area: HitBox) -> void:
+	print("playr hurt")
 	animation_player.play("hurt")
 
 func _on_player_died():
@@ -78,4 +79,5 @@ func _on_player_died():
 	GameManager.player_died.disconnect(_on_player_died)
 	await animated_sprite.animation_finished
 	GameManager.current_health = 60.0
+	GameManager.coins = GameManager.coins - GameManager.caps_collected
 	get_tree().reload_current_scene()

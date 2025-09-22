@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xwmx5lh25son"]
+[gd_scene load_steps=6 format=3 uid="uid://xwmx5lh25son"]
 
 [ext_resource type="Script" uid="uid://s1dj1w4lvbrm" path="res://scripts/loading_scene.gd" id="1_akoac"]
 [ext_resource type="Texture2D" uid="uid://3yhk5ufsn5ut" path="res://assets/BG/UI LAYOUTS.png" id="2_yu65x"]
+[ext_resource type="PackedScene" uid="uid://b8u3ukm3isipo" path="res://scenes/Characters/ted_siblings.tscn" id="3_sbjgy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu65x"]
 bg_color = Color(0.666569, 0.666569, 0.666569, 0.454902)
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 5
 script = ExtResource("1_akoac")
 
 [node name="BG" type="TextureRect" parent="."]
@@ -34,28 +36,40 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_yu65x")
 
 [node name="Overlay" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1917.0
-offset_bottom = 1082.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.113725, 0.113725, 0.113725, 0.505882)
+
+[node name="Overlay2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="progress_num" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1160.0
-offset_top = 814.0
+offset_top = 830.0
 offset_right = 1275.0
-offset_bottom = 869.0
-theme_override_font_sizes/font_size = 40
+offset_bottom = 885.0
+theme_override_font_sizes/font_size = 30
 text = "100%"
 horizontal_alignment = 2
 
 [node name="loading" type="Label" parent="."]
 layout_mode = 0
 offset_left = 644.0
-offset_top = 808.0
+offset_top = 830.0
 offset_right = 830.0
-offset_bottom = 863.0
-theme_override_font_sizes/font_size = 40
+offset_bottom = 872.0
+theme_override_font_sizes/font_size = 30
 text = "Loading..."
 
 [node name="progress_bar" type="ProgressBar" parent="."]
@@ -66,12 +80,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -327.0
-offset_top = 337.0
+offset_top = 350.0
 offset_right = 327.0
-offset_bottom = 395.0
+offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_yu65x")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sbjgy")
 value = 50.0
 show_percentage = false
+
+[node name="Ted Siblings" parent="." instance=ExtResource("3_sbjgy")]
+position = Vector2(942, 471)
+scale = Vector2(0.2, 0.2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -449,10 +449,10 @@ bus = &"SFX"
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 2
-offset_left = 1732.0
-offset_top = 43.0
-offset_right = 1879.0
-offset_bottom = 145.0
+offset_left = 1635.0
+offset_top = 68.0
+offset_right = 1782.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/hover = SubResource("StyleBoxFlat_w4xb0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_if5od")
