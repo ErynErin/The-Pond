@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5m6qsf0oxana"]
+
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="1_ra0ym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ra0ym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5fb2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6bc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3cjy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbdb7"]
+
+[node name="Objectives" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 1437.0
+offset_top = 38.0
+offset_right = 1869.0
+offset_bottom = 401.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 50.0
+offset_right = 96.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 40
+text = "Objectives:"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Kill 3 enemies"
+
+[node name="CheckBox2" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Eat 10 algae"
+
+[node name="CheckBox3" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Collect 5 bottle caps"
+
+[node name="CheckBox4" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Talk to the merchant"
+
+[node name="CheckBox5" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Survive the trash flood"
+
+[node name="CheckBox6" type="CheckBox" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.31185, 0.31185, 0.31185, 1)
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("1_ra0ym")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ra0ym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5fb2i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6bc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j3cjy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mbdb7")
+button_mask = 0
+text = "Reach the end of the stage"

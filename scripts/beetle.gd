@@ -18,6 +18,7 @@ enum State { STAND, CRAWL, CHARGE, ATTACK, VULNERABLE }
 @onready var pivot: Node2D = $Pivot
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_detector: Area2D = $"Player Detector"
+@onready var coin_scene = preload("res://scenes/Collectibles/coin.tscn")
 
 var current_state = State.STAND
 var state_timer: float = 0.0
@@ -91,6 +92,7 @@ func _attack_state(delta: float) -> void:
 	if state_timer >= ATTACK_DURATION:
 		$AudioStreamPlayer2.play()
 		if player_was_hit:
+			print("player hit")
 			if is_player_in_range:
 				_change_state(State.STAND)
 			else:
@@ -142,7 +144,6 @@ func _change_state(new_state) -> void:
 			hurt_box.set_deferred("monitorable", false)
 			hit_box.set_deferred("monitorable", true)
 			sprite_2d.play("attack")
-			animation_player.play("attack")
 		State.VULNERABLE:
 			hurt_box.set_deferred("monitoring", true)
 			hit_box.set_deferred("monitoring", false)
@@ -172,9 +173,14 @@ func take_damage(_damage: float) -> void:
 		# Check if beetle should die (after 2 total hits)
 		if total_hits_taken >= 2:
 			$AudioStreamPlayer3.play()
-			await $AudioStreamPlayer3.finished
+			
+			for i in range(2):
+				var coin_instance = coin_scene.instantiate()
+				var offset = (i - 0.5) * 50
+				coin_instance.global_position = global_position + Vector2(offset, 0)
+				get_parent().add_child(coin_instance)
+			
 			queue_free()
-		# If still alive, continue vulnerable state until timer finishes naturally
 
 func _on_hit_box_area_entered(area) -> void:
 	if current_state == State.ATTACK:

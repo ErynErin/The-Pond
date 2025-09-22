@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=54 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
+[ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="17_8f8kc"]
 [ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
 [ext_resource type="PackedScene" uid="uid://4m0c4x6ggxmf" path="res://scenes/Collectibles/collectible_bomb.tscn" id="18_u2qq7"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
@@ -323,6 +324,8 @@ scale = Vector2(1.11, 1.11)
 [node name="Options" parent="GUI" instance=ExtResource("16_qfx3x")]
 visible = false
 scale = Vector2(1.67, 1.67)
+
+[node name="Objectives" parent="GUI" instance=ExtResource("17_8f8kc")]
 
 [node name="player" parent="." instance=ExtResource("15_b0kx5")]
 z_index = 5

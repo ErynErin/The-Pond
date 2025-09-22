@@ -18,6 +18,7 @@ var poison_elapsed_time: float = 0.0
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player_detector: Area2D = $"Player Detector"
 @onready var poison_timer: Timer = $Timer
+@onready var coin_scene = preload("res://scenes/Collectibles/coin.tscn")
 
 func _ready():
 	actual_speed = (randi() % (100 - 40 + 1)) + 40
@@ -70,6 +71,9 @@ func take_damage(damage: float) -> void:
 	if enemy_health <= 0:
 		$AudioStreamPlayer2.play()
 		await $AudioStreamPlayer2.finished
+		var coin_instance = coin_scene.instantiate()
+		coin_instance.global_position = global_position
+		get_parent().add_child(coin_instance)
 		queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
