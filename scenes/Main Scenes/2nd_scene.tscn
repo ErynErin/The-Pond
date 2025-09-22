@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=39 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dc86inuelf7ii" path="res://assets/BG/Phase 2/4.png" id="10_plhnw"]
 [ext_resource type="Texture2D" uid="uid://rxnciromwi5l" path="res://assets/BG/Phase 2/5.png" id="11_t7lwq"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_x2w7c"]
+[ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="13_6u0xl"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="13_goyj0"]
 [ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="14_c37bx"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="14_dwpsk"]
@@ -18,12 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://7w1ynanueaxp" path="res://scenes/Platforms/P2_spritesheet.svg" id="17_3xvx2"]
 [ext_resource type="PackedScene" uid="uid://basdg6biv03al" path="res://scenes/Player/player_phase2.tscn" id="17_ysw53"]
 [ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="18_3xvx2"]
-[ext_resource type="PackedScene" uid="uid://bntvonb1a06nv" path="res://scenes/Characters/beetle.tscn" id="18_ssd1q"]
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="18_vksdc"]
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="18_whigq"]
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="19_wkg83"]
 [ext_resource type="AudioStream" uid="uid://d3l6d8tkmf3t2" path="res://assets/Audios/bgms/Dark Ambient Music BGM.mp3" id="20_ssd1q"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
+[ext_resource type="PackedScene" uid="uid://c8tm1q4vcevf5" path="res://scenes/Characters/beetle.tscn" id="23_d0pof"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
 [ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://colliderP2_3.tscn" id="26_2agje"]
 [ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://colliderP2_1.tscn" id="26_f1wsw"]
@@ -210,6 +211,10 @@ theme_override_font_sizes/font_size = 50
 text = "00"
 script = ExtResource("14_c37bx")
 
+[node name="Objectives" parent="GUI" instance=ExtResource("13_6u0xl")]
+anchors_preset = -1
+scale = Vector2(1.67, 1.67)
+
 [node name="Pause Menu" parent="GUI" instance=ExtResource("15_2npaq")]
 process_mode = 1
 visible = false
@@ -225,6 +230,16 @@ scale = Vector2(1.67, 1.67)
 [node name="merchant shop" parent="GUI" instance=ExtResource("14_dwpsk")]
 visible = false
 scale = Vector2(1.67, 1.67)
+
+[node name="ScreenFade" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67, 1.67)
+color = Color(0, 0, 0, 1)
 
 [node name="Food" type="Node2D" parent="."]
 position = Vector2(0, 200)
@@ -303,26 +318,14 @@ scale = Vector2(0.165, 0.165)
 tile_map_data = PackedByteArray("AAAhAJ8AAQAAAAAAAAAzAJ8AAQABAAAAAABFAJ8AAQABAAEAAAAPAJ8AAQAAAAEAAABhAJUAAgAAAAAAAACGAJUAAgABAAEAAAA8AJUAAgAAAAEAAAB2ALkAAwAAAAEAAACZALkAAwABAAEAAAC7ALkAAwAAAAAAAADdALkAAwABAAAAAAABAbkAAwACAAAAAAA=")
 tile_set = SubResource("TileSet_goyj0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
 [node name="ChangeScene" parent="." instance=ExtResource("18_3xvx2")]
 position = Vector2(2616, 110)
 scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
-[node name="Beetle" parent="." instance=ExtResource("18_ssd1q")]
-position = Vector2(-313, 543)
+[node name="Beetle" parent="." instance=ExtResource("23_d0pof")]
+position = Vector2(-377, 509)
 scale = Vector2(1.5, 1.5)
-slide_on_ceiling = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_ssd1q")

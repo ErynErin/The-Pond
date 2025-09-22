@@ -309,6 +309,9 @@ theme_override_font_sizes/font_size = 50
 text = "00"
 script = ExtResource("15_po7p3")
 
+[node name="Objectives" parent="GUI" instance=ExtResource("17_8f8kc")]
+scale = Vector2(1.67, 1.67)
+
 [node name="merchant shop" parent="GUI" instance=ExtResource("22_odwuh")]
 visible = false
 scale = Vector2(1.67, 1.67)
@@ -325,7 +328,15 @@ scale = Vector2(1.11, 1.11)
 visible = false
 scale = Vector2(1.67, 1.67)
 
-[node name="Objectives" parent="GUI" instance=ExtResource("17_8f8kc")]
+[node name="ScreenFade" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67, 1.67)
+color = Color(0, 0, 0, 1)
 
 [node name="player" parent="." instance=ExtResource("15_b0kx5")]
 z_index = 5
@@ -423,24 +434,24 @@ scale = Vector2(0.13, 0.13)
 tile_map_data = PackedByteArray("AABhAJUAAgAAAAAAAACGAJUAAgABAAEAAAB2ALkAAwAAAAEAAACZALkAAwABAAEAAAC7ALkAAwAAAAAAAADdALkAAwABAAAAAAABAbkAAwACAAAAAADx/Yb/AQAAAAEAAAAW/ob/AQABAAEAAAA7/ob/AQABAAAAAABg/ob/AQACAAAAAADw/mD/AQAAAAEAAADw/mH/AQAAAAEAAAAV/2D/AQABAAEAAAAV/2H/AQABAAEAAAA1/2D/AQACAAAAAAA1/2H/AQACAAAAAACh/5//AQAAAAEAAACh/6D/AQAAAAEAAADG/5//AQABAAEAAADG/6D/AQABAAEAAADm/5//AQACAAAAAADm/6D/AQACAAAAAAANAiH/AQAAAAEAAAAyAiH/AQABAAEAAABXAiH/AQACAAEAAAB0AiH/AQABAAAAAACZAiH/AQACAAAAAADCAoX/AQAAAAEAAADCAob/AQAAAAEAAADnAoX/AQABAAEAAADnAob/AQABAAEAAAAHA4X/AQACAAAAAAAHA4b/AQACAAAAAADwCI7/AQAAAAEAAAAVCY7/AQABAAEAAAA6CY7/AQACAAEAAABXCY7/AQABAAAAAAB8CY7/AQACAAAAAAC9CTX/AQAAAAEAAAC9CTb/AQAAAAEAAADiCTX/AQABAAEAAADiCTb/AQABAAEAAAACCjX/AQACAAAAAAACCjb/AQACAAAAAAB6C8z/AQAAAAEAAACfC8z/AQABAAEAAADEC8z/AQACAAEAAADpC8z/AQABAAAAAAAODMz/AQABAAEAAAAzDMz/AQACAAEAAABYDMz/AQABAAAAAAB9DMz/AQABAAEAAACiDMz/AQACAAEAAADHDMz/AQABAAAAAADsDMz/AQABAAEAAAARDcz/AQACAAEAAAA2Dcz/AQABAAAAAABbDcz/AQABAAEAAACADcz/AQACAAEAAAClDcz/AQACAAAAAADaD1f/AQAAAAEAAAD/D1f/AQABAAEAAAAkEFf/AQACAAEAAABBEFf/AQABAAAAAABmEFf/AQACAAAAAAAYEd7/AQAAAAEAAAA9Ed7/AQABAAEAAABiEd7/AQACAAEAAAB/Ed7/AQABAAAAAACkEd7/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_45e12")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ScreenFade" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="Merchant" parent="." instance=ExtResource("8_nsaye")]
 position = Vector2(10276, -178)
 scale = Vector2(0.15, 0.15)
 frame_progress = 0.959508
 
+[node name="TEMPMerchant" parent="." instance=ExtResource("8_nsaye")]
+position = Vector2(791, 526)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.959508
+
 [node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
 position = Vector2(10551, -75.0039)
+rotation = -1.52891
+scale = Vector2(9, 9)
+skew = 1.4207
+
+[node name="TEMPChangeScene" parent="." instance=ExtResource("23_y2ypf")]
+position = Vector2(1175, 151)
 rotation = -1.52891
 scale = Vector2(9, 9)
 skew = 1.4207
@@ -457,6 +468,14 @@ scale = Vector2(0.8, 0.8)
 
 [node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
 position = Vector2(-945, 625)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin4" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-856, 625)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin5" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(-1210, 625)
 scale = Vector2(0.8, 0.8)
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -551,3 +570,14 @@ scale = Vector2(0.24, 0.24)
 position = Vector2(282, 442)
 scale = Vector2(0.15, 0.15)
 collision_layer = 0
+
+[node name="TEMPLabel" type="Label" parent="."]
+offset_left = -155.0
+offset_top = 237.0
+offset_right = 120.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 20
+text = "(temporary text)
+Go here to skip to phase 2
+-------->"
+horizontal_alignment = 1

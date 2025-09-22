@@ -6,6 +6,7 @@ func _on_area_2d_body_entered(body) -> void:
 	
 	$AudioStreamPlayer.play()
 	GameManager.heal(10)
+	GameManager.add_algae_eaten()
 	$AnimationPlayer.play("collect")
 	await $AnimationPlayer.animation_finished
 	queue_free()

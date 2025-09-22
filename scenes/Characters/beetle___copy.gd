@@ -18,16 +18,17 @@ enum State { STAND, CRAWL, CHARGE, ATTACK, VULNERABLE }
 @onready var pivot: Node2D = $Pivot
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player_detector: Area2D = $"Player Detector"
-@onready var coin_scene = preload("res://scenes/Collectibles/coin.tscn")
 
 var current_state = State.STAND
 var state_timer: float = 0.0
 var distance_traveled: float = 0.0
 var direction: float = 1.0
+var enemy_health = 20
 var is_player_in_range: bool = false
 var has_jumped: bool = false
 var player_was_hit: bool = false
 
+# New variables for hit restrictions
 var total_hits_taken: int = 0  # Track total hits across lifespan
 var hit_this_vulnerable_cycle: bool = false  # Track if hit during current vulnerable state
 
@@ -75,12 +76,12 @@ func _charge_state(delta: float) -> void:
 	velocity.x = 0
 	state_timer += delta
 	if state_timer >= CHARGE_DURATION:
-		$AudioStreamPlayer.play()
 		_change_state(State.ATTACK)
 
 	if player:
 		pivot.scale.x = -sign(player.global_position.x - global_position.x)
 
+# Handles the ATTACK state logic.
 func _attack_state(delta: float) -> void:
 	state_timer += delta
 	velocity.x = sign(player.global_position.x - global_position.x) * ATTACK_SPEED
@@ -88,20 +89,8 @@ func _attack_state(delta: float) -> void:
 	if is_on_floor() and not has_jumped:
 		velocity.y = JUMP_VELOCITY
 		has_jumped = true
-	
-	# In your _attack_state, try this simpler approach:
-	if hit_box.monitoring and not player_was_hit:
-		var overlapping_areas = hit_box.get_overlapping_areas()
-		for area in overlapping_areas:
-		# Check if the area belongs to the player directly
-			if area.get_parent() == player or area.owner == player:
-				print("*** PLAYER HIT BY DIRECT REFERENCE ***")
-				player_was_hit = true
-				GameManager.take_damage(10.0)
-				break
-	
+
 	if state_timer >= ATTACK_DURATION:
-		$AudioStreamPlayer2.play()
 		if player_was_hit:
 			if is_player_in_range:
 				_change_state(State.STAND)
@@ -178,19 +167,11 @@ func take_damage(_damage: float) -> void:
 		total_hits_taken += 1  # Increment total hits
 		
 		animation_player.play("hurt")
-		await animation_player.animation_finished
 		
+		# Check if beetle should die (after 2 total hits)
 		if total_hits_taken >= 2:
-			$AudioStreamPlayer3.play()
-			
-			for i in range(2):
-				var coin_instance = coin_scene.instantiate()
-				var offset = (i - 0.5) * 65
-				coin_instance.global_position = global_position + Vector2(offset, 0)
-				get_parent().add_child(coin_instance)
-			
-			GameManager.add_enemies_killed()
 			queue_free()
+		# If still alive, continue vulnerable state until timer finishes naturally
 
 func _on_hit_box_area_entered(area) -> void:
 	if current_state == State.ATTACK:

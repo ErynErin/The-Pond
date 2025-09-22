@@ -160,10 +160,11 @@ func _on_hurt(damage_amount: int = 1):
 		
 		for i in range(3):
 			var coin_instance = coin_scene.instantiate()
-			var offset = (i - 0.5) * 50
+			var offset = (i - 0.5) * 65
 			coin_instance.global_position = global_position + Vector2(offset, 0)
 			get_parent().add_child(coin_instance)
-		
+			
+		GameManager.add_enemies_killed()
 		queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:

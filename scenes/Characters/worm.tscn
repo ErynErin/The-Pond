@@ -189,12 +189,16 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tiyqp"]
+radius = 113.0
+height = 276.17
+
 [sub_resource type="Animation" id="Animation_6wt1p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/path = NodePath("Pivot/AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -206,7 +210,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/path = NodePath("Pivot/AnimatedSprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -224,7 +228,7 @@ step = 0.142857
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/path = NodePath("Pivot/AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -240,7 +244,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/path = NodePath("Pivot/AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -260,10 +264,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyqp"]
 size = Vector2(1172, 1129)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tiyqp"]
-radius = 144.0
-height = 288.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrnk6"]
 radius = 485.0
 height = 1810.0
@@ -271,10 +271,20 @@ height = 1810.0
 [node name="Worm" type="CharacterBody2D"]
 script = ExtResource("1_tiyqp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_46d1w")
 animation = &"crawl"
+
+[node name="BiteBox" type="Area2D" parent="Pivot"]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/BiteBox"]
+position = Vector2(-100, 38.915)
+shape = SubResource("CapsuleShape2D_tiyqp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -289,15 +299,6 @@ position = Vector2(3, -14)
 shape = SubResource("RectangleShape2D_tiyqp")
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="BiteBox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BiteBox"]
-position = Vector2(-110, 42)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_tiyqp")
 
 [node name="HurtBox" type="Area2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -319,8 +320,8 @@ bus = &"SFX"
 stream = ExtResource("10_xkhk3")
 bus = &"SFX"
 
+[connection signal="area_entered" from="Pivot/BiteBox" to="." method="_on_bite_box_area_entered"]
+[connection signal="area_exited" from="Pivot/BiteBox" to="." method="_on_bite_box_area_exited"]
 [connection signal="body_entered" from="Player Detector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="Player Detector" to="." method="_on_player_detector_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="BiteBox" to="." method="_on_bite_box_area_entered"]
-[connection signal="area_exited" from="BiteBox" to="." method="_on_bite_box_area_exited"]

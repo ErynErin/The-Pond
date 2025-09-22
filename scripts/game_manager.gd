@@ -7,11 +7,26 @@ var strength = 10
 var speed = 200
 var next_scene_path = ""
 var current_scene_path = "res://scenes/intro_scene.tscn"
-var phase_num = 1
+var phase_num: int
 var merchant_access = 1
 var can_move: bool = true
 var coins = 0
 @export var inv: Inv
+
+# objectives minimum values
+var phase_objectives = {"p1": [3, 5, 5],
+					"p2": [5, 10, 5], 
+					"p3": [5, 10, 0] }
+
+# objectives
+var enemies_killed: int = 0
+var algae_eaten: int = 0
+var caps_collected: int = 0
+
+signal minimum_enemies_killed(enemies_killed)
+signal minimum_algae_eaten(algae_eaten)
+signal minimum_caps_collected(caps_collected)
+
 signal health_changed(current_health: float, max_health: float)
 signal coins_updated(coins)
 signal player_died
@@ -67,14 +82,18 @@ func add_speed():
 func show_shop():
 	var current_scene = get_tree().current_scene
 	var merchant_shop = current_scene.get_node("GUI/merchant shop")
+	var objectives = current_scene.get_node("GUI/Objectives")
 	var coin_label: Label = current_scene.get_node("GUI/merchant shop/Current Coins/HBoxContainer/Label")
 	merchant_access -= 1
 	coin_label.text = str(coins)
+	objectives._on_exit_pressed()
 	merchant_shop.visible = true
 	
 func hide_shop():
 	var current_scene = get_tree().current_scene
 	var merchant_shop = current_scene.get_node("GUI/merchant shop")
+	var m_check_box = current_scene.get_node("GUI/Objectives/AspectRatioContainer/Panel/VBoxContainer/MCheckBox")
+	m_check_box.button_pressed = true
 	emit_signal("shop_closed")
 	merchant_shop.visible = false
 
@@ -90,8 +109,8 @@ func hide_options():
 
 func take_damage(damage: float):
 	current_health -= damage
-	current_health = max(current_health, 0)  # Don't go below 0
-	health_changed.emit(current_health, max_health)
+	current_health = max(current_health, 0)
+	emit_signal("health_changed", current_health, max_health)
 	print("Player Health Decreased by " + str(damage))
 	print("New Health " + str(current_health))
 	check_player_status()
@@ -124,3 +143,15 @@ func add_coin(amount: int):
 func reduce_coin(amount: int):
 	coins -= amount
 	emit_signal("coins_updated", coins)
+
+func add_enemies_killed(): 
+	enemies_killed += 1
+	emit_signal("minimum_enemies_killed",enemies_killed)
+
+func add_algae_eaten():
+	algae_eaten += 1
+	emit_signal("minimum_algae_eaten", algae_eaten)
+
+func add_caps_collected():
+	caps_collected += 1
+	emit_signal("minimum_caps_collected",caps_collected)

@@ -2,14 +2,19 @@ extends AnimatedSprite2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var dialogue_resource: DialogueResource = preload("res://dialogues/p1_merchant.dialogue")
+@onready var label: Label = $CanvasLayer/Label
 var balloon_scene = preload("res://balloons/MerchantBalloon.tscn")  # Your custom balloon scene
 
 func _ready():
+	label.visible = false
 	play("idle")
 	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
 	if GameManager.merchant_access <= 0:
+		label.visible = true
+		await get_tree().create_timer(3).timeout
+		label.visible = false
 		return
 	GameManager.merchant_access -= 1
 	GameManager.set_player_movable(false)

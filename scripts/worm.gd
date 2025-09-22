@@ -15,10 +15,11 @@ var poison_elapsed_time: float = 0.0
 
 @onready var player = get_parent().find_child("player")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Pivot/AnimatedSprite2D
 @onready var player_detector: Area2D = $"Player Detector"
 @onready var poison_timer: Timer = $Timer
 @onready var coin_scene = preload("res://scenes/Collectibles/coin.tscn")
+@onready var pivot: Node2D = $Pivot
 
 func _ready():
 	actual_speed = (randi() % (100 - 40 + 1)) + 40
@@ -33,9 +34,9 @@ func _physics_process(delta):
 		global_position.x += direction.x * actual_speed * delta
 		sprite_2d.play("crawl")
 		if direction.x < 0:
-			sprite_2d.flip_h = false
+			pivot.scale.x = 1
 		else:
-			sprite_2d.flip_h = true
+			pivot.scale.x = -1
 	elif !outside and player_entered: # if the worm is about to go outside
 		animation_player.play("ground")
 		sprite_2d.play("spawn" + str(GameManager.phase_num))
@@ -74,6 +75,7 @@ func take_damage(damage: float) -> void:
 		var coin_instance = coin_scene.instantiate()
 		coin_instance.global_position = global_position
 		get_parent().add_child(coin_instance)
+		GameManager.add_enemies_killed()
 		queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
