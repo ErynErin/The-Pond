@@ -270,13 +270,12 @@ z_index = 5
 position = Vector2(-1080.36, 58.5956)
 scale = Vector2(0.43, 0.43)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D2" type="Camera2D" parent="player"]
 position = Vector2(-43.9999, 742)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(0, -400)
-zoom = Vector2(1.13, 1.13)
 process_callback = 0
-limit_top = -180
+limit_top = -200
 limit_bottom = 1200
 limit_smoothed = true
 position_smoothing_enabled = true
