@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=58 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="3_xlmt5"]
 [ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="4_heptv"]
 [ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="5_b40aj"]
-[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="6_y2ypf"]
+[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.PNG" id="6_y2ypf"]
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
@@ -19,8 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
 [ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="17_8f8kc"]
-[ext_resource type="PackedScene" uid="uid://co4b1kiuq2dcm" path="res://scenes/Collectibles/collectible_key.tscn" id="17_khd5g"]
-[ext_resource type="PackedScene" uid="uid://4m0c4x6ggxmf" path="res://scenes/Collectibles/collectible_bomb.tscn" id="18_u2qq7"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="22_p0owv"]
 [ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="23_y2ypf"]
@@ -266,21 +264,13 @@ rotation = -0.0174533
 occluder = SubResource("OccluderPolygon2D_u46sv")
 occluder_light_mask = 513
 
-[node name="BG Sprite2" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(9737, 185)
-scale = Vector2(3, 3)
-texture = ExtResource("6_y2ypf")
-region_enabled = true
-region_rect = Rect2(0, 0, 2000, 720)
-
 [node name="BG Sprite" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(1772, -61)
+position = Vector2(8154, -61)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_y2ypf")
 region_enabled = true
-region_rect = Rect2(0, 0, 4000, 720)
+region_rect = Rect2(0, 0, 10000, 720)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -448,23 +438,6 @@ scale = Vector2(1.3, 1.3)
 position = Vector2(2641, 597)
 scale = Vector2(1.3, 1.3)
 
-[node name="CollectibleItems" type="Node2D" parent="."]
-
-[node name="Collectible Item" parent="CollectibleItems" instance=ExtResource("17_khd5g")]
-visible = false
-position = Vector2(-29, 390)
-scale = Vector2(1.3, 1.3)
-
-[node name="Collectible Item2" parent="CollectibleItems" instance=ExtResource("17_khd5g")]
-visible = false
-position = Vector2(54, 390)
-scale = Vector2(1.3, 1.3)
-
-[node name="Collectible Item3" parent="CollectibleItems" instance=ExtResource("18_u2qq7")]
-visible = false
-position = Vector2(-155, 390)
-scale = Vector2(1.3, 1.3)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("27_po7p3")
@@ -489,7 +462,7 @@ scale = Vector2(15, 12.795)
 skew = 1.54658
 
 [node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
-position = Vector2(10589, 63.0058)
+position = Vector2(10597, -18.993)
 rotation = -1.52891
 scale = Vector2(9, 9)
 skew = 1.4207
@@ -572,7 +545,7 @@ position = Vector2(9667, -147)
 scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(164.8, 58.3)
+position = Vector2(159.9, 43.6)
 shape = SubResource("RectangleShape2D_qfx3x")
 
 [node name="Seaweed1" parent="." instance=ExtResource("31_k6qa8")]
@@ -591,19 +564,18 @@ collision_layer = 0
 
 [node name="TEMPLabel4" type="Label" parent="."]
 offset_left = 19262.0
-offset_top = -895.0
 offset_right = 19540.0
-offset_bottom = -805.0
-theme_override_font_sizes/font_size = 20
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 50
 text = "end scene"
 horizontal_alignment = 1
 
 [node name="TEMPLabel3" type="Label" parent="."]
-offset_left = 14595.0
-offset_top = -806.0
-offset_right = 14873.0
-offset_bottom = -716.0
-theme_override_font_sizes/font_size = 20
+offset_left = 14335.0
+offset_top = -171.0
+offset_right = 15029.0
+offset_bottom = -81.0
+theme_override_font_sizes/font_size = 50
 text = "INITIATE TRASH FLOOD HERE"
 horizontal_alignment = 1
 
@@ -612,7 +584,7 @@ offset_left = 9474.0
 offset_top = -754.0
 offset_right = 9749.0
 offset_bottom = -664.0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 50
 text = "MID ROUND"
 horizontal_alignment = 1
 
@@ -682,3 +654,11 @@ position = Vector2(8024, -254)
 [node name="Worm2" parent="." instance=ExtResource("28_rppta")]
 position = Vector2(5295, -274)
 scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10345.0
+offset_top = 107.0
+offset_right = 10541.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 70
+text = "dulo na to"

@@ -68,9 +68,19 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: float):
 	GameManager.take_damage(damage)
 
-func _on_hurt_box_area_entered(area: HitBox) -> void:
-	print("playr hurt")
+func _on_hurt_box_area_entered(area) -> void:
+	print("player hurt")
 	animation_player.play("hurt")
+	
+	if area and area.owner:
+		print("Hit by: ", area.owner.name)
+		
+	if area != null:
+		if area.owner.name == "Beetle":
+			print("Hit by beetle!")
+			if area.owner.has_method("notify_player_hit"):
+				area.owner.notify_player_hit()
+			take_damage(10.0)
 
 func _on_player_died():
 	$DeathAudio.play()

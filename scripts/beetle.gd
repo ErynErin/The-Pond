@@ -89,17 +89,6 @@ func _attack_state(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		has_jumped = true
 	
-	# In your _attack_state, try this simpler approach:
-	if hit_box.monitoring and not player_was_hit:
-		var overlapping_areas = hit_box.get_overlapping_areas()
-		for area in overlapping_areas:
-		# Check if the area belongs to the player directly
-			if area.get_parent() == player or area.owner == player:
-				print("*** PLAYER HIT BY DIRECT REFERENCE ***")
-				player_was_hit = true
-				GameManager.take_damage(10.0)
-				break
-	
 	if state_timer >= ATTACK_DURATION:
 		$AudioStreamPlayer2.play()
 		if player_was_hit:
@@ -193,9 +182,15 @@ func take_damage(_damage: float) -> void:
 			queue_free()
 
 func _on_hit_box_area_entered(area) -> void:
+	print("area entereed")
 	if current_state == State.ATTACK:
 		if area.owner.is_in_group("player"):
 			print("*** PLAYER'S HURTBOX WAS HIT ***")
 			player_was_hit = true
 			GameManager.take_damage(10.0)
 			player._on_hurt_box_area_entered(null)
+
+func notify_player_hit() -> void:
+	if current_state == State.ATTACK and not player_was_hit:
+		print("*** PLAYER WAS HIT BY BEETLE ***")
+		player_was_hit = true
