@@ -51,7 +51,7 @@ distance = -581.0
 normal = Vector2(1, 0)
 distance = -1014.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vksdc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u0xl"]
 texture = ExtResource("17_3xvx2")
 texture_region_size = Vector2i(600, 600)
 1:0/0 = 0
@@ -67,7 +67,7 @@ texture_region_size = Vector2i(600, 600)
 
 [sub_resource type="TileSet" id="TileSet_goyj0"]
 physics_layer_0/collision_layer = 15
-sources/1 = SubResource("TileSetAtlasSource_vksdc")
+sources/1 = SubResource("TileSetAtlasSource_6u0xl")
 
 [node name="Ted Game 2" type="Node2D"]
 script = ExtResource("1_3xvx2")
@@ -318,7 +318,7 @@ tile_map_data = PackedByteArray("AAAhAJ8AAQAAAAAAAAAzAJ8AAQABAAAAAABFAJ8AAQABAAE
 tile_set = SubResource("TileSet_goyj0")
 
 [node name="ChangeScene" parent="." instance=ExtResource("18_3xvx2")]
-position = Vector2(2616, 110)
+position = Vector2(5024, 72)
 scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
@@ -363,7 +363,7 @@ position = Vector2(622, 356)
 scale = Vector2(0.7, 0.7)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("26_2agje")]
-position = Vector2(2056, 406)
+position = Vector2(3456, 384)
 scale = Vector2(1.4, 1.4)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("26_f1wsw")]

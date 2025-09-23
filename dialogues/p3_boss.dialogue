@@ -3,14 +3,14 @@
 : [shake rate=20 level=10]Who dares go near my soil!!!
 : Ah, [wait=2]it’s a mere tadpole. 
 : You’re brave enough to go near a mighty king? 
-Curien: To I, [wait=1] Curien, [wait=1]the raging guardian of this pond 
-Curien: Well then I accept your challenge peasant. But[speed=0.2]...
-Curien: [shake rate=20 level=10]EXPECT TO DIE!!! 
+Kingstar: To I, [wait=1] Kingstar, [wait=1]the raging guardian of this pond 
+Kingstar: Well then I accept your challenge peasant. But[speed=0.2]...
+Kingstar: [shake rate=20 level=10]EXPECT TO DIE!!! 
 => END
 
 
 ~ defeat
-Curien: Nooooo eurghhghgkk
-Curien: I guess you were indeed strong…
-Curien: That was a good fight, mere tadpole..
+Kingstar: Nooooo eurghhghgkk
+Kingstar: I guess you were indeed strong…
+Kingstar: That was a good fight, mere tadpole..
 => END
