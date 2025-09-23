@@ -482,6 +482,12 @@ position = Vector2(791, 526)
 scale = Vector2(0.15, 0.15)
 frame_progress = 0.959508
 
+[node name="ChangeScene2" parent="." instance=ExtResource("23_y2ypf")]
+position = Vector2(19721, 94.1083)
+rotation = -1.67299
+scale = Vector2(15, 12.795)
+skew = 1.54658
+
 [node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
 position = Vector2(10589, 63.0058)
 rotation = -1.52891
@@ -582,6 +588,33 @@ scale = Vector2(0.24, 0.24)
 position = Vector2(9557, -449)
 scale = Vector2(0.15, 0.15)
 collision_layer = 0
+
+[node name="TEMPLabel4" type="Label" parent="."]
+offset_left = 19262.0
+offset_top = -895.0
+offset_right = 19540.0
+offset_bottom = -805.0
+theme_override_font_sizes/font_size = 20
+text = "end scene"
+horizontal_alignment = 1
+
+[node name="TEMPLabel3" type="Label" parent="."]
+offset_left = 14595.0
+offset_top = -806.0
+offset_right = 14873.0
+offset_bottom = -716.0
+theme_override_font_sizes/font_size = 20
+text = "INITIATE TRASH FLOOD HERE"
+horizontal_alignment = 1
+
+[node name="TEMPLabel2" type="Label" parent="."]
+offset_left = 9474.0
+offset_top = -754.0
+offset_right = 9749.0
+offset_bottom = -664.0
+theme_override_font_sizes/font_size = 20
+text = "MID ROUND"
+horizontal_alignment = 1
 
 [node name="TEMPLabel" type="Label" parent="."]
 offset_left = -155.0

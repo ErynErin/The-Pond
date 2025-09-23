@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtf77o117mfx5"
-path="res://.godot/imported/key_red.png-ed77516e507b921ef4f0d6d70fe76a69.ctex"
+uid="uid://b23iinwyc72um"
+path="res://.godot/imported/p3_plat.svg-9b0a52c362d3b04ef04c5db5a6bca9b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/key_red.png"
-dest_files=["res://.godot/imported/key_red.png-ed77516e507b921ef4f0d6d70fe76a69.ctex"]
+source_file="res://assets/Platforms/p3_plat.svg"
+dest_files=["res://.godot/imported/p3_plat.svg-9b0a52c362d3b04ef04c5db5a6bca9b8.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
