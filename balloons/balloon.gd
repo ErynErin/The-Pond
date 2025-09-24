@@ -74,11 +74,6 @@ func _ready() -> void:
 	add_child(auto_advance_timer)
 
 
-func _unhandled_input(_event: InputEvent) -> void:
-	# Only the balloon is allowed to handle input while it's showing
-	get_viewport().set_input_as_handled()
-
-
 func _notification(what: int) -> void:
 	## Detect a change of locale and update the current dialogue line to show the new language
 	if what == NOTIFICATION_TRANSLATION_CHANGED and _locale != TranslationServer.get_locale() and is_instance_valid(dialogue_label):
