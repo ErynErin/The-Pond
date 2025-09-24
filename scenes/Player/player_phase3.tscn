@@ -325,6 +325,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.8, 0.8)
 collision_layer = 129
 script = ExtResource("1_4o57y")
 

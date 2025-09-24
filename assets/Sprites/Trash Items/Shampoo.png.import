@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b10blpp1bdjjo"
-path="res://.godot/imported/Copy of cigarette butt0000.png-aa236348b89d6e4f1f5a2315bfaf83dc.ctex"
+uid="uid://cqn8m2ek0hyv"
+path="res://.godot/imported/Shampoo.png-5c517693600fc6a637bdc6c5144a22e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Trash Items/Copy of cigarette butt0000.png"
-dest_files=["res://.godot/imported/Copy of cigarette butt0000.png-aa236348b89d6e4f1f5a2315bfaf83dc.ctex"]
+source_file="res://assets/Sprites/Trash Items/Shampoo.png"
+dest_files=["res://.godot/imported/Shampoo.png-5c517693600fc6a637bdc6c5144a22e3.ctex"]
 
 [params]
 

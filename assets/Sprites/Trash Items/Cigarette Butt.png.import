@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b68ffovqd8qxo"
-path="res://.godot/imported/Copy of candy0000.png-2e936f0e389fd1961ec212e8bf355500.ctex"
+uid="uid://b10blpp1bdjjo"
+path="res://.godot/imported/Cigarette Butt.png-e04bb6402da58a353f1530a6a53a13ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Trash Items/Copy of candy0000.png"
-dest_files=["res://.godot/imported/Copy of candy0000.png-2e936f0e389fd1961ec212e8bf355500.ctex"]
+source_file="res://assets/Sprites/Trash Items/Cigarette Butt.png"
+dest_files=["res://.godot/imported/Cigarette Butt.png-e04bb6402da58a353f1530a6a53a13ca.ctex"]
 
 [params]
 

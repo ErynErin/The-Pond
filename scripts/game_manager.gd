@@ -76,7 +76,7 @@ func add_strength():
 	print("strength: ", strength)
 	
 func add_speed():
-	speed += 50
+	speed += 70
 	print("speed:", speed)
 
 func show_shop():

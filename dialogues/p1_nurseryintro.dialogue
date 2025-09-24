@@ -1,8 +1,13 @@
 ~ start
 Tutorial: [speed=0.2][wave amp=25 freq=5]Ahh~[/wave][wait=1] it's so peaceful here.
-Tutorial: On your upper left is your health bar.
+Tutorial: Don’t forget to eat! Eating is vital to grow for one’s development. 
 Tutorial: Oh look! Some kelp! 
-Tutorial: Go towards it and press E to eat it and regain health.
+Tutorial: Around the pond, you’ll see floating algae which you may eat to regain health.
+Tutorial: You will also see bottle caps around.
+- What’s a bottle cap?
+Tutorial: You need to collect them as well to earn! They are needed to buy stuff later as you grow.
+Tutorial: On your upper left is your health bar and the number of bottle caps you collected.
+
 Tutorial: Great! I think you're ready to explore the real world...
 Tutorial: Climb the platforms and start exploring!
 Tutorial: You can click press W or the spacebar twice to double jump.

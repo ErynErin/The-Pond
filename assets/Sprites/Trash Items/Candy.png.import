@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqn8m2ek0hyv"
-path="res://.godot/imported/Copy of shampoo0000.png-0a7b555d008d2399963eecea38b796dc.ctex"
+uid="uid://b68ffovqd8qxo"
+path="res://.godot/imported/Candy.png-49061d6bae593593523e0b3d18dc850e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Trash Items/Copy of shampoo0000.png"
-dest_files=["res://.godot/imported/Copy of shampoo0000.png-0a7b555d008d2399963eecea38b796dc.ctex"]
+source_file="res://assets/Sprites/Trash Items/Candy.png"
+dest_files=["res://.godot/imported/Candy.png-49061d6bae593593523e0b3d18dc850e.ctex"]
 
 [params]
 
