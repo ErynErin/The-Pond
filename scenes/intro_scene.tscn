@@ -1,12 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8qdfv53o03ir"]
+[gd_scene load_steps=19 format=3 uid="uid://b8qdfv53o03ir"]
 
 [ext_resource type="Script" uid="uid://d2f5fb00lu1hp" path="res://scenes/intro_scene.gd" id="1_gsw8x"]
 [ext_resource type="Texture2D" uid="uid://3yhk5ufsn5ut" path="res://assets/BG/UI LAYOUTS.png" id="2_jkhwn"]
 [ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="3_jkhwn"]
+[ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="4_f164h"]
 [ext_resource type="VideoStream" uid="uid://clp313uw6jsw" path="res://assets/Videos/new intro anim.ogv" id="5_8wqor"]
+[ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="5_t82ha"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="5_tij55"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="6_8wqor"]
 [ext_resource type="AudioStream" uid="uid://urr01ivqlgp5" path="res://assets/Audios/bgms/underwater-ambience-6201.mp3" id="7_0f06d"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qt0h2"]
+noise_type = 2
+frequency = 0.0029
+fractal_type = 2
+fractal_gain = 0.6
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u46sv"]
+seamless = true
+seamless_blend_skirt = 0.61
+noise = SubResource("FastNoiseLite_qt0h2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgy7k"]
+shader = ExtResource("4_f164h")
+shader_parameter/color = Color(0.458824, 0.509804, 0.109804, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_u46sv")
+shader_parameter/speed = Vector2(0.07, 0.07)
+shader_parameter/wave_strength = 2.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tij55"]
 distance = 122.738
@@ -74,6 +95,14 @@ offset_top = -1007.0
 offset_right = 4969.0
 offset_bottom = 1091.0
 color = Color(0, 0, 0, 0.32549)
+
+[node name="Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lgy7k")
+position = Vector2(2005.31, 4.15718e-05)
+rotation = 0.015708
+scale = Vector2(2.82573, 1.84137)
+texture = ExtResource("5_t82ha")
+region_rect = Rect2(0, 0, 10000, 1000)
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
