@@ -66,8 +66,6 @@ offset_right = -456.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
 clip_children = 2
@@ -123,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme = ExtResource("5_6vdnj")
-theme_override_constants/separation = 50
+theme_override_constants/separation = 40
 alignment = 1
 script = ExtResource("6_yjeio")
 response_template = NodePath("ResponseExample")

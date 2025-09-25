@@ -2,7 +2,7 @@ extends Node
 
 var hunger = 0
 var max_health = 100.0
-var current_health = 95.0
+var current_health = 80.0
 var strength = 10
 var speed = 200
 var next_scene_path = ""
@@ -139,6 +139,11 @@ func set_player_movable(is_movable: bool):
 func add_coin(amount: int):
 	coins += amount
 	emit_signal("coins_updated", coins)
+
+	if phase_num == 1 and coins == 1 and enemies_killed == 1:
+		var current_scene = get_tree().current_scene
+		if current_scene.has_method("_on_first_worm_killed"):
+			current_scene._on_first_worm_killed()
 
 func reduce_coin(amount: int):
 	coins -= amount

@@ -1,7 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqfbvucv803b8"]
+[gd_scene load_steps=8 format=3 uid="uid://bqfbvucv803b8"]
+
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="1_cm5dw"]
+[ext_resource type="Script" uid="uid://4gd7t7h2xa5t" path="res://scenes/Trash Flood/trash.gd" id="1_pny62"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nneyx"]
 load_path = "res://.godot/imported/Bottle Cap.png-4e4ded0ea9c21702f07488117b58a756.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pny62"]
+radius = 70.0643
+
+[sub_resource type="Animation" id="Animation_363at"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_pny62"]
 resource_name = "spin"
@@ -20,21 +41,6 @@ tracks/0/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_363at"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_51nri"]
 _data = {
 &"RESET": SubResource("Animation_363at"),
@@ -42,12 +48,27 @@ _data = {
 }
 
 [node name="Trash1" type="Node2D"]
+script = ExtResource("1_pny62")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = SubResource("CompressedTexture2D_nneyx")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_cm5dw")
+damage = 5
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(2, -2)
+shape = SubResource("CircleShape2D_pny62")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_51nri")
 }
 autoplay = "spin"
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

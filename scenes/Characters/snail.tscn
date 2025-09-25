@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://caf7lldollp6k"]
+[gd_scene load_steps=15 format=3 uid="uid://caf7lldollp6k"]
 
 [ext_resource type="Texture2D" uid="uid://co8shi6k1dn7c" path="res://assets/Characters/Snail/snail1.png" id="1_e2vpy"]
+[ext_resource type="Script" uid="uid://gpsc0sfbw5uv" path="res://scenes/Characters/snail.gd" id="1_jptdo"]
 [ext_resource type="Texture2D" uid="uid://djreqw27r43do" path="res://assets/Characters/Snail/snail2.png" id="2_0x08p"]
 [ext_resource type="Texture2D" uid="uid://ne6eymecclc" path="res://assets/Characters/Snail/snail3.png" id="3_jptdo"]
 [ext_resource type="Texture2D" uid="uid://cmh6rgvq4wyc3" path="res://assets/Characters/Snail/snail4.png" id="4_pu3w6"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://e22ou54ji8im" path="res://assets/Characters/Snail/snail8.png" id="8_5vlni"]
 [ext_resource type="Texture2D" uid="uid://b2suhbt48sgue" path="res://assets/Characters/Snail/snail9.png" id="9_8n85e"]
 [ext_resource type="Texture2D" uid="uid://brhhdo0hrapmu" path="res://assets/Characters/Snail/snail10.png" id="10_bneky"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="11_0x08p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1s7l"]
 animations = [{
@@ -56,6 +58,7 @@ height = 334.0
 [node name="Snail" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_jptdo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p1s7l")
@@ -66,3 +69,27 @@ frame_progress = 0.960573
 position = Vector2(-19, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_e2vpy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Label" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -149.0
+offset_right = 96.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("11_0x08p")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "*blub blub*"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

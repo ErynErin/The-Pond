@@ -1,14 +1,14 @@
 ~ start
-: You changed.
-- I did...?
-: So did the pond...
-: There could be enemies around, so stay sharp!
-Tutorial: Press Q to equip your weapon. Press it again to unequip.
-Tutorial: Use left-click to swing it.
-: [shake rate=20 level=10]Ack![/shake] I just saw a worm and a water beetle! 
-Tutorial: Water beetles are enemies which will attack you if it sees you.
-Tutorial: Worms chase and and poison you.
-: Quick grab your weapon and attack!
-: Don't forget to eat and heal up!
-: Stay safe out there...
+- The pond looks different. Why does it look like this? It seems darker?
+: It’s from the trash flood.[wait=1] The oils and toxins probably spread throughout the pond.
+- I also look different. Is this how I am supposed to look like?
+: No... the oil slick stuck on your skin.
+: Still, [wait=1]you have to keep going. Stay safe out there...
+=> END
+
+~ beetle_first_encounter
+: [shake rate=20 level=10]Ack![/shake] There's a water beetle! They become vulnerable when you succesfully avoid its attacks.
+: You can only deal damage to it when it's in such vulnerable state.
+: There might be more enemies around here and they'll start attacking if they see you.
+: Don't forget to eat and heal up![wait=1] Be careful.
 => END

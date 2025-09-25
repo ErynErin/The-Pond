@@ -169,15 +169,17 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	if not is_waiting_for_input: return
 	if dialogue_line.responses.size() > 0: return
 
-	# When there are no response options the balloon itself is the clickable thing
-	get_viewport().set_input_as_handled()
-
+	# Only react to left click OR the exact "next_action"
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		auto_advance_timer.stop()  # Stop auto advance on click
+		get_viewport().set_input_as_handled()
+		auto_advance_timer.stop()
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
-		auto_advance_timer.stop()  # Stop auto advance on key press
-		next(dialogue_line.next_id)
+	elif event.is_action_pressed(next_action):
+		# Only handle the configured action
+		if get_viewport().gui_get_focus_owner() == balloon:
+			get_viewport().set_input_as_handled()
+			auto_advance_timer.stop()
+			next(dialogue_line.next_id)
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
