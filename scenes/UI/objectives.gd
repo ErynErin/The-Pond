@@ -26,6 +26,7 @@ func _ready():
 	
 	match GameManager.phase_num:
 		1:
+			self.visible = false
 			c_check_box.visible = true
 			b_1_check_box.visible = false
 			b_2_check_box.visible = false

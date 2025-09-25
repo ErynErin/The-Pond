@@ -7,9 +7,38 @@ Tutorial: You will also see bottle caps around.
 - What’s a bottle cap?
 Tutorial: You need to collect them as well to earn! They are needed to buy stuff later as you grow.
 Tutorial: On your upper left is your health bar and the number of bottle caps you collected.
-
-Tutorial: Great! I think you're ready to explore the real world...
-Tutorial: Climb the platforms and start exploring!
 Tutorial: You can click press W or the spacebar twice to double jump.
-Tutorial: Stay safe out there...
+=> END
+
+~ worm_meet
+Tutorial: Ack! Do you see that bump with a hook? That is an underwater sand worm. They chase and and poison you. 
+Tutorial: To defeat them,you need to use a weapon.
+Tutorial: Press Q to equip your weapon, then press it again to unequip.
+Tutorial: Press R or left-click to attack.
+Tutorial: Quick! Grab your weapon!
+=> END
+
+~ worm_end
+Tutorial: Congrats! You got your first bottle cap! 
+Tutorial: Make sure to collect many of those. You will definitely need them in the long run.
+Tutorial: Great! I think you're ready to explore the real world.
+Tutorial: Climb the platforms and start exploring!
+Tutorial: Oh, [wait=1]and these are your objectives to be fulfilled. Make sure to complete them to grow!
+=> END
+
+~ ted_siblings
+Ted’s siblings: Hi Ted! [wait=1]We’re really excited to grow into big, beautiful frogs!
+Ted’s siblings: This pond looks really lovely, don’t you agree?
+=> END
+
+~ before_trash_flood
+: It’s trash! Avoid it!
+=> END
+
+~ after_trash_flood
+- Woah, what was that?
+: Oh... every week, there’s a thing called trash flood.
+- What’s a trash flood?
+: Humans dump their waste in the waters every week, but not in our pond yet... until today. 
+: This pond has been clean, except it won’t be anymore. I guess...
 => END

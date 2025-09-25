@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi7m7q15dejei"]
+[gd_scene load_steps=7 format=3 uid="uid://bi7m7q15dejei"]
 
+[ext_resource type="Script" uid="uid://4gd7t7h2xa5t" path="res://scenes/Trash Flood/trash.gd" id="1_dofmi"]
 [ext_resource type="Texture2D" uid="uid://b68ffovqd8qxo" path="res://assets/Sprites/Trash Items/Candy.png" id="1_socdh"]
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="2_vk2qj"]
 
 [sub_resource type="Animation" id="Animation_363at"]
 length = 0.001
@@ -11,6 +13,18 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -33,6 +47,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 6.28319]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_51nri"]
 _data = {
@@ -41,9 +67,20 @@ _data = {
 }
 
 [node name="Trash2" type="Node2D"]
+script = ExtResource("1_dofmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_socdh")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_vk2qj")
+damage = 5
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(0, -62, 47, -44, 74, -15, 102, -29, 136, 13, 68, 43, 7, 43, -52, 55, -108, 59, -107, -20, -73, -24, -37, -20)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

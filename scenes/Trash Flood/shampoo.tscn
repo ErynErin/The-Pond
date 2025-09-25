@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddxc2v5lti43j"]
+[gd_scene load_steps=8 format=3 uid="uid://ddxc2v5lti43j"]
 
+[ext_resource type="Script" uid="uid://4gd7t7h2xa5t" path="res://scenes/Trash Flood/trash.gd" id="1_sycbv"]
 [ext_resource type="Texture2D" uid="uid://cqn8m2ek0hyv" path="res://assets/Sprites/Trash Items/Shampoo.png" id="1_u5swq"]
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="2_lwgtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sycbv"]
+size = Vector2(158, 150)
 
 [sub_resource type="Animation" id="Animation_363at"]
 length = 0.001
@@ -11,6 +16,18 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -33,6 +50,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 6.28319]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_51nri"]
 _data = {
@@ -41,9 +70,21 @@ _data = {
 }
 
 [node name="Trash4" type="Node2D"]
+script = ExtResource("1_sycbv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_u5swq")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_lwgtb")
+damage = 5
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 10)
+shape = SubResource("RectangleShape2D_sycbv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -276,7 +276,7 @@ script = ExtResource("1_tiyqp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_46d1w")
-animation = &"crawl"
+animation = &"ground1"
 
 [node name="BiteBox" type="Area2D" parent="Pivot"]
 collision_layer = 16

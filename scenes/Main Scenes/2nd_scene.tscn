@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=40 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://colliderP2_3.tscn" id="26_2agje"]
 [ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://colliderP2_1.tscn" id="26_f1wsw"]
 [ext_resource type="PackedScene" uid="uid://d0non4l3cian2" path="res://colliderP2_2.tscn" id="27_c7qhk"]
+[ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="29_d0pof"]
 
 [sub_resource type="SystemFont" id="SystemFont_ssd1q"]
 
@@ -326,12 +327,6 @@ next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 position = Vector2(-377, 509)
 scale = Vector2(1.5, 1.5)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_ssd1q")
-volume_db = -10.0
-autoplay = true
-parameters/looping = true
-
 [node name="Worm" parent="." instance=ExtResource("19_wkg83")]
 position = Vector2(-1799, 550)
 scale = Vector2(0.5, 0.5)
@@ -371,3 +366,14 @@ position = Vector2(-34, 457)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("27_c7qhk")]
 position = Vector2(1144, 512)
+
+[node name="Turtle" parent="." instance=ExtResource("29_d0pof")]
+position = Vector2(2326, 494)
+scale = Vector2(0.15, 0.15)
+collision_layer = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_ssd1q")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
