@@ -1069,6 +1069,7 @@ shape = SubResource("RectangleShape2D_qyqpj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85j45")
 animation = &"attack_100"
+autoplay = "idle_100"
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(44, -1)

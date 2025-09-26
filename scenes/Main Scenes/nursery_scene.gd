@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var wall: CollisionShape2D = $"Dialogue Signal Areas/Invisible Wall/CollisionShape2D"
+@onready var wall2: StaticBody2D = $"Dialogue Signal Areas/Invisible Wall2/CollisionShape2D"
 @onready var screen_fade = $GUI/ScreenFade
 @onready var dialogue_resource: DialogueResource = preload("res://dialogues/p1_nurseryintro.dialogue")
 var balloon_scene = preload("res://balloons/SystemBalloon.tscn")
+var balloon_scene2 = preload("res://balloons/TutorialBalloon.tscn")
 var dialogue_resource_title: String = ""
 
 func _init() -> void:
@@ -21,12 +23,12 @@ func _ready():
 	screen_fade.set_z_index(1000)
 	await fade_out_screen()
 	
-	start_dialogue("start", true)
+	start_dialogue("start", true, balloon_scene)
 
-func start_dialogue(title: String, make_player_movable: bool):
+func start_dialogue(title: String, make_player_movable: bool, balloon):
 	GameManager.set_player_movable(make_player_movable)
 
-	var balloon_instance = balloon_scene.instantiate()
+	var balloon_instance = balloon.instantiate()
 	get_tree().current_scene.add_child(balloon_instance)
 
 	# Connect dialogue finished signal once
@@ -57,16 +59,16 @@ func fade_out_screen():
 
 func _on_worm_tutorial_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		start_dialogue("worm_meet", false)
+		start_dialogue("worm_meet", false, balloon_scene)
 		$"Dialogue Signal Areas/Worm Tutorial".queue_free()
 
 func _on_first_worm_killed() -> void:
 	wall.queue_free()
-	start_dialogue("worm_end", true)
+	start_dialogue("worm_end", true, balloon_scene)
 
 func _on_siblings_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		start_dialogue("ted_siblings", false)
+		start_dialogue("ted_siblings", false, balloon_scene2)
 		$"Dialogue Signal Areas/Siblings".queue_free()
 
 func _on_trash_flood_body_entered(body: Node2D) -> void:
@@ -74,16 +76,21 @@ func _on_trash_flood_body_entered(body: Node2D) -> void:
 	var trash_flood: Node2D = $"Trash Flood"
 
 	if body.is_in_group("player"):
-		start_dialogue("before_trash_flood", true)
-		
-		trash_flood_signal_area.set_deferred("monitoring", false)
-		trash_flood_signal_area.set_deferred("monitorable", false)
+		start_dialogue("before_trash_flood", true, balloon_scene)
 		
 		if not trash_flood.is_connected("flood_finished", _on_trash_flood_flood_finished):
 			trash_flood.connect("flood_finished", _on_trash_flood_flood_finished)
 		
 		trash_flood.start_flood() # start trash flood
+		wall2.set_deferred("disabled", false) # Enables wall
+		$"Dialogue Signal Areas/Trash Flood".queue_free()
 
 func _on_trash_flood_flood_finished() -> void:
-	start_dialogue("after_trash_flood", true)
+	start_dialogue("after_trash_flood", true, balloon_scene)
 	$"Trash Flood".queue_free()
+
+func _on_objectives_checker_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		# Disables wall going to trash flood if the objectives are met
+		if GameManager.phase_objectives["p" + str(GameManager.phase_num)][0] <= GameManager.enemies_killed and GameManager.phase_objectives["p" + str(GameManager.phase_num)][1] <= GameManager.algae_eaten and GameManager.phase_objectives["p" + str(GameManager.phase_num)][2] <= GameManager.caps_collected:
+			wall2.set_deferred("disabled", true)
