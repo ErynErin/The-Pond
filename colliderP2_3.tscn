@@ -1,12 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk2hy45rb5vlo"]
+[gd_scene load_steps=4 format=3 uid="uid://dk2hy45rb5vlo"]
 
+[ext_resource type="Script" uid="uid://crsdvfese2snu" path="res://damage_collider.gd" id="1_2sy8s"]
 [ext_resource type="Texture2D" uid="uid://dkn8mv4qnrjil" path="res://assets/Colliders/P2/glass_hostile.png" id="1_541e1"]
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="2_jjfwe"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 3
+script = ExtResource("1_2sy8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_541e1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-41.3898, -23.3012, -144.462, -145.7, -151.71, 63.6663, -277.33, -73.2271, -272.498, 155.465, -379.597, 51.5875, -361.076, 154.66, 374.122, 169.96, 362.848, 140.166, 334.664, 150.634, 336.275, 107.955, 275.076, 162.713, 220.318, 161.102, 262.191, 12.9352, 178.445, 92.6555, 185.692, -181.131, 116.44, -47.4589, 67.3196, -56.3167, 59.2671, 28.2351, 11.7571, 20.9878, -9.17957, -59.5377)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_jjfwe")
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(-41.3898, -23.3012, -157, -177, -151.71, 63.6663, -290, -104, -272.498, 155.465, -400, 13, -361.076, 154.66, 374.122, 169.96, 369, 123, 334.664, 150.634, 346, 84, 275.076, 162.713, 220.318, 161.102, 283, -21, 178.445, 92.6555, 194, -213, 116.44, -47.4589, 67.3196, -56.3167, 59.2671, 28.2351, 11.7571, 20.9878, -5, -89)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -14,8 +14,8 @@ var coins = 0
 @export var inv: Inv
 
 # objectives minimum values
-var phase_objectives = {"p1": [3, 5, 5],
-					"p2": [5, 10, 5], 
+var phase_objectives = {"p1": [5, 5, 10],
+					"p2": [10, 10, 15], 
 					"p3": [5, 10, 0] }
 
 # objectives

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=67 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -162,17 +162,20 @@ texture_region_size = Vector2i(600, 600)
 physics_layer_0/collision_layer = 15
 sources/1 = SubResource("TileSetAtlasSource_fipse")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfx3x"]
-size = Vector2(83.2, 76.55)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u46sv"]
 size = Vector2(37, 1407.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfx3x"]
+size = Vector2(8.6, 153.238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqo85"]
 size = Vector2(80.125, 1594)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rppta"]
 size = Vector2(547.204, 271)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxxm7"]
+size = Vector2(85.5, 1527)
 
 [sub_resource type="Curve2D" id="Curve2D_po7p3"]
 _data = {
@@ -628,32 +631,6 @@ loop = false
 speed = 0.5
 speed_scale = 0.6
 
-[node name="TEMPLabel4" type="Label" parent="."]
-offset_left = 19262.0
-offset_right = 19540.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 50
-text = "end scene"
-horizontal_alignment = 1
-
-[node name="TEMPLabel3" type="Label" parent="."]
-offset_left = 13723.0
-offset_top = -904.0
-offset_right = 14417.0
-offset_bottom = -814.0
-theme_override_font_sizes/font_size = 50
-text = "INITIATE TRASH FLOOD HERE"
-horizontal_alignment = 1
-
-[node name="TEMPLabel2" type="Label" parent="."]
-offset_left = 9474.0
-offset_top = -754.0
-offset_right = 9749.0
-offset_bottom = -664.0
-theme_override_font_sizes/font_size = 50
-text = "MID ROUND"
-horizontal_alignment = 1
-
 [node name="CollidersGroup1" type="Node2D" parent="."]
 
 [node name="Seaweed1" parent="CollidersGroup1" instance=ExtResource("31_k6qa8")]
@@ -711,20 +688,12 @@ position = Vector2(5400, -340)
 [node name="StaticBody2D7" parent="CollidersGroup4" instance=ExtResource("28_r8hxo")]
 position = Vector2(5185, -191)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(9667, -147)
-scale = Vector2(10, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(692.1, 39.1)
-shape = SubResource("RectangleShape2D_qfx3x")
-
 [node name="Worm2" parent="." instance=ExtResource("28_rppta")]
 position = Vector2(5295, -274)
 scale = Vector2(0.5, 0.5)
 
 [node name="Trash Flood" parent="." instance=ExtResource("39_rppta")]
-position = Vector2(11762, -426)
+position = Vector2(16227, -456)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -740,6 +709,15 @@ parameters/looping = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Invisible Wall"]
 position = Vector2(2029.5, -5)
 shape = SubResource("RectangleShape2D_u46sv")
+
+[node name="Invisible Wall2" type="StaticBody2D" parent="Dialogue Signal Areas"]
+position = Vector2(9667, -147)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Invisible Wall2"]
+position = Vector2(616.5, 7.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qfx3x")
 
 [node name="Worm Tutorial" type="Area2D" parent="Dialogue Signal Areas"]
 position = Vector2(3000, 0)
@@ -762,6 +740,13 @@ position = Vector2(5000, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Trash Flood"]
 position = Vector2(11069, -100)
 shape = SubResource("RectangleShape2D_oqo85")
+
+[node name="Objectives Checker" type="Area2D" parent="Dialogue Signal Areas"]
+position = Vector2(16000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Objectives Checker"]
+position = Vector2(-371, -66)
+shape = SubResource("RectangleShape2D_jxxm7")
 
 [node name="Path2D7" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(10267, -294)
@@ -796,3 +781,4 @@ scale = Vector2(0.95, 0.95)
 [connection signal="body_entered" from="Dialogue Signal Areas/Worm Tutorial" to="." method="_on_worm_tutorial_body_entered"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Siblings" to="." method="_on_siblings_body_entered"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Trash Flood" to="." method="_on_trash_flood_body_entered"]
+[connection signal="body_entered" from="Dialogue Signal Areas/Objectives Checker" to="." method="_on_objectives_checker_body_entered"]

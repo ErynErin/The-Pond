@@ -213,7 +213,6 @@ region_rect = Rect2(0, 0, 10000, 1000)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 scale = Vector2(0.6, 0.6)
 transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
 
@@ -406,6 +405,10 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Worm5" parent="." instance=ExtResource("19_wkg83")]
 position = Vector2(8264, 520)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm7" parent="." instance=ExtResource("19_wkg83")]
+position = Vector2(7906, 520)
 scale = Vector2(0.5, 0.5)
 
 [node name="Worm6" parent="." instance=ExtResource("19_wkg83")]
