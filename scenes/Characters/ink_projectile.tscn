@@ -1,0 +1,93 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvtvd7x8ac3it"]
+
+[ext_resource type="Texture2D" uid="uid://c84l7pb8dmrsw" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0000.png" id="1_3ej26"]
+[ext_resource type="Script" uid="uid://bdll8jofihyjh" path="res://scenes/Characters/ink_projectile.gd" id="1_kwhsk"]
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="2_g0453"]
+[ext_resource type="Texture2D" uid="uid://b6h2bpih5a1p5" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0001.png" id="2_kwhsk"]
+[ext_resource type="Texture2D" uid="uid://jhgit1dwdd4l" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0002.png" id="3_wll46"]
+[ext_resource type="Texture2D" uid="uid://cn2htd2gxv1it" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0003.png" id="4_4q0oh"]
+[ext_resource type="Texture2D" uid="uid://b3e1utuaayce" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0004.png" id="5_dtgcp"]
+[ext_resource type="Texture2D" uid="uid://c6iuvchkgnee6" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0005.png" id="6_cbjqw"]
+[ext_resource type="Texture2D" uid="uid://by7jf6sb176hv" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0006.png" id="7_iqhoo"]
+[ext_resource type="Texture2D" uid="uid://c2sc4a5awgap3" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0007.png" id="8_fcyq7"]
+[ext_resource type="Texture2D" uid="uid://cuy7lt56kv73" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0008.png" id="9_14smo"]
+[ext_resource type="Texture2D" uid="uid://besi8ghfmj838" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0009.png" id="10_nk4sh"]
+[ext_resource type="Texture2D" uid="uid://dmdcrjx75gxpm" path="res://assets/Characters/Squid/PROJECTILES/projectile1_0010.png" id="11_xwcpn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcb5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3ej26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kwhsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wll46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4q0oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dtgcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbjqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iqhoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fcyq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_14smo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nk4sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xwcpn")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8ukr"]
+radius = 125.0
+height = 464.0
+
+[node name="Ink Projectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_kwhsk")
+
+[node name="ink" type="AnimatedSprite2D" parent="."]
+position = Vector2(286, 100)
+sprite_frames = SubResource("SpriteFrames_wcb5w")
+animation = &"attack"
+autoplay = "attack"
+frame = 5
+frame_progress = 0.75928
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_g0453")
+damage = 15
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 450)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m8ukr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 450)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m8ukr")

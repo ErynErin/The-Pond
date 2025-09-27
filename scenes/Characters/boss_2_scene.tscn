@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm3hhu0puqy85"]
+
+[ext_resource type="PackedScene" uid="uid://tg2fgqghhh5c" path="res://scenes/Characters/boss_2.tscn" id="1_8uvjh"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="2_5o4qr"]
+
+[sub_resource type="Animation" id="Animation_8uvjh"]
+resource_name = "idle"
+length = 9.00001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scornus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.964157, 1.5, 4.5, 5.46416, 6),
+"transitions": PackedFloat32Array(1, 0.5, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1000, 0), Vector2(1000, 0), Vector2(1000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scornus:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1, 1.4, 4.5, 5.4, 5.5, 5.9),
+"transitions": PackedFloat32Array(1, 0.287175, 5.09824, 1, 1, 0.287175, 5.09824, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.523599, 0.0, 0.0, 0.0, -0.523599, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5o4qr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scornus:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scornus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpfr1"]
+_data = {
+&"RESET": SubResource("Animation_5o4qr"),
+&"idle": SubResource("Animation_8uvjh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpfr1"]
+bg_color = Color(0.870588, 0.870588, 0.870588, 0.65098)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wrh"]
+bg_color = Color(0.572549, 0.054902, 0, 0.623529)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o4qr"]
+size = Vector2(30.75, 1079)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpfr1"]
+size = Vector2(1915.38, 28)
+
+[node name="Boss2 Scene" type="Node2D"]
+
+[node name="Scornus" parent="." instance=ExtResource("1_8uvjh")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cpfr1")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 50.0
+offset_right = 500.0
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5o4qr")
+theme_override_font_sizes/font_size = 60
+text = "Scornus Health"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/background = SubResource("StyleBoxFlat_cpfr1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q2wrh")
+value = 50.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-656, 95.5)
+shape = SubResource("RectangleShape2D_5o4qr")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(696, 95.5)
+shape = SubResource("RectangleShape2D_5o4qr")
+disabled = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.3125, -430)
+shape = SubResource("RectangleShape2D_cpfr1")
+disabled = true

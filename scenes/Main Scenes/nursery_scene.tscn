@@ -367,6 +367,17 @@ theme_override_font_sizes/font_size = 50
 text = "00"
 script = ExtResource("15_po7p3")
 
+[node name="Objectives Label" type="Label" parent="GUI"]
+visible = false
+offset_left = 1250.0
+offset_top = 1600.0
+offset_right = 1964.0
+offset_bottom = 1643.0
+theme_override_fonts/font = ExtResource("14_qfx3x")
+theme_override_font_sizes/font_size = 50
+text = "You still have objectives left to do!"
+horizontal_alignment = 1
+
 [node name="Objectives" parent="GUI" instance=ExtResource("17_8f8kc")]
 scale = Vector2(1.67, 1.67)
 
@@ -716,7 +727,6 @@ scale = Vector2(10, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Invisible Wall2"]
 position = Vector2(616.5, 7.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qfx3x")
 
 [node name="Worm Tutorial" type="Area2D" parent="Dialogue Signal Areas"]
@@ -751,10 +761,12 @@ shape = SubResource("RectangleShape2D_jxxm7")
 [node name="Path2D7" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(10267, -294)
 curve = SubResource("Curve2D_po7p3")
+speed = 5.0
 
 [node name="Path2D9" parent="." instance=ExtResource("24_nsaye")]
 position = Vector2(13723, -482)
 curve = SubResource("Curve2D_po7p3")
+speed = 5.0
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("38_oqo85")]
 position = Vector2(11376, -107)

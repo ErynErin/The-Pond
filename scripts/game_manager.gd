@@ -76,7 +76,7 @@ func add_strength():
 	print("strength: ", strength)
 	
 func add_speed():
-	speed += 70
+	speed += 100
 	print("speed:", speed)
 
 func show_shop():
@@ -111,8 +111,8 @@ func take_damage(damage: float):
 	current_health -= damage
 	current_health = max(current_health, 0)
 	emit_signal("health_changed", current_health, max_health)
-	print("Player Health Decreased by " + str(damage))
-	print("New Health " + str(current_health))
+	#print("Player Health Decreased by " + str(damage))
+	#print("New Health " + str(current_health))
 	check_player_status()
 
 func heal(amount: float):

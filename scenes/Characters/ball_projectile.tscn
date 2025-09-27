@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bal61yb66wts5"]
+
+[ext_resource type="Texture2D" uid="uid://bfr2iaaugw1yw" path="res://assets/Characters/Squid/PROJECTILES/Projectile2.png" id="1_kj585"]
+[ext_resource type="Script" uid="uid://7s74p3hrob8e" path="res://scenes/Characters/ball_projectile.gd" id="1_l6ve7"]
+[ext_resource type="Script" uid="uid://cfdlbfbudy12s" path="res://scripts/hitbox.gd" id="2_l6ve7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jjc2"]
+radius = 68.0074
+
+[node name="Ball Projectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_l6ve7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kj585")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_l6ve7")
+metadata/_custom_type_script = "uid://cfdlbfbudy12s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_1jjc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1jjc2")
