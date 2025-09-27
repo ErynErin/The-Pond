@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://barjrf2nutqfi" path="res://colliderP3_4.tscn" id="23_oioei"]
 [ext_resource type="Texture2D" uid="uid://b23iinwyc72um" path="res://assets/Platforms/p3_plat.svg" id="28_4e2m0"]
 [ext_resource type="PackedScene" uid="uid://by155wu4m8ch1" path="res://p3-moving.tscn" id="29_6cg0m"]
-[ext_resource type="PackedScene" uid="uid://tg2fgqghhh5c" path="res://scenes/Characters/boss_2.tscn" id="32_1uvu5"]
+[ext_resource type="PackedScene" uid="uid://cm3hhu0puqy85" path="res://scenes/Characters/boss_2_scene.tscn" id="32_1uvu5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3xx46"]
 noise_type = 2
@@ -208,7 +208,7 @@ position = Vector2(3090, -70)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_lfq3w")
 region_enabled = true
-region_rect = Rect2(0, 0, 10000, 720)
+region_rect = Rect2(0, 0, 15000, 720)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 10
@@ -416,8 +416,8 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Scornus" parent="." instance=ExtResource("32_1uvu5")]
-position = Vector2(-1722, 0)
+[node name="Boss2 Scene" parent="." instance=ExtResource("32_1uvu5")]
+position = Vector2(-600, 0)
 
 [connection signal="boss_died" from="Kingstar" to="." method="_on_kingstar_boss_died"]
 [connection signal="body_entered" from="Boss Dialogue Area" to="." method="_on_boss_dialogue_area_body_entered"]

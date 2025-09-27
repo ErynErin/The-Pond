@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=50 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="6_42ul7"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://d0non4l3cian2" path="res://colliderP2_2.tscn" id="27_c7qhk"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="29_d0pof"]
 [ext_resource type="PackedScene" uid="uid://8cmfe7p7qtwt" path="res://p2-moving.tscn" id="31_ce7ql"]
+[ext_resource type="PackedScene" uid="uid://cm3hhu0puqy85" path="res://scenes/Characters/boss_2_scene.tscn" id="34_rrk3c"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lny5s"]
 noise_type = 2
@@ -200,7 +201,7 @@ position = Vector2(0, 26)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("11_t7lwq")
 region_enabled = true
-region_rect = Rect2(0, 0, 10000, 720)
+region_rect = Rect2(0, 0, 15000, 720)
 
 [node name="Shader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5l5e4")
@@ -371,7 +372,7 @@ position = Vector2(11232, 504)
 scale = Vector2(0.15, 0.15)
 
 [node name="ChangeScene" parent="." instance=ExtResource("18_3xvx2")]
-position = Vector2(11856, 72)
+position = Vector2(13411, 105)
 scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
@@ -530,3 +531,6 @@ speed_scale = 0.2
 
 [node name="StaticBody2D10" parent="." instance=ExtResource("26_f1wsw")]
 position = Vector2(8920, 464)
+
+[node name="Boss2 Scene" parent="." instance=ExtResource("34_rrk3c")]
+position = Vector2(12255, 0)

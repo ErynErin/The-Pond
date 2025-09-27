@@ -52,10 +52,10 @@ func _physics_process(delta: float) -> void:
 
 	# Animation
 	if GameManager.can_move and GameManager.current_health > 0:
-		if is_on_floor():
-			if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("attack"):
 				sword.sword_attack()
-			elif velocity.x == 0:
+		if is_on_floor():
+			if velocity.x == 0:
 				animated_sprite.play("idle")
 			elif Input.is_action_pressed("Sprint"):
 				animated_sprite.play("run")
@@ -72,11 +72,11 @@ func take_damage(damage: float):
 	GameManager.take_damage(damage)
 
 func _on_hurt_box_area_entered(area) -> void:
-	print("player hurt")
+	#print("player hurt")
 	animation_player.play("hurt")
 	
-	if area and area.owner:   
-		print("Hit by: ", area.owner.name)
+	#if area and area.owner:   
+		#print("Hit by: ", area.owner.name)
 		
 	if area != null:
 		if area.owner.name == "Beetle":
@@ -85,6 +85,10 @@ func _on_hurt_box_area_entered(area) -> void:
 			take_damage(10.0)
 		elif "trash_type" in area.owner:
 			take_damage(5)
+		elif "ball_projectile" in area.owner:
+			take_damage(5)
+		elif "ink_projectile" in area.owner:
+			take_damage(10)
 
 func _on_player_died():
 	$DeathAudio.play()

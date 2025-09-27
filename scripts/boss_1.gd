@@ -38,9 +38,6 @@ func _physics_process(delta: float) -> void:
 	if current_state == State.DEATH or current_state == State.INACTIVE:
 		return
 		
-	if current_state == State.DEATH:
-		return
-		
 	state_timer += delta
 	
 	match current_state:

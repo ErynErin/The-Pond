@@ -5,7 +5,7 @@ const POISON_TICK_RATE = 2.0
 const POISON_DURATION = 6.0 
 
 var actual_speed: float = 0.0
-var enemy_health = 50
+var enemy_health = 40
 var player_entered: bool = false
 var is_poisoned: bool = false
 var player_in_bite_range: bool = false
