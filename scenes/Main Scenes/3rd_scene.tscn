@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://0gwvr1mcfucc"]
+[gd_scene load_steps=46 format=4 uid="uid://0gwvr1mcfucc"]
 
 [ext_resource type="Texture2D" uid="uid://dfoeb3l3cxt1d" path="res://assets/BG/Phase 3/1.png" id="1_ff7f0"]
 [ext_resource type="Script" uid="uid://c3n8hb0oj65hp" path="res://scenes/Main Scenes/3_rd_scene.gd" id="1_fngbt"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://barjrf2nutqfi" path="res://colliderP3_4.tscn" id="23_oioei"]
 [ext_resource type="Texture2D" uid="uid://b23iinwyc72um" path="res://assets/Platforms/p3_plat.svg" id="28_4e2m0"]
 [ext_resource type="PackedScene" uid="uid://by155wu4m8ch1" path="res://p3-moving.tscn" id="29_6cg0m"]
-[ext_resource type="PackedScene" uid="uid://cm3hhu0puqy85" path="res://scenes/Characters/boss_2_scene.tscn" id="32_1uvu5"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3xx46"]
 noise_type = 2
@@ -415,9 +414,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="Boss2 Scene" parent="." instance=ExtResource("32_1uvu5")]
-position = Vector2(-600, 0)
 
 [connection signal="boss_died" from="Kingstar" to="." method="_on_kingstar_boss_died"]
 [connection signal="body_entered" from="Boss Dialogue Area" to="." method="_on_boss_dialogue_area_body_entered"]

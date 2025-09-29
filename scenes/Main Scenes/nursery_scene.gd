@@ -16,7 +16,7 @@ func _init() -> void:
 	GameManager.caps_collected = 0
 
 func _ready():
-	wall2.set_deferred("disabled", false) # Enables wall
+	#wall2.set_deferred("disabled", false) # Enables wall
 	wall.position = Vector2(2030, -5)
 	GameManager.current_scene_path = "res://scenes/Main Scenes/nursery_scene.tscn"
 	
@@ -86,19 +86,24 @@ func _on_trash_flood_body_entered(body: Node2D) -> void:
 		$"Dialogue Signal Areas/Trash Flood".queue_free()
 
 func _on_trash_flood_flood_finished() -> void:
+	await get_tree().create_timer(3).timeout
 	start_dialogue("after_trash_flood", true, balloon_scene)
-	#$"Trash Flood".queue_free()
 
-func _on_objectives_checker_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print(GameManager.merchant_access == 0)
-		print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][0] <= GameManager.enemies_killed)
-		print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][1] <= GameManager.algae_eaten)
-		print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][2] <= GameManager.caps_collected)
-		# Disables wall going to trash flood if the objectives are met
-		if GameManager.merchant_access == 0 and GameManager.phase_objectives["p" + str(GameManager.phase_num)][0] <= GameManager.enemies_killed and GameManager.phase_objectives["p" + str(GameManager.phase_num)][1] <= GameManager.algae_eaten and GameManager.phase_objectives["p" + str(GameManager.phase_num)][2] <= GameManager.caps_collected:
-			wall2.set_deferred("disabled", true)
-		else:
-			$"GUI/Objectives Label".visible = true
-			await get_tree().create_timer(3).timeout
-			$"GUI/Objectives Label".visible = false
+	# Disconnect so it doesn’t call again
+	var trash_flood: Node2D = $"Trash Flood"
+	if trash_flood.is_connected("flood_finished", _on_trash_flood_flood_finished):
+		trash_flood.disconnect("flood_finished", _on_trash_flood_flood_finished)
+
+#func _on_objectives_checker_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+		#print(GameManager.merchant_access == 0)
+		#print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][0] <= GameManager.enemies_killed)
+		#print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][1] <= GameManager.algae_eaten)
+		#print(GameManager.phase_objectives["p" + str(GameManager.phase_num)][2] <= GameManager.caps_collected)
+		## Disables wall going to trash flood if the objectives are met
+		#if GameManager.merchant_access == 0 and GameManager.phase_objectives["p" + str(GameManager.phase_num)][0] <= GameManager.enemies_killed and GameManager.phase_objectives["p" + str(GameManager.phase_num)][1] <= GameManager.algae_eaten and GameManager.phase_objectives["p" + str(GameManager.phase_num)][2] <= GameManager.caps_collected:
+			#wall2.set_deferred("disabled", true)
+		#else:
+			#$"GUI/Objectives Label".visible = true
+			#await get_tree().create_timer(3).timeout
+			#$"GUI/Objectives Label".visible = false

@@ -3,7 +3,7 @@
 : It’s from the trash flood.[wait=1] The oils and toxins probably spread throughout the pond.
 - I also look different. Is this how I am supposed to look like?
 : No... the oil slick stuck on your skin.
-: Still, [wait=1]you have to keep going. Stay safe out there...
+: Still, [wait=1]you have to keep going. Stay safe...
 => END
 
 ~ beetle_first_encounter
@@ -11,4 +11,16 @@
 : You can only deal damage to it when it's in such vulnerable state.
 : There might be more enemies around here and they'll start attacking if they see you.
 : Don't forget to eat and heal up![wait=1] Be careful.
+
+~ trash_flood
+: Trash_flood!
+=> END
+
+~ boss_opening
+Scornus: squeeeakk squeeakk
+Scornus: There’s someone in here?
+Scornus: I’m pretty sure I shut off all corners of my area though..
+Scornus: I really hate it when someone thinks they can go near here.
+Scornus: Well I guess that just means one thing.
+Scornus: I can just eat you up.[wait=1] It’s time for dinner anyway!
 => END
