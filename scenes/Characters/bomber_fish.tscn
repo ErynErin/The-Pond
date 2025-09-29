@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqv1p3cvx6x6f"]
+[gd_scene load_steps=32 format=3 uid="uid://bqv1p3cvx6x6f"]
 
 [ext_resource type="Script" uid="uid://bgndwoa4xxkk3" path="res://scenes/Characters/bomber_fish.gd" id="1_nlj60"]
 [ext_resource type="Texture2D" uid="uid://b5jv6xx6s3fny" path="res://assets/Characters/Bomber Fish/fish attack/fish attack0000.png" id="1_rflln"]
@@ -91,6 +91,15 @@ animations = [{
 "name": &"idle",
 "speed": 7.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_nlj60"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nlxyk"]
+gradient = SubResource("Gradient_nlj60")
+fill = 1
+fill_from = Vector2(0.460366, 0.490854)
+fill_to = Vector2(0.85061, 0.146341)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6me8"]
 radius = 31.0161
@@ -237,6 +246,13 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_qjwes")
 animation = &"attack"
 autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="Pivot"]
+position = Vector2(-136, 0)
+color = Color(0.470396, 0.379347, 0.843021, 1)
+energy = 0.59
+texture = SubResource("GradientTexture2D_nlxyk")
+texture_scale = 0.68
 
 [node name="HitBox" type="Area2D" parent="Pivot"]
 collision_layer = 16
