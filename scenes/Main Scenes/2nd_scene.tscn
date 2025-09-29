@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=53 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="6_42ul7"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="29_d0pof"]
 [ext_resource type="PackedScene" uid="uid://8cmfe7p7qtwt" path="res://p2-moving.tscn" id="31_ce7ql"]
 [ext_resource type="PackedScene" uid="uid://cm3hhu0puqy85" path="res://scenes/Characters/boss_2_scene.tscn" id="34_rrk3c"]
+[ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="35_lny5s"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lny5s"]
 noise_type = 2
@@ -110,6 +111,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -8, 0, 0, 0, 0, 0, 928, 160, 0, 0, 0, 0, 2176, 160, 0, 0, 0, 0, 2176, 672)
 }
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrk3c"]
+size = Vector2(80.125, 1594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lny5s"]
+size = Vector2(8.6, 153.238)
 
 [node name="Ted Game 2" type="Node2D"]
 script = ExtResource("1_3xvx2")
@@ -372,7 +379,7 @@ position = Vector2(11232, 504)
 scale = Vector2(0.15, 0.15)
 
 [node name="ChangeScene" parent="." instance=ExtResource("18_3xvx2")]
-position = Vector2(13411, 105)
+position = Vector2(15576, 105)
 scale = Vector2(1, 10)
 next_scene = "res://scenes/Main Scenes/3rd_scene.tscn"
 
@@ -533,4 +540,26 @@ speed_scale = 0.2
 position = Vector2(8920, 464)
 
 [node name="Boss2 Scene" parent="." instance=ExtResource("34_rrk3c")]
-position = Vector2(12255, 0)
+position = Vector2(14176, 0)
+
+[node name="Trash Flood" parent="." instance=ExtResource("35_lny5s")]
+position = Vector2(11400, -100)
+
+[node name="Trash Flood Signal" type="Area2D" parent="."]
+position = Vector2(5000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash Flood Signal"]
+position = Vector2(6603, -60)
+shape = SubResource("RectangleShape2D_rrk3c")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(9667, -147)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(179.4, 7.9)
+shape = SubResource("RectangleShape2D_lny5s")
+disabled = true
+
+[connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
+[connection signal="body_entered" from="Trash Flood Signal" to="." method="_on_trash_flood_body_entered"]
