@@ -384,7 +384,7 @@ position = Vector2(9240, -648)
 scale = Vector2(1.3, 1.3)
 
 [node name="food2" parent="Food" instance=ExtResource("20_fngbt")]
-position = Vector2(3016, 208)
+position = Vector2(3152, 232)
 scale = Vector2(1.3, 1.3)
 
 [node name="food3" parent="Food" instance=ExtResource("20_fngbt")]
@@ -476,7 +476,7 @@ position = Vector2(1920, 56)
 position = Vector2(5736, 264)
 
 [node name="WaterBottle" parent="." instance=ExtResource("23_oioei")]
-position = Vector2(2096, 272)
+position = Vector2(2232, 272)
 
 [node name="WaterBottle2" parent="." instance=ExtResource("23_oioei")]
 position = Vector2(7504, 240)
@@ -509,6 +509,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-43.9999, 742)
 scale = Vector2(0.3, 0.3)
 offset = Vector2(0, -400)
+zoom = Vector2(0.9, 0.9)
 process_callback = 0
 limit_top = -180
 limit_bottom = 1200
@@ -659,10 +660,10 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(11720, 280)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.368479, 0.368479, 0.368479, 1)
+color = Color(0.43134, 0.43134, 0.43134, 1)
 
 [node name="Trash Flood" parent="." instance=ExtResource("40_7mb24")]
-position = Vector2(11918, -329)
+position = Vector2(12152, -280)
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(12000, -476)
