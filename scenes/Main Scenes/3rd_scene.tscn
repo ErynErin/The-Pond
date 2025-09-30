@@ -502,7 +502,7 @@ speed_scale = 0.6
 
 [node name="player" parent="." instance=ExtResource("18_7fgw2")]
 z_index = 3
-position = Vector2(11200, 12)
+position = Vector2(-1100, 12)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
