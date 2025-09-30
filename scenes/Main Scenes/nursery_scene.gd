@@ -18,6 +18,7 @@ func _init() -> void:
 func _ready():
 	#wall2.set_deferred("disabled", false) # Enables wall
 	wall.position = Vector2(2030, -5)
+	GameManager.starting_health = GameManager.current_health
 	GameManager.current_scene_path = "res://scenes/Main Scenes/nursery_scene.tscn"
 	
 	screen_fade.color.a = 1.0

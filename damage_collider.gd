@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var damage_collider: String = "damage_collider"
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
