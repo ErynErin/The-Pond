@@ -16,6 +16,7 @@ func _init() -> void:
 	GameManager.caps_collected = 0
 
 func _ready():
+	GameManager.starting_health = GameManager.current_health
 	GameManager.current_scene_path = "res://scenes/Main Scenes/2nd_scene.tscn"
 	
 	screen_fade.color.a = 1.0
@@ -61,8 +62,6 @@ func start_dialogue(title: String, make_player_movable: bool, balloon):
 	balloon_instance.start(dialogue_resource, dialogue_resource_title)
 
 func _on_trash_flood_body_entered(body: Node2D) -> void:
-	var trash_flood: Node2D = $"Trash Flood"
-
 	if body.is_in_group("player"):
 		start_dialogue("trash_flood", true, balloon_scene)
 		
@@ -74,7 +73,5 @@ func _on_trash_flood_body_entered(body: Node2D) -> void:
 		$"Trash Flood Signal".queue_free()
 
 func _on_trash_flood_flood_finished() -> void:
-	# Disconnect so it doesn’t call again
-	var trash_flood: Node2D = $"Trash Flood"
 	if trash_flood.is_connected("flood_finished", _on_trash_flood_flood_finished):
 		trash_flood.disconnect("flood_finished", _on_trash_flood_flood_finished)

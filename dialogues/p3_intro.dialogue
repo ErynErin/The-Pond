@@ -7,3 +7,7 @@
 : Factories have been throwing their oil wastes, soda cans, and metals in the waters, as well as our pond.
 : Anyhow, keep on going. Your journey is not over.[wait=1] Stay safe out there...
 => END
+
+~ trash_flood
+: Trash_flood!
+=> END

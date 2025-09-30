@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		# Handle jump (double jump support)
-		if Input.is_action_just_pressed("jump") and jumps_left > 0:
+		if Input.is_action_just_pressed("jump") and jumps_left > 1:
 			$JumpAudio.play()
 			velocity.y = JUMP_VELOCITY
 			jumps_left -= 1
@@ -75,8 +75,8 @@ func _on_hurt_box_area_entered(area) -> void:
 	#print("player hurt")
 	animation_player.play("hurt")
 	
-	#if area and area.owner:   
-		#print("Hit by: ", area.owner.name)
+	if area and area.owner:   
+		print("Hit by: ", area.owner.name)
 		
 	if area != null:
 		if area.owner.name == "Beetle":
@@ -89,6 +89,8 @@ func _on_hurt_box_area_entered(area) -> void:
 			take_damage(5)
 		elif "ink_projectile" in area.owner:
 			take_damage(10)
+		elif "damage_collider" in area.owner:
+			take_damage(100)
 
 func _on_player_died():
 	$DeathAudio.play()
@@ -96,6 +98,6 @@ func _on_player_died():
 	animated_sprite.play("death")
 	GameManager.player_died.disconnect(_on_player_died)
 	await animated_sprite.animation_finished
-	GameManager.current_health = 60.0
+	GameManager.current_health = GameManager.starting_health
 	GameManager.coins = GameManager.coins - GameManager.caps_collected
 	get_tree().reload_current_scene()
