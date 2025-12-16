@@ -1,0 +1,443 @@
+[gd_scene load_steps=80 format=3 uid="uid://d1gkxm4es8jd4"]
+
+[ext_resource type="Script" uid="uid://diiw4e8232rx1" path="res://scripts/boss_3.gd" id="1_bg5hs"]
+[ext_resource type="Texture2D" uid="uid://bd5gleafke2hf" path="res://assets/Characters/Angler Fish/fb idle/idle0000.png" id="1_ieh2r"]
+[ext_resource type="Texture2D" uid="uid://tjf3v40yeply" path="res://assets/Characters/Angler Fish/fb attack/attack0000.png" id="1_rb3cp"]
+[ext_resource type="Texture2D" uid="uid://b0mf2ig23ijyn" path="res://assets/Characters/Angler Fish/fb idle/idle0001.png" id="2_chc3j"]
+[ext_resource type="Texture2D" uid="uid://w5wkk78p6jid" path="res://assets/Characters/Angler Fish/fb attack/attack0001.png" id="2_o5yji"]
+[ext_resource type="Texture2D" uid="uid://biu2qw4fkwvge" path="res://assets/Characters/Angler Fish/fb idle/idle0002.png" id="3_4yxh5"]
+[ext_resource type="Texture2D" uid="uid://bkwslcddh70fa" path="res://assets/Characters/Angler Fish/fb attack/attack0002.png" id="3_8ov03"]
+[ext_resource type="Texture2D" uid="uid://cte1galt6opqk" path="res://assets/Characters/Angler Fish/fb idle/idle0003.png" id="4_5lnq1"]
+[ext_resource type="Texture2D" uid="uid://c07ccwwaxpna8" path="res://assets/Characters/Angler Fish/fb attack/attack0003.png" id="4_54hq6"]
+[ext_resource type="Texture2D" uid="uid://bay6tcuial3a" path="res://assets/Characters/Angler Fish/fb idle/idle0004.png" id="5_7qm5d"]
+[ext_resource type="Texture2D" uid="uid://cstvbwkiwu8oe" path="res://assets/Characters/Angler Fish/fb attack/attack0004.png" id="5_nhnro"]
+[ext_resource type="Texture2D" uid="uid://ldpv1m86jo6s" path="res://assets/Characters/Angler Fish/fb idle/idle0005.png" id="6_7xuqm"]
+[ext_resource type="Texture2D" uid="uid://b3pkpeu6gg44q" path="res://assets/Characters/Angler Fish/fb attack/attack0005.png" id="6_voa88"]
+[ext_resource type="Texture2D" uid="uid://bo0tp8yt1p45q" path="res://assets/Characters/Angler Fish/fb idle/idle0006.png" id="7_003ed"]
+[ext_resource type="Texture2D" uid="uid://bcslljv7b8n7q" path="res://assets/Characters/Angler Fish/fb attack/attack0006.png" id="7_dk57q"]
+[ext_resource type="Texture2D" uid="uid://c4jovlnegq2lc" path="res://assets/Characters/Angler Fish/fb attack/attack0007.png" id="8_ailbs"]
+[ext_resource type="Texture2D" uid="uid://t8r2kpi0i65v" path="res://assets/Characters/Angler Fish/fb idle/idle0007.png" id="8_fn8s4"]
+[ext_resource type="Texture2D" uid="uid://b27aw4rmv75wv" path="res://assets/Characters/Angler Fish/fb attack/attack0008.png" id="9_s4ipy"]
+[ext_resource type="Texture2D" uid="uid://6ybde2b62kiy" path="res://assets/Characters/Angler Fish/fb idle/idle0008.png" id="9_wsjhp"]
+[ext_resource type="Texture2D" uid="uid://cf8rffm27bgo2" path="res://assets/Characters/Angler Fish/fb idle/idle0009.png" id="10_c1dbg"]
+[ext_resource type="Texture2D" uid="uid://bu1ick0oh4xfo" path="res://assets/Characters/Angler Fish/fb attack/attack0009.png" id="10_igea2"]
+[ext_resource type="Texture2D" uid="uid://dlq8gqtsi515r" path="res://assets/Characters/Angler Fish/fb attack/attack0010.png" id="11_c6iqi"]
+[ext_resource type="Texture2D" uid="uid://4kj4ghvku5my" path="res://assets/Characters/Angler Fish/fb idle/idle0010.png" id="11_qloyg"]
+[ext_resource type="Texture2D" uid="uid://b4sr0l31mcx3i" path="res://assets/Characters/Angler Fish/fb attack/attack0011.png" id="12_vbujc"]
+[ext_resource type="Texture2D" uid="uid://tu1sc0xaf2vu" path="res://assets/Characters/Angler Fish/fb attack/attack0012.png" id="13_bg5hs"]
+[ext_resource type="Texture2D" uid="uid://bimp28j1qrmjl" path="res://assets/Characters/Angler Fish/fb attack/attack0013.png" id="14_oqyof"]
+[ext_resource type="Texture2D" uid="uid://bpa7qpcuobo4a" path="res://assets/Characters/Angler Fish/fb attack/attack0014.png" id="15_67864"]
+[ext_resource type="Texture2D" uid="uid://bb5w1bl6nvtau" path="res://assets/Characters/Angler Fish/fb attack/attack0015.png" id="16_2cmm1"]
+[ext_resource type="Texture2D" uid="uid://cnon82tknpdcu" path="res://assets/Characters/Angler Fish/fb attack/attack0016.png" id="17_3g2lq"]
+[ext_resource type="Texture2D" uid="uid://c61khc1mjfhnu" path="res://assets/Characters/Angler Fish/fb death/death0000.png" id="18_aavs6"]
+[ext_resource type="Texture2D" uid="uid://7e764in3hh6y" path="res://assets/Characters/Angler Fish/fb death/death0001.png" id="19_qjs6c"]
+[ext_resource type="Texture2D" uid="uid://blbo0c8for7pj" path="res://assets/Characters/Angler Fish/fb death/death0002.png" id="20_6m57o"]
+[ext_resource type="Texture2D" uid="uid://cxvsgm3ws7p3i" path="res://assets/Characters/Angler Fish/fb death/death0003.png" id="21_oiajy"]
+[ext_resource type="Texture2D" uid="uid://bxdjc4yrp7n15" path="res://assets/Characters/Angler Fish/fb death/death0004.png" id="22_oxfl5"]
+[ext_resource type="Texture2D" uid="uid://io8plhvnbawe" path="res://assets/Characters/Angler Fish/fb death/death0005.png" id="23_corf7"]
+[ext_resource type="Texture2D" uid="uid://koj4xhg2fisb" path="res://assets/Characters/Angler Fish/fb sprint/sprint0000.png" id="35_2oej0"]
+[ext_resource type="Texture2D" uid="uid://mcf5r47ftnld" path="res://assets/Characters/Angler Fish/fb jump/jump0000.png" id="35_vbujc"]
+[ext_resource type="Texture2D" uid="uid://chmrx80oi6mmt" path="res://assets/Characters/Angler Fish/fb jump/jump0001.png" id="36_bg5hs"]
+[ext_resource type="Texture2D" uid="uid://b6ml8764vwell" path="res://assets/Characters/Angler Fish/fb sprint/sprint0001.png" id="36_pvn70"]
+[ext_resource type="Texture2D" uid="uid://te2knol2b28u" path="res://assets/Characters/Angler Fish/fb sprint/sprint0002.png" id="37_mjfjn"]
+[ext_resource type="Texture2D" uid="uid://ds4gvki2dqtsb" path="res://assets/Characters/Angler Fish/fb jump/jump0002.png" id="37_oqyof"]
+[ext_resource type="Texture2D" uid="uid://cib25ynfjdfld" path="res://assets/Characters/Angler Fish/fb sprint/sprint0003.png" id="38_4x7s1"]
+[ext_resource type="Texture2D" uid="uid://d2tq8gkibxs78" path="res://assets/Characters/Angler Fish/fb jump/jump0003.png" id="38_67864"]
+[ext_resource type="Texture2D" uid="uid://ju5mcpgtuurq" path="res://assets/Characters/Angler Fish/fb jump/jump0004.png" id="39_2cmm1"]
+[ext_resource type="Texture2D" uid="uid://dxhnii1f5nlmq" path="res://assets/Characters/Angler Fish/fb sprint/sprint0004.png" id="39_kpwl3"]
+[ext_resource type="Texture2D" uid="uid://baq2v4m1bs6w8" path="res://assets/Characters/Angler Fish/fb jump/jump0005.png" id="40_3g2lq"]
+[ext_resource type="Texture2D" uid="uid://d2wfj6a1pl47u" path="res://assets/Characters/Angler Fish/fb sprint/sprint0005.png" id="40_ydolp"]
+[ext_resource type="Texture2D" uid="uid://bksjxlcsytc3u" path="res://assets/Characters/Angler Fish/fb sprint/sprint0006.png" id="41_ga4lh"]
+[ext_resource type="Texture2D" uid="uid://dxa04rxbyufif" path="res://assets/Characters/Angler Fish/fb sprint/sprint0007.png" id="42_eno00"]
+[ext_resource type="Texture2D" uid="uid://t6sgemedos0q" path="res://assets/Characters/Angler Fish/fb jump/jump0007.png" id="42_qjs6c"]
+[ext_resource type="Texture2D" uid="uid://u7hbsty7cxs3" path="res://assets/Characters/Angler Fish/fb jump/jump0008.png" id="43_6m57o"]
+[ext_resource type="Texture2D" uid="uid://b1q6upl46obhy" path="res://assets/Characters/Angler Fish/fb sprint/sprint0008.png" id="43_lljaa"]
+[ext_resource type="Texture2D" uid="uid://br1abpowhdr8s" path="res://assets/Characters/Angler Fish/fb sprint/sprint0009.png" id="44_0t215"]
+[ext_resource type="Texture2D" uid="uid://dkxda5kcc83va" path="res://assets/Characters/Angler Fish/fb jump/jump0009.png" id="44_oiajy"]
+[ext_resource type="Texture2D" uid="uid://dk8ddx5twqg65" path="res://assets/Characters/Angler Fish/fb sprint/sprint0010.png" id="45_fdq7p"]
+[ext_resource type="Texture2D" uid="uid://b8vnaf1nlrwyo" path="res://assets/Characters/Angler Fish/fb jump/jump0010.png" id="45_oxfl5"]
+[ext_resource type="Texture2D" uid="uid://dnjv03ip6b7pc" path="res://assets/Characters/Angler Fish/fb sprint/sprint0011.png" id="46_ma7cd"]
+[ext_resource type="Texture2D" uid="uid://c0qdnuqsvttqk" path="res://assets/Characters/Angler Fish/fb sprint/sprint0012.png" id="47_k8hit"]
+[ext_resource type="Texture2D" uid="uid://b23tmdpeivhxc" path="res://assets/Characters/Angler Fish/fb sprint/sprint0013.png" id="48_ogj1o"]
+[ext_resource type="Texture2D" uid="uid://dqjickdqksqo0" path="res://assets/Characters/Angler Fish/fb sprint/sprint0014.png" id="49_ux3hl"]
+[ext_resource type="Texture2D" uid="uid://db4s6rpkssfjp" path="res://assets/Characters/Angler Fish/fb sprint/sprint0015.png" id="50_86vwi"]
+[ext_resource type="Texture2D" uid="uid://dl711ay3gnhup" path="res://assets/Characters/Angler Fish/fb sprint/sprint0016.png" id="51_ek37k"]
+[ext_resource type="Texture2D" uid="uid://dt080mjhktcbb" path="res://assets/Characters/Angler Fish/fb sprint/sprint0017.png" id="52_rrsmw"]
+[ext_resource type="Texture2D" uid="uid://nmt4jhb4wmra" path="res://assets/Characters/Angler Fish/fb sprint/sprint0018.png" id="53_eocqs"]
+[ext_resource type="Texture2D" uid="uid://c0c1wxvkwwd5e" path="res://assets/Characters/Angler Fish/fb sprint/sprint0019.png" id="54_4045x"]
+[ext_resource type="Texture2D" uid="uid://j505skn8uy5k" path="res://assets/Characters/Angler Fish/fb sprint/sprint0020.png" id="55_rjvhu"]
+[ext_resource type="Texture2D" uid="uid://c61ygmuu5situ" path="res://assets/Characters/Angler Fish/fb sprint/sprint0021.png" id="56_1tk8i"]
+[ext_resource type="Texture2D" uid="uid://04jieq41rhr5" path="res://assets/Characters/Angler Fish/fb sprint/sprint0022.png" id="57_m80dh"]
+[ext_resource type="Texture2D" uid="uid://d8lsm2gbg3e2" path="res://assets/Characters/Angler Fish/fb sprint/sprint0023.png" id="58_ugcg6"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="70_bg5hs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67864"]
+radius = 291.0
+height = 898.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbujc"]
+size = Vector2(374, 586)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5hs"]
+size = Vector2(376, 1426.5)
+
+[sub_resource type="Gradient" id="Gradient_vbujc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bg5hs"]
+gradient = SubResource("Gradient_vbujc")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ojik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rb3cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o5yji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ov03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_54hq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nhnro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_voa88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dk57q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ailbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s4ipy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_igea2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c6iqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vbujc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bg5hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oqyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_67864")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2cmm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3g2lq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_aavs6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qjs6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6m57o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_oiajy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_oxfl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_corf7")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ieh2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_chc3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4yxh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5lnq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7qm5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7xuqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_003ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fn8s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wsjhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c1dbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qloyg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_vbujc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_bg5hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_oqyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_67864")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_2cmm1")
+}, {
+"duration": 4.0,
+"texture": ExtResource("40_3g2lq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("42_qjs6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_6m57o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_oiajy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_oxfl5")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_2oej0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_pvn70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_mjfjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4x7s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_kpwl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ydolp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ga4lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_eno00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_lljaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_0t215")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_fdq7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ma7cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_k8hit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ogj1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ux3hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_86vwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ek37k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_rrsmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_eocqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4045x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_rjvhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_1tk8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_m80dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_ugcg6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyof"]
+size = Vector2(2298, 1539)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqyof"]
+bg_color = Color(0.870588, 0.870588, 0.870588, 0.65098)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67864"]
+bg_color = Color(0.572549, 0.054902, 0, 0.623529)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="AnglerFish" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_bg5hs")
+
+[node name="SpriteNode" type="Node2D" parent="."]
+
+[node name="HitboxArea" type="Area2D" parent="SpriteNode"]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/HitboxArea"]
+position = Vector2(-13, -52)
+shape = SubResource("CapsuleShape2D_67864")
+
+[node name="ColorRect" type="ColorRect" parent="SpriteNode/HitboxArea"]
+offset_left = -311.0
+offset_top = -497.0
+offset_right = 284.0
+offset_bottom = 387.0
+
+[node name="BackHitbox" type="Area2D" parent="SpriteNode"]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/BackHitbox"]
+position = Vector2(312, -27)
+shape = SubResource("RectangleShape2D_vbujc")
+
+[node name="ColorRect" type="ColorRect" parent="SpriteNode/BackHitbox"]
+offset_left = 131.0
+offset_top = -313.0
+offset_right = 490.0
+offset_bottom = 259.0
+color = Color(1, 1, 0, 1)
+
+[node name="LightDetectionArea" type="Area2D" parent="SpriteNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/LightDetectionArea"]
+position = Vector2(-500, -26.25)
+shape = SubResource("RectangleShape2D_bg5hs")
+
+[node name="ColorRect" type="ColorRect" parent="SpriteNode/LightDetectionArea"]
+offset_left = -698.0
+offset_top = -729.0
+offset_right = -309.0
+offset_bottom = 698.0
+color = Color(0, 1, 1, 1)
+
+[node name="AnglerfishLight" type="PointLight2D" parent="SpriteNode"]
+position = Vector2(-605, -222)
+scale = Vector2(1.7851563, 195.5)
+texture = SubResource("GradientTexture1D_bg5hs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteNode"]
+position = Vector2(-200, 0)
+sprite_frames = SubResource("SpriteFrames_7ojik")
+animation = &"attack"
+autoplay = "idle"
+frame = 16
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, -52)
+shape = SubResource("CapsuleShape2D_67864")
+
+[node name="StateTimer" type="Timer" parent="."]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-13, -26.5)
+shape = SubResource("RectangleShape2D_oqyof")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 50.0
+offset_right = 500.0
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("70_bg5hs")
+theme_override_font_sizes/font_size = 60
+text = "Kingstar Health"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/background = SubResource("StyleBoxFlat_oqyof")
+theme_override_styles/fill = SubResource("StyleBoxFlat_67864")
+value = 50.0
+
+[connection signal="body_entered" from="SpriteNode/BackHitbox" to="." method="_on_back_hitbox_body_entered"]
+[connection signal="body_entered" from="SpriteNode/LightDetectionArea" to="." method="_on_light_detection_area_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

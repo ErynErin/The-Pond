@@ -1,0 +1,804 @@
+[gd_scene load_steps=69 format=4 uid="uid://d0hqwpnv7oakw"]
+
+[ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
+[ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
+[ext_resource type="Texture2D" uid="uid://c3xww2i2skpq1" path="res://assets/BG/Phase 1/2.png" id="2_is0ew"]
+[ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="3_xlmt5"]
+[ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="4_heptv"]
+[ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="5_b40aj"]
+[ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
+[ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="8_u46sv"]
+[ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="9_jxxm7"]
+[ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
+[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="9_u46sv"]
+[ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
+[ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="12_45e12"]
+[ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="14_iud5h"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="14_qfx3x"]
+[ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="15_b0kx5"]
+[ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="15_gbf57"]
+[ext_resource type="Script" uid="uid://d1swm186udos5" path="res://scripts/coins.gd" id="15_po7p3"]
+[ext_resource type="PackedScene" uid="uid://cqn1xtwbw5n5l" path="res://scenes/Collectibles/food.tscn" id="16_c07hn"]
+[ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="16_qfx3x"]
+[ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="17_8f8kc"]
+[ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
+[ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="22_p0owv"]
+[ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="23_y2ypf"]
+[ext_resource type="PackedScene" uid="uid://1xrdny8bdyyc" path="res://p1-moving.tscn" id="24_nsaye"]
+[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://p_1_moving.gd" id="24_qfx3x"]
+[ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="25_po7p3"]
+[ext_resource type="AudioStream" uid="uid://088m4dy2feda" path="res://assets/Audios/bgms/Coming of Age Movie BGM.mp3" id="27_po7p3"]
+[ext_resource type="Texture2D" uid="uid://bccbf8jv77bue" path="res://scenes/Platforms/p1_spritesheetss.svg" id="28_khq81"]
+[ext_resource type="PackedScene" uid="uid://ckp88oybg0lkn" path="res://colliderP1_1.tscn" id="28_r8hxo"]
+[ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="28_rppta"]
+[ext_resource type="PackedScene" uid="uid://caf7lldollp6k" path="res://scenes/Characters/snail.tscn" id="29_fipse"]
+[ext_resource type="PackedScene" uid="uid://uvpld3c2hlrl" path="res://colliderP1_2.tscn" id="29_khq81"]
+[ext_resource type="PackedScene" uid="uid://coan84jcrei0f" path="res://noncolliderP1_1.tscn" id="31_k6qa8"]
+[ext_resource type="PackedScene" uid="uid://b8u3ukm3isipo" path="res://scenes/Characters/ted_siblings.tscn" id="32_utuym"]
+[ext_resource type="PackedScene" uid="uid://chyliix5f7unh" path="res://noncolliderP1_2.tscn" id="35_eubug"]
+[ext_resource type="PackedScene" uid="uid://b1heguvgtcodv" path="res://noncolliderP1_4.tscn" id="36_oqo85"]
+[ext_resource type="PackedScene" uid="uid://cfi77s00qndsb" path="res://noncolliderP1_5.tscn" id="38_oqo85"]
+[ext_resource type="PackedScene" uid="uid://biys6ij0myo70" path="res://noncolliderP1_3.tscn" id="38_u46sv"]
+[ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="39_rppta"]
+[ext_resource type="PackedScene" uid="uid://d1gkxm4es8jd4" path="res://scenes/Characters/boss_3.tscn" id="41_jxxm7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cl8nt"]
+noise_type = 2
+frequency = 0.0029
+fractal_type = 2
+fractal_gain = 0.6
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u46sv"]
+noise = SubResource("FastNoiseLite_cl8nt")
+seamless = true
+seamless_blend_skirt = 0.61
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hesmo"]
+shader = ExtResource("8_u46sv")
+shader_parameter/color = Color(0.458824, 0.509804, 0.109804, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_u46sv")
+shader_parameter/speed = Vector2(0.07, 0.07)
+shader_parameter/wave_strength = 2.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u46sv"]
+polygon = PackedVector2Array(987, -821, 1742, -809, 550, -798)
+
+[sub_resource type="SystemFont" id="SystemFont_nsaye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2ypf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsaye"]
+bg_color = Color(1, 0.321569, 0.364706, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_heptv"]
+distance = 122.738
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+resource_local_to_scene = true
+distance = -581.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbhrr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+normal = Vector2(1, 0)
+distance = -1014.0
+
+[sub_resource type="Curve2D" id="Curve2D_nsaye"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, -637)
+}
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab58e"]
+radius = 40.0
+height = 292.0
+
+[sub_resource type="Animation" id="Animation_e6ge5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qrwvv"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsak5"]
+_data = {
+&"RESET": SubResource("Animation_e6ge5"),
+&"new_animation": SubResource("Animation_qrwvv")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_p0owv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 776, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_r8hxo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, -3, 649)
+}
+point_count = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fipse"]
+texture = ExtResource("28_khq81")
+texture_region_size = Vector2i(600, 600)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-298.843, -291.853, 302.338, -291.853, 298.843, 302.338, -298.843, 305.834)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-297.112, -294.554, 24.7593, -294.554, 156.809, -209.96, 226.961, -129.492, 286.796, -24.2642, 292.986, 118.102, 247.594, 237.773, 167.126, 295.544, -295.049, 303.798)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(298.595, -294.186, -21.6282, -292.086, -180.165, -209.143, -262.058, -112.551, -297.755, -1.25992, -296.705, 94.2822, -266.258, 212.922, -209.563, 275.917, -123.47, 299.015, 299.645, 301.115)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-293.945, -290.93, 298.698, -300.227, 298.467, 299.975, -298.467, 301.482)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-304.233, -295.197, 301.55, -293.751, 298.951, 296.351, -291.152, 306.749)
+
+[sub_resource type="TileSet" id="TileSet_45e12"]
+physics_layer_0/collision_layer = 15
+sources/1 = SubResource("TileSetAtlasSource_fipse")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u46sv"]
+size = Vector2(37, 1407.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfx3x"]
+size = Vector2(8.6, 153.238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqo85"]
+size = Vector2(80.125, 1594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rppta"]
+size = Vector2(547.204, 271)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxxm7"]
+size = Vector2(85.5, 1527)
+
+[sub_resource type="Curve2D" id="Curve2D_po7p3"]
+_data = {
+"points": PackedVector2Array(2.08862, -275.698, -2.08862, 275.698, -328, 295, 0, 0, 0, 0, -211, 596, -246.458, 29.2407, 246.458, -29.2407, 211, 656, -112.786, 89.8109, 112.786, -89.8109, 497, 554, 0, 0, 0, 0, 449, 101, 231.837, 41.7725, -231.837, -41.7725, 64, -3, 0, 0, 0, 0, -328, 295)
+}
+point_count = 7
+
+[sub_resource type="Environment" id="Environment_jxxm7"]
+
+[node name="Ted Game" type="Node2D"]
+script = ExtResource("1_r8hxo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.533036, 0.533037, 0.533037, 1)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+physics_interpolation_mode = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax2D"]
+offset = Vector2(0, -40)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, -40)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Parallax2D/ParallaxBackground"]
+color = Color(0.716296, 0.716296, 0.716296, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_36xgi")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer6"]
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_36xgi")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_is0ew")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer8"]
+position = Vector2(2658.67, 100)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_is0ew")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.35, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_xlmt5")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.35, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer9"]
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_xlmt5")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.45, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_heptv")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.45, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer10"]
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_heptv")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer5"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5_b40aj")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer7"]
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5_b40aj")
+
+[node name="Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hesmo")
+position = Vector2(7940, 3.05176e-05)
+rotation = 0.015708
+scale = Vector2(2.82573, 1.84137)
+texture = ExtResource("9_jxxm7")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 1000)
+
+[node name="BG Sprite" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(8154, -66)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_u46sv")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 720)
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+position = Vector2(4206, 682)
+occluder = SubResource("OccluderPolygon2D_u46sv")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(2925, -276)
+occluder = SubResource("OccluderPolygon2D_u46sv")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2(-2022, -254)
+rotation = -0.0174533
+occluder = SubResource("OccluderPolygon2D_u46sv")
+occluder_light_mask = 513
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 10
+scale = Vector2(0.6, 0.6)
+transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
+
+[node name="HealthBar" type="ProgressBar" parent="GUI"]
+offset_left = 458.0
+offset_top = 157.0
+offset_right = 787.0
+offset_bottom = 205.0
+theme_override_fonts/font = SubResource("SystemFont_nsaye")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/background = SubResource("StyleBoxFlat_y2ypf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nsaye")
+value = 50.0
+script = ExtResource("11_6rsge")
+
+[node name="Gen UI" type="TextureRect" parent="GUI"]
+offset_right = 3206.4
+offset_bottom = 1803.6
+texture = ExtResource("15_gbf57")
+
+[node name="PauseButton" type="Button" parent="GUI"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 78.0
+offset_top = 95.0
+offset_right = 348.0
+offset_bottom = 310.0
+script = ExtResource("9_qfx3x")
+
+[node name="Coin Icon" type="TextureRect" parent="GUI"]
+offset_left = 400.0
+offset_top = 251.667
+offset_right = 445.0
+offset_bottom = 298.667
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_45e12")
+
+[node name="Coins" type="Label" parent="GUI"]
+offset_left = 476.667
+offset_top = 246.667
+offset_right = 578.667
+offset_bottom = 313.667
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_qfx3x")
+theme_override_font_sizes/font_size = 50
+text = "00"
+script = ExtResource("15_po7p3")
+
+[node name="Objectives Label" type="Label" parent="GUI"]
+visible = false
+offset_left = 1250.0
+offset_top = 1600.0
+offset_right = 1964.0
+offset_bottom = 1643.0
+theme_override_fonts/font = ExtResource("14_qfx3x")
+theme_override_font_sizes/font_size = 50
+text = "You still have objectives left to do!"
+horizontal_alignment = 1
+
+[node name="Objectives" parent="GUI" instance=ExtResource("17_8f8kc")]
+scale = Vector2(1.67, 1.67)
+
+[node name="merchant shop" parent="GUI" instance=ExtResource("22_odwuh")]
+visible = false
+scale = Vector2(1.67, 1.67)
+
+[node name="Pause Menu" parent="GUI" instance=ExtResource("14_iud5h")]
+process_mode = 1
+visible = false
+z_index = 10
+offset_right = 958.0
+offset_bottom = 546.0
+scale = Vector2(1.11, 1.11)
+
+[node name="Options" parent="GUI" instance=ExtResource("16_qfx3x")]
+visible = false
+scale = Vector2(1.67, 1.67)
+
+[node name="ScreenFade" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67, 1.67)
+color = Color(0, 0, 0, 1)
+
+[node name="player" parent="." instance=ExtResource("15_b0kx5")]
+z_index = 5
+position = Vector2(-1380, 282)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(-43.9999, 742)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(0, -400)
+process_callback = 0
+limit_top = -200
+limit_bottom = 1200
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(462, -1079)
+rotation = -0.254818
+color = Color(1, 1, 0.87451, 1)
+energy = 0.44
+shadow_enabled = true
+shadow_color = Color(0.0904823, 0.0904823, 0.0904823, 0)
+shadow_filter = 2
+shadow_filter_smooth = 2.2
+
+[node name="World Boundaries" type="Node2D" parent="."]
+position = Vector2(1, 68)
+
+[node name="top" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(1, -842.492)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/top"]
+position = Vector2(-4.00035, 68)
+shape = SubResource("WorldBoundaryShape2D_heptv")
+
+[node name="bottom" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(1, 579)
+collision_layer = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Boundaries/bottom"]
+position = Vector2(-2, -576)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="left" type="StaticBody2D" parent="World Boundaries"]
+position = Vector2(-990, 0)
+physics_material_override = SubResource("PhysicsMaterial_lbhrr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World Boundaries/left"]
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="Food" type="Node2D" parent="."]
+
+[node name="food" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(203, 490)
+scale = Vector2(1.3, 1.3)
+
+[node name="food7" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(-823, 614)
+scale = Vector2(1.3, 1.3)
+
+[node name="food2" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(3250, 594)
+scale = Vector2(1.3, 1.3)
+
+[node name="food3" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(5056, -276)
+scale = Vector2(1.3, 1.3)
+
+[node name="food6" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(5844, -168)
+scale = Vector2(1.3, 1.3)
+
+[node name="food9" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(12904, -276)
+scale = Vector2(1.3, 1.3)
+
+[node name="food8" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(8928, 0)
+scale = Vector2(1.3, 1.3)
+
+[node name="food4" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(7897, -212)
+scale = Vector2(1.3, 1.3)
+
+[node name="food5" parent="Food" instance=ExtResource("16_c07hn")]
+position = Vector2(3000, 597)
+scale = Vector2(1.3, 1.3)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="coin1" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(3500, 594)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin6" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(7081, -367)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin7" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(11212, -85)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin2" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(3750, 594)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin3" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(8542, -332)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin4" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(6368, -350)
+scale = Vector2(0.8, 0.8)
+
+[node name="coin5" parent="Coins" instance=ExtResource("22_p0owv")]
+position = Vector2(4390, 422)
+scale = Vector2(0.8, 0.8)
+
+[node name="Ted Siblings" parent="." instance=ExtResource("32_utuym")]
+modulate = Color(0.926806, 0.926806, 0.926806, 1)
+position = Vector2(7740, -289)
+scale = Vector2(0.24, 0.24)
+
+[node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
+position = Vector2(17790, -41.0019)
+rotation = 1.5708
+scale = Vector2(15, 12.795)
+skew = 1.54658
+
+[node name="Worm" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(2532, 554)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm3" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(4373, 550)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm4" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(5440, 554)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm6" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(7694, 569)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm7" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(8628, 569)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm8" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(9556, -426)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm9" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(10320, 556)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm10" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(11272, 549)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm11" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(12197, 542)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm12" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(13535, 542)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm13" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(14834, 542)
+scale = Vector2(0.5, 0.5)
+
+[node name="Worm5" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(6586, 569)
+scale = Vector2(0.5, 0.5)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(4390, 490)
+curve = SubResource("Curve2D_nsaye")
+script = ExtResource("24_qfx3x")
+loop = false
+speed = 0.2
+speed_scale = 0.6
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 7)
+rotation = -0.009646
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Path2D"]
+position = Vector2(0, 7)
+rotation = -0.009646
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/AnimatableBody2D"]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("25_po7p3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/AnimatableBody2D"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ab58e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hsak5")
+}
+
+[node name="Path2D3" parent="." instance=ExtResource("24_nsaye")]
+position = Vector2(6742, -294)
+curve = SubResource("Curve2D_p0owv")
+loop = false
+speed = 0.2
+speed_scale = 0.6
+
+[node name="Path2D8" parent="." instance=ExtResource("24_nsaye")]
+position = Vector2(12907, -523)
+curve = SubResource("Curve2D_r8hxo")
+loop = false
+speed = 0.5
+speed_scale = 0.6
+
+[node name="Path2D6" parent="." instance=ExtResource("24_nsaye")]
+position = Vector2(8931, -242)
+curve = SubResource("Curve2D_r8hxo")
+loop = false
+speed = 0.5
+speed_scale = 0.6
+
+[node name="CollidersGroup1" type="Node2D" parent="."]
+
+[node name="Seaweed1" parent="CollidersGroup1" instance=ExtResource("31_k6qa8")]
+position = Vector2(496, 334)
+scale = Vector2(1.5, 1.5)
+
+[node name="StaticBody2D4" parent="CollidersGroup1" instance=ExtResource("36_oqo85")]
+position = Vector2(-71, 436)
+
+[node name="Log" parent="CollidersGroup1" instance=ExtResource("28_r8hxo")]
+position = Vector2(47, 597)
+scale = Vector2(1.5, 1.5)
+
+[node name="StaticBody2D2" parent="CollidersGroup1" instance=ExtResource("38_oqo85")]
+position = Vector2(-439, 613)
+
+[node name="CollidersGroup2" type="Node2D" parent="."]
+
+[node name="StaticBody2D3" parent="CollidersGroup2" instance=ExtResource("35_eubug")]
+position = Vector2(8002, -340)
+
+[node name="StaticBody2D10" parent="CollidersGroup2" instance=ExtResource("36_oqo85")]
+position = Vector2(8508, -449)
+
+[node name="CollidersGroup3" type="Node2D" parent="."]
+
+[node name="StaticBody2D6" parent="CollidersGroup3" instance=ExtResource("38_u46sv")]
+position = Vector2(1311, 468)
+
+[node name="StaticBody2D5" parent="CollidersGroup3" instance=ExtResource("36_oqo85")]
+position = Vector2(2088, 497)
+
+[node name="Stick" parent="CollidersGroup3" instance=ExtResource("29_khq81")]
+position = Vector2(1395, 502)
+scale = Vector2(1.3, 1.3)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(991, 46)
+scale = Vector2(0.13, 0.13)
+tile_map_data = PackedByteArray("AABhAJUAAgAAAAAAAACGAJUAAgABAAEAAAB2ALkAAwAAAAEAAACZALkAAwABAAEAAAC7ALkAAwAAAAAAAADdALkAAwABAAAAAAABAbkAAwACAAAAAADaD1f/AQAAAAEAAAD/D1f/AQABAAEAAAAkEFf/AQACAAEAAABBEFf/AQABAAAAAABmEFf/AQACAAAAAAAbB73/AQAAAAEAAABAB73/AQABAAEAAABlB73/AQACAAEAAACKB73/AQABAAAAAACvB73/AQABAAEAAADUB73/AQACAAEAAAD5B73/AQABAAAAAAAeCL3/AQABAAEAAABDCL3/AQACAAEAAABoCL3/AQABAAAAAACNCL3/AQABAAEAAACyCL3/AQACAAEAAADXCL3/AQABAAAAAAD8CL3/AQABAAEAAAAhCb3/AQACAAEAAABGCb3/AQACAAAAAAD3CWH/AQAAAAEAAAD3CWL/AQAAAAEAAAAcCmH/AQABAAEAAAAcCmL/AQABAAEAAAA8CmH/AQACAAAAAAA8CmL/AQACAAAAAACWDMn/AQAAAAEAAAC7DMn/AQABAAEAAADgDMn/AQACAAEAAAAFDcn/AQACAAEAAAAqDcn/AQABAAAAAABPDcn/AQACAAAAAAALDnT/AQAAAAEAAAALDnX/AQAAAAEAAAAwDnT/AQABAAEAAAAwDnX/AQABAAEAAABQDnT/AQACAAAAAABQDnX/AQACAAAAAAD4Euz/AQAAAAEAAAAdE+z/AQABAAEAAABCE+z/AQACAAEAAABnE+z/AQACAAEAAACME+z/AQABAAAAAACxE+z/AQACAAAAAABtFJf/AQAAAAEAAABtFJj/AQAAAAEAAACSFJf/AQABAAEAAACSFJj/AQABAAEAAACyFJf/AQACAAAAAACyFJj/AQACAAAAAAA/FZT/AQAAAAEAAAA/FZX/AQAAAAEAAABkFZT/AQABAAEAAABkFZX/AQABAAEAAACEFZT/AQACAAAAAACEFZX/AQACAAAAAACjGcX/AQAAAAEAAADIGcX/AQABAAEAAADtGcX/AQACAAEAAAAKGsX/AQABAAAAAAAvGsX/AQACAAAAAAA=")
+tile_set = SubResource("TileSet_45e12")
+
+[node name="StaticBody2D9" parent="." instance=ExtResource("38_oqo85")]
+position = Vector2(6368, -378)
+scale = Vector2(0.7, 0.7)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("29_khq81")]
+position = Vector2(8024, -254)
+
+[node name="CollidersGroup4" type="Node2D" parent="."]
+
+[node name="StaticBody2D8" parent="CollidersGroup4" instance=ExtResource("38_u46sv")]
+position = Vector2(5400, -340)
+
+[node name="StaticBody2D7" parent="CollidersGroup4" instance=ExtResource("28_r8hxo")]
+position = Vector2(5185, -191)
+
+[node name="Worm2" parent="." instance=ExtResource("28_rppta")]
+position = Vector2(5295, -274)
+scale = Vector2(0.5, 0.5)
+
+[node name="Trash Flood" parent="." instance=ExtResource("39_rppta")]
+position = Vector2(15753, -186)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("27_po7p3")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="Dialogue Signal Areas" type="Node2D" parent="."]
+
+[node name="Invisible Wall" type="StaticBody2D" parent="Dialogue Signal Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Invisible Wall"]
+position = Vector2(2029.5, -5)
+shape = SubResource("RectangleShape2D_u46sv")
+
+[node name="Invisible Wall2" type="StaticBody2D" parent="Dialogue Signal Areas"]
+position = Vector2(9667, -147)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Invisible Wall2"]
+position = Vector2(612.5, 7.9)
+shape = SubResource("RectangleShape2D_qfx3x")
+disabled = true
+
+[node name="Worm Tutorial" type="Area2D" parent="Dialogue Signal Areas"]
+position = Vector2(3000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Worm Tutorial"]
+position = Vector2(-856.875, -85)
+shape = SubResource("RectangleShape2D_oqo85")
+
+[node name="Siblings" type="Area2D" parent="Dialogue Signal Areas"]
+position = Vector2(4000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Siblings"]
+position = Vector2(3913.25, -165.609)
+rotation = -0.415388
+shape = SubResource("RectangleShape2D_rppta")
+
+[node name="Trash Flood" type="Area2D" parent="Dialogue Signal Areas"]
+position = Vector2(5000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Trash Flood"]
+position = Vector2(10998, -60)
+shape = SubResource("RectangleShape2D_oqo85")
+
+[node name="Objectives Checker" type="Area2D" parent="Dialogue Signal Areas"]
+position = Vector2(16000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Signal Areas/Objectives Checker"]
+position = Vector2(-371, -66)
+shape = SubResource("RectangleShape2D_jxxm7")
+
+[node name="Path2D7" parent="." instance=ExtResource("24_nsaye")]
+position = Vector2(10267, -294)
+curve = SubResource("Curve2D_po7p3")
+
+[node name="Path2D9" parent="." instance=ExtResource("24_nsaye")]
+position = Vector2(13723, -482)
+curve = SubResource("Curve2D_po7p3")
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("38_oqo85")]
+position = Vector2(11376, -107)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("38_u46sv")]
+position = Vector2(11907, -417)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("35_eubug")]
+position = Vector2(14703, -350)
+
+[node name="Merchant" parent="." instance=ExtResource("8_nsaye")]
+position = Vector2(14790, -232)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.959508
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("29_khq81")]
+position = Vector2(12416, -360)
+
+[node name="Snail" parent="." instance=ExtResource("29_fipse")]
+position = Vector2(11270, -110)
+scale = Vector2(0.95, 0.95)
+
+[node name="AnglerFish" parent="." instance=ExtResource("41_jxxm7")]
+position = Vector2(-3781, 477)
+scale = Vector2(0.505, 0.505)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jxxm7")
+
+[connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
+[connection signal="body_entered" from="Dialogue Signal Areas/Worm Tutorial" to="." method="_on_worm_tutorial_body_entered"]
+[connection signal="body_entered" from="Dialogue Signal Areas/Siblings" to="." method="_on_siblings_body_entered"]
+[connection signal="body_entered" from="Dialogue Signal Areas/Trash Flood" to="." method="_on_trash_flood_body_entered"]
+[connection signal="body_entered" from="Dialogue Signal Areas/Objectives Checker" to="." method="_on_objectives_checker_body_entered"]

@@ -8,7 +8,7 @@ extends Node2D
 @onready var screen_fade = $CanvasLayer/ScreenFade
 
 func _ready():
-	GameManager.current_scene_path = "res://scenes/intro_scene.tscn"
+	GameManager.current_scene_path = "res://scenes/Main Scenes/intro_scene.tscn"
 	
 	# Don't start with black screen — screen_fade is transparent at first
 	screen_fade.color.a = 0.0
@@ -24,6 +24,7 @@ func _ready():
 
 func _on_skip_button_pressed() -> void:
 	video_player.stop()
+	video_player.hide()
 	_on_video_stream_player_finished()
 	$CanvasLayer/SkipButton.hide()
 

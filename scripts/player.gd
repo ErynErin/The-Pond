@@ -91,6 +91,8 @@ func _on_hurt_box_area_entered(area) -> void:
 			take_damage(10)
 		elif "damage_collider" in area.owner:
 			take_damage(100)
+		elif "AnglerFish" in area.owner:
+			take_damage(10)
 
 func _on_player_died():
 	$DeathAudio.play()

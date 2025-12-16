@@ -126,6 +126,10 @@ func _charge_state(_delta: float) -> void:
 func _attack_state(_delta: float) -> void:
 	$AudioStreamPlayer2.play()
 	velocity.x = 0
+	
+	# Ensure hitbox is active during attack
+	_set_hitboxes(false, true)
+	
 	if state_timer >= ATTACK_DURATION:
 		_change_state(State.REST)
 
@@ -197,26 +201,14 @@ func take_damage(damage: float) -> void:
 		animation_player.play("hurt")
 
 func _play_animation_for_health_state(action: String) -> void:
-	var health_percent = (boss_health / max_boss_health) * 100.0
-	var suffix = ""
-	
-	if health_percent <= 25:
-		suffix = "_25"
-	elif health_percent <= 50:
-		suffix = "_50" 
-	elif health_percent <= 75:
-		suffix = "_75"
-	else:
-		suffix = "_100"
-	
-	if action == "attack" and (suffix == "_25" or suffix == "_50"):
-		animated_sprite.play("charge" + suffix)
+	if action == "attack":
+		animated_sprite.play("attack")
 		return
-	elif action == "walk" and (suffix == "_25" or suffix == "_50"):
-		animated_sprite.play("dash" + suffix)
+	elif action == "walk":
+		animated_sprite.play("run")
 		return
 	
-	var animation_name = action + suffix
+	var animation_name = action
 	print("Playing animation: ", animation_name)
 	animated_sprite.play(animation_name)
 

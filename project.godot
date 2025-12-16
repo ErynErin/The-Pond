@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tadpole"
 run/main_scene="uid://cqtty7lrvbm0a"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,7 +29,6 @@ runtime/balloon_path="res:///balloon.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
