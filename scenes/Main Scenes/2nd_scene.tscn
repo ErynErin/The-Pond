@@ -1,8 +1,10 @@
-[gd_scene load_steps=55 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=57 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="6_42ul7"]
+[ext_resource type="Texture2D" uid="uid://cdbvoy6qxhbpt" path="res://assets/BG/Phase 2/6.png" id="6_lny5s"]
 [ext_resource type="Texture2D" uid="uid://cc6aiqta7j02x" path="res://assets/BG/Phase 2/1.png" id="7_aqdem"]
+[ext_resource type="Texture2D" uid="uid://c532f0y4g6dxb" path="res://assets/BG/Phase 2/7.png" id="7_dj1db"]
 [ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="7_rrk3c"]
 [ext_resource type="Texture2D" uid="uid://5m0ipjw8b0j3" path="res://assets/GUI/Game Screen UI/P2_health.png" id="7_ysw53"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="8_3xvx2"]
@@ -44,9 +46,9 @@ fractal_gain = 0.6
 fractal_weighted_strength = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_42ul7"]
+noise = SubResource("FastNoiseLite_lny5s")
 seamless = true
 seamless_blend_skirt = 0.61
-noise = SubResource("FastNoiseLite_lny5s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5l5e4"]
 shader = ExtResource("6_42ul7")
@@ -211,11 +213,29 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("10_plhnw")
 flip_h = true
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground2"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground2/ParallaxLayer5"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("11_t7lwq")
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground2"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground2/ParallaxLayer11"]
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("11_t7lwq")
+flip_h = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
 position = Vector2(0, 26)
 scale = Vector2(2.4, 2.4)
-texture = ExtResource("11_t7lwq")
+texture = ExtResource("6_lny5s")
 region_enabled = true
 region_rect = Rect2(0, 0, 15000, 720)
 
@@ -368,6 +388,35 @@ scale = Vector2(30.4583, 33.3333)
 energy = 0.3
 texture = SubResource("GradientTexture2D_lny5s")
 texture_scale = 0.68
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax2D2"]
+layer = 0
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Parallax2D2/ParallaxBackground"]
+z_index = 6
+motion_scale = Vector2(1.1, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2/ParallaxBackground/ParallaxLayer7"]
+z_index = 6
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("7_dj1db")
+offset = Vector2(0, 100)
+
+[node name="ParallaxLayer12" type="ParallaxLayer" parent="Parallax2D2/ParallaxBackground"]
+z_index = 6
+motion_scale = Vector2(1.1, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2/ParallaxBackground/ParallaxLayer12"]
+z_index = 6
+position = Vector2(2048, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("7_dj1db")
+offset = Vector2(0, 100)
+flip_h = true
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)

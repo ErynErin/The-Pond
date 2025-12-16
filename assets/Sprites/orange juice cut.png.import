@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ipopahrx8dcb"
-path="res://.godot/imported/3_fixed.png-8a91be0240e3082050802767ffdb52fa.ctex"
+uid="uid://5j7cp6yaw2xy"
+path="res://.godot/imported/orange juice cut.png-5644702c955a1b8fae22347849fc3cb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BG/Phase 2/3_fixed.png"
-dest_files=["res://.godot/imported/3_fixed.png-8a91be0240e3082050802767ffdb52fa.ctex"]
+source_file="res://assets/Sprites/orange juice cut.png"
+dest_files=["res://.godot/imported/orange juice cut.png-5644702c955a1b8fae22347849fc3cb4.ctex"]
 
 [params]
 

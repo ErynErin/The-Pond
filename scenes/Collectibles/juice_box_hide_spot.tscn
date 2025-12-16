@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5hxfvmqmpxsf"]
+
+[ext_resource type="Texture2D" uid="uid://c4d1o6b1138k2" path="res://assets/Sprites/apple juice.png" id="1_xg2k6"]
+[ext_resource type="Texture2D" uid="uid://bhawld4yfg05n" path="res://assets/Sprites/orange juice.png" id="2_aeywg"]
+[ext_resource type="Script" uid="uid://wg034xwpnmvy" path="res://scripts/juice_box_full.gd" id="3_aeywg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc0a2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xg2k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aeywg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u16uf"]
+size = Vector2(208, 438)
+
+[node name="JuiceBoxHideSpot" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_gc0a2")
+frame = 1
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_aeywg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_u16uf")

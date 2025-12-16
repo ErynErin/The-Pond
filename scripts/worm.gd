@@ -65,6 +65,10 @@ func _physics_process(delta):
 				poison_timer.stop()
 				print("Poison effect worn off.")
 	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	move_and_slide()
+	
 func take_damage(damage: float) -> void:
 	enemy_health -= damage
 	animation_player.play("hurt")

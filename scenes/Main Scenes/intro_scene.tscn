@@ -18,9 +18,9 @@ fractal_gain = 0.6
 fractal_weighted_strength = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u46sv"]
+noise = SubResource("FastNoiseLite_qt0h2")
 seamless = true
 seamless_blend_skirt = 0.61
-noise = SubResource("FastNoiseLite_qt0h2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgy7k"]
 shader = ExtResource("4_f164h")
@@ -42,15 +42,15 @@ distance = -581.0
 normal = Vector2(1, 0)
 distance = -1014.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wqor"]
-bg_color = Color(0.579691, 0.579691, 0.579691, 0.290196)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01j2m"]
+bg_color = Color(0.403922, 0.403922, 0.403922, 0.290196)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01j2m"]
-bg_color = Color(0.403922, 0.403922, 0.403922, 0.290196)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wqor"]
+bg_color = Color(0.579691, 0.579691, 0.579691, 0.290196)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -160,8 +160,8 @@ offset_right = 1836.0
 offset_bottom = 1012.0
 theme_override_fonts/font = ExtResource("6_8wqor")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_8wqor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_01j2m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8wqor")
 text = "Skip"
 
 [node name="Walls" type="StaticBody2D" parent="."]

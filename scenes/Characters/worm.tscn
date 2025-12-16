@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://xov1nahqgphe"]
+[gd_scene load_steps=47 format=3 uid="uid://xov1nahqgphe"]
 
 [ext_resource type="Script" uid="uid://ddpxxan7j4cmw" path="res://scripts/worm.gd" id="1_tiyqp"]
 [ext_resource type="Texture2D" uid="uid://ckbnsl8bihdn3" path="res://assets/Characters/Worm/Crawl/Crawl_1.png" id="2_tiyqp"]
@@ -268,7 +268,13 @@ size = Vector2(1172, 1129)
 radius = 485.0
 height = 1810.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43g0s"]
+radius = 81.0
+height = 368.0
+
 [node name="Worm" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_tiyqp")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -276,7 +282,7 @@ script = ExtResource("1_tiyqp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_46d1w")
-animation = &"ground1"
+animation = &"crawl"
 
 [node name="BiteBox" type="Area2D" parent="Pivot"]
 collision_layer = 16
@@ -319,6 +325,11 @@ bus = &"SFX"
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_xkhk3")
 bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 39)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_43g0s")
 
 [connection signal="area_entered" from="Pivot/BiteBox" to="." method="_on_bite_box_area_entered"]
 [connection signal="area_exited" from="Pivot/BiteBox" to="." method="_on_bite_box_area_exited"]

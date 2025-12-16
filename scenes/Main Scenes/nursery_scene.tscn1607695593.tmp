@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=69 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -6,12 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="3_xlmt5"]
 [ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="4_heptv"]
 [ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="5_b40aj"]
-[ext_resource type="Texture2D" uid="uid://cdn86immannjs" path="res://assets/BG/Phase 1/7.png" id="7_jxxm7"]
 [ext_resource type="PackedScene" uid="uid://bd1qu81rucmuf" path="res://scenes/Characters/merchant.tscn" id="8_nsaye"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="8_u46sv"]
 [ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="9_jxxm7"]
 [ext_resource type="Script" uid="uid://0dthjh7hw83f" path="res://scripts/pause_button.gd" id="9_qfx3x"]
-[ext_resource type="Texture2D" uid="uid://c4k3x21vyy384" path="res://assets/BG/Phase 1/6 (1).png" id="10_jxxm7"]
+[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="9_u46sv"]
 [ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="11_6rsge"]
 [ext_resource type="Texture2D" uid="uid://gaews8kcbv0k" path="res://assets/Sprites/Coin/cap icon.png" id="12_45e12"]
 [ext_resource type="PackedScene" uid="uid://ctw57l6kowhya" path="res://scenes/UI/pause_menu.tscn" id="14_iud5h"]
@@ -41,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cfi77s00qndsb" path="res://noncolliderP1_5.tscn" id="38_oqo85"]
 [ext_resource type="PackedScene" uid="uid://biys6ij0myo70" path="res://noncolliderP1_3.tscn" id="38_u46sv"]
 [ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="39_rppta"]
+[ext_resource type="PackedScene" uid="uid://d1gkxm4es8jd4" path="res://scenes/Characters/boss_3.tscn" id="41_jxxm7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cl8nt"]
 noise_type = 2
@@ -184,6 +184,8 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="Environment" id="Environment_jxxm7"]
+
 [node name="Ted Game" type="Node2D"]
 script = ExtResource("1_r8hxo")
 
@@ -284,53 +286,6 @@ position = Vector2(2048, 0)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("5_b40aj")
 
-[node name="ParallaxBackground3" type="ParallaxBackground" parent="Parallax2D"]
-layer = 0
-visible = false
-offset = Vector2(0, -40)
-scale = Vector2(1.3, 1.3)
-transform = Transform2D(1.3, 0, 0, 1.3, 0, -40)
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground3"]
-motion_scale = Vector2(1.05, 1)
-motion_mirroring = Vector2(4096, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground3/ParallaxLayer5"]
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("7_jxxm7")
-
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground3"]
-motion_scale = Vector2(1.05, 1)
-motion_mirroring = Vector2(4096, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground3/ParallaxLayer7"]
-position = Vector2(2048, 0)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("7_jxxm7")
-
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="Parallax2D"]
-layer = 0
-offset = Vector2(0, -40)
-scale = Vector2(1.55, 1.55)
-transform = Transform2D(1.55, 0, 0, 1.55, 0, -40)
-
-[node name="ParallaxLayer11" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground2"]
-motion_scale = Vector2(1.1, 1)
-motion_mirroring = Vector2(5000, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground2/ParallaxLayer11"]
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("7_jxxm7")
-
-[node name="ParallaxLayer12" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground2"]
-motion_scale = Vector2(1.1, 1)
-motion_mirroring = Vector2(5000, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground2/ParallaxLayer12"]
-position = Vector2(2500, 0)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("7_jxxm7")
-
 [node name="Shader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hesmo")
 position = Vector2(7940, 3.05176e-05)
@@ -344,7 +299,7 @@ region_rect = Rect2(0, 0, 10000, 1000)
 texture_repeat = 2
 position = Vector2(8154, -66)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("10_jxxm7")
+texture = ExtResource("9_u46sv")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
 
@@ -834,6 +789,13 @@ position = Vector2(12416, -360)
 [node name="Snail" parent="." instance=ExtResource("29_fipse")]
 position = Vector2(11270, -110)
 scale = Vector2(0.95, 0.95)
+
+[node name="AnglerFish" parent="." instance=ExtResource("41_jxxm7")]
+position = Vector2(-3781, 477)
+scale = Vector2(0.505, 0.505)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jxxm7")
 
 [connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Worm Tutorial" to="." method="_on_worm_tutorial_body_entered"]
