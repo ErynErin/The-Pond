@@ -71,20 +71,11 @@
 [ext_resource type="Texture2D" uid="uid://d8lsm2gbg3e2" path="res://assets/Characters/Angler Fish/fb sprint/sprint0023.png" id="58_ugcg6"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="70_bg5hs"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67864"]
-radius = 291.0
-height = 898.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5hs"]
+size = Vector2(925, 1426.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbujc"]
 size = Vector2(374, 586)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5hs"]
-size = Vector2(376, 1426.5)
-
-[sub_resource type="Gradient" id="Gradient_vbujc"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bg5hs"]
-gradient = SubResource("Gradient_vbujc")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ojik"]
 animations = [{
@@ -318,6 +309,15 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_vbujc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bg5hs"]
+gradient = SubResource("Gradient_vbujc")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67864"]
+radius = 291.0
+height = 898.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyof"]
 size = Vector2(2298, 1539)
 
@@ -342,60 +342,31 @@ script = ExtResource("1_bg5hs")
 
 [node name="SpriteNode" type="Node2D" parent="."]
 
-[node name="HitboxArea" type="Area2D" parent="SpriteNode"]
-collision_layer = 16
-collision_mask = 8
+[node name="LightDetectionArea" type="Area2D" parent="SpriteNode"]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/HitboxArea"]
-position = Vector2(-13, -52)
-shape = SubResource("CapsuleShape2D_67864")
-
-[node name="ColorRect" type="ColorRect" parent="SpriteNode/HitboxArea"]
-offset_left = -311.0
-offset_top = -497.0
-offset_right = 284.0
-offset_bottom = 387.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/LightDetectionArea"]
+position = Vector2(-152.5, -26.25)
+shape = SubResource("RectangleShape2D_bg5hs")
 
 [node name="BackHitbox" type="Area2D" parent="SpriteNode"]
-collision_layer = 16
-collision_mask = 8
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/BackHitbox"]
 position = Vector2(312, -27)
 shape = SubResource("RectangleShape2D_vbujc")
 
-[node name="ColorRect" type="ColorRect" parent="SpriteNode/BackHitbox"]
-offset_left = 131.0
-offset_top = -313.0
-offset_right = 490.0
-offset_bottom = 259.0
-color = Color(1, 1, 0, 1)
-
-[node name="LightDetectionArea" type="Area2D" parent="SpriteNode"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/LightDetectionArea"]
-position = Vector2(-500, -26.25)
-shape = SubResource("RectangleShape2D_bg5hs")
-
-[node name="ColorRect" type="ColorRect" parent="SpriteNode/LightDetectionArea"]
-offset_left = -698.0
-offset_top = -729.0
-offset_right = -309.0
-offset_bottom = 698.0
-color = Color(0, 1, 1, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteNode"]
+position = Vector2(-200, 0)
+sprite_frames = SubResource("SpriteFrames_7ojik")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="AnglerfishLight" type="PointLight2D" parent="SpriteNode"]
 position = Vector2(-605, -222)
 scale = Vector2(1.7851563, 195.5)
 texture = SubResource("GradientTexture1D_bg5hs")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteNode"]
-position = Vector2(-200, 0)
-sprite_frames = SubResource("SpriteFrames_7ojik")
-animation = &"attack"
-autoplay = "idle"
-frame = 16
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-13, -52)
@@ -437,7 +408,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_oqyof")
 theme_override_styles/fill = SubResource("StyleBoxFlat_67864")
 value = 50.0
 
-[connection signal="body_entered" from="SpriteNode/BackHitbox" to="." method="_on_back_hitbox_body_entered"]
 [connection signal="body_entered" from="SpriteNode/LightDetectionArea" to="." method="_on_light_detection_area_body_entered"]
+[connection signal="body_exited" from="SpriteNode/LightDetectionArea" to="." method="_on_light_detection_area_body_exited"]
+[connection signal="area_entered" from="SpriteNode/BackHitbox" to="." method="_on_back_hitbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
-[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

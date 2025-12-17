@@ -102,4 +102,5 @@ func _on_player_died():
 	await animated_sprite.animation_finished
 	GameManager.current_health = GameManager.starting_health
 	GameManager.coins = GameManager.coins - GameManager.caps_collected
+	GameManager.set_player_movable(true)
 	get_tree().reload_current_scene()

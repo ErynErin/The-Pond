@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3nn0ehofi3pv"]
+[gd_scene load_steps=9 format=3 uid="uid://3nn0ehofi3pv"]
 
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="1_oupth"]
 [ext_resource type="PackedScene" uid="uid://d1gkxm4es8jd4" path="res://scenes/Characters/boss_3.tscn" id="2_jiud7"]
@@ -15,8 +15,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp3yt"]
 bg_color = Color(1, 0.321569, 0.364706, 1)
-
-[sub_resource type="Environment" id="Environment_8qsir"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -70,5 +68,6 @@ offset_right = 3206.4
 offset_bottom = 1803.6
 texture = ExtResource("4_of1b3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8qsir")
+[node name="Lighting" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
