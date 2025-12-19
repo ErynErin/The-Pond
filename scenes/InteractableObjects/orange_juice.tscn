@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://kweimgvo4x1j"]
+
+[ext_resource type="Texture2D" uid="uid://bhawld4yfg05n" path="res://assets/Sprites/orange juice.png" id="1_nb5tw"]
+
+[node name="JuiceBox" type="StaticBody2D"]
+z_index = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nb5tw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(103, -217, 108, 220, -95, 221, -101, -213)

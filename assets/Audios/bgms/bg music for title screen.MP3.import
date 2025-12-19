@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x0pujnk8y54j"
+path="res://.godot/imported/bg music for title screen.MP3-0c0bb6dec26bd3fa504de6fd004211e7.mp3str"
+
+[deps]
+
+source_file="res://assets/Audios/bgms/bg music for title screen.MP3"
+dest_files=["res://.godot/imported/bg music for title screen.MP3-0c0bb6dec26bd3fa504de6fd004211e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

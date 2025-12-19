@@ -10,7 +10,6 @@ const IDLE_DURATION = 4.0
 const CHASE_DURATION = 5.0
 const LIGHTS_OFF_DURATION = 15.0
 const ATTACK_DURATION = 1.0
-const PATROL_RANGE = 500.0
 
 # Attack and detection ranges
 const ATTACK_RANGE = 250.0
@@ -30,6 +29,7 @@ var wall_ray
 
 # State variables
 var current_state = State.INACTIVE
+var state_before_attack = State.CHASE
 var player_entered = false
 var state_timer = 0.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -48,18 +48,19 @@ const MAX_CHASE_CYCLES = 2
 # Patrol variables
 var patrol_start_position: Vector2
 var patrol_direction = 1
+var patrol_range = 700
 
 # Player hiding state
 var player_is_hidden = false
 
 # Attack cooldown
 var attack_cooldown = false
+var lights_off_timer = 0.0
 
 # Lights state
 var lights_on = true
 
 func _ready():
-	print("Boss ready")
 	progress_bar.value = current_hp
 	
 	# Find player
@@ -128,8 +129,19 @@ func update_raycast_direction():
 func change_state(new_state: State):
 	if current_state == new_state:
 		return
-		
+	
+	# Exit current state logic
+	if current_state == State.LIGHTS_OFF and new_state != State.ATTACK:
+		# Huwag i-on ang lights kung lilipat lang sa ATTACK
+		if new_state != State.ATTACK:
+			turn_lights_on()
+	
+	current_state = new_state
+	state_timer = 0.0 # To be used for the animation/duration of the state itself
+	
 	print("=== CHANGE STATE: ", State.keys()[new_state], " ===")
+	
+	patrol_range = randf_range(700, 1200)
 	
 	# Exit current state
 	match current_state:
@@ -188,7 +200,7 @@ func _handle_inactive_state(delta):
 	# Check patrol boundaries
 	distance_traveled += velocity.x * delta
 	
-	if abs(distance_traveled) >= PATROL_RANGE:
+	if abs(distance_traveled) >= patrol_range:
 		distance_traveled = 0.0
 		patrol_direction *= -1
 		if not player_entered:
@@ -201,8 +213,8 @@ func _handle_inactive_state(delta):
 	if is_on_floor():
 		animated_sprite.play("run")
 
-	# ONLY enter combat if player is detected
-	if player_entered:
+	# Enter combat if player is detected and visible
+	if player_entered and not player_is_hidden:
 		print("player detected → IDLE")
 		change_state(State.CHASE)
 
@@ -219,8 +231,13 @@ func _handle_idle_state(delta):
 		return
 
 	# --- CHECK VISIBILITY ---
-	if not player_entered or player_is_hidden:
-		print("Player lost or hiding → INACTIVE")
+	if player_is_hidden:
+		print("Player hiding → INACTIVE")
+		change_state(State.INACTIVE)
+		return
+	
+	if not player_entered:
+		print("Player left → INACTIVE")
 		change_state(State.INACTIVE)
 		return
 
@@ -266,7 +283,7 @@ func _handle_chase_state(delta):
 # STATE: LIGHTS_OFF
 # ============================================================
 func _handle_lights_off_state(delta):
-	state_timer += delta
+	lights_off_timer += delta
 	
 	# If player is hidden, become inactive patrol
 	if player_is_hidden:
@@ -275,7 +292,7 @@ func _handle_lights_off_state(delta):
 		# Check patrol boundaries
 		distance_traveled += velocity.x * delta
 		
-		if abs(distance_traveled) >= PATROL_RANGE:
+		if abs(distance_traveled) >= patrol_range:
 			distance_traveled = 0.0
 			patrol_direction *= -1
 			if not player_entered:
@@ -296,7 +313,7 @@ func _handle_lights_off_state(delta):
 	animated_sprite.play("run")
 	
 	# Timer ends regardless of player hiding
-	if state_timer >= LIGHTS_OFF_DURATION:
+	if lights_off_timer >= LIGHTS_OFF_DURATION:
 		print("Lights off ended → IDLE")
 		change_state(State.IDLE)
 
@@ -307,10 +324,15 @@ func _handle_attack_state(delta):
 	state_timer += delta
 	velocity.x = 0
 	
+	if state_before_attack == State.LIGHTS_OFF:
+		lights_off_timer += delta
+
 	if state_timer >= ATTACK_DURATION:
-		print("Attack finished → CHASE")
-		change_state(State.CHASE)
+		print("Attack finished → Returning to ", State.keys()[state_before_attack])
+		current_state = state_before_attack
+		state_timer = 0.0
 		GameManager.set_player_movable(true)
+		animated_sprite.play("run")
 
 # ============================================================
 # ATTACK RANGE CHECK
@@ -361,9 +383,9 @@ func update_light_detector_size(lights_on_state: bool):
 	
 	var shape = light_detection_shape.shape
 	if lights_on_state:
-		shape.size = Vector2(2520, 1425)
+		shape.size = Vector2(2900, 1425)
 	else:
-		shape.size = Vector2(900, 1425)
+		shape.size = Vector2(975, 1425)
 
 func _on_light_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player") and player_entered:
@@ -413,11 +435,11 @@ func _on_back_hitbox_area_entered(area: Area2D) -> void:
 		take_damage(DAMAGE_PER_HIT)
 
 func trigger_attack(player_body):
-	# Prevent spam
 	if attack_cooldown:
 		return
 	
 	attack_cooldown = true
+	state_before_attack = current_state
 	
 	# Deal damage
 	if player_body.has_method("take_damage"):
@@ -440,11 +462,9 @@ func set_player_hidden(h: bool):
 # ============================================================
 # BOSS FIGHT TRIGGER
 # ============================================================
-func _on_player_detector_body_entered(body: Node2D) -> void:
+func _on_light_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not player_entered:
 		player_entered = true
-		body.set_collision_mask_value(2, true)
 		print("Player entered")
 		canvas_layer.visible = true 
 		change_state(State.CHASE)
-		$PlayerDetector.queue_free()

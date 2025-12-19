@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://d1gkxm4es8jd4"]
+[gd_scene load_steps=79 format=3 uid="uid://d1gkxm4es8jd4"]
 
 [ext_resource type="Script" uid="uid://diiw4e8232rx1" path="res://scripts/boss_3.gd" id="1_bg5hs"]
 [ext_resource type="Texture2D" uid="uid://bd5gleafke2hf" path="res://assets/Characters/Angler Fish/fb idle/idle0000.png" id="1_ieh2r"]
@@ -71,8 +71,17 @@
 [ext_resource type="Texture2D" uid="uid://d8lsm2gbg3e2" path="res://assets/Characters/Angler Fish/fb sprint/sprint0023.png" id="58_ugcg6"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="70_bg5hs"]
 
+[sub_resource type="Gradient" id="Gradient_bg5hs"]
+offsets = PackedFloat32Array(0, 0.69148934)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oqyof"]
+gradient = SubResource("Gradient_bg5hs")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5hs"]
-size = Vector2(925, 1426.5)
+size = Vector2(2903.5, 1426.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbujc"]
 size = Vector2(374, 586)
@@ -309,17 +318,9 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_vbujc"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bg5hs"]
-gradient = SubResource("Gradient_vbujc")
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67864"]
 radius = 291.0
 height = 898.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyof"]
-size = Vector2(2298, 1539)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqyof"]
 bg_color = Color(0.870588, 0.870588, 0.870588, 0.65098)
@@ -342,11 +343,16 @@ script = ExtResource("1_bg5hs")
 
 [node name="SpriteNode" type="Node2D" parent="."]
 
+[node name="AnglerfishLight" type="PointLight2D" parent="SpriteNode"]
+position = Vector2(-493, -248)
+texture = SubResource("GradientTexture2D_oqyof")
+texture_scale = 7.21
+
 [node name="LightDetectionArea" type="Area2D" parent="SpriteNode"]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteNode/LightDetectionArea"]
-position = Vector2(-152.5, -26.25)
+position = Vector2(-320.25, -26.25)
 shape = SubResource("RectangleShape2D_bg5hs")
 
 [node name="BackHitbox" type="Area2D" parent="SpriteNode"]
@@ -363,22 +369,11 @@ sprite_frames = SubResource("SpriteFrames_7ojik")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="AnglerfishLight" type="PointLight2D" parent="SpriteNode"]
-position = Vector2(-605, -222)
-scale = Vector2(1.7851563, 195.5)
-texture = SubResource("GradientTexture1D_bg5hs")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-13, -52)
 shape = SubResource("CapsuleShape2D_67864")
 
 [node name="StateTimer" type="Timer" parent="."]
-
-[node name="PlayerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(-13, -26.5)
-shape = SubResource("RectangleShape2D_oqyof")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -411,4 +406,3 @@ value = 50.0
 [connection signal="body_entered" from="SpriteNode/LightDetectionArea" to="." method="_on_light_detection_area_body_entered"]
 [connection signal="body_exited" from="SpriteNode/LightDetectionArea" to="." method="_on_light_detection_area_body_exited"]
 [connection signal="area_entered" from="SpriteNode/BackHitbox" to="." method="_on_back_hitbox_area_entered"]
-[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

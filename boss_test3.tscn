@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://3nn0ehofi3pv"]
+
+[ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="1_oupth"]
+[ext_resource type="PackedScene" uid="uid://d1gkxm4es8jd4" path="res://scenes/Characters/boss_3.tscn" id="2_jiud7"]
+[ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="3_8qsir"]
+[ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="4_of1b3"]
+[ext_resource type="PackedScene" uid="uid://b5hxfvmqmpxsf" path="res://scenes/InteractableObjects/orange_juice_hiding_spot.tscn" id="5_of1b3"]
+[ext_resource type="PackedScene" uid="uid://cihb7614jbfds" path="res://scenes/InteractableObjects/apple_juice.tscn" id="5_pp3yt"]
+[ext_resource type="PackedScene" uid="uid://2rakys27h5aw" path="res://scenes/InteractableObjects/apple_juice_hiding_spot.tscn" id="6_mm04r"]
+[ext_resource type="PackedScene" uid="uid://kweimgvo4x1j" path="res://scenes/InteractableObjects/orange_juice.tscn" id="7_4rwhn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jiud7"]
+distance = -772.0
+
+[sub_resource type="SystemFont" id="SystemFont_hq4en"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2n2h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp3yt"]
+bg_color = Color(1, 0.321569, 0.364706, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_oupth")]
+z_index = 5
+position = Vector2(-1380, 282)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(-43.9999, 742)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(0, -400)
+process_callback = 0
+limit_top = -200
+limit_bottom = 1200
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="AnglerFish" parent="." instance=ExtResource("2_jiud7")]
+position = Vector2(-448.99982, 449)
+scale = Vector2(0.445, 0.445)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_jiud7")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 10
+scale = Vector2(0.6, 0.6)
+transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
+
+[node name="HealthBar" type="ProgressBar" parent="GUI"]
+offset_left = 458.0
+offset_top = 157.0
+offset_right = 787.0
+offset_bottom = 205.0
+theme_override_fonts/font = SubResource("SystemFont_hq4en")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/background = SubResource("StyleBoxFlat_a2n2h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pp3yt")
+value = 50.0
+script = ExtResource("3_8qsir")
+
+[node name="Gen UI" type="TextureRect" parent="GUI"]
+offset_right = 3206.4
+offset_bottom = 1803.6
+texture = ExtResource("4_of1b3")
+
+[node name="Lighting" type="CanvasModulate" parent="."]
+light_mask = 0
+visibility_layer = 0
+
+[node name="JuiceBox" parent="." instance=ExtResource("5_pp3yt")]
+position = Vector2(-1883.0001, 602)
+scale = Vector2(0.7, 0.7)
+
+[node name="JuiceBoxHideSpot2" parent="." instance=ExtResource("6_mm04r")]
+position = Vector2(-2840, 704)
+scale = Vector2(0.71, 0.71)
+
+[node name="JuiceBox2" parent="." instance=ExtResource("7_4rwhn")]
+position = Vector2(-3850.0002, 602)
+scale = Vector2(0.77, 0.77)
+
+[node name="JuiceBoxHideSpot" parent="." instance=ExtResource("5_of1b3")]
+position = Vector2(-2309, 685)
+scale = Vector2(0.78, 0.78)

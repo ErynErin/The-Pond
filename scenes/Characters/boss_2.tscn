@@ -283,6 +283,7 @@ target_position = Vector2(0, 290)
 target_position = Vector2(-284, 0)
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -75.0
 offset_top = -304.0
 offset_right = 76.0

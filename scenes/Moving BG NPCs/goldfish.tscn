@@ -1,0 +1,412 @@
+[gd_scene load_steps=100 format=3 uid="uid://1be8fa1titwi"]
+
+[ext_resource type="Texture2D" uid="uid://ds2c8fg4lbs7q" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0000.png" id="1_5id3g"]
+[ext_resource type="Texture2D" uid="uid://veavn4rfrqka" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0001.png" id="2_2ni0c"]
+[ext_resource type="Texture2D" uid="uid://ccoessde2ifns" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0002.png" id="3_48x5s"]
+[ext_resource type="Texture2D" uid="uid://b04stf30do10u" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0003.png" id="4_1eboj"]
+[ext_resource type="Texture2D" uid="uid://bo0dobguwo5mb" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0004.png" id="5_reolg"]
+[ext_resource type="Texture2D" uid="uid://b3g4q5h52sw6w" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0005.png" id="6_6vaym"]
+[ext_resource type="Texture2D" uid="uid://dqo7pe0dk7p35" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0006.png" id="7_lypxj"]
+[ext_resource type="Texture2D" uid="uid://mgjrfmhdvh0v" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0007.png" id="8_gbokw"]
+[ext_resource type="Texture2D" uid="uid://cjlx3worowvon" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0008.png" id="9_vs3vm"]
+[ext_resource type="Texture2D" uid="uid://ccqj2uut517sc" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0009.png" id="10_qf82v"]
+[ext_resource type="Texture2D" uid="uid://cxrde32bw2e02" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0010.png" id="11_xuqas"]
+[ext_resource type="Texture2D" uid="uid://cr586awfb8ie0" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0011.png" id="12_nfkw4"]
+[ext_resource type="Texture2D" uid="uid://bl7iowfhu7ukj" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0012.png" id="13_46ser"]
+[ext_resource type="Texture2D" uid="uid://cagppfuqonpc5" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0013.png" id="14_36k5i"]
+[ext_resource type="Texture2D" uid="uid://c4x6j70w6gsm3" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0014.png" id="15_dle3x"]
+[ext_resource type="Texture2D" uid="uid://dksji33tknfdg" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0015.png" id="16_fb7ys"]
+[ext_resource type="Texture2D" uid="uid://dng4cmbhatuwf" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0016.png" id="17_i82ip"]
+[ext_resource type="Texture2D" uid="uid://day7xx80mnr2m" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0017.png" id="18_sfn7w"]
+[ext_resource type="Texture2D" uid="uid://bo6ccwdgwc307" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0018.png" id="19_yj77k"]
+[ext_resource type="Texture2D" uid="uid://dlqrg784iyx80" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0019.png" id="20_wawic"]
+[ext_resource type="Texture2D" uid="uid://saqecpymnhl3" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0020.png" id="21_3jclt"]
+[ext_resource type="Texture2D" uid="uid://cfhon1pcunse4" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0021.png" id="22_pvwd8"]
+[ext_resource type="Texture2D" uid="uid://co7jl4ktcjooq" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0022.png" id="23_3qvnp"]
+[ext_resource type="Texture2D" uid="uid://jn3wd8b7wpps" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0023.png" id="24_m4bcn"]
+[ext_resource type="Texture2D" uid="uid://qed6j756k6wf" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0024.png" id="25_7uuho"]
+[ext_resource type="Texture2D" uid="uid://cgbldt8gqnl2c" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0025.png" id="26_epw4j"]
+[ext_resource type="Texture2D" uid="uid://ctuuhscur86r" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0026.png" id="27_snvc4"]
+[ext_resource type="Texture2D" uid="uid://df36ycvf8khcb" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0027.png" id="28_hlked"]
+[ext_resource type="Texture2D" uid="uid://bj8st103uub5o" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0028.png" id="29_qhs6k"]
+[ext_resource type="Texture2D" uid="uid://chog0wb84u2so" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0029.png" id="30_fawq4"]
+[ext_resource type="Texture2D" uid="uid://ban5nojpno4e4" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0030.png" id="31_sonbr"]
+[ext_resource type="Texture2D" uid="uid://xbxvkaq1h3y0" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0031.png" id="32_62iju"]
+[ext_resource type="Texture2D" uid="uid://be7ii5aon33eo" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0032.png" id="33_hopeb"]
+[ext_resource type="Texture2D" uid="uid://d22ab1tt6tcy4" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0033.png" id="34_v2okh"]
+[ext_resource type="Texture2D" uid="uid://ucuoggopwhiq" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0034.png" id="35_d0yyu"]
+[ext_resource type="Texture2D" uid="uid://bh1u22v6mglms" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0035.png" id="36_sl061"]
+[ext_resource type="Texture2D" uid="uid://b4qqjmr1w6716" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0036.png" id="37_whn8g"]
+[ext_resource type="Texture2D" uid="uid://crgqejgjs54tj" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0037.png" id="38_1cktw"]
+[ext_resource type="Texture2D" uid="uid://de5qavqp4gdht" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0038.png" id="39_sqolo"]
+[ext_resource type="Texture2D" uid="uid://dc78k3mopgh2q" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0039.png" id="40_wt42k"]
+[ext_resource type="Texture2D" uid="uid://dg38dn7ff06mu" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0040.png" id="41_irtgj"]
+[ext_resource type="Texture2D" uid="uid://ds62yxm77lfi5" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0041.png" id="42_jegex"]
+[ext_resource type="Texture2D" uid="uid://b6gv47g44q8rw" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0042.png" id="43_asdsq"]
+[ext_resource type="Texture2D" uid="uid://6jgluwi5m2e1" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0043.png" id="44_27dvj"]
+[ext_resource type="Texture2D" uid="uid://c8ty3hjvxm73y" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0044.png" id="45_7kmpu"]
+[ext_resource type="Texture2D" uid="uid://cviqikd7lcd6l" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0045.png" id="46_0p210"]
+[ext_resource type="Texture2D" uid="uid://wb56vtoa36do" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0046.png" id="47_kpeko"]
+[ext_resource type="Texture2D" uid="uid://oo7eyg4t5c7n" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0047.png" id="48_qvlqf"]
+[ext_resource type="Texture2D" uid="uid://d2bired7dir7e" path="res://assets/Moving Bg NPCs/1st phase/1st phase goldfish/goldfish0048.png" id="49_nkeur"]
+[ext_resource type="Texture2D" uid="uid://bw8256hb6cgyn" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0000.png" id="50_77c01"]
+[ext_resource type="Texture2D" uid="uid://dfn75ug4cxdb1" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0001.png" id="51_jodxw"]
+[ext_resource type="Texture2D" uid="uid://bmndbcemdq5xo" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0002.png" id="52_op81w"]
+[ext_resource type="Texture2D" uid="uid://b1dj4lrh8onlk" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0003.png" id="53_0dxpd"]
+[ext_resource type="Texture2D" uid="uid://cmvoygglo8758" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0004.png" id="54_fvotm"]
+[ext_resource type="Texture2D" uid="uid://bjk7ulkvbv8p" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0005.png" id="55_4vpty"]
+[ext_resource type="Texture2D" uid="uid://b1t24yrus60ih" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0006.png" id="56_culvf"]
+[ext_resource type="Texture2D" uid="uid://7trcfhbde3t2" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0007.png" id="57_2flym"]
+[ext_resource type="Texture2D" uid="uid://dphquk367ogfj" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0008.png" id="58_oixe7"]
+[ext_resource type="Texture2D" uid="uid://cvxsda5lwopxs" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0009.png" id="59_3fa6v"]
+[ext_resource type="Texture2D" uid="uid://y0isntojgusm" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0010.png" id="60_j4ja8"]
+[ext_resource type="Texture2D" uid="uid://br8h5v33mkm6b" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0011.png" id="61_cu6ot"]
+[ext_resource type="Texture2D" uid="uid://i1uasiqf4oou" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0012.png" id="62_cdpu7"]
+[ext_resource type="Texture2D" uid="uid://cfbxpjyii3vrv" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0013.png" id="63_uq5hf"]
+[ext_resource type="Texture2D" uid="uid://nl8jcprpibne" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0014.png" id="64_xg1fv"]
+[ext_resource type="Texture2D" uid="uid://d3wuvhue1dq6y" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0015.png" id="65_c80ft"]
+[ext_resource type="Texture2D" uid="uid://b1jvnmb0pdblh" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0016.png" id="66_gx6px"]
+[ext_resource type="Texture2D" uid="uid://csseric6jxm1x" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0017.png" id="67_xikmr"]
+[ext_resource type="Texture2D" uid="uid://ri2dp8va341f" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0018.png" id="68_wn8vq"]
+[ext_resource type="Texture2D" uid="uid://dl18s5fyokgf2" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0019.png" id="69_povgf"]
+[ext_resource type="Texture2D" uid="uid://dep3ed0i0pmkn" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0020.png" id="70_7qw75"]
+[ext_resource type="Texture2D" uid="uid://clkys4twd6col" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0021.png" id="71_0ojb0"]
+[ext_resource type="Texture2D" uid="uid://bcanj4rwp4jwr" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0022.png" id="72_kvyby"]
+[ext_resource type="Texture2D" uid="uid://blh6kl70paaba" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0023.png" id="73_igeyo"]
+[ext_resource type="Texture2D" uid="uid://b8pskkisy2jki" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0024.png" id="74_c0bp2"]
+[ext_resource type="Texture2D" uid="uid://d1ekuwaqvr6nq" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0025.png" id="75_6k6i8"]
+[ext_resource type="Texture2D" uid="uid://dlxv3qbo8qu64" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0026.png" id="76_2dgtr"]
+[ext_resource type="Texture2D" uid="uid://bogaal60lsg52" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0027.png" id="77_c6gom"]
+[ext_resource type="Texture2D" uid="uid://di024i3xkl24f" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0028.png" id="78_wrwtd"]
+[ext_resource type="Texture2D" uid="uid://c1y0yn6bos4gj" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0029.png" id="79_k5w2v"]
+[ext_resource type="Texture2D" uid="uid://cqgn24o7q8f67" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0030.png" id="80_vns4i"]
+[ext_resource type="Texture2D" uid="uid://b53i5syve4ibj" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0031.png" id="81_xkmv3"]
+[ext_resource type="Texture2D" uid="uid://dk5xrb7m724r5" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0032.png" id="82_fuvef"]
+[ext_resource type="Texture2D" uid="uid://b04n7duij7uue" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0033.png" id="83_s0fxy"]
+[ext_resource type="Texture2D" uid="uid://b7x831p1r5rd2" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0034.png" id="84_3xtvx"]
+[ext_resource type="Texture2D" uid="uid://bj02k1gao2r6v" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0035.png" id="85_h3rec"]
+[ext_resource type="Texture2D" uid="uid://c18jqss1osohu" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0036.png" id="86_pyncw"]
+[ext_resource type="Texture2D" uid="uid://bc6a33uabaobd" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0037.png" id="87_mqk3m"]
+[ext_resource type="Texture2D" uid="uid://fpnowbwqbxt6" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0038.png" id="88_28hly"]
+[ext_resource type="Texture2D" uid="uid://b6uwicav0ipu0" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0039.png" id="89_0ali4"]
+[ext_resource type="Texture2D" uid="uid://dn204mtjhy0vu" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0040.png" id="90_ovx25"]
+[ext_resource type="Texture2D" uid="uid://dyh015yr8hl0e" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0041.png" id="91_slv0l"]
+[ext_resource type="Texture2D" uid="uid://wv0fbxr5bxm1" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0042.png" id="92_14hqj"]
+[ext_resource type="Texture2D" uid="uid://bslrttxk3l4v3" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0043.png" id="93_t3tpg"]
+[ext_resource type="Texture2D" uid="uid://qkvp2b1y52vy" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0044.png" id="94_bjq8t"]
+[ext_resource type="Texture2D" uid="uid://cc7qplqioioxr" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0045.png" id="95_r6c11"]
+[ext_resource type="Texture2D" uid="uid://omvllqj7r8nf" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0046.png" id="96_xwawl"]
+[ext_resource type="Texture2D" uid="uid://dgrhtmmr8ccei" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0047.png" id="97_1qer5"]
+[ext_resource type="Texture2D" uid="uid://hnix1sl681tc" path="res://assets/Moving Bg NPCs/2nd phase/2nd phase goldfish/goldfish0048.png" id="98_3js4v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eopni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5id3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2ni0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_48x5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1eboj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_reolg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6vaym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lypxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gbokw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vs3vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qf82v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xuqas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nfkw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_46ser")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_36k5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dle3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fb7ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i82ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_sfn7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yj77k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wawic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3jclt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_pvwd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3qvnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_m4bcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7uuho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_epw4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_snvc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_hlked")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qhs6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_fawq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sonbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_62iju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hopeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_v2okh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_d0yyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_sl061")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_whn8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_1cktw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_sqolo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_wt42k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_irtgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_jegex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_asdsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_27dvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_7kmpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_0p210")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_kpeko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_qvlqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_nkeur")
+}],
+"loop": true,
+"name": &"1_goldfish",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_77c01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_jodxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_op81w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_0dxpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_fvotm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_4vpty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_culvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_2flym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_oixe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_3fa6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_j4ja8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_cu6ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_cdpu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_uq5hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_xg1fv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_c80ft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_gx6px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_xikmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_wn8vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_povgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_7qw75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_0ojb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_kvyby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_igeyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_c0bp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_6k6i8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_2dgtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_c6gom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_wrwtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_k5w2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_vns4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_xkmv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_fuvef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_s0fxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_3xtvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_h3rec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_pyncw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_mqk3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_28hly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_0ali4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_ovx25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_slv0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_14hqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_t3tpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_bjq8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_r6c11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_xwawl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_1qer5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_3js4v")
+}],
+"loop": true,
+"name": &"2_goldfish",
+"speed": 8.0
+}]
+
+[node name="Goldfish" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_eopni")
+animation = &"2_goldfish"
+frame_progress = 0.10302741
