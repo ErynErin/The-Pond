@@ -408,5 +408,4 @@ animations = [{
 
 [node name="Fish" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_1jbt7")
-animation = &"2_fish"
-frame_progress = 0.6015533
+animation = &"1_fish"

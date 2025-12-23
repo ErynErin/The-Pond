@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7c0kwribi2cr"]
+
+[ext_resource type="Script" uid="uid://brcmn31biwd2u" path="res://scenes/Platforms/jump_pad.gd" id="1_8cdj8"]
+[ext_resource type="Texture2D" uid="uid://svb3q2sbc4k4" path="res://assets/Platforms/jump pad 2.png" id="1_nojpv"]
+
+[sub_resource type="Animation" id="Animation_8cdj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nojpv"]
+resource_name = "jump"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10081429, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.6056911), Vector2(1, 1.1504065), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10081429, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 24.25), Vector2(0, -9.25), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cdj8"]
+_data = {
+&"RESET": SubResource("Animation_8cdj8"),
+&"jump": SubResource("Animation_nojpv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nojpv"]
+size = Vector2(71, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cdj8"]
+size = Vector2(71, 13)
+
+[node name="JumpPad" type="Node2D"]
+script = ExtResource("1_8cdj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nojpv")
+region_enabled = true
+region_rect = Rect2(145.66985, 222.70056, 83.330154, 123.563324)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_8cdj8")
+}
+speed_scale = 1.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_nojpv")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -60.5)
+shape = SubResource("RectangleShape2D_8cdj8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

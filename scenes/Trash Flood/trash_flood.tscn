@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd2nsvjgw1m62"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2nsvjgw1m62"]
 
 [ext_resource type="Script" uid="uid://btnsikdcskl0m" path="res://scenes/Trash Flood/trash_flood.gd" id="1_8iwxg"]
-[ext_resource type="PackedScene" uid="uid://bqfbvucv803b8" path="res://scenes/Trash Flood/bottle_cap.tscn" id="2_bbnbr"]
-[ext_resource type="PackedScene" uid="uid://bi7m7q15dejei" path="res://scenes/Trash Flood/candy.tscn" id="3_k6m21"]
-[ext_resource type="PackedScene" uid="uid://ccelftyuamgmd" path="res://scenes/Trash Flood/cigarette_butt.tscn" id="4_wj7ko"]
-[ext_resource type="PackedScene" uid="uid://ddxc2v5lti43j" path="res://scenes/Trash Flood/shampoo.tscn" id="5_qrken"]
-[ext_resource type="PackedScene" uid="uid://ch66dq2mx0twg" path="res://scenes/Trash Flood/straw.tscn" id="6_xsgee"]
+[ext_resource type="PackedScene" uid="uid://crkd6q3pebrrc" path="res://scenes/Moving BG NPCs/fish.tscn" id="2_lmiu8"]
+[ext_resource type="PackedScene" uid="uid://1be8fa1titwi" path="res://scenes/Moving BG NPCs/goldfish.tscn" id="3_yvlgk"]
+[ext_resource type="PackedScene" uid="uid://boafigef4ednd" path="res://scenes/Moving BG NPCs/koi.tscn" id="4_bbnbr"]
 
 [sub_resource type="Animation" id="Animation_k6m21"]
 length = 0.001
@@ -46,7 +44,7 @@ _data = {
 
 [node name="Trash Flood" type="Node2D"]
 script = ExtResource("1_8iwxg")
-trash_scenes = Array[PackedScene]([ExtResource("2_bbnbr"), ExtResource("3_k6m21"), ExtResource("4_wj7ko"), ExtResource("5_qrken"), ExtResource("6_xsgee")])
+trash_scenes = Array[PackedScene]([ExtResource("2_lmiu8"), ExtResource("3_yvlgk"), ExtResource("4_bbnbr")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

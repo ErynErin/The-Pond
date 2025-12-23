@@ -408,5 +408,4 @@ animations = [{
 
 [node name="Goldfish" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_eopni")
-animation = &"2_goldfish"
-frame_progress = 0.10302741
+animation = &"1_goldfish"

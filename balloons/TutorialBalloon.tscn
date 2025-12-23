@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bsuo5draq2jgd" path="res://balloons/balloon.gd" id="1_6dsu4"]
 [ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="2_2ycy5"]
+[ext_resource type="Texture2D" uid="uid://ofero1p2qhwa" path="res://assets/GUI/Dialogue Boxes/Tutorial_DialogueBox2.PNG" id="2_310f3"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="3_310f3"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="4_rd2j8"]
 [ext_resource type="Theme" uid="uid://c72lgfdpdpscu" path="res://teddialoguebutton.tres" id="5_6vdnj"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="6_yjeio"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bklyl"]
-load_path = "res://.godot/imported/Tutorial_DialogueBox.png-24cbf5a7dd779e4837d05081ea181995.ctex"
 
 [sub_resource type="Theme" id="Theme_4emby"]
 
@@ -22,7 +20,7 @@ script = ExtResource("1_6dsu4")
 offset_top = 19.5
 offset_right = 1920.0
 offset_bottom = 1099.5
-texture = SubResource("CompressedTexture2D_bklyl")
+texture = ExtResource("2_310f3")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true

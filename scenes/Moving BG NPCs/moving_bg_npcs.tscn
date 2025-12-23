@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://djqedsba3fd0v"]
+
+[ext_resource type="Script" uid="uid://dd2acj0b3x6lc" path="res://scripts/moving_bg_npcs.gd" id="1_h0mx3"]
+[ext_resource type="PackedScene" uid="uid://crkd6q3pebrrc" path="res://scenes/Moving BG NPCs/fish.tscn" id="1_hdpnb"]
+[ext_resource type="PackedScene" uid="uid://1be8fa1titwi" path="res://scenes/Moving BG NPCs/goldfish.tscn" id="2_h0mx3"]
+[ext_resource type="PackedScene" uid="uid://boafigef4ednd" path="res://scenes/Moving BG NPCs/koi.tscn" id="3_kicbh"]
+
+[node name="Moving BG NPCs" type="Node2D"]
+script = ExtResource("1_h0mx3")
+fish_scenes = Array[PackedScene]([ExtResource("1_hdpnb"), ExtResource("2_h0mx3"), ExtResource("3_kicbh")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 27000.0
+offset_bottom = 2162.0
+color = Color(0.36234573, 0.6413467, 0.743147, 1)
+
+[node name="Fish" parent="." instance=ExtResource("1_hdpnb")]
+visible = false
+position = Vector2(-214, -106)
+scale = Vector2(3, 3)
+
+[node name="Goldfish" parent="." instance=ExtResource("2_h0mx3")]
+visible = false
+position = Vector2(-345, 111)
+
+[node name="Koi" parent="." instance=ExtResource("3_kicbh")]
+visible = false
+position = Vector2(379, -74)
+scale = Vector2(4, 4)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

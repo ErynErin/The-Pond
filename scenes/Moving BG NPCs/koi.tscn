@@ -406,7 +406,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Goldfish" type="AnimatedSprite2D"]
+[node name="Koi" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_2umpl")
-animation = &"2_koi"
-frame_progress = 0.56646806
+animation = &"1_koi"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=70 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://cfi77s00qndsb" path="res://noncolliderP1_5.tscn" id="38_oqo85"]
 [ext_resource type="PackedScene" uid="uid://biys6ij0myo70" path="res://noncolliderP1_3.tscn" id="38_u46sv"]
 [ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="39_rppta"]
+[ext_resource type="PackedScene" uid="uid://djqedsba3fd0v" path="res://scenes/Moving BG NPCs/moving_bg_npcs.tscn" id="42_cl8nt"]
+[ext_resource type="PackedScene" uid="uid://dho8wup1483a6" path="res://scenes/Platforms/jump_pad_p1.tscn" id="43_hesmo"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cl8nt"]
 noise_type = 2
@@ -315,6 +317,10 @@ scale = Vector2(2.82573, 1.84137)
 texture = ExtResource("9_jxxm7")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 1000)
+
+[node name="Moving BG NPCs" parent="." instance=ExtResource("42_cl8nt")]
+position = Vector2(-2800, -1082.97)
+scale = Vector2(0.8, 0.8)
 
 [node name="BG Sprite" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -819,6 +825,9 @@ position = Vector2(12416, -360)
 [node name="Snail" parent="." instance=ExtResource("29_fipse")]
 position = Vector2(11270, -110)
 scale = Vector2(0.95, 0.95)
+
+[node name="JumpPad" parent="." instance=ExtResource("43_hesmo")]
+position = Vector2(6169, 600)
 
 [connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Worm Tutorial" to="." method="_on_worm_tutorial_body_entered"]

@@ -660,7 +660,7 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(11720, 280)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.43134, 0.43134, 0.43134, 1)
+color = Color(0.5890953, 0.5890957, 0.5890954, 1)
 
 [node name="Trash Flood" parent="." instance=ExtResource("40_7mb24")]
 position = Vector2(12152, -280)
