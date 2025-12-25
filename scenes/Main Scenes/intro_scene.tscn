@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://3yhk5ufsn5ut" path="res://assets/BG/UI LAYOUTS.png" id="2_jkhwn"]
 [ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="3_jkhwn"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="4_f164h"]
-[ext_resource type="VideoStream" uid="uid://clp313uw6jsw" path="res://assets/Videos/new intro anim.ogv" id="5_8wqor"]
 [ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="5_t82ha"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="5_tij55"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="6_8wqor"]
 [ext_resource type="AudioStream" uid="uid://urr01ivqlgp5" path="res://assets/Audios/bgms/underwater-ambience-6201.mp3" id="7_0f06d"]
+[ext_resource type="VideoStream" uid="uid://b7qyf0vgu23wv" path="res://assets/Videos/introogv.ogv" id="7_ifne3"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qt0h2"]
 noise_type = 2
@@ -139,7 +139,7 @@ offset_left = -1.0
 offset_top = -5.0
 offset_right = 1919.0
 offset_bottom = 1075.0
-stream = ExtResource("5_8wqor")
+stream = ExtResource("7_ifne3")
 autoplay = true
 expand = true
 
