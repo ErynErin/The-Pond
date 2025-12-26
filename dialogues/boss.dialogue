@@ -1,0 +1,54 @@
+~ p1_start
+: *huff* [wait=1]*puff*
+: [shake rate=20 level=10]Who dares go near my soil!!!
+: Ah, [wait=1]it’s a mere tadpole. 
+: You’re brave enough to go near a mighty king? 
+Ironclaw Dominus: To I, [wait=1] Ironclaw Dominus, [wait=1]the raging guardian of this pond 
+Ironclaw Dominus: Well then I accept your challenge peasant. But[speed=0.2]... [wait=2][shake rate=20 level=10]EXPECT TO DIE!!! 
+=> END
+
+~ p1_end
+Ironclaw Dominus: NOOOOO eurghhghgkk
+Ironclaw Dominus: I guess you are indeed strong...
+Ironclaw Dominus: That was a good fight, mere tadpole..
+=> END
+
+~ p2_start
+: *exhales* [wait=1]*exhales*
+: Wow a tadpole... [wait=1]is this a divine blessing? [wait=1]You may be small but I guess anything can do to satisfy my hunger.
+: *exhales* [wait=1]*exhales*
+Falsestar Temptress: In case you don't know me, [wait=1]I am the undefeatable [shake rate=10 level=3]Falsestar Temptress!
+Falsestar Temptress: [shake rate=20 level=10] Come here now!! [speed=0.5]*evil witch laugh*
+=> END
+
+~ p2_fighting
+Falsestar Temptress: You’re one feisty creature aren’t you?
+Falsestar Temptress: WELL NOT FOR LONG!! [shake rate=20 level=8]*evil laugh*
+=> END
+
+~ p2_dark
+Falsestar Temptress: Hello... [speed=1]my future adobo~
+Falsestar Temptress: [shake rate=5 level=2]Where are youuu~
+=> END
+                  
+~ p2_end
+Falsestar Temptress: H-how did you defeat me... [wait=1]
+Falsestar Temptress: [speed=0.4]Impossible...
+=> END 
+
+~ p3_start
+: *squeeeakk* [wait=0.5]*squeeakk*
+: Is there someone in here? [wait=1]
+Voltaire: Who dares to trespass the area of [wait=0.5]Voltaire, [wait=0.5]the Conductor of Ruin?
+Voltaire: I’m pretty sure I shut off all corners of my area though...
+Voltaire: I hate it when someone thinks they can just go here all they want.
+Voltaire: Well I guess that just means one thing...
+Voltaire: I can just eat you up! [speed=0.4]
+Voltaire: It’s time for dinner anyway!
+Voltaire: *squeeeakk* [wait=0.5]*squeeakk*
+=> END
+
+~ p3_end
+Voltaire: *squeeaakk* [wait=1]*squeeakk*
+Voltaire: [speed=0.4]No more dinner for me…
+=> END

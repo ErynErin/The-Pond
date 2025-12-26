@@ -1,19 +1,19 @@
-[gd_scene load_steps=30 format=3 uid="uid://cqtty7lrvbm0a"]
+[gd_scene load_steps=29 format=3 uid="uid://cqtty7lrvbm0a"]
 
 [ext_resource type="Script" uid="uid://chlwbioy2akg7" path="res://scripts/menu_ui.gd" id="1_tlx78"]
-[ext_resource type="VideoStream" uid="uid://bgrdq8xs72epe" path="res://assets/Videos/ted title screen vid.ogv" id="2_d5l64"]
+[ext_resource type="VideoStream" uid="uid://0dx8waaacyla" path="res://assets/Videos/titlescreen.ogv" id="2_d5l64"]
 [ext_resource type="Texture2D" uid="uid://3yhk5ufsn5ut" path="res://assets/BG/UI LAYOUTS.png" id="2_fkk5t"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="3_e6vfu"]
-[ext_resource type="Texture2D" uid="uid://b7ad0jusytrwq" path="res://assets/GUI/Menu Assets/StartM.png" id="3_fkk5t"]
-[ext_resource type="Texture2D" uid="uid://dujwnist601s6" path="res://assets/GUI/Menu Assets/OptionsM.png" id="4_fkk5t"]
 [ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="4_os7hj"]
-[ext_resource type="Texture2D" uid="uid://bm2huvlu5oq62" path="res://assets/GUI/Menu Assets/QuitM.png" id="5_7vtdj"]
 [ext_resource type="Texture2D" uid="uid://cfmpevqn0vaed" path="res://assets/GUI/099.png" id="6_fkk5t"]
 [ext_resource type="PackedScene" uid="uid://qvgqap54c1b1" path="res://scenes/UI/options.tscn" id="7_7vtdj"]
+[ext_resource type="Texture2D" uid="uid://1pf1c1hvl5ym" path="res://assets/GUI/Menu Assets/start button.png" id="7_d5l64"]
+[ext_resource type="Texture2D" uid="uid://dnjj25aylun6x" path="res://assets/GUI/Menu Assets/settings button.png" id="8_2r6tj"]
 [ext_resource type="AudioStream" uid="uid://dt2b5784r6j06" path="res://assets/Audios/button.wav" id="8_olqsj"]
 [ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="8_sfva6"]
+[ext_resource type="Texture2D" uid="uid://y80ct4iajr8d" path="res://assets/GUI/Menu Assets/exit button.png" id="9_d5l64"]
 [ext_resource type="AudioStream" uid="uid://c6eelof6nh0xx" path="res://assets/Audios/menu_start.wav" id="9_sfva6"]
-[ext_resource type="AudioStream" uid="uid://urr01ivqlgp5" path="res://assets/Audios/bgms/underwater-ambience-6201.mp3" id="13_os7hj"]
+[ext_resource type="AudioStream" uid="uid://x0pujnk8y54j" path="res://assets/Audios/bgms/bg music for title screen.MP3" id="14_2r6tj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_d5l64"]
 noise_type = 2
@@ -35,38 +35,45 @@ shader_parameter/speed = Vector2(0.07, 0.07)
 shader_parameter/wave_strength = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v3q3"]
-texture = ExtResource("3_fkk5t")
+texture = ExtResource("7_d5l64")
+region_rect = Rect2(872.2731, 710.0001, 288.80176, 291.9655)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcije"]
-texture = ExtResource("3_fkk5t")
+texture = ExtResource("7_d5l64")
+region_rect = Rect2(872.2731, 710.0001, 288.80176, 291.9655)
 modulate_color = Color(0.526423, 0.526423, 0.526423, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ux5y"]
-texture = ExtResource("3_fkk5t")
+texture = ExtResource("7_d5l64")
+region_rect = Rect2(872.2731, 710.0001, 288.80176, 291.9655)
 modulate_color = Color(1.3, 1.3, 1.3, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_2ux5y"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8miy4"]
-texture = ExtResource("4_fkk5t")
+texture = ExtResource("8_2r6tj")
+region_rect = Rect2(581.35547, 819.667, 250.7273, 248.36865)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xew8"]
-texture = ExtResource("4_fkk5t")
-modulate_color = Color(0.526423, 0.526423, 0.526423, 1)
+texture = ExtResource("8_2r6tj")
+region_rect = Rect2(581.35547, 819.667, 250.7273, 248.36865)
+modulate_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svote"]
-texture = ExtResource("4_fkk5t")
+texture = ExtResource("8_2r6tj")
+region_rect = Rect2(581.35547, 819.667, 250.7273, 248.36865)
 modulate_color = Color(1.3, 1.3, 1.3, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wkid"]
-texture = ExtResource("5_7vtdj")
+texture = ExtResource("9_d5l64")
+region_rect = Rect2(1173.9673, 878.25275, 202.62549, 191.10248)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afy00"]
-texture = ExtResource("5_7vtdj")
+texture = ExtResource("9_d5l64")
+region_rect = Rect2(1173.9673, 878.25275, 202.62549, 191.10248)
 modulate_color = Color(0.526423, 0.526423, 0.526423, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlyh1"]
-texture = ExtResource("5_7vtdj")
+texture = ExtResource("9_d5l64")
+region_rect = Rect2(1173.9673, 878.25275, 202.62549, 191.10248)
 modulate_color = Color(1.3, 1.3, 1.3, 1)
 
 [sub_resource type="Gradient" id="Gradient_os7hj"]
@@ -134,44 +141,38 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 48.05
 anchor_bottom = 26.894
-offset_left = 769.0
-offset_top = 605.0
-offset_right = -745.187
-offset_bottom = -62.947
+offset_left = 876.0
+offset_top = 712.0
+offset_right = -758.0
+offset_bottom = -72.76001
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_4v3q3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_fcije")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2ux5y")
-theme_override_styles/focus = SubResource("StyleBoxTexture_fcije")
-toggle_mode = true
-button_group = SubResource("ButtonGroup_2ux5y")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4v3q3")
 
 [node name="Options" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1244.0
-offset_top = 640.0
-offset_right = 1570.25
-offset_bottom = 966.25
+offset_left = 583.0
+offset_top = 819.0
+offset_right = 833.0
+offset_bottom = 1067.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_8miy4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7xew8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_svote")
-theme_override_styles/focus = SubResource("StyleBoxTexture_7xew8")
-toggle_mode = true
-button_group = SubResource("ButtonGroup_2ux5y")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8miy4")
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 389.0
-offset_top = 650.0
-offset_right = 715.25
-offset_bottom = 981.25
+offset_left = 1174.0
+offset_top = 878.0
+offset_right = 1376.0
+offset_bottom = 1069.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_3wkid")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_afy00")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jlyh1")
-theme_override_styles/focus = SubResource("StyleBoxTexture_afy00")
-toggle_mode = true
-button_group = SubResource("ButtonGroup_2ux5y")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3wkid")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(952, 395)
@@ -196,7 +197,8 @@ stream = ExtResource("9_sfva6")
 bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_os7hj")
+stream = ExtResource("14_2r6tj")
+bus = &"Background Music"
 parameters/looping = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

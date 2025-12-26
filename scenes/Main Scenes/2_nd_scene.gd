@@ -36,8 +36,7 @@ func _ready():
 
 func _on_dialogue_ended(_resource):
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
-	
-	
+
 func fade_in_screen():
 	var tween = create_tween()
 	tween.tween_property(screen_fade, "color:a", 1.0, 1.5)

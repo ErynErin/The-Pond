@@ -1,0 +1,174 @@
+[gd_scene load_steps=25 format=3 uid="uid://b7tgwwcl3asmo"]
+
+[ext_resource type="Script" uid="uid://bsuo5draq2jgd" path="res://balloons/balloon.gd" id="1_ije1k"]
+[ext_resource type="Texture2D" uid="uid://c65uusbapqk3s" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0000.png" id="2_epflp"]
+[ext_resource type="Texture2D" uid="uid://c2g2yx8rdlyut" path="res://assets/Characters/Kingstar/IDLES/idle100/kin_0000.png" id="2_fdqho"]
+[ext_resource type="Texture2D" uid="uid://bhi3wmkuklfv7" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0001.png" id="3_l4nm0"]
+[ext_resource type="Texture2D" uid="uid://ckbhh6gfo0gf5" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0002.png" id="4_sj8hs"]
+[ext_resource type="Texture2D" uid="uid://dvvm2kw5cbgx2" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0003.png" id="5_smdvc"]
+[ext_resource type="Texture2D" uid="uid://ce40bmgnk1kkp" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0004.png" id="6_yilh6"]
+[ext_resource type="Texture2D" uid="uid://hkc5ix6ukftx" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0005.png" id="7_3erx5"]
+[ext_resource type="Texture2D" uid="uid://b8hecxx7iqv8l" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0006.png" id="8_xg3bg"]
+[ext_resource type="Texture2D" uid="uid://cpory70leubo1" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0007.png" id="9_wnvh2"]
+[ext_resource type="Texture2D" uid="uid://dge13ip3reeph" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0008.png" id="10_6hwkm"]
+[ext_resource type="Texture2D" uid="uid://suiufybcjm2d" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0009.png" id="11_2qcce"]
+[ext_resource type="Texture2D" uid="uid://gslfv7bckq1p" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0010.png" id="12_ije1k"]
+[ext_resource type="Texture2D" uid="uid://csa08hyer0b1c" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0011.png" id="13_fdqho"]
+[ext_resource type="Texture2D" uid="uid://dk6pvn3vcjqgw" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0012.png" id="14_x0waq"]
+[ext_resource type="Texture2D" uid="uid://bkim37ua7crcy" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0013.png" id="15_pdwl7"]
+[ext_resource type="Texture2D" uid="uid://4r0bh3udy14u" path="res://assets/Characters/Squid/SQUID/Squid_IDLE_0014.png" id="16_5pi18"]
+[ext_resource type="Texture2D" uid="uid://ui8ntji77dof" path="res://assets/GUI/Dialogue Boxes/squiddb.PNG" id="28_ije1k"]
+[ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="29_ngpxn"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="30_50dqp"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="31_dqamj"]
+[ext_resource type="Theme" uid="uid://c72lgfdpdpscu" path="res://teddialoguebutton.tres" id="32_qo2ur"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="33_quvyn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxw73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_epflp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l4nm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sj8hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_smdvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yilh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3erx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xg3bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wnvh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6hwkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2qcce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ije1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fdqho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_x0waq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pdwl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5pi18")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="BossBalloon" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_ije1k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2197, 851)
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_mxw73")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.6642722
+
+[node name="Boss" type="TextureRect" parent="."]
+visible = false
+offset_left = 728.0
+offset_top = -337.0
+offset_right = 2776.0
+offset_bottom = 1711.0
+texture = ExtResource("2_fdqho")
+
+[node name="Custom Balloon" type="TextureRect" parent="."]
+offset_top = 19.5
+offset_right = 1920.0
+offset_bottom = 1099.5
+texture = ExtResource("28_ije1k")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("29_ngpxn")
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 473.0
+offset_top = 722.0
+offset_right = 680.0
+offset_bottom = 790.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("30_50dqp")
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "Voltaire"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="DialogueLabel" parent="Balloon" instance=ExtResource("31_dqamj")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 456.0
+offset_top = 818.0
+offset_right = 1457.0
+offset_bottom = 992.0
+grow_horizontal = 1
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("30_50dqp")
+theme_override_font_sizes/normal_font_size = 40
+text = "Dialogue..."
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.009
+offset_top = 353.721
+offset_right = 65.9912
+offset_bottom = 423.721
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme = ExtResource("32_qo2ur")
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("33_quvyn")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+layout_mode = 2
+text = "Response example"

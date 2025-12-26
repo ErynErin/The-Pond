@@ -1,13 +1,10 @@
 extends Node2D
 
 @onready var screen_fade = $GUI/ScreenFade
-@onready var dialogue_resource: DialogueResource = preload("res://dialogues/p3_intro.dialogue")
-var balloon_scene = preload("res://balloons/SystemBalloon.tscn")
-@onready var boss_dialogue_resource: DialogueResource = preload("res://dialogues/p3_boss.dialogue")
-var boss_balloon_scene = preload("res://balloons/BossBalloon.tscn")
-
 @onready var trash_flood: Node2D = $"Trash Flood"
 @onready var wall: StaticBody2D = $Wall
+@onready var dialogue_resource: DialogueResource = preload("res://dialogues/p3_intro.dialogue")
+var balloon_scene = preload("res://balloons/SystemBalloon.tscn")
 
 func _init() -> void:
 	GameManager.phase_num = 3
@@ -24,31 +21,11 @@ func _ready():
 	screen_fade.set_z_index(1000)
 	await fade_out_screen()
 	
-	var balloon_instance = balloon_scene.instantiate()
-	get_tree().current_scene.add_child(balloon_instance)
-
-	# Connect dialogue finished signal
-	if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
-		DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-
-	balloon_instance.start(dialogue_resource, "start")
+	start_dialogue("start", true, balloon_scene)
 
 func _on_dialogue_ended(_resource):
 	GameManager.set_player_movable(true)
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
-
-func _on_boss_dialogue_area_body_entered(body) -> void:
-	if body.is_in_group("player"):
-		GameManager.set_player_movable(false)
-		var balloon_instance = boss_balloon_scene.instantiate()
-		get_tree().current_scene.add_child(balloon_instance)
-
-		# Connect dialogue finished signal
-		if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
-			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-
-		balloon_instance.start(boss_dialogue_resource, "start")
-		$"Boss Dialogue Area".queue_free()
 
 func fade_in_screen():
 	var tween = create_tween()
@@ -60,7 +37,8 @@ func fade_out_screen():
 	tween.tween_property(screen_fade, "color:a", 0.0, 1.5)
 	await tween.finished
 
-func _on_kingstar_boss_died() -> void:
+# OUTRO PARTTTTTTTTTT
+func _on_boss_died() -> void:
 	get_tree().change_scene_to_file.call_deferred("res://scenes/Main Scenes/ending.tscn")
 
 func start_dialogue(title: String, make_player_movable: bool, balloon):

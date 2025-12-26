@@ -25,6 +25,8 @@ const INK_HOVER_TIME = 2.0
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var debug_label: Label = $DebugLabel
 
+@onready var boss_dialogue_resource: DialogueResource = preload("res://dialogues/boss.dialogue")
+var boss_balloon_scene = preload("res://balloons/Boss3Balloon.tscn")
 
 var ball_projectile_scene = preload("res://scenes/Characters/ball_projectile.tscn")
 var ink_projectile_scene = preload("res://scenes/Characters/ink_projectile.tscn")
@@ -34,7 +36,7 @@ signal boss_died
 # State variables
 var current_state = State.INACTIVE
 var player_entered = false
-var health = 1
+var health = 3
 var max_health = 3
 var state_timer = 0.0
 
@@ -313,17 +315,33 @@ func _disable_walls():
 
 # ===== SIGNALS =====
 
+func _on_dialogue_ended(_resource):
+	GameManager.set_player_movable(true)
+	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	
+	player_entered = true
+	canvas_layer.visible = true
+	progress_bar.max_value = max_health
+	progress_bar.value = health
+	
+	_enable_walls()
+	change_state(State.PATROL)
+	
+	print("Boss fight started!")
+
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not player_entered:
-		player_entered = true
-		canvas_layer.visible = true
-		progress_bar.max_value = max_health
-		progress_bar.value = health
-		
-		_enable_walls()
-		change_state(State.PATROL)
-		
-		print("Boss fight started!")
+		GameManager.set_player_movable(false)
+
+		var balloon_instance = boss_balloon_scene.instantiate()
+		get_tree().current_scene.add_child(balloon_instance)
+
+		# Connect dialogue finished signal once
+		if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
+		balloon_instance.start(boss_dialogue_resource, "p3_start")
+		$PlayerDetector.queue_free()
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_attack"):

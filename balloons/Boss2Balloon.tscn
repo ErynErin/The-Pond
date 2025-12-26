@@ -1,0 +1,149 @@
+[gd_scene load_steps=20 format=3 uid="uid://b13o4oqffcliy"]
+
+[ext_resource type="Script" uid="uid://bsuo5draq2jgd" path="res://balloons/balloon.gd" id="1_mxowq"]
+[ext_resource type="Texture2D" uid="uid://bd5gleafke2hf" path="res://assets/Characters/Angler Fish/fb idle/idle0000.png" id="2_tuob7"]
+[ext_resource type="Texture2D" uid="uid://b0mf2ig23ijyn" path="res://assets/Characters/Angler Fish/fb idle/idle0001.png" id="3_ffjfl"]
+[ext_resource type="Texture2D" uid="uid://biu2qw4fkwvge" path="res://assets/Characters/Angler Fish/fb idle/idle0002.png" id="4_k2ui0"]
+[ext_resource type="Texture2D" uid="uid://cte1galt6opqk" path="res://assets/Characters/Angler Fish/fb idle/idle0003.png" id="5_8o2wq"]
+[ext_resource type="Texture2D" uid="uid://bay6tcuial3a" path="res://assets/Characters/Angler Fish/fb idle/idle0004.png" id="6_a025i"]
+[ext_resource type="Texture2D" uid="uid://ldpv1m86jo6s" path="res://assets/Characters/Angler Fish/fb idle/idle0005.png" id="7_q1f75"]
+[ext_resource type="Texture2D" uid="uid://bo0tp8yt1p45q" path="res://assets/Characters/Angler Fish/fb idle/idle0006.png" id="8_5kgxs"]
+[ext_resource type="Texture2D" uid="uid://t8r2kpi0i65v" path="res://assets/Characters/Angler Fish/fb idle/idle0007.png" id="9_dtnk6"]
+[ext_resource type="Texture2D" uid="uid://6ybde2b62kiy" path="res://assets/Characters/Angler Fish/fb idle/idle0008.png" id="10_ljuem"]
+[ext_resource type="Texture2D" uid="uid://cf8rffm27bgo2" path="res://assets/Characters/Angler Fish/fb idle/idle0009.png" id="11_u8gfd"]
+[ext_resource type="Texture2D" uid="uid://4kj4ghvku5my" path="res://assets/Characters/Angler Fish/fb idle/idle0010.png" id="12_mrtsa"]
+[ext_resource type="Texture2D" uid="uid://dt2obvvo2q08g" path="res://assets/GUI/Dialogue Boxes/fishdb.PNG" id="28_mxowq"]
+[ext_resource type="Theme" uid="uid://bxycdq0lkine8" path="res://balloonthemehuhu.tres" id="29_sp7e2"]
+[ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="30_vk8f5"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="31_bt6ep"]
+[ext_resource type="Theme" uid="uid://c72lgfdpdpscu" path="res://teddialoguebutton.tres" id="32_sxf3a"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="33_dinfd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avrl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tuob7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ffjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k2ui0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8o2wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a025i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1f75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5kgxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dtnk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ljuem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u8gfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mrtsa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[node name="BossBalloon" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_mxowq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1523.0001, 721.00006)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_avrl3")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.62891984
+
+[node name="Custom Balloon" type="TextureRect" parent="."]
+offset_top = 19.5
+offset_right = 1920.0
+offset_bottom = 1099.5
+texture = ExtResource("28_mxowq")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("29_sp7e2")
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 481.0
+offset_top = 712.0
+offset_right = 673.0
+offset_bottom = 780.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("30_vk8f5")
+theme_override_font_sizes/normal_font_size = 43
+bbcode_enabled = true
+text = "Falsestar Temptress"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="DialogueLabel" parent="Balloon" instance=ExtResource("31_bt6ep")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 456.0
+offset_top = 818.0
+offset_right = 1457.0
+offset_bottom = 992.0
+grow_horizontal = 1
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("30_vk8f5")
+theme_override_font_sizes/normal_font_size = 40
+text = "Dialogue..."
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.009
+offset_top = 353.721
+offset_right = 65.9912
+offset_bottom = 423.721
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme = ExtResource("32_sxf3a")
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("33_dinfd")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+layout_mode = 2
+text = "Response example"

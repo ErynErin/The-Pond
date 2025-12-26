@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cihb7614jbfds"]
+
+[ext_resource type="Texture2D" uid="uid://c4d1o6b1138k2" path="res://assets/Sprites/apple juice.png" id="1_ew7vu"]
+
+[node name="JuiceBox" type="StaticBody2D"]
+z_index = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ew7vu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(119, -117, 125, 261, -132, 254, -136, -103, -224, -86, -137, -132)

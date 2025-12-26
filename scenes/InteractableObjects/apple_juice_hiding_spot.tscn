@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://2rakys27h5aw"]
+
+[ext_resource type="Texture2D" uid="uid://bo7gf6sk0g55t" path="res://assets/Sprites/apple juice cut.png" id="1_lm65q"]
+[ext_resource type="Script" uid="uid://wg034xwpnmvy" path="res://scripts/juice_box_hiding.gd" id="2_rkk6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21djk"]
+size = Vector2(211, 187)
+
+[node name="JuiceBoxHideSpot" type="StaticBody2D"]
+z_index = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lm65q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(100, -83, 134, -83, 138, 120, -122, 116, -123, -81, -88, -82, -90, 108, 97, 107)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_rkk6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.5, 18.5)
+shape = SubResource("RectangleShape2D_21djk")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

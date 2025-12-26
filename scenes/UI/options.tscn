@@ -44,9 +44,8 @@ offset_top = 349.0
 offset_right = 1101.0
 offset_bottom = 410.0
 theme = ExtResource("2_xgdkv")
-theme_override_colors/font_color = Color(0.0936694, 0.0936694, 0.0936694, 1)
-theme_override_colors/font_outline_color = Color(0.0674377, 0.0674377, 0.0674377, 1)
-theme_override_constants/outline_size = 15
+theme_override_colors/font_color = Color(0.9691369, 0.9691369, 0.9691368, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_18ci2")
 theme_override_font_sizes/font_size = 70
 text = "OPTIONS"
@@ -68,9 +67,9 @@ theme_override_constants/separation = 40
 
 [node name="Music_Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
-theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_18ci2")
 theme_override_font_sizes/font_size = 40
 text = "Backgound Music"
@@ -81,9 +80,9 @@ value = 50.0
 
 [node name="SFX Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_18ci2")
 theme_override_font_sizes/font_size = 40
 text = "Sound Effects"
@@ -103,13 +102,13 @@ offset_right = -718.0
 offset_bottom = 408.0
 grow_horizontal = 0
 size_flags_vertical = 0
-theme_override_colors/font_hover_color = Color(0.185981, 0.185981, 0.185981, 1)
 theme_override_colors/font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+theme_override_colors/font_hover_color = Color(0.185981, 0.185981, 0.185981, 1)
 theme_override_fonts/font = ExtResource("4_18ci2")
 theme_override_font_sizes/font_size = 70
-theme_override_styles/hover = SubResource("StyleBoxEmpty_2na0i")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2na0i")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2na0i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2na0i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2na0i")
 text = "X"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

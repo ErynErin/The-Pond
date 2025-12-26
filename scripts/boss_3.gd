@@ -5,27 +5,31 @@ enum State { INACTIVE, IDLE, CHASE, LIGHTS_OFF, ATTACK, DEATH }
 # Constants
 const PATROL_SPEED = 100.0
 const CHASE_SPEED = 300.0
-const JUMP_VELOCITY = -500.0
-const IDLE_DURATION = 3.0
-const CHASE_DURATION = 7.0
+const JUMP_VELOCITY = -700.0
+const IDLE_DURATION = 4.0
+const CHASE_DURATION = 5.0
 const LIGHTS_OFF_DURATION = 15.0
 const ATTACK_DURATION = 1.0
-const PATROL_RANGE = 500.0
+
+# Attack and detection ranges
+const ATTACK_RANGE = 250.0
 
 # Node references
 @onready var animated_sprite = $SpriteNode/AnimatedSprite2D
 @onready var back_hurtbox = $SpriteNode/BackHitbox
 @onready var light_detection = $SpriteNode/LightDetectionArea
+@onready var light_detection_shape = $SpriteNode/LightDetectionArea/CollisionShape2D
 @onready var anglerfish_light = $SpriteNode/AnglerfishLight
+@onready var progress_bar: ProgressBar = $CanvasLayer/VBoxContainer/ProgressBar 
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 var player
 var wall_ray
 
-# World environment
-var world_environment: WorldEnvironment
-var original_ambient_light: Color
+@onready var canvas_modulate = get_parent().find_child("Lighting")
 
 # State variables
 var current_state = State.INACTIVE
+var state_before_attack = State.CHASE
 var player_entered = false
 var state_timer = 0.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,9 +37,9 @@ var player_found = false
 var distance_traveled = 0
 
 # Boss stats
-@export var max_hp = 225
+@export var max_hp = 100
 var current_hp = max_hp
-const DAMAGE_PER_HIT = 15
+const DAMAGE_PER_HIT = 25
 
 # Attack cycle tracking
 var chase_cycle_count = 0
@@ -44,31 +48,32 @@ const MAX_CHASE_CYCLES = 2
 # Patrol variables
 var patrol_start_position: Vector2
 var patrol_direction = 1
+var patrol_range = 700
 
 # Player hiding state
 var player_is_hidden = false
 
 # Attack cooldown
 var attack_cooldown = false
+var lights_off_timer = 0.0
+
+# Lights state
+var lights_on = true
 
 func _ready():
-	print("Boss ready")
+	progress_bar.value = current_hp
 	
 	# Find player
 	player = get_parent().find_child("player")
-	print("Player found:", player_found)
-	
-	# Get world environment
-	world_environment = get_tree().get_first_node_in_group("world_environment")
-	if world_environment and world_environment.environment:
-		original_ambient_light = world_environment.environment.ambient_light_color
-		print("World environment linked")
 	
 	# Initially hide anglerfish light
 	anglerfish_light.enabled = false
 	
 	# Setup raycasts
 	setup_raycasts()
+	
+	# Set initial light detector size
+	update_light_detector_size(true)
 	
 	# Start in INACTIVE state
 	change_state(State.INACTIVE)
@@ -89,6 +94,10 @@ func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	
+	# Check for attack range in all states except INACTIVE, ATTACK, and DEATH
+	if current_state in [State.CHASE, State.LIGHTS_OFF]:
+		check_attack_range()
 	
 	match current_state:
 		State.INACTIVE:
@@ -120,8 +129,19 @@ func update_raycast_direction():
 func change_state(new_state: State):
 	if current_state == new_state:
 		return
-		
+	
+	# Exit current state logic
+	if current_state == State.LIGHTS_OFF and new_state != State.ATTACK:
+		# Huwag i-on ang lights kung lilipat lang sa ATTACK
+		if new_state != State.ATTACK:
+			turn_lights_on()
+	
+	current_state = new_state
+	state_timer = 0.0 # To be used for the animation/duration of the state itself
+	
 	print("=== CHANGE STATE: ", State.keys()[new_state], " ===")
+	
+	patrol_range = randf_range(700, 1200)
 	
 	# Exit current state
 	match current_state:
@@ -167,8 +187,6 @@ func change_state(new_state: State):
 			print("Entering ATTACK")
 			velocity.x = 0
 			animated_sprite.play("attack")
-			await animated_sprite.animation_finished
-			GameManager.set_player_movable(true)
 		State.DEATH:
 			print("Entering DEATH")
 			_enter_death_state()
@@ -178,12 +196,11 @@ func change_state(new_state: State):
 # ============================================================
 func _handle_inactive_state(delta):
 	velocity.x = patrol_direction * PATROL_SPEED
-	print("patrolling")
 
 	# Check patrol boundaries
 	distance_traveled += velocity.x * delta
 	
-	if abs(distance_traveled) >= PATROL_RANGE:
+	if abs(distance_traveled) >= patrol_range:
 		distance_traveled = 0.0
 		patrol_direction *= -1
 		if not player_entered:
@@ -196,8 +213,8 @@ func _handle_inactive_state(delta):
 	if is_on_floor():
 		animated_sprite.play("run")
 
-	# ONLY enter combat if player is detected
-	if player_entered:
+	# Enter combat if player is detected and visible
+	if player_entered and not player_is_hidden:
 		print("player detected → IDLE")
 		change_state(State.CHASE)
 
@@ -214,12 +231,17 @@ func _handle_idle_state(delta):
 		return
 
 	# --- CHECK VISIBILITY ---
-	if not player_entered or player_is_hidden:
-		print("Player lost or hiding → INACTIVE")
+	if player_is_hidden:
+		print("Player hiding → INACTIVE")
+		change_state(State.INACTIVE)
+		return
+	
+	if not player_entered:
+		print("Player left → INACTIVE")
 		change_state(State.INACTIVE)
 		return
 
-	# --- CONTINUE PHASE LOOP ---d
+	# --- CONTINUE PHASE LOOP ---
 	chase_cycle_count += 1
 	print("Idle complete. Chase cycle:", chase_cycle_count)
 
@@ -261,15 +283,20 @@ func _handle_chase_state(delta):
 # STATE: LIGHTS_OFF
 # ============================================================
 func _handle_lights_off_state(delta):
-	state_timer += delta
+	lights_off_timer += delta
 	
 	# If player is hidden, become inactive patrol
 	if player_is_hidden:
 		velocity.x = patrol_direction * PATROL_SPEED * 0.5
 		
-		var distance_from_start = global_position.x - patrol_start_position.x
-		if abs(distance_from_start) > PATROL_RANGE:
+		# Check patrol boundaries
+		distance_traveled += velocity.x * delta
+		
+		if abs(distance_traveled) >= patrol_range:
+			distance_traveled = 0.0
 			patrol_direction *= -1
+			if not player_entered:
+				change_state(State.IDLE)
 		
 		if wall_ray and wall_ray.is_colliding():
 			patrol_direction *= -1
@@ -286,7 +313,7 @@ func _handle_lights_off_state(delta):
 	animated_sprite.play("run")
 	
 	# Timer ends regardless of player hiding
-	if state_timer >= LIGHTS_OFF_DURATION:
+	if lights_off_timer >= LIGHTS_OFF_DURATION:
 		print("Lights off ended → IDLE")
 		change_state(State.IDLE)
 
@@ -297,42 +324,81 @@ func _handle_attack_state(delta):
 	state_timer += delta
 	velocity.x = 0
 	
+	if state_before_attack == State.LIGHTS_OFF:
+		lights_off_timer += delta
+
 	if state_timer >= ATTACK_DURATION:
-		print("Attack finished → CHASE")
-		change_state(State.CHASE)
+		print("Attack finished → Returning to ", State.keys()[state_before_attack])
+		current_state = state_before_attack
+		state_timer = 0.0
+		GameManager.set_player_movable(true)
+		animated_sprite.play("run")
+
+# ============================================================
+# ATTACK RANGE CHECK
+# ============================================================
+func check_attack_range():
+	# Don't attack if on cooldown, player is hidden, or player doesn't exist
+	if attack_cooldown or player_is_hidden or not is_instance_valid(player):
+		return
+	
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance < ATTACK_RANGE:
+		#print("Player in attack range (", distance, ") → ATTACK")
+		trigger_attack(player)
 
 # ============================================================
 # LIGHTS CONTROL
 # ============================================================
 func turn_lights_off():
 	print("Lights OFF")
+	lights_on = false
 	
-	if world_environment and world_environment.environment:
-		world_environment.environment.ambient_light_color = Color.BLACK
+	if canvas_modulate:
+		canvas_modulate.color = Color.DIM_GRAY
 	
 	anglerfish_light.enabled = true
 	anglerfish_light.energy = 1.5
 	anglerfish_light.texture_scale = 3.0
+	
+	# Make light detector smaller
+	update_light_detector_size(false)
 
 func turn_lights_on():
 	print("Lights ON")
+	lights_on = true
 	
-	if world_environment and world_environment.environment:
-		world_environment.environment.ambient_light_color = original_ambient_light
+	if canvas_modulate:
+		canvas_modulate.color = Color.WHITE
 	
 	anglerfish_light.enabled = false
+	
+	# Make light detector bigger
+	update_light_detector_size(true)
+
+func update_light_detector_size(lights_on_state: bool):
+	if not light_detection_shape:
+		return
+	
+	var shape = light_detection_shape.shape
+	if lights_on_state:
+		shape.size = Vector2(2900, 1425)
+	else:
+		shape.size = Vector2(975, 1425)
+
+func _on_light_detection_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player") and player_entered:
+		player_entered = false
+		print("Player left")
 
 # ============================================================
 # DAMAGE SYSTEM
 # ============================================================
-func _on_back_hit(body):
-	# Can only damage during IDLE state
-	if current_state == State.IDLE and body.is_in_group("player"):
-		print("Back hit registered")
-		take_damage(DAMAGE_PER_HIT)
-
 func take_damage(damage_amount: int):
 	current_hp -= damage_amount
+	current_hp = max(0, current_hp)
+	progress_bar.value = current_hp
 	
 	print("Boss took damage:", damage_amount, "HP:", current_hp, "/", max_hp)
 	
@@ -364,36 +430,27 @@ func _enter_death_state():
 # ============================================================
 # ATTACK SYSTEM
 # ============================================================
-func _on_player_near_light(body):
-	# Can only attack during LIGHTS_OFF state
-	if body.is_in_group("player"):
-		# Don't attack if player is hidden
-		if player_is_hidden:
-			return
-		
-		# Check distance
-		var distance = global_position.distance_to(body.global_position)
-		if distance < 250:
-			print("Player near light → ATTACK")
-			trigger_attack(body)
+func _on_back_hitbox_area_entered(area: Area2D) -> void:
+	if current_state == State.IDLE and area.owner.name == "Sword":
+		take_damage(DAMAGE_PER_HIT)
 
 func trigger_attack(player_body):
-	# Prevent spam
 	if attack_cooldown:
 		return
 	
 	attack_cooldown = true
+	state_before_attack = current_state
 	
 	# Deal damage
 	if player_body.has_method("take_damage"):
 		GameManager.set_player_movable(false)
-		player_body.take_damage(20)
+		player_body.take_damage(10)
 	
 	# Change to attack state
 	change_state(State.ATTACK)
 	
 	# Reset cooldown
-	get_tree().create_timer(1.5).timeout.connect(func(): attack_cooldown = false)
+	get_tree().create_timer(3).timeout.connect(func(): attack_cooldown = false)
 
 # ============================================================
 # PLAYER HIDING SYSTEM
@@ -405,21 +462,9 @@ func set_player_hidden(h: bool):
 # ============================================================
 # BOSS FIGHT TRIGGER
 # ============================================================
-func _on_player_detector_body_entered(body: Node2D) -> void:
+func _on_light_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not player_entered:
 		player_entered = true
 		print("Player entered")
-		change_state(State.IDLE)
-
-func _on_player_detector_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player") and player_entered:
-		player_entered = false
-		print("Player left")
-
-func _on_light_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("Light area detected body:", body.name)
-		_on_player_near_light(body)
-
-func _on_back_hitbox_body_entered(body: Node2D) -> void:
-	_on_back_hit(body)
+		canvas_layer.visible = true 
+		change_state(State.CHASE)

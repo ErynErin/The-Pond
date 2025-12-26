@@ -72,7 +72,6 @@ func take_damage(damage: float):
 	GameManager.take_damage(damage)
 
 func _on_hurt_box_area_entered(area) -> void:
-	#print("player hurt")
 	animation_player.play("hurt")
 	
 	if area and area.owner:   
@@ -91,6 +90,8 @@ func _on_hurt_box_area_entered(area) -> void:
 			take_damage(10)
 		elif "damage_collider" in area.owner:
 			take_damage(100)
+		elif "Kingstar" in area.owner.name:
+			take_damage(10)
 		elif "AnglerFish" in area.owner:
 			take_damage(10)
 
@@ -102,4 +103,5 @@ func _on_player_died():
 	await animated_sprite.animation_finished
 	GameManager.current_health = GameManager.starting_health
 	GameManager.coins = GameManager.coins - GameManager.caps_collected
+	GameManager.set_player_movable(true)
 	get_tree().reload_current_scene()

@@ -7,6 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://dt2b5784r6j06" path="res://assets/Audios/button.wav" id="5_w67w4"]
 [ext_resource type="AudioStream" uid="uid://cpdlcdboj3l4l" path="res://assets/Audios/pause.wav" id="6_sipkl"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w67w4"]
+texture = ExtResource("2_bl585")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mko1u"]
 texture = ExtResource("2_bl585")
 axis_stretch_horizontal = 2
@@ -19,12 +24,12 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color(1.2, 1.2, 1.2, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w67w4"]
-texture = ExtResource("2_bl585")
+[sub_resource type="ButtonGroup" id="ButtonGroup_feath"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfkw"]
+texture = ExtResource("3_feath")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_feath"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sipkl"]
 texture = ExtResource("3_feath")
@@ -38,8 +43,8 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color(1.2, 1.2, 1.2, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3pfkw"]
-texture = ExtResource("3_feath")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m20o5"]
+texture = ExtResource("4_w67w4")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
@@ -54,11 +59,6 @@ texture = ExtResource("4_w67w4")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color(1.2, 1.2, 1.2, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m20o5"]
-texture = ExtResource("4_w67w4")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
 
 [node name="Pause Menu" type="Control"]
 layout_mode = 3
@@ -97,11 +97,11 @@ theme_override_constants/separation = 20
 layout_direction = 4
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/focus = SubResource("StyleBoxTexture_mko1u")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mko1u")
-theme_override_styles/hover = SubResource("StyleBoxTexture_feath")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mko1u")
 theme_override_styles/normal = SubResource("StyleBoxTexture_w67w4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mko1u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_feath")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mko1u")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mko1u")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_feath")
 
@@ -109,11 +109,11 @@ button_group = SubResource("ButtonGroup_feath")
 layout_direction = 4
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/focus = SubResource("StyleBoxTexture_sipkl")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_sipkl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_eir0s")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_sipkl")
 theme_override_styles/normal = SubResource("StyleBoxTexture_3pfkw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eir0s")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_sipkl")
+theme_override_styles/focus = SubResource("StyleBoxTexture_sipkl")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_feath")
 
@@ -121,11 +121,11 @@ button_group = SubResource("ButtonGroup_feath")
 layout_direction = 4
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/focus = SubResource("StyleBoxTexture_feba6")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_feba6")
-theme_override_styles/hover = SubResource("StyleBoxTexture_2uduj")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_feba6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_m20o5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_feba6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2uduj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_feba6")
+theme_override_styles/focus = SubResource("StyleBoxTexture_feba6")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_feath")
 
