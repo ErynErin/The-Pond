@@ -8,6 +8,9 @@ var balloon_scene = preload("res://balloons/SystemBalloon.tscn")
 var balloon_scene2 = preload("res://balloons/TutorialBalloon.tscn")
 var dialogue_resource_title: String = ""
 
+@onready var boss_dialogue_resource: DialogueResource = preload("res://dialogues/boss.dialogue")
+var boss_balloon_scene = preload("res://balloons/Boss1Balloon.tscn")
+
 func _init() -> void:
 	GameManager.phase_num = 1
 	GameManager.merchant_access = 1
@@ -40,14 +43,17 @@ func start_dialogue(title: String, make_player_movable: bool, balloon):
 	dialogue_resource_title = title
 	balloon_instance.start(dialogue_resource, dialogue_resource_title)
 
-func _on_dialogue_ended(_resource):
+func _on_dialogue_ended(resource):
 	if dialogue_resource_title == "start":
 		wall.position = Vector2(3440.0,-5) # transfer for worm attacking
 	elif dialogue_resource_title == "worm_end":
 		$GUI/Objectives.visible = true
 	
 	GameManager.set_player_movable(true)
-	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	
+	if resource == boss_dialogue_resource:
+		if has_node("Kingstar"):
+			$Kingstar.start()
 	
 func fade_in_screen():
 	var tween = create_tween()
@@ -108,3 +114,17 @@ func _on_trash_flood_flood_finished() -> void:
 			#$"GUI/Objectives Label".visible = true
 			#await get_tree().create_timer(3).timeout
 			#$"GUI/Objectives Label".visible = false
+
+func _on_boss_dialogue_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		GameManager.set_player_movable(false)
+
+		var balloon_instance = boss_balloon_scene.instantiate()
+		get_tree().current_scene.add_child(balloon_instance)
+
+		# Connect dialogue finished signal once
+		if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
+		balloon_instance.start(boss_dialogue_resource, "p1_start")
+		$"Boss Dialogue Area".queue_free()

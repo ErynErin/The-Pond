@@ -1,14 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8qdfv53o03ir"]
+[gd_scene load_steps=23 format=3 uid="uid://b8qdfv53o03ir"]
 
 [ext_resource type="Script" uid="uid://d2f5fb00lu1hp" path="res://scenes/intro_scene.gd" id="1_gsw8x"]
-[ext_resource type="Texture2D" uid="uid://3yhk5ufsn5ut" path="res://assets/BG/UI LAYOUTS.png" id="2_jkhwn"]
-[ext_resource type="Texture2D" uid="uid://iwggw3st1ihx" path="res://assets/BG/Phase 1/6.png" id="3_jkhwn"]
+[ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="2_e4n3y"]
+[ext_resource type="Texture2D" uid="uid://c3xww2i2skpq1" path="res://assets/BG/Phase 1/2.png" id="3_7o2p4"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="4_f164h"]
+[ext_resource type="Texture2D" uid="uid://ci5h6qat4a3lg" path="res://assets/BG/Phase 1/3.png" id="4_gl4ak"]
+[ext_resource type="Texture2D" uid="uid://btvfpva4ccs2p" path="res://assets/BG/Phase 1/4.png" id="5_3vmyl"]
 [ext_resource type="Texture2D" uid="uid://djskedj43sp1p" path="res://assets/Colliders/P1/scale.png" id="5_t82ha"]
 [ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="5_tij55"]
 [ext_resource type="FontFile" uid="uid://chvpvepqarnv6" path="res://assets/Fonts/Tedtadpole-Regular.ttf" id="6_8wqor"]
+[ext_resource type="Texture2D" uid="uid://cx2obingrau0c" path="res://assets/BG/Phase 1/5.png" id="6_w46aa"]
 [ext_resource type="AudioStream" uid="uid://urr01ivqlgp5" path="res://assets/Audios/bgms/underwater-ambience-6201.mp3" id="7_0f06d"]
 [ext_resource type="VideoStream" uid="uid://b7qyf0vgu23wv" path="res://assets/Videos/introogv.ogv" id="7_ifne3"]
+[ext_resource type="Texture2D" uid="uid://c4k3x21vyy384" path="res://assets/BG/Phase 1/6 (1).png" id="7_t4q8n"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qt0h2"]
 noise_type = 2
@@ -59,48 +63,86 @@ corner_radius_bottom_left = 20
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gsw8x")
 
-[node name="BG" type="TextureRect" parent="."]
-offset_top = -1006.0
-offset_right = 2475.0
-offset_bottom = 385.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_jkhwn")
-
 [node name="Overlay" type="ColorRect" parent="."]
 offset_left = -2.0
 offset_top = -1056.0
 offset_right = 4226.0
 offset_bottom = 1091.0
-color = Color(0, 0, 0, 0.807843)
+color = Color(0.16565639, 0.16565642, 0.16565639, 0.80784315)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+physics_interpolation_mode = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax2D"]
+offset = Vector2(0, -40)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, -40)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2(618.80005, 77.8667)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("2_e4n3y")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(618.80005, 77.8667)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("3_7o2p4")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.35, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(618.80005, 77.8667)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("4_gl4ak")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.45, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(618.80005, 77.8667)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("5_3vmyl")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Parallax2D/ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(4096, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxBackground/ParallaxLayer5"]
+position = Vector2(618.80005, 77.8667)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("6_w46aa")
 
 [node name="BG Sprite2" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(4084.52, 68.5327)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_jkhwn")
+texture_repeat = 3
+position = Vector2(645.1251, 939.55176)
+scale = Vector2(2.6167438, 18.854103)
+texture = ExtResource("7_t4q8n")
 region_enabled = true
-region_rect = Rect2(0, 0, 10000, 720)
+region_rect = Rect2(0, 709.673, 1287.6813, 13.5998535)
 
 [node name="BG Sprite" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(3090, -50)
+position = Vector2(8154, -66)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_jkhwn")
+texture = ExtResource("7_t4q8n")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
 
-[node name="Overlay2" type="ColorRect" parent="."]
-offset_left = -2.0
-offset_top = -1007.0
-offset_right = 4969.0
-offset_bottom = 1091.0
-color = Color(0, 0, 0, 0.32549)
-
 [node name="Shader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_lgy7k")
-position = Vector2(2005.31, 4.15718e-05)
+position = Vector2(1941.3711, 77.83875)
 rotation = 0.015708
-scale = Vector2(2.82573, 1.84137)
+scale = Vector2(2.8910513, 1.9873577)
 texture = ExtResource("5_t82ha")
 region_rect = Rect2(0, 0, 10000, 1000)
 
@@ -131,6 +173,7 @@ physics_material_override = SubResource("PhysicsMaterial_0f06d")
 shape = SubResource("WorldBoundaryShape2D_01j2m")
 
 [node name="player" parent="." instance=ExtResource("5_tij55")]
+modulate = Color(0.9471994, 0.9471994, 0.9471994, 1)
 position = Vector2(1002.07, 492.033)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
@@ -168,6 +211,13 @@ text = "Skip"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(1921, 5, 1921, 772, 2026, 772, 2026, -67, -71, -67, -71, 760, -2, 760, -2, 0)
+
+[node name="Overlay2" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -1007.0
+offset_right = 4969.0
+offset_bottom = 1091.0
+color = Color(0, 0, 0, 0.32549)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0f06d")

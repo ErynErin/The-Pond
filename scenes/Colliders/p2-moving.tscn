@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://1xrdny8bdyyc"]
+[gd_scene load_steps=7 format=3 uid="uid://8cmfe7p7qtwt"]
 
-[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://p_1_moving.gd" id="1_m2xsi"]
-[ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="2_d8qga"]
+[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://scenes/Colliders/p_1_moving.gd" id="1_hneu4"]
+[ext_resource type="Texture2D" uid="uid://ceneb6i0b2nc1" path="res://11.png" id="2_hneu4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab58e"]
 radius = 40.0
@@ -46,7 +46,7 @@ _data = {
 }
 
 [node name="Path2D" type="Path2D"]
-script = ExtResource("1_m2xsi")
+script = ExtResource("1_hneu4")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotation = -0.009646
@@ -58,11 +58,11 @@ remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 rotation = -0.009646
-scale = Vector2(1, 1)
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_d8qga")
+texture = ExtResource("2_hneu4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 rotation = -1.5708

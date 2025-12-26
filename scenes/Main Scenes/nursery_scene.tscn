@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=72 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -25,24 +25,25 @@
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="22_p0owv"]
 [ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="23_y2ypf"]
-[ext_resource type="PackedScene" uid="uid://1xrdny8bdyyc" path="res://p1-moving.tscn" id="24_nsaye"]
-[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://p_1_moving.gd" id="24_qfx3x"]
+[ext_resource type="PackedScene" uid="uid://1xrdny8bdyyc" path="res://scenes/Colliders/p1-moving.tscn" id="24_nsaye"]
+[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://scenes/Colliders/p_1_moving.gd" id="24_qfx3x"]
 [ext_resource type="Texture2D" uid="uid://biwg361wkgfx4" path="res://scenes/Platforms/p1-moving-asset.svg" id="25_po7p3"]
 [ext_resource type="AudioStream" uid="uid://088m4dy2feda" path="res://assets/Audios/bgms/Coming of Age Movie BGM.mp3" id="27_po7p3"]
 [ext_resource type="Texture2D" uid="uid://bccbf8jv77bue" path="res://scenes/Platforms/p1_spritesheetss.svg" id="28_khq81"]
-[ext_resource type="PackedScene" uid="uid://ckp88oybg0lkn" path="res://colliderP1_1.tscn" id="28_r8hxo"]
+[ext_resource type="PackedScene" uid="uid://ckp88oybg0lkn" path="res://scenes/Colliders/colliderP1_1.tscn" id="28_r8hxo"]
 [ext_resource type="PackedScene" uid="uid://xov1nahqgphe" path="res://scenes/Characters/worm.tscn" id="28_rppta"]
 [ext_resource type="PackedScene" uid="uid://caf7lldollp6k" path="res://scenes/Characters/snail.tscn" id="29_fipse"]
-[ext_resource type="PackedScene" uid="uid://uvpld3c2hlrl" path="res://colliderP1_2.tscn" id="29_khq81"]
-[ext_resource type="PackedScene" uid="uid://coan84jcrei0f" path="res://noncolliderP1_1.tscn" id="31_k6qa8"]
+[ext_resource type="PackedScene" uid="uid://uvpld3c2hlrl" path="res://scenes/Colliders/colliderP1_2.tscn" id="29_khq81"]
+[ext_resource type="PackedScene" uid="uid://coan84jcrei0f" path="res://scenes/Colliders/noncolliderP1_1.tscn" id="31_k6qa8"]
 [ext_resource type="PackedScene" uid="uid://b8u3ukm3isipo" path="res://scenes/Characters/ted_siblings.tscn" id="32_utuym"]
-[ext_resource type="PackedScene" uid="uid://chyliix5f7unh" path="res://noncolliderP1_2.tscn" id="35_eubug"]
-[ext_resource type="PackedScene" uid="uid://b1heguvgtcodv" path="res://noncolliderP1_4.tscn" id="36_oqo85"]
-[ext_resource type="PackedScene" uid="uid://cfi77s00qndsb" path="res://noncolliderP1_5.tscn" id="38_oqo85"]
-[ext_resource type="PackedScene" uid="uid://biys6ij0myo70" path="res://noncolliderP1_3.tscn" id="38_u46sv"]
+[ext_resource type="PackedScene" uid="uid://chyliix5f7unh" path="res://scenes/Colliders/noncolliderP1_2.tscn" id="35_eubug"]
+[ext_resource type="PackedScene" uid="uid://b1heguvgtcodv" path="res://scenes/Colliders/noncolliderP1_4.tscn" id="36_oqo85"]
+[ext_resource type="PackedScene" uid="uid://cfi77s00qndsb" path="res://scenes/Colliders/noncolliderP1_5.tscn" id="38_oqo85"]
+[ext_resource type="PackedScene" uid="uid://biys6ij0myo70" path="res://scenes/Colliders/noncolliderP1_3.tscn" id="38_u46sv"]
 [ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="39_rppta"]
 [ext_resource type="PackedScene" uid="uid://djqedsba3fd0v" path="res://scenes/Moving BG NPCs/moving_bg_npcs.tscn" id="42_cl8nt"]
 [ext_resource type="PackedScene" uid="uid://dho8wup1483a6" path="res://scenes/Platforms/jump_pad_p1.tscn" id="43_hesmo"]
+[ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="44_x1ygt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cl8nt"]
 noise_type = 2
@@ -185,6 +186,9 @@ _data = {
 "points": PackedVector2Array(2.08862, -275.698, -2.08862, 275.698, -328, 295, 0, 0, 0, 0, -211, 596, -246.458, 29.2407, 246.458, -29.2407, 211, 656, -112.786, 89.8109, 112.786, -89.8109, 497, 554, 0, 0, 0, 0, 449, 101, 231.837, 41.7725, -231.837, -41.7725, 64, -3, 0, 0, 0, 0, -328, 295)
 }
 point_count = 7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hesmo"]
+size = Vector2(115, 458)
 
 [node name="Ted Game" type="Node2D"]
 script = ExtResource("1_r8hxo")
@@ -566,13 +570,8 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(4390, 422)
 scale = Vector2(0.8, 0.8)
 
-[node name="Ted Siblings" parent="." instance=ExtResource("32_utuym")]
-modulate = Color(0.926806, 0.926806, 0.926806, 1)
-position = Vector2(7740, -289)
-scale = Vector2(0.24, 0.24)
-
 [node name="ChangeScene" parent="." instance=ExtResource("23_y2ypf")]
-position = Vector2(17790, -41.0019)
+position = Vector2(19458.002, 9.982374)
 rotation = 1.5708
 scale = Vector2(15, 12.795)
 skew = 1.54658
@@ -624,6 +623,12 @@ scale = Vector2(0.5, 0.5)
 [node name="Worm5" parent="." instance=ExtResource("28_rppta")]
 position = Vector2(6586, 569)
 scale = Vector2(0.5, 0.5)
+
+[node name="Ted Siblings" parent="." instance=ExtResource("32_utuym")]
+modulate = Color(0.926806, 0.926806, 0.926806, 1)
+z_index = 2
+position = Vector2(7840, -370)
+scale = Vector2(0.24, 0.24)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(4390, 490)
@@ -699,7 +704,7 @@ position = Vector2(-439, 613)
 [node name="CollidersGroup2" type="Node2D" parent="."]
 
 [node name="StaticBody2D3" parent="CollidersGroup2" instance=ExtResource("35_eubug")]
-position = Vector2(8002, -340)
+position = Vector2(8053, -328)
 
 [node name="StaticBody2D10" parent="CollidersGroup2" instance=ExtResource("36_oqo85")]
 position = Vector2(8508, -449)
@@ -829,8 +834,20 @@ scale = Vector2(0.95, 0.95)
 [node name="JumpPad" parent="." instance=ExtResource("43_hesmo")]
 position = Vector2(6169, 600)
 
+[node name="Boss Dialogue Area" type="Area2D" parent="."]
+position = Vector2(6288, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss Dialogue Area"]
+position = Vector2(11562, 438)
+shape = SubResource("RectangleShape2D_hesmo")
+
+[node name="Kingstar" parent="." instance=ExtResource("44_x1ygt")]
+position = Vector2(18291, 348)
+scale = Vector2(0.6, 0.6)
+
 [connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Worm Tutorial" to="." method="_on_worm_tutorial_body_entered"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Siblings" to="." method="_on_siblings_body_entered"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Trash Flood" to="." method="_on_trash_flood_body_entered"]
 [connection signal="body_entered" from="Dialogue Signal Areas/Objectives Checker" to="." method="_on_objectives_checker_body_entered"]
+[connection signal="body_entered" from="Boss Dialogue Area" to="." method="_on_boss_dialogue_area_body_entered"]

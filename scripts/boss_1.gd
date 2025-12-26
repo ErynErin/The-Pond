@@ -1,23 +1,24 @@
 extends CharacterBody2D
 
-const WALK_SPEED = 100.0
-const DASH_SPEED = 500.0
+const WALK_SPEED = 500.0
+const DASH_SPEED = 1000.0
 const DASH_DISTANCE_THRESHOLD = 700.0
-const DASH_DURATION = 0.5
-const CHARGE_DURATION = 1.5  # Duration of charge animation before dash
-const ATTACK_DURATION = 1.5  # Duration of single attack
-const REST_DURATION = 3.0
-const ATTACK_DISTANCE_THRESHOLD = 200.0  # Distance to trigger attack
+const CHARGE_DURATION = 1.0  # Duration of charge animation before dash
+const ATTACK_DURATION = 1.0
+const REST_DURATION = 2.0
+const ATTACK_DISTANCE_THRESHOLD = 400.0
 
-enum State { WALK, DASH, CHARGE, ATTACK, REST, DEATH }
+enum State { INACTIVE, WALK, DASH, CHARGE, ATTACK, REST, DEATH }
 
 @onready var player = get_parent().find_child("player")
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_box: Area2D = $HurtBox
-@onready var hit_box: Area2D = $HitBox
+@onready var animated_sprite: AnimatedSprite2D = $Node2D/AnimatedSprite2D
+@onready var hurt_box: HurtBox = $Node2D/HurtBox
+@onready var hit_box: HitBox = $Node2D/HitBox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $CanvasLayer/VBoxContainer/ProgressBar
+@onready var label: Label = $Label
+@onready var node_2d: Node2D = $Node2D
 
 var current_state = State.WALK
 var boss_health = 100.0
@@ -25,12 +26,14 @@ var max_boss_health = 100.0
 var state_timer = 0.0
 
 func _ready() -> void:
+	_change_state(State.INACTIVE)
+
+func start() -> void:
 	progress_bar.max_value = max_boss_health
 	progress_bar.value = boss_health
-	#animation_player.animation_finished.connect(_on_animation_finished)
-	timer.timeout.connect(_on_timer_timeout)
 	$CanvasLayer.visible = true
-	_change_state(State.WALK)
+	_change_state(State.CHARGE)
+	print("starting...")
 
 func _physics_process(delta: float) -> void:
 	if current_state == State.DEATH:
@@ -38,7 +41,12 @@ func _physics_process(delta: float) -> void:
 		
 	state_timer += delta
 	
+	if current_state == State.WALK or current_state == State.DASH:
+		_check_attack_range()
+
 	match current_state:
+		State.INACTIVE:
+			_handle_inactive_state(delta)
 		State.WALK:
 			_walk_state(delta)
 		State.DASH:
@@ -46,22 +54,37 @@ func _physics_process(delta: float) -> void:
 		State.CHARGE:
 			_charge_state(delta)
 		State.ATTACK:
-			_attack_state(delta)
+			_handle_attack_state(delta)
 		State.REST:
 			_rest_state(delta)
 
-	# Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	move_and_slide()
 
-func _walk_state(_delta: float) -> void:
-	if not is_instance_valid(player):
-		print("Player not found, stopping movement")
-		velocity.x = 0
-		return
+func _handle_inactive_state(_delta):
+	velocity.x = 0
+	animated_sprite.play("idle_100")
+
+func _check_attack_range():
+	var dist = global_position.distance_to(player.global_position)
+	if dist < ATTACK_DISTANCE_THRESHOLD:
+		_change_state(State.ATTACK)
+
+func _handle_attack_state(_delta):
+	velocity.x = 0
+	
+	var direction = player.global_position.x - global_position.x
+	if direction > 0:
+		node_2d.scale.x = -1 # Face Right
+	elif direction < 0:
+		node_2d.scale.x = 1  # Face Left
+			
+	if state_timer >= ATTACK_DURATION:
+		_change_state(State.REST)
 		
+func _walk_state(_delta: float) -> void:
 	var distance_to_player = global_position.distance_to(player.global_position)
 	
 	# Check if should charge (far enough to dash)
@@ -71,7 +94,6 @@ func _walk_state(_delta: float) -> void:
 		return
 	
 	if distance_to_player < ATTACK_DISTANCE_THRESHOLD:
-		print("Player in range, switching to ATTACK")
 		_change_state(State.ATTACK)
 		return
 	
@@ -81,26 +103,23 @@ func _walk_state(_delta: float) -> void:
 	
 	# Flip sprite to face player
 	if direction.x > 0:
-		animated_sprite.flip_h = true
+		node_2d.scale.x = -1
 	elif direction.x < 0:
-		animated_sprite.flip_h = false
+		node_2d.scale.x = 1
 
 func _dash_state(_delta: float) -> void:
-	if not is_instance_valid(player):
-		velocity = Vector2.ZERO
-		return
 	var direction = (player.global_position - global_position).normalized()
 	velocity.x = direction.x * DASH_SPEED
 	
 	# Flip sprite to face player
 	if direction.x > 0:
-		animated_sprite.flip_h = true
+		node_2d.scale.x = -1
 	elif direction.x < 0:
-		animated_sprite.flip_h = false
+		node_2d.scale.x = 1
 	
 	# Check if close enough to stop dashing
 	var distance_to_player = global_position.distance_to(player.global_position)
-	if distance_to_player < 300:  # Stop a bit before threshold
+	if distance_to_player < -400:  # Stop a bit before threshold
 		print("Dash complete, switching to WALK")
 		_change_state(State.WALK)
 
@@ -108,12 +127,11 @@ func _charge_state(_delta: float) -> void:
 	velocity.x = 0  # Stop movement during charge
 	
 	# Face the player during charge
-	if is_instance_valid(player):
-		var direction = player.global_position.x - global_position.x
-		if direction > 0:
-			animated_sprite.flip_h = true
-		elif direction < 0:
-			animated_sprite.flip_h = false
+	var direction = player.global_position.x - global_position.x
+	if direction > 0:
+		node_2d.scale.x = -1
+	elif direction < 0:
+		node_2d.scale.x = 1
 	
 	# Transition to dash after charge duration
 	if state_timer >= CHARGE_DURATION:
@@ -136,46 +154,41 @@ func _change_state(new_state: State) -> void:
 	if current_state == new_state:
 		return
 
-	var previous_state = current_state
 	current_state = new_state
 	state_timer = 0.0
 	
-	print("=== STATE CHANGE ===\tFrom: ", previous_state, " To: ", current_state)
-	
-	timer.stop()
+	label.text = State.keys()[new_state]
+	print("Switched to State: ", State.keys()[new_state])
 	
 	match current_state:
 		State.WALK:
 			_set_hitboxes(false, false)
 			_play_animation_for_health_state("walk")
-			
-		State.DASH:
-			_set_hitboxes(false, false)
-			_play_animation_for_health_state("dash")
-			
+			animation_player.play("RESET")
+		State.ATTACK:
+			_set_hitboxes(false, true) # Hitbox enabled
+			_play_animation_for_health_state("attack")
+		State.REST:
+			_set_hitboxes(true, false) # Vulnerable
+			_play_animation_for_health_state("idle")
 		State.CHARGE:
 			_set_hitboxes(false, false)
 			_play_animation_for_health_state("charge")
-			
-		State.ATTACK:
-			_set_hitboxes(false, true)
-			_play_animation_for_health_state("attack")
-			
-		State.REST:
-			_set_hitboxes(true, false)
-			_play_animation_for_health_state("idle")
-			
+			animation_player.play("RESET")
+		State.DASH:
+			_set_hitboxes(false, false)
+			_play_animation_for_health_state("dash")
+			animation_player.play("RESET")
 		State.DEATH:
 			_set_hitboxes(false, false)
+			animation_player.play("RESET")
 			animated_sprite.play("death")
-			print("=== BOSS DIED ===")
 
 func _set_hitboxes(is_hurtbox_enabled: bool, is_hitbox_enabled: bool) -> void:
 	hurt_box.set_deferred("monitoring", is_hurtbox_enabled)
 	hurt_box.set_deferred("monitorable", is_hurtbox_enabled)
 	hit_box.set_deferred("monitoring", is_hitbox_enabled)
 	hit_box.set_deferred("monitorable", is_hitbox_enabled)
-	print("Hitboxes updated - Hurtbox: ", is_hurtbox_enabled, " Hitbox: ", is_hitbox_enabled)
 
 func take_damage(damage: float) -> void:
 	boss_health -= damage
@@ -185,11 +198,14 @@ func take_damage(damage: float) -> void:
 	if boss_health <= 0:
 		print("Health depleted, switching to DEATH")
 		_change_state(State.DEATH)
+		$CanvasLayer.visible = false
+		hurt_box.queue_free()
+		hit_box.queue_free()
 	else:
 		animation_player.play("hurt")
 
 func _play_animation_for_health_state(action: String) -> void:
-	var health_percent = (boss_health / max_boss_health) * 100.0
+	var health_percent = boss_health
 	var suffix = ""
 	
 	if health_percent <= 25:
@@ -200,6 +216,9 @@ func _play_animation_for_health_state(action: String) -> void:
 		suffix = "_75"
 	else:
 		suffix = "_100"
+		
+	if action == "attack":
+		animation_player.play("attack")
 	
 	if action == "attack" and (suffix == "_25" or suffix == "_50"):
 		animated_sprite.play("charge" + suffix)
@@ -213,39 +232,21 @@ func _play_animation_for_health_state(action: String) -> void:
 	animated_sprite.play(animation_name)
 
 func _on_hurt_box_area_entered(area) -> void:
-	print("=== HURTBOX HIT ===\tHit by area from: ", area.owner)
-	
 	if area.owner.is_in_group("player"):
 		print("Valid player attack detected")
 		take_damage(GameManager.strength)
 
 func _on_hit_box_area_entered(area) -> void:	
 	if area.owner.is_in_group("player"):
-		print("Player hit! Waiting 0.9 seconds to check if still in hitbox...")
-		await get_tree().create_timer(0.9).timeout
+		print("Player hit! Waiting 2 seconds to check if still in hitbox...")
+		await get_tree().create_timer(3).timeout
 		
-		# Check if the player's area is still overlapping with our hitbox
-		var overlapping_areas = hit_box.get_overlapping_areas()
-		var player_still_in_hitbox = false
+		var distance = global_position.distance_to(player.global_position)
 		
-		for overlapping_area in overlapping_areas:
-			if overlapping_area.owner.is_in_group("player"):
-				player_still_in_hitbox = true
-				break
-		
-		if player_still_in_hitbox:
-			print("Player still in hitbox after delay - dealing 15 damage")
-			GameManager.take_damage(15.0)
-			if area.owner.has_method("_on_hurt_box_area_entered"):
-				area.owner._on_hurt_box_area_entered(null)
-		else:
-			print("Player escaped hitbox - no damage dealt")
-	else:
-		print("Non-player collision, ignoring")
+		if distance < ATTACK_DISTANCE_THRESHOLD:
+			_change_state(State.ATTACK)
 
-func _on_timer_timeout() -> void:
-	print("=== TIMER TIMEOUT ===\tCurrent state: ", current_state)
-	
+func _on_timer_timeout() -> void:	
 	match current_state:
 		State.ATTACK:
 			print("Attack complete, switching to REST")

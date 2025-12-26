@@ -233,7 +233,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xok1n"]
-size = Vector2(439, 1105)
+size = Vector2(109, 1105)
 
 [node name="Scornus" type="CharacterBody2D"]
 collision_layer = 2
@@ -270,7 +270,7 @@ autoplay = "idle"
 [node name="PlayerDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(0, 118)
+position = Vector2(-482.5, 118)
 shape = SubResource("RectangleShape2D_xok1n")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]

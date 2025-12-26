@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=58 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="6_42ul7"]
@@ -31,12 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="23_c37bx"]
 [ext_resource type="PackedScene" uid="uid://c8tm1q4vcevf5" path="res://scenes/Characters/beetle.tscn" id="23_d0pof"]
 [ext_resource type="PackedScene" uid="uid://bqv1p3cvx6x6f" path="res://scenes/Characters/bomber_fish.tscn" id="25_yxl4q"]
-[ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://colliderP2_3.tscn" id="26_2agje"]
-[ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://colliderP2_1.tscn" id="26_f1wsw"]
-[ext_resource type="PackedScene" uid="uid://d0non4l3cian2" path="res://colliderP2_2.tscn" id="27_c7qhk"]
+[ext_resource type="PackedScene" uid="uid://dk2hy45rb5vlo" path="res://scenes/Colliders/colliderP2_3.tscn" id="26_2agje"]
+[ext_resource type="PackedScene" uid="uid://blvil0vgakf4g" path="res://scenes/Colliders/colliderP2_1.tscn" id="26_f1wsw"]
+[ext_resource type="PackedScene" uid="uid://d0non4l3cian2" path="res://scenes/Colliders/colliderP2_2.tscn" id="27_c7qhk"]
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="29_d0pof"]
-[ext_resource type="PackedScene" uid="uid://8cmfe7p7qtwt" path="res://p2-moving.tscn" id="31_ce7ql"]
-[ext_resource type="PackedScene" uid="uid://cm3hhu0puqy85" path="res://scenes/Characters/boss_2_scene.tscn" id="34_rrk3c"]
+[ext_resource type="PackedScene" uid="uid://8cmfe7p7qtwt" path="res://scenes/Colliders/p2-moving.tscn" id="31_ce7ql"]
 [ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="35_lny5s"]
 [ext_resource type="PackedScene" uid="uid://c7c0kwribi2cr" path="res://scenes/Platforms/jump_pad_p2.tscn" id="39_mh7sn"]
 
@@ -611,9 +610,6 @@ speed_scale = 0.2
 [node name="StaticBody2D10" parent="." instance=ExtResource("26_f1wsw")]
 position = Vector2(8920, 464)
 
-[node name="Boss2 Scene" parent="." instance=ExtResource("34_rrk3c")]
-position = Vector2(14176, 0)
-
 [node name="Trash Flood" parent="." instance=ExtResource("35_lny5s")]
 position = Vector2(11400, -100)
 
@@ -634,7 +630,7 @@ shape = SubResource("RectangleShape2D_lny5s")
 disabled = true
 
 [node name="JumpPad" parent="." instance=ExtResource("39_mh7sn")]
-position = Vector2(785, 556)
+position = Vector2(857, 553)
 
 [connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
 [connection signal="body_entered" from="Trash Flood Signal" to="." method="_on_trash_flood_body_entered"]

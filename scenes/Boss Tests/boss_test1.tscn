@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://c14hdfxkeedb6"]
 
-[ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="1_asi88"]
-[ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="3_hevka"]
-[ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="4_vlp55"]
-[ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="4_vwd6n"]
+[ext_resource type="PackedScene" uid="uid://mo3hkwq7pjdf" path="res://scenes/Player/player_phase1.tscn" id="1_yvjp0"]
+[ext_resource type="Script" uid="uid://d22ltv5khw2fa" path="res://scripts/health_bar.gd" id="2_pdmwp"]
+[ext_resource type="Texture2D" uid="uid://cvojlptff1xk5" path="res://assets/GUI/Game Screen UI/P1_health.png" id="3_7m68f"]
+[ext_resource type="PackedScene" uid="uid://ca5h26hc7p7b0" path="res://scenes/Characters/boss_1.tscn" id="4_paev0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jiud7"]
 distance = -772.0
@@ -18,7 +18,7 @@ bg_color = Color(1, 0.321569, 0.364706, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_asi88")]
+[node name="player" parent="." instance=ExtResource("1_yvjp0")]
 z_index = 5
 position = Vector2(-1380, 282)
 scale = Vector2(0.5, 0.5)
@@ -57,13 +57,13 @@ theme_override_font_sizes/font_size = 27
 theme_override_styles/background = SubResource("StyleBoxFlat_a2n2h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pp3yt")
 value = 50.0
-script = ExtResource("3_hevka")
+script = ExtResource("2_pdmwp")
 
 [node name="Gen UI" type="TextureRect" parent="GUI"]
 offset_right = 3206.4
 offset_bottom = 1803.6
-texture = ExtResource("4_vlp55")
+texture = ExtResource("3_7m68f")
 
-[node name="Kingstar" parent="." instance=ExtResource("4_vwd6n")]
+[node name="Kingstar" parent="." instance=ExtResource("4_paev0")]
 position = Vector2(-137, 399)
 scale = Vector2(0.6, 0.6)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://by155wu4m8ch1"]
 
-[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://p_1_moving.gd" id="1_ug6f7"]
+[ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://scenes/Colliders/p_1_moving.gd" id="1_ug6f7"]
 [ext_resource type="Texture2D" uid="uid://2ob6q7mla4x5" path="res://13.png" id="2_ug6f7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab58e"]

@@ -40,10 +40,10 @@ Falsestar Temptress: [speed=0.4]Impossible...
 : *squeeeakk* [wait=0.5]*squeeakk*
 : Is there someone in here? [wait=1]
 Voltaire: Who dares to trespass the area of [wait=0.5]Voltaire, [wait=0.5]the Conductor of Ruin?
-Voltaire: I’m pretty sure I shut off all corners of my area though.. [wait=1]
-Voltaire: I hate it when someone thinks they can just go here all they want. [shake rate=10 level=4]
-Voltaire: Well I guess that just means one thing.
-Voltaire: I can just eat you up. [speed=0.4]
+Voltaire: I’m pretty sure I shut off all corners of my area though...
+Voltaire: I hate it when someone thinks they can just go here all they want.
+Voltaire: Well I guess that just means one thing...
+Voltaire: I can just eat you up! [speed=0.4]
 Voltaire: It’s time for dinner anyway!
 Voltaire: *squeeeakk* [wait=0.5]*squeeakk*
 => END
