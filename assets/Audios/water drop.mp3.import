@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bum4qbcsxmlhb"
+path="res://.godot/imported/water drop.mp3-4b92cd0e2694487e28f33b3e538ffd47.mp3str"
+
+[deps]
+
+source_file="res://assets/Audios/water drop.mp3"
+dest_files=["res://.godot/imported/water drop.mp3-4b92cd0e2694487e28f33b3e538ffd47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

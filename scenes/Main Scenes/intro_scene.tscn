@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8qdfv53o03ir"]
+[gd_scene load_steps=24 format=3 uid="uid://b8qdfv53o03ir"]
 
 [ext_resource type="Script" uid="uid://d2f5fb00lu1hp" path="res://scenes/intro_scene.gd" id="1_gsw8x"]
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="2_e4n3y"]
@@ -29,6 +29,7 @@ seamless_blend_skirt = 0.61
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgy7k"]
 shader = ExtResource("4_f164h")
 shader_parameter/color = Color(0.458824, 0.509804, 0.109804, 1)
+shader_parameter/brightness = 1.0
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_u46sv")
 shader_parameter/speed = Vector2(0.07, 0.07)
 shader_parameter/wave_strength = 2.0
@@ -38,13 +39,16 @@ distance = 122.738
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wqor"]
 resource_local_to_scene = true
-distance = -581.0
+distance = -604.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0f06d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01j2m"]
 normal = Vector2(1, 0)
 distance = -1014.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e4n3y"]
+load_path = "res://.godot/imported/blurred circle.png-34dd08055ae3388dad7afb5413d2808b.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01j2m"]
 bg_color = Color(0.403922, 0.403922, 0.403922, 0.290196)
@@ -122,10 +126,18 @@ position = Vector2(618.80005, 77.8667)
 scale = Vector2(1.87, 1.87)
 texture = ExtResource("6_w46aa")
 
+[node name="Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lgy7k")
+position = Vector2(1941.3711, 77.83875)
+rotation = 0.015708
+scale = Vector2(2.8910513, 1.9873577)
+texture = ExtResource("5_t82ha")
+region_rect = Rect2(0, 0, 10000, 1000)
+
 [node name="BG Sprite2" type="Sprite2D" parent="."]
 texture_repeat = 3
-position = Vector2(645.1251, 939.55176)
-scale = Vector2(2.6167438, 18.854103)
+position = Vector2(645.1251, 1008.50006)
+scale = Vector2(2.6167438, 29.461535)
 texture = ExtResource("7_t4q8n")
 region_enabled = true
 region_rect = Rect2(0, 709.673, 1287.6813, 13.5998535)
@@ -137,14 +149,6 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_t4q8n")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
-
-[node name="Shader" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_lgy7k")
-position = Vector2(1941.3711, 77.83875)
-rotation = 0.015708
-scale = Vector2(2.8910513, 1.9873577)
-texture = ExtResource("5_t82ha")
-region_rect = Rect2(0, 0, 10000, 1000)
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
@@ -172,9 +176,17 @@ physics_material_override = SubResource("PhysicsMaterial_0f06d")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World Boundaries/left"]
 shape = SubResource("WorldBoundaryShape2D_01j2m")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(0, -300)
+scale = Vector2(0.3, 0.1)
+texture = SubResource("CompressedTexture2D_e4n3y")
+offset = Vector2(0, 850)
+
 [node name="player" parent="." instance=ExtResource("5_tij55")]
 modulate = Color(0.9471994, 0.9471994, 0.9471994, 1)
 position = Vector2(1002.07, 492.033)
+shadow_path = NodePath("../Shadow")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 clip_contents = true

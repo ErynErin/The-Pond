@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://d0hqwpnv7oakw"]
+[gd_scene load_steps=77 format=4 uid="uid://d0hqwpnv7oakw"]
 
 [ext_resource type="Texture2D" uid="uid://cstcdjnw86nfs" path="res://assets/BG/Phase 1/1.png" id="1_36xgi"]
 [ext_resource type="Script" uid="uid://bxd2bwy2cc7ww" path="res://scenes/Main Scenes/nursery_scene.gd" id="1_r8hxo"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c5m6qsf0oxana" path="res://scenes/UI/objectives.tscn" id="17_8f8kc"]
 [ext_resource type="PackedScene" uid="uid://cmole1wjk2k70" path="res://scenes/UI/merchant_shop.tscn" id="22_odwuh"]
 [ext_resource type="PackedScene" uid="uid://ndj7mg5x2uqd" path="res://scenes/Collectibles/coin.tscn" id="22_p0owv"]
+[ext_resource type="Texture2D" uid="uid://dwlrwp06gq2rf" path="res://assets/blurred circle.png" id="22_x8boy"]
 [ext_resource type="PackedScene" uid="uid://b7v31n5kjltlr" path="res://scenes/change_scene_area.tscn" id="23_y2ypf"]
 [ext_resource type="PackedScene" uid="uid://1xrdny8bdyyc" path="res://scenes/Colliders/p1-moving.tscn" id="24_nsaye"]
 [ext_resource type="Script" uid="uid://c7b6yy075t0a2" path="res://scenes/Colliders/p_1_moving.gd" id="24_qfx3x"]
@@ -60,12 +61,10 @@ seamless_blend_skirt = 0.61
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hesmo"]
 shader = ExtResource("8_u46sv")
 shader_parameter/color = Color(0.458824, 0.509804, 0.109804, 1)
+shader_parameter/brightness = 0.0
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_u46sv")
 shader_parameter/speed = Vector2(0.07, 0.07)
 shader_parameter/wave_strength = 2.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u46sv"]
-polygon = PackedVector2Array(987, -821, 1742, -809, 550, -798)
 
 [sub_resource type="SystemFont" id="SystemFont_nsaye"]
 
@@ -148,21 +147,42 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_imych"]
+polygon = PackedVector2Array(298, 298, 300, -302, -30, -301, -88, -274, -138, -243, -182, -206, -229, -153, -268, -102, -294, -30, -298, 147, -284, 191, -246, 245, -212, 275, -163, 298)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x1ygt"]
+polygon = PackedVector2Array(-289.1158, -305.7956, -305.7956, 277.99597, 294.67578, 283.5559, 289.11584, -300.2357)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x8boy"]
+polygon = PackedVector2Array(-305.7956, -294.67578, 300.23566, -316.91547, 316.91547, 305.7956, -294.67575, 300.23566)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xdg2p"]
+polygon = PackedVector2Array(-299, -301, 6, -301, 79, -269, 138, -236, 194, -186, 224, -149, 268, -76, 290, -2, 299, 24, 296, 140, 276, 184, 256, 219, 227, 251, 189, 280, 151, 298, -302, 299)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hvjki"]
+polygon = PackedVector2Array(-294.67575, -294.67578, 289.11584, -300.2357, 305.7956, 294.67572, -311.3555, 283.5559)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fipse"]
 texture = ExtResource("28_khq81")
 texture_region_size = Vector2i(600, 600)
 1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_x1ygt")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-298.843, -291.853, 302.338, -291.853, 298.843, 302.338, -298.843, 305.834)
 2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_xdg2p")
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-297.112, -294.554, 24.7593, -294.554, 156.809, -209.96, 226.961, -129.492, 286.796, -24.2642, 292.986, 118.102, 247.594, 237.773, 167.126, 295.544, -295.049, 303.798)
 0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_imych")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(298.595, -294.186, -21.6282, -292.086, -180.165, -209.143, -262.058, -112.551, -297.755, -1.25992, -296.705, 94.2822, -266.258, 212.922, -209.563, 275.917, -123.47, 299.015, 299.645, 301.115)
 1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_x8boy")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-293.945, -290.93, 298.698, -300.227, 298.467, 299.975, -298.467, 301.482)
 2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_hvjki")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-304.233, -295.197, 301.55, -293.751, 298.951, 296.351, -291.152, 306.749)
 
 [sub_resource type="TileSet" id="TileSet_45e12"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 15
 sources/1 = SubResource("TileSetAtlasSource_fipse")
 
@@ -343,22 +363,6 @@ texture = ExtResource("7_jxxm7")
 region_enabled = true
 region_rect = Rect2(0, 0, 10000, 720)
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-position = Vector2(4206, 682)
-occluder = SubResource("OccluderPolygon2D_u46sv")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-visible = false
-position = Vector2(2925, -276)
-occluder = SubResource("OccluderPolygon2D_u46sv")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
-position = Vector2(-2022, -254)
-rotation = -0.0174533
-occluder = SubResource("OccluderPolygon2D_u46sv")
-occluder_light_mask = 513
-
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 10
 scale = Vector2(0.6, 0.6)
@@ -449,32 +453,16 @@ grow_vertical = 2
 scale = Vector2(1.67, 1.67)
 color = Color(0, 0, 0, 1)
 
-[node name="player" parent="." instance=ExtResource("15_b0kx5")]
-z_index = 5
-position = Vector2(-1380, 282)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D2" type="Camera2D" parent="player"]
-position = Vector2(-43.9999, 742)
-scale = Vector2(0.3, 0.3)
-offset = Vector2(0, -400)
-process_callback = 0
-limit_top = -200
-limit_bottom = 1200
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(462, -1079)
+position = Vector2(0.9677092, -0.2520693)
 rotation = -0.254818
 color = Color(1, 1, 0.87451, 1)
 energy = 0.44
 shadow_enabled = true
-shadow_color = Color(0.0904823, 0.0904823, 0.0904823, 0)
-shadow_filter = 2
-shadow_filter_smooth = 2.2
+shadow_color = Color(0.24115631, 0.24115595, 0.2411561, 0.1764706)
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+max_distance = 3000.0
 
 [node name="World Boundaries" type="Node2D" parent="."]
 position = Vector2(1, 68)
@@ -726,6 +714,31 @@ position = Vector2(991, 46)
 scale = Vector2(0.13, 0.13)
 tile_map_data = PackedByteArray("AABhAJUAAgAAAAAAAACGAJUAAgABAAEAAAB2ALkAAwAAAAEAAACZALkAAwABAAEAAAC7ALkAAwAAAAAAAADdALkAAwABAAAAAAABAbkAAwACAAAAAADaD1f/AQAAAAEAAAD/D1f/AQABAAEAAAAkEFf/AQACAAEAAABBEFf/AQABAAAAAABmEFf/AQACAAAAAAAbB73/AQAAAAEAAABAB73/AQABAAEAAABlB73/AQACAAEAAACKB73/AQABAAAAAACvB73/AQABAAEAAADUB73/AQACAAEAAAD5B73/AQABAAAAAAAeCL3/AQABAAEAAABDCL3/AQACAAEAAABoCL3/AQABAAAAAACNCL3/AQABAAEAAACyCL3/AQACAAEAAADXCL3/AQABAAAAAAD8CL3/AQABAAEAAAAhCb3/AQACAAEAAABGCb3/AQACAAAAAAD3CWH/AQAAAAEAAAD3CWL/AQAAAAEAAAAcCmH/AQABAAEAAAAcCmL/AQABAAEAAAA8CmH/AQACAAAAAAA8CmL/AQACAAAAAACWDMn/AQAAAAEAAAC7DMn/AQABAAEAAADgDMn/AQACAAEAAAAFDcn/AQACAAEAAAAqDcn/AQABAAAAAABPDcn/AQACAAAAAAALDnT/AQAAAAEAAAALDnX/AQAAAAEAAAAwDnT/AQABAAEAAAAwDnX/AQABAAEAAABQDnT/AQACAAAAAABQDnX/AQACAAAAAAD4Euz/AQAAAAEAAAAdE+z/AQABAAEAAABCE+z/AQACAAEAAABnE+z/AQACAAEAAACME+z/AQABAAAAAACxE+z/AQACAAAAAABtFJf/AQAAAAEAAABtFJj/AQAAAAEAAACSFJf/AQABAAEAAACSFJj/AQABAAEAAACyFJf/AQACAAAAAACyFJj/AQACAAAAAAA/FZT/AQAAAAEAAAA/FZX/AQAAAAEAAABkFZT/AQABAAEAAABkFZX/AQABAAEAAACEFZT/AQACAAAAAACEFZX/AQACAAAAAACjGcX/AQAAAAEAAADIGcX/AQABAAEAAADtGcX/AQACAAEAAAAKGsX/AQABAAAAAAAvGsX/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_45e12")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(-1102, 607.125)
+scale = Vector2(0.2, 0.05249998)
+texture = ExtResource("22_x8boy")
+offset = Vector2(0, 900)
+
+[node name="player" parent="." instance=ExtResource("15_b0kx5")]
+z_index = 5
+position = Vector2(-1380, 282)
+scale = Vector2(0.5, 0.5)
+shadow_path = NodePath("../Shadow")
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(-43.9999, 742)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(0, -400)
+process_callback = 0
+limit_top = -200
+limit_bottom = 1200
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="StaticBody2D9" parent="." instance=ExtResource("38_oqo85")]
 position = Vector2(6368, -378)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://mo3hkwq7pjdf"]
+[gd_scene load_steps=107 format=3 uid="uid://mo3hkwq7pjdf"]
 
 [ext_resource type="Script" uid="uid://qdyt6iet83op" path="res://scripts/player.gd" id="1_m07t0"]
 [ext_resource type="Texture2D" uid="uid://c6xehwxoftg4l" path="res://assets/1st stage mc/1st idle/1st idle0000.png" id="2_cbf1i"]
@@ -103,6 +103,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0mv62"]
 radius = 48.0
 height = 228.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a3vm6"]
+cull_mode = 1
+polygon = PackedVector2Array(-8, -48, 1, -44, 10, -37, 28, -15, 40, 5, 45, 15, 48, 27, 48, 40, 42, 53, 34, 61, 19, 67, 2, 70, -14, 69, -25, 63, -34, 58, -40, 50, -44, 41, -45, 32, -41, 18, -36, 7, -29, -8, -23, -22, -19, -36, -17, -45, -13, -48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v3hta"]
 animations = [{
@@ -469,6 +473,11 @@ position = Vector2(-2, -25)
 shape = SubResource("CapsuleShape2D_0mv62")
 
 [node name="Pivot" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Pivot"]
+visible = false
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_a3vm6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 position = Vector2(44, 0)

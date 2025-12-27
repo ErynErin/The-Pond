@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cfv4f6bi46hrx"]
+[gd_scene load_steps=60 format=4 uid="uid://cfv4f6bi46hrx"]
 
 [ext_resource type="Script" uid="uid://bht730yy73mmk" path="res://scenes/Main Scenes/2_nd_scene.gd" id="1_3xvx2"]
 [ext_resource type="Shader" uid="uid://bwnej1yl2rc5h" path="res://watershader.gdshader" id="6_42ul7"]
@@ -37,7 +37,9 @@
 [ext_resource type="PackedScene" uid="uid://d38gbeoyt7da5" path="res://scenes/Characters/turtle.tscn" id="29_d0pof"]
 [ext_resource type="PackedScene" uid="uid://8cmfe7p7qtwt" path="res://scenes/Colliders/p2-moving.tscn" id="31_ce7ql"]
 [ext_resource type="PackedScene" uid="uid://bd2nsvjgw1m62" path="res://scenes/Trash Flood/trash_flood.tscn" id="35_lny5s"]
+[ext_resource type="Texture2D" uid="uid://dwlrwp06gq2rf" path="res://assets/blurred circle.png" id="36_mh7sn"]
 [ext_resource type="PackedScene" uid="uid://c7c0kwribi2cr" path="res://scenes/Platforms/jump_pad_p2.tscn" id="39_mh7sn"]
+[ext_resource type="PackedScene" uid="uid://d1gkxm4es8jd4" path="res://scenes/Characters/boss_3.tscn" id="40_88inl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lny5s"]
 noise_type = 2
@@ -54,6 +56,7 @@ seamless_blend_skirt = 0.61
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5l5e4"]
 shader = ExtResource("6_42ul7")
 shader_parameter/color = Color(0.4, 0.521569, 0.282353, 0.121569)
+shader_parameter/brightness = 0.0
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_42ul7")
 shader_parameter/speed = Vector2(0.07, 0.07)
 shader_parameter/wave_strength = 2.0
@@ -65,15 +68,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goyj0"]
 bg_color = Color(1, 0.321569, 0.364706, 1)
-
-[sub_resource type="Gradient" id="Gradient_bf605"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lny5s"]
-gradient = SubResource("Gradient_bf605")
-fill = 1
-fill_from = Vector2(0.469512, 0.490854)
-fill_to = Vector2(0.765244, 0.756098)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vksdc"]
 distance = 122.738
@@ -105,6 +99,15 @@ texture_region_size = Vector2i(600, 600)
 [sub_resource type="TileSet" id="TileSet_goyj0"]
 physics_layer_0/collision_layer = 15
 sources/1 = SubResource("TileSetAtlasSource_6u0xl")
+
+[sub_resource type="Gradient" id="Gradient_bf605"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lny5s"]
+gradient = SubResource("Gradient_bf605")
+fill = 1
+fill_from = Vector2(0.469512, 0.490854)
+fill_to = Vector2(0.765244, 0.756098)
 
 [sub_resource type="Curve2D" id="Curve2D_ce7ql"]
 _data = {
@@ -369,30 +372,6 @@ position = Vector2(-1082.08, 27.6356)
 scale = Vector2(3.92913, 4.3)
 color = Color(0.726731, 0.726732, 0.726732, 1)
 
-[node name="player" parent="." instance=ExtResource("17_ysw53")]
-z_index = 5
-position = Vector2(-1080.36, 58.5956)
-scale = Vector2(0.43, 0.43)
-
-[node name="Camera2D2" type="Camera2D" parent="player"]
-position = Vector2(-43.9999, 742)
-scale = Vector2(0.3, 0.3)
-offset = Vector2(0, -400)
-process_callback = 0
-limit_top = -200
-limit_bottom = 1200
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
-[node name="PointLight2D" type="PointLight2D" parent="player/Camera2D2"]
-position = Vector2(133.333, -2713.33)
-scale = Vector2(30.4583, 33.3333)
-energy = 0.3
-texture = SubResource("GradientTexture2D_lny5s")
-texture_scale = 0.68
-
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax2D2"]
@@ -586,6 +565,38 @@ scale = Vector2(0.13, 0.13)
 tile_map_data = PackedByteArray("AACGAJUAAgABAAEAAACZALkAAwABAAEAAAC7ALkAAwAAAAAAAADdALkAAwABAAAAAAABAbkAAwACAAAAAABrAdD/AQAAAAEAAACQAdD/AQABAAEAAAC1AdD/AQABAAAAAADaAdD/AQACAAAAAACjBUr/AQAAAAEAAADIBUr/AQABAAEAAADtBUr/AQABAAAAAAASBkr/AQACAAAAAAC4Bkn/AQAAAAEAAADdBkn/AQABAAEAAAACB0n/AQACAAEAAAAnB0n/AQACAAEAAABMB0n/AQACAAEAAABxB0n/AQABAAEAAACWB0n/AQACAAEAAAC7B0n/AQABAAAAAADgB0n/AQACAAAAAACnCIL/AQAAAAEAAADMCIL/AQABAAEAAADxCIL/AQACAAEAAAAWCYL/AQACAAEAAAA7CYL/AQACAAEAAABgCYL/AQABAAEAAACFCYL/AQACAAEAAACqCYL/AQABAAAAAADPCYL/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_goyj0")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(-1102, 607.125)
+scale = Vector2(0.2, 0.05249998)
+texture = ExtResource("36_mh7sn")
+offset = Vector2(0, 900)
+
+[node name="player" parent="." instance=ExtResource("17_ysw53")]
+z_index = 5
+position = Vector2(12597.999, 40.999992)
+scale = Vector2(0.43, 0.43)
+shadow_path = NodePath("../Shadow")
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+position = Vector2(-43.9999, 742)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(0, -400)
+process_callback = 0
+limit_top = -200
+limit_bottom = 1200
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="PointLight2D" type="PointLight2D" parent="player/Camera2D2"]
+position = Vector2(133.333, -2713.33)
+scale = Vector2(30.4583, 33.3333)
+energy = 0.3
+texture = SubResource("GradientTexture2D_lny5s")
+texture_scale = 0.68
+
 [node name="Path2D2" parent="." instance=ExtResource("31_ce7ql")]
 position = Vector2(1920, 512)
 curve = SubResource("Curve2D_ce7ql")
@@ -631,6 +642,10 @@ disabled = true
 
 [node name="JumpPad" parent="." instance=ExtResource("39_mh7sn")]
 position = Vector2(857, 553)
+
+[node name="AnglerFish" parent="." instance=ExtResource("40_88inl")]
+position = Vector2(14254, 331)
+scale = Vector2(0.7, 0.7)
 
 [connection signal="flood_finished" from="Trash Flood" to="." method="_on_trash_flood_flood_finished"]
 [connection signal="body_entered" from="Trash Flood Signal" to="." method="_on_trash_flood_body_entered"]

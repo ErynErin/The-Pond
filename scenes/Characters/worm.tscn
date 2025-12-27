@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://xov1nahqgphe"]
+[gd_scene load_steps=48 format=3 uid="uid://xov1nahqgphe"]
 
 [ext_resource type="Script" uid="uid://ddpxxan7j4cmw" path="res://scripts/worm.gd" id="1_tiyqp"]
+[ext_resource type="Texture2D" uid="uid://dwlrwp06gq2rf" path="res://assets/blurred circle.png" id="2_3kqeg"]
 [ext_resource type="Texture2D" uid="uid://ckbnsl8bihdn3" path="res://assets/Characters/Worm/Crawl/Crawl_1.png" id="2_tiyqp"]
 [ext_resource type="Texture2D" uid="uid://8xffr665vvpy" path="res://assets/Characters/Worm/Crawl/Crawl_2.png" id="3_0e3lk"]
 [ext_resource type="Script" uid="uid://dktsel320mpw7" path="res://scripts/hurtbox.gd" id="3_tdamb"]
@@ -276,6 +277,12 @@ height = 368.0
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_tiyqp")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.3137255)
+position = Vector2(31, 161)
+scale = Vector2(0.85125, 0.24375)
+texture = ExtResource("2_3kqeg")
 
 [node name="Pivot" type="Node2D" parent="."]
 

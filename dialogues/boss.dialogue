@@ -3,7 +3,7 @@
 : [shake rate=20 level=10]Who dares go near my soil!!!
 : Ah, [wait=1]it’s a mere tadpole. 
 : You’re brave enough to go near a mighty king? 
-Ironclaw Dominus: To I, [wait=1] Ironclaw Dominus, [wait=1]the raging guardian of this pond 
+Ironclaw Dominus: To I, [wait=1] Dominus, [wait=1]the raging guardian of this pond 
 Ironclaw Dominus: Well then I accept your challenge peasant. But[speed=0.2]... [wait=2][shake rate=20 level=10]EXPECT TO DIE!!! 
 => END
 
@@ -38,7 +38,7 @@ Falsestar Temptress: [speed=0.4]Impossible...
 
 ~ p3_start
 : *squeeeakk* [wait=0.5]*squeeakk*
-: Is there someone in here? [wait=1]
+: Is there someone in here?
 Voltaire: Who dares to trespass the area of [wait=0.5]Voltaire, [wait=0.5]the Conductor of Ruin?
 Voltaire: I’m pretty sure I shut off all corners of my area though...
 Voltaire: I hate it when someone thinks they can just go here all they want.
